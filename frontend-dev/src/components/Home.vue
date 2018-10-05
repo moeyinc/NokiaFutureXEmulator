@@ -2,8 +2,8 @@
  Template
 ================================================== -->
 <template>
-  <div id="app">
-    <router-view/>
+  <div>
+    Home
   </div>
 </template>
 
@@ -12,17 +12,12 @@
 ================================================== -->
 <script>
 export default {
-  name: 'App',
+  name: 'Home',
 };
 </script>
 
 <!-- =================================================
  Vue Style
 ================================================== -->
-<style lang="stylus">
-@import '../node_modules/reset-css/reset.css'
-@import './stylus/reset-additional'
-@import './stylus/fonts'
-@import './stylus/global-styles'
-@import './stylus/vue-transitions'
+<style lang="stylus" scoped>
 </style>
