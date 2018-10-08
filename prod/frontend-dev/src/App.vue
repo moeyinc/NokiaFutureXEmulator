@@ -22,7 +22,7 @@ export default {
     };
   },
   created: function() {
-    this.initializeMqttClient();
+    // this.initializeMqttClient();
   },
   methods: {
     initializeMqttClient() {

@@ -1,16 +1,30 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Home from '@/components/Home';
+import TransitionWrapper from '@/components/TransitionWrapper';
+import Login from '@/components/Login';
+import LoggedIn from '@/components/LoggedIn';
+// import Stories from '@/components/Stories';
 
 Vue.use(Router);
 
 export default new Router({
-  mode: 'hash',
+  mode: 'history',
   routes: [
     {
       path: '/',
-      name: 'Home',
-      component: Home,
+      component: TransitionWrapper,
+      children: [
+        {
+          path: 'login',
+          name: 'Login',
+          component: Login,
+        },
+        {
+          path: 'logged-in',
+          name: 'LoggedIn',
+          component: LoggedIn,
+        },
+      ],
     },
   ],
 });
