@@ -3,7 +3,7 @@
 ================================================== -->
 <template>
   <div class="logged-in">
-    <side-nav-bar/>
+    <side-nav-menu/>
   </div>
 </template>
 
@@ -11,12 +11,12 @@
  Script
 ================================================== -->
 <script>
-import SideNavBar from './SideNavBar';
+import SideNavMenu from './SideNavMenu';
 
 export default {
   name: 'LoggedIn',
   components: {
-    SideNavBar,
+    SideNavMenu,
   },
 };
 </script>

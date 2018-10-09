@@ -2,7 +2,7 @@
  Template
 ================================================== -->
 <template>
-  <div class="side-nav-bar">
+  <div class="side-nav-menu">
     <div class="brand-logo-block">
       <img :src="require('@/assets/images/belllabs-logo.png')" />
     </div>
@@ -10,6 +10,9 @@
       <div class="fite-lab-box">
         FITE Lab
       </div>
+      <side-nav-menu-item
+        :label="'Stories'"
+        :icon-filename="'story-icon.png'"/>
     </div>
   </div>
 </template>
@@ -18,8 +21,13 @@
  Script
 ================================================== -->
 <script>
+import SideNavMenuItem from './SideNavMenuItem';
+
 export default {
-  name: 'SideNavBar',
+  name: 'SideNavMenu',
+  components: {
+    SideNavMenuItem,
+  },
 };
 </script>
 
@@ -27,7 +35,7 @@ export default {
  Vue Style
 ================================================== -->
 <style lang="stylus" scoped>
-.side-nav-bar
+.side-nav-menu
   background-color: purple
   display: flex
   flex-direction: column
