@@ -3,7 +3,7 @@ import Router from 'vue-router';
 import TransitionWrapper from '@/components/TransitionWrapper';
 import Login from '@/components/Login';
 import LoggedIn from '@/components/LoggedIn';
-// import Stories from '@/components/Stories';
+import Stories from '@/components/Stories';
 
 Vue.use(Router);
 
@@ -21,8 +21,14 @@ export default new Router({
         },
         {
           path: 'logged-in',
-          name: 'LoggedIn',
           component: LoggedIn,
+          children: [
+            {
+              path: '/stories',
+              name: 'Stories',
+              component: Stories,
+            },
+          ],
         },
       ],
     },

@@ -10,9 +10,24 @@
       <div class="fite-lab-box">
         FITE Lab
       </div>
+      <div class="padding-box"></div>
       <side-nav-menu-item
         :label="'Stories'"
-        :icon-filename="'story-icon.png'"/>
+        :active="false"
+        :icon-filename="'story-icon.png'"
+        :icon-filename-active="'story-icon-active.png'"/>
+      <side-nav-menu-item
+        :label="'Room Effects'"
+        :active="false"
+        :icon-filename="'room-effect-icon.png'"
+        :icon-filename-active="'room-effect-icon-active.png'"/>
+
+      <side-nav-menu-item
+        class="logout-item"
+        :label="'Logout'"
+        :active="false"
+        :icon-filename="'logout-icon.png'"
+        :icon-filename-active="'logout-icon-active.png'"/>
     </div>
   </div>
 </template>
@@ -36,6 +51,9 @@ export default {
 ================================================== -->
 <style lang="stylus" scoped>
 .side-nav-menu
+  position: fixed
+  top: 0
+  left: 0
   background-color: purple
   display: flex
   flex-direction: column
@@ -58,9 +76,18 @@ export default {
     position: relative
     background-color: #0052FF
     height: 100%
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+
+    .padding-box
+      height: 63px
+      background-color: #0052FF
+      border-bottom: solid 1px #0B4EC5
 
     .fite-lab-box
       background-color: #041B67
+      font-family: "NokiaPureText-Regular"
       position: absolute
       width: 180px
       height: 45px
@@ -68,4 +95,11 @@ export default {
       left: 0
       text-align: center
       line-height: 45px
+      z-index: 100
+
+    .logout-item
+      width: 100%
+      position: absolute
+      bottom: 0
+      border-top: solid 1px #0B4EC5
 </style>

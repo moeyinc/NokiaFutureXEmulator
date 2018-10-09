@@ -46,7 +46,7 @@ export default {
     authorize() {
       if (this.password === APP_CONFIG.PASSWORD) {
         console.log('authorized');
-        this.jumpTo('LoggedIn', {transition: 'fade'});
+        this.jumpTo('Stories', {transition: 'fade'});
       } else {
         console.log('wrong password!');
         this.password = '';
@@ -89,6 +89,7 @@ export default {
 
         h4.fite-lab
           font-size: 18px
+          font-family: "NokiaPureText-Regular"
 
       .password-block
         margin-bottom: 30px
@@ -97,7 +98,7 @@ export default {
           background-color: transparent
           border: none
           padding: 0
-          font: 40px 'Avenir-Medium'
+          font: 40px 'NokiaPureText-Light'
           text-align: center
           color: #4F88FF
 
