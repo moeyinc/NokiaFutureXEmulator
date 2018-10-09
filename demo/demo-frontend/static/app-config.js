@@ -1,6 +1,6 @@
 export default {
   MQTT: {
-    HOST: 'test.mosquitto.org',
+    HOST: 'mqtt.jonahb.com',
     PORT: 8080,
     TOPIC: 'moey',
   },
