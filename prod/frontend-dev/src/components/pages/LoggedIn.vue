@@ -14,14 +14,12 @@
  Script
 ================================================== -->
 <script>
-import SideNavMenu from './SideNavMenu';
-import TransitionWrapper from './TransitionWrapper';
+import SideNavMenu from '@/components/SideNavMenu';
 
 export default {
   name: 'LoggedIn',
   components: {
     SideNavMenu,
-    TransitionWrapper,
   },
 };
 </script>
@@ -40,6 +38,6 @@ export default {
   #app-main
     padding-left: 280px
     height: 100%
-    overflow-y: scroll
+    overflow-y: hidden // scroll
     overflow-x: hidden
 </style>

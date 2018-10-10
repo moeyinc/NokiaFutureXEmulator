@@ -30,9 +30,9 @@
  Script
 ================================================== -->
 <script>
-import MainHeader from './MainHeader';
-import SummaryBlock from './SummaryBlock';
-import StoryListItem from './StoryListItem';
+import MainHeader from '@/components/MainHeader';
+import SummaryBlock from '@/components/SummaryBlock';
+import StoryListItem from '@/components/StoryListItem';
 
 export default {
   name: 'Stories',

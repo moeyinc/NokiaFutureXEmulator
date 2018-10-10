@@ -36,7 +36,7 @@
  Script
 ================================================== -->
 <script>
-import SideNavMenuItem from './SideNavMenuItem';
+import SideNavMenuItem from '@/components/SideNavMenuItem';
 
 export default {
   name: 'SideNavMenu',
@@ -48,6 +48,7 @@ export default {
       switch (this.$route.name) {
         case 'Stories':
         case 'StoryStart':
+        case 'TalkingPoints':
           return true;
       }
       return false;
@@ -102,6 +103,7 @@ export default {
     .fite-lab-box
       background-color: #041B67
       font-family: "NokiaPureText-Regular"
+      letter-spacing: 2px
       position: absolute
       width: 180px
       height: 45px

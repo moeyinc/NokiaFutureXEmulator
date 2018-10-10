@@ -38,7 +38,7 @@ export default {
   color: white
 
   p.talk-point-label
-    margin-bottom: 29px
+    margin-bottom: 25px
 
     span.blue-text
       color: #4F88FF

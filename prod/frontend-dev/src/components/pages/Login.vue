@@ -90,6 +90,7 @@ export default {
         h4.fite-lab
           font-size: 18px
           font-family: "NokiaPureText-Regular"
+          letter-spacing: 2px
 
       .password-block
         margin-bottom: 30px

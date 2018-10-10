@@ -8,7 +8,7 @@
       :title="'Future Factory 4.0'"
       :has-nav-bar="true"
       :category-name="'BUSINESS'"
-      :back-button-label="'Back To Top'"
+      :back-button-label="'Back To List'"
       @back-button-clicked="jumpTo('Stories', {transition: 'slide-right'})"/>
 
     <summary-block>
@@ -18,17 +18,11 @@
 
     <img
       class="catch"
-      :src="require('@/assets/images/' + 'future-factory-start.png')">
+      :src="require('@/assets/images/' + 'future-factory-start.png')"/>
 
-    <div class="action-button-container">
-      <action-button
-        class="action-button"
-        :label="'Start Interactive Version'"/>
-
-      <sub-action-button
-        class="sub-action-button"
-        :label="'Play Video Ver.'"/>
-    </div>
+    <floating-action-button-container
+      :action-button-label="'Start Interactive Version'"
+      :sub-action-button-label="'Play Video Ver.'"/>
 
   </div>
 </template>
@@ -37,18 +31,17 @@
  Script
 ================================================== -->
 <script>
-import MainHeader from './MainHeader';
-import SummaryBlock from './SummaryBlock';
-import ActionButton from './ActionButton';
-import SubActionButton from './SubActionButton';
+import MainHeader from '@/components/MainHeader';
+import SummaryBlock from '@/components/SummaryBlock';
+import FloatingActionButtonContainer from
+  '@/components/FloatingActionButtonContainer';
 
 export default {
   name: 'StoryStart',
   components: {
     MainHeader,
     SummaryBlock,
-    ActionButton,
-    SubActionButton,
+    FloatingActionButtonContainer,
   },
 };
 </script>
@@ -59,17 +52,7 @@ export default {
 <style lang="stylus" scoped>
 .story-start
 
-    img.catch
-      margin-top: 32px
-      width: 100%
-      height: auto
-
-    .action-button-container
-      position: relative
-      padding: 43px 80px 80px 80px
-
-      .action-button
-        position: absolute
-        top: -20px
-        right: 80px
+  img.catch
+    margin-top: 32px
+    width: 832px
 </style>

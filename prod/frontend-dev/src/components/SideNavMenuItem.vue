@@ -4,7 +4,11 @@
 <template>
   <div :class="['side-nav-menu-item', {'active': active}]">
     <div class="icon-wrapper">
-      <img :src="require('@/assets/images/' + imgSrc)"/>
+      <icon-button
+        :filename="iconFilename"
+        :filename-active="iconFilenameActive"
+        :overwrite-active="active"
+        :clickable="false"/>
     </div>
     <div class="label-wrapper">
       {{label}}
@@ -16,18 +20,18 @@
  Script
 ================================================== -->
 <script>
+import IconButton from '@/components/IconButton';
+
 export default {
   name: 'SideNavMenuItem',
+  components: {
+    IconButton,
+  },
   props: {
     label: String,
     active: Boolean,
     iconFilename: String,
     iconFilenameActive: String,
-  },
-  computed: {
-    imgSrc() {
-      return this.active ? this.iconFilenameActive : this.iconFilename;
-    },
   },
 };
 </script>

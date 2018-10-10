@@ -2,8 +2,8 @@
  Template
 ================================================== -->
 <template>
-  <div class="sub-action-button" @click="$emit('clicked')">
-    {{label}}
+  <div class="live">
+    It seems like required data is missing.
   </div>
 </template>
 
@@ -12,10 +12,7 @@
 ================================================== -->
 <script>
 export default {
-  name: 'SubActionButton',
-  props: {
-    label: String,
-  },
+  name: 'Live',
 };
 </script>
 
@@ -23,10 +20,4 @@ export default {
  Vue Style
 ================================================== -->
 <style lang="stylus" scoped>
-.sub-action-button
-  display: inline-block
-  font-size: 24px
-  line-height: 52px
-  letter-spacing: 0.5px
-  border-bottom: solid 0.5px #5D8CEE
 </style>

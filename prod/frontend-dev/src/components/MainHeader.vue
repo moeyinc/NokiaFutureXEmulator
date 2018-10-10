@@ -50,7 +50,7 @@ export default {
 ================================================== -->
 <style lang="stylus" scoped>
 .main-header
-  padding: 59px 80px 28px 80px
+  padding: 59px 80px 40px 80px
 
   .nav-bar
     height: 29px

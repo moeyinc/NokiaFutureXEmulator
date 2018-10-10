@@ -2,9 +2,9 @@
  Template
 ================================================== -->
 <template>
-  <div class="sub-action-button" @click="$emit('clicked')">
-    {{label}}
-  </div>
+  <h4>
+    <slot></slot>
+  </h4>
 </template>
 
 <!-- =================================================
@@ -12,10 +12,7 @@
 ================================================== -->
 <script>
 export default {
-  name: 'SubActionButton',
-  props: {
-    label: String,
-  },
+  name: 'ActionHeadline',
 };
 </script>
 
@@ -23,10 +20,8 @@ export default {
  Vue Style
 ================================================== -->
 <style lang="stylus" scoped>
-.sub-action-button
-  display: inline-block
-  font-size: 24px
-  line-height: 52px
-  letter-spacing: 0.5px
-  border-bottom: solid 0.5px #5D8CEE
+h4
+  font-size: 28px
+  line-height: 48px
+  margin-bottom: 25px
 </style>
