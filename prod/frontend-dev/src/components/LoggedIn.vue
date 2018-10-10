@@ -4,10 +4,8 @@
 <template>
   <div class="logged-in">
     <side-nav-menu/>
-    <main class="app-main">
-      <transition-wrapper>
-        <router-view/>
-      </transition-wrapper>
+    <main id="app-main">
+      <router-view/>
     </main>
   </div>
 </template>
@@ -39,7 +37,9 @@ export default {
   background-position: center
   background-repeat: no-repeat
 
-  .app-main
+  #app-main
     padding-left: 280px
     height: 100%
+    overflow-y: scroll
+    overflow-x: hidden
 </style>

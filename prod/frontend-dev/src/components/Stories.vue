@@ -6,11 +6,6 @@
     <main-header
       :title="'Stories'"
       :has-nav-bar="false"/>
-    <!-- <main-header
-      :title="'Stories'"
-      :has-nav-bar="true"
-      :category-name="'BUSINESS'"
-      :back-button-label="'Back To Top'"/> -->
 
     <summary-block>
       Facilitator’s initial talking point comes here.
@@ -24,7 +19,8 @@
       <story-list-item
         :category-name="'BUSINESS'"
         :title="'Future Factory 4.0'"
-        :thumbnail-filename="'future-factory-thumbnail.png'"/>
+        :thumbnail-filename="'future-factory-thumbnail.png'"
+        @clicked="jumpTo('StoryStart', {transition: 'slide-left'})"/>
     </ul>
 
   </div>

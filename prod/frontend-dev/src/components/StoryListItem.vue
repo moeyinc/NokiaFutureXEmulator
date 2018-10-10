@@ -2,7 +2,7 @@
  Template
 ================================================== -->
 <template>
-  <div class="story-list-item">
+  <div class="story-list-item" @click="$emit('clicked')">
     <div class="title-box">
       <div class="category-name">
         <h6>{{categoryName}}</h6>

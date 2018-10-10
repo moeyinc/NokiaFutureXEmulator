@@ -4,6 +4,7 @@ import TransitionWrapper from '@/components/TransitionWrapper';
 import Login from '@/components/Login';
 import LoggedIn from '@/components/LoggedIn';
 import Stories from '@/components/Stories';
+import StoryStart from '@/components/StoryStart';
 
 Vue.use(Router);
 
@@ -24,9 +25,20 @@ export default new Router({
           component: LoggedIn,
           children: [
             {
-              path: '/stories',
-              name: 'Stories',
-              component: Stories,
+              path: '',
+              component: TransitionWrapper,
+              children: [
+                {
+                  path: '/stories',
+                  name: 'Stories',
+                  component: Stories,
+                },
+                {
+                  path: '/story-start',
+                  name: 'StoryStart',
+                  component: StoryStart,
+                },
+              ],
             },
           ],
         },

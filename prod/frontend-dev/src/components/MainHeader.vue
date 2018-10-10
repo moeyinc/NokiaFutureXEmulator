@@ -15,7 +15,7 @@
       <div
         v-if="backButtonLabel"
         class="back-button-wrapper"
-        @click="$emit('onBackButtonClicked')">
+        @click="$emit('back-button-clicked')">
         <div class="inner">
           <img :src="require('@/assets/images/arrow-right.png')"/>
           <h6>{{backButtonLabel}}</h6>

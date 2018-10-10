@@ -20,30 +20,13 @@ duration = .3s
 
 .slide-left-enter, .slide-right-leave-active
   opacity: 0
-  -webkit-transform: translate(100%, 0)
-  transform: translate(100%, 0)
+  -webkit-transform: translate(20%, 0)
+  transform: translate(20%, 0)
 
 .slide-left-leave-active, .slide-right-enter
   opacity: 0
-  -webkit-transform: translate(-100%, 0)
-  transform: translate(-100%, 0)
-
-// slide-fade-left, slide-fade-right animation
-.slide-fade-left-enter-active,
-.slide-fade-left-leave-active,
-.slide-fade-right-enter-active,
-.slide-fade-right-leave-active
-  transition: all duration cubic-bezier(.55,0,.1,1)
-
-.slide-fade-left-enter, .slide-fade-right-leave-active
-  opacity: 0
-  -webkit-transform: translateX(5%)
-  transform: translateX(5%)
-
-.slide-fade-left-leave-active, .slide-fade-right-enter
-  opacity: 0
-  -webkit-transform: translateX(-5%)
-  transform: translateX(-5%)
+  -webkit-transform: translate(-20%, 0)
+  transform: translate(-20%, 0)
 
 // pop-in-top animation
 .pop-in-top-enter,
