@@ -5,38 +5,22 @@
   <div class="talking-points">
 
     <main-header
-      :title="'Future Factory 4.0'"
+      :title="selectedStory.title"
+      :subtitle="tp && tp.pageSubtitle"
       :has-nav-bar="true"
-      :category-name="'BUSINESS'"
+      :category-name="selectedStory.category"
       :back-button-label="'End Story'"
       @back-button-clicked="jumpTo('Stories', {transition: 'fade'})"/>
 
-    <summary-block
-      class="talk-point"
-      :talk-point-label="'Summary here'">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Ut enim ad minim veniam,
-      quis nostrud exercitation ullamco laboris nisi ut.
-    </summary-block>
-
-    <summary-block
-      class="talk-point"
-      :talk-point-label="'Summary here'">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Ut enim ad minim veniam,
-      quis nostrud exercitation ullamco laboris nisi ut.
-    </summary-block>
-
-    <summary-block
-      class="talk-point"
-      :talk-point-label="'Summary here'">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Ut enim ad minim veniam,
-      quis nostrud exercitation ullamco laboris nisi ut.
-    </summary-block>
+    <div v-if="tp">
+      <summary-block
+        v-for="(talkingPoint, index) in tp.talkingPoints"
+        :key="index"
+        class="talk-point"
+        :talk-point-label="talkingPoint.heading">
+        {{talkingPoint.text}}
+      </summary-block>
+    </div>
 
   </div>
 </template>
@@ -47,12 +31,85 @@
 <script>
 import MainHeader from '@/components/MainHeader';
 import SummaryBlock from '@/components/SummaryBlock';
+import EventBus from '@/event-bus';
 
 export default {
   name: 'TalkingPoints',
   components: {
     MainHeader,
     SummaryBlock,
+  },
+  created() {
+    this.setEventListeners();
+  },
+  computed: {
+    storyId() {
+      return parseInt(this.$route.params.story_id);
+    },
+    selectedStory() {
+      return this.$store.getters.getSelectedStory(this.storyId);
+    },
+    tp() {
+      let keyName;
+      switch (this.$route.name) {
+        case 'Intro':
+          keyName = 'intro';
+          break;
+        case 'Outro':
+          keyName = 'outro';
+          break;
+        case 'Interlude':
+          keyName = 'interlude';
+          break;
+        case 'Prerendered':
+          keyName = 'movieVersion';
+          break;
+      }
+      if (!keyName) return;
+      return this.selectedStory[keyName];
+    },
+  },
+  methods: {
+    setEventListeners() {
+      const routeName = this.$route.name;
+      // completed-story-intro
+      EventBus.$on('completed-story-intro', () => {
+        if (routeName === 'Intro') {
+          this.jumpTo('PlayerModeSelection', {
+            story_id: this.storyId,
+            mission_id: 1,
+            transition: 'slide-right',
+          });
+        } else {
+          console.log('No action triggered because Im not on Intro page');
+        }
+      });
+
+      // completed-story-interlude
+      EventBus.$on('completed-story-interlude', () => {
+        if (routeName === 'Interlude') {
+          this.jumpTo('PlayerModeSelection', {
+            story_id: this.storyId,
+            mission_id: 2,
+            transition: 'slide-right',
+          });
+        } else {
+          console.log('No action triggered because Im not on Interlude page');
+        }
+      });
+
+      // completed-story
+      EventBus.$on('completed-story', () => {
+        if (routeName === 'Outro' || routeName === 'Prerendered') {
+          this.jumpTo('Stories', {
+            transition: 'fade',
+          });
+        } else {
+          console.log('No action triggered because Im not on Outro or ' +
+            ' Prerendered page');
+        }
+      });
+    },
   },
 };
 </script>

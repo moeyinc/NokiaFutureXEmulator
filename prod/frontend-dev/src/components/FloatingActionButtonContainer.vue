@@ -55,7 +55,6 @@ export default {
 ================================================== -->
 <style lang="stylus" scoped>
 .action-button-container
-  height: 100%
   position: fixed
   bottom: 0
   left: 280px

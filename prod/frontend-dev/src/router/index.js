@@ -5,12 +5,14 @@ import Login from '@/components/pages/Login';
 import LoggedIn from '@/components/pages/LoggedIn';
 import Stories from '@/components/pages/Stories';
 import StoryStart from '@/components/pages/StoryStart';
-import Live from '@/components/pages/Live';
 import TalkingPoints from '@/components/pages/TalkingPoints';
 import PlayerModeSelection from
   '@/components/pages/mission/PlayerModeSelection';
 import PlayerNetworkSelection from
   '@/components/pages/mission/PlayerNetworkSelection';
+import Calibration from '@/components/pages/mission/Calibration';
+import MissionControls from '@/components/pages/mission/MissionControls';
+import PostMission from '@/components/pages/mission/PostMission';
 
 Vue.use(Router);
 
@@ -40,54 +42,59 @@ export default new Router({
                   component: Stories,
                 },
                 {
-                  path: '/story-start',
+                  path: '/story-start/:story_id',
                   name: 'StoryStart',
                   component: StoryStart,
                 },
                 {
-                  path: '/live',
-                  name: 'Live',
-                  component: Live,
-                  /*
-                  beforeEnter: (to, from, next) => {
-                    // some conditions to determine which page to render
-                    const section = $store.getters.getCurrentSection();
-                    if (sectoin.sectionType === 'movie') {
-                      next({name: 'TalkingPoints'});
-                    } else if (sectoin.sectionType === 'mission') {
-                      const missionStep = $store.state.missionStep;
-                      switch (missionStep) {
-                        case 'playerModeSelection':
-                          next({name: 'PlayerModeSelection'});
-                        case 'playerNetworkSelection':
-                          next({name: 'PlayerNetworkSelection'});
-                        case 'calibration':
-                          next({name: 'Calibration'});
-                        case 'playing':
-                          next({name: 'MissionControls'});
-                        case 'postMission':
-                          next({name: 'PostMission'});
-                      }
-                    }
-                    // no mission found
-                    next();
-                  },
-                  */
-                },
-                {
-                  path: '/live/talking-points',
-                  name: 'TalkingPoints',
+                  path: '/story-live/:story_id/intro',
+                  name: 'Intro',
                   component: TalkingPoints,
                 },
                 {
-                  path: '/live/player-mode-selection',
+                  path: '/story-live/:story_id/interlude',
+                  name: 'Interlude',
+                  component: TalkingPoints,
+                },
+                {
+                  path: '/story-live/:story_id/outro',
+                  name: 'Outro',
+                  component: TalkingPoints,
+                },
+                {
+                  path: '/story-live/:story_id/prerendered',
+                  name: 'Prerendered',
+                  component: TalkingPoints,
+                },
+                {
+                  path: '/story-live/:story_id/mission/' +
+                    ':mission_id/player-mode-selection',
                   name: 'PlayerModeSelection',
                   component: PlayerModeSelection,
                 },
                 {
-                  path: '/live/player-network-selection',
+                  path: '/story-live/:story_id/mission/' +
+                    ':mission_id/player-network-selection',
                   name: 'PlayerNetworkSelection',
                   component: PlayerNetworkSelection,
+                },
+                {
+                  path: '/story-live/:story_id/mission/' +
+                    ':mission_id/calibration',
+                  name: 'Calibration',
+                  component: Calibration,
+                },
+                {
+                  path: '/story-live/:story_id/mission/' +
+                    ':mission_id/mission-controls',
+                  name: 'MissionControls',
+                  component: MissionControls,
+                },
+                {
+                  path: '/story-live/:story_id/mission/' +
+                    ':mission_id/post-mission',
+                  name: 'PostMission',
+                  component: PostMission,
                 },
               ],
             },

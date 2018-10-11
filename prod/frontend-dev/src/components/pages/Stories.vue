@@ -17,10 +17,14 @@
 
     <ul class="story-list">
       <story-list-item
-        :category-name="'BUSINESS'"
-        :title="'Future Factory 4.0'"
-        :thumbnail-filename="'future-factory-thumbnail.png'"
-        @clicked="jumpTo('StoryStart', {transition: 'slide-left'})"/>
+        v-for="story in getStories"
+        :key="story.storyId"
+        :category-name="story.category"
+        :title="story.title"
+        :thumbnail-filename="story.catchImageFilename"
+        @clicked="jumpTo('StoryStart', {
+          story_id: story.storyId,
+          transition: 'slide-left'})"/>
     </ul>
 
   </div>
@@ -40,6 +44,11 @@ export default {
     MainHeader,
     SummaryBlock,
     StoryListItem,
+  },
+  computed: {
+    getStories() {
+      return this.$store.getters.getStories;
+    },
   },
 };
 </script>

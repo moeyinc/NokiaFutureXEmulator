@@ -5,88 +5,68 @@
       "title": "Future Factory 4.0",
       "category": "BUSINESS",
       "summary": "Full automated manufacturing lines powered by 5G Network.",
-      "sections": [
+      "catchImageFilename": "future-factory-catch.png",
+      "intro": {
+        "pageSubtitle": "Intro",
+        "talkingPoints": [
+          {
+            "heading": "Summary Here",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut."
+          },
+          {
+            "heading": "Summary Here",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut."
+          }
+        ]
+      },
+      "outro": {
+        "pageSubtitle": "Outro",
+        "talkingPoints": [
+          {
+            "heading": "Summary Here",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut."
+          }
+        ]
+      },
+      "missions": [
         {
-          "sectionType": "movie",
-          "sectionTitle": "Intro",
-          "talkingPoints": [
-            {
-              "heading": "Talking Point 1",
-              "text": "Lorem ipsum dolor sit amet, consecteur adipisicing elit."
-            },
-            {
-              "heading": "Talking Point 2",
-              "text": "Lorem ipsum dolor sit amet, consecteur adipisicing elit."
-            }
-          ]
-        },
-        {
-          "sectionType": "mission",
-          "sectionTitle": "Mission 1",
+          "pageSubtitle": "Mission 1",
           "missionId": 1,
           "hasTwoPlayerMode": false,
           "replayable": true
         },
         {
-          "sectionType": "mission",
-          "sectionTitle": "Mission 2",
+          "pageSubtitle": "Mission 2",
           "missionId": 2,
           "hasTwoPlayerMode": true,
           "replayable": true
-        },
-        {
-          "sectionType": "movie",
-          "sectionTitle": "Outro",
-          "talkingPoints": [
-            {
-              "heading": "Talking Point 1",
-              "text": "Lorem ipsum dolor sit amet, consecteur adipisicing elit."
-            }
-          ]
         }
       ],
-      "movieVersion": [
-        {
-          "label": "Intro",
-          "talkingPoints": [
-            {
-              "heading": "Talking Point 1",
-              "text": "Lorem ipsum dolor sit amet, consecteur adipisicing elit."
-            },
-            {
-              "heading": "Talking Point 2",
-              "text": "Lorem ipsum dolor sit amet, consecteur adipisicing elit."
-            }
-          ]
-        },
-        {
-          "label": "Mission 1",
-          "talkingPoints": [
-            {
-              "heading": "Talking Point 1",
-              "text": "Lorem ipsum dolor sit amet, consecteur adipisicing elit."
-            }
-          ]
-        },
-        {
-          "label": "Mission 2",
-          "talkingPoints": [
-            {
-              "heading": "Talking Point 1",
-              "text": "Lorem ipsum dolor sit amet, consecteur adipisicing elit."
-            }
-          ]
-        },
-        {
-          "label": "Outro",
-          "talkingPoints": [
-            {
-              "heading": "Talking Point 1",
-              "text": "Lorem ipsum dolor sit amet, consecteur adipisicing elit."
-            }
-          ]
-        }
-      ]
+      "movieVersion": {
+        "pageSubtitle": "",
+        "talkingPoints": [
+          {
+            "heading": "Summary Here",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut."
+          },
+          {
+            "heading": "Summary Here",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut."
+          },
+          {
+            "heading": "Summary Here",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut."
+          },
+          {
+            "heading": "Summary Here",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut."
+          },
+          {
+            "heading": "Summary Here",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut."
+          }
+        ]
+      }
     }
   ]
 }

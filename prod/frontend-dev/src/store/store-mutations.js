@@ -1,11 +1,6 @@
 const mutations = {
-  selectStory(state, payload) {
-    state.selectedStoryId = payload;
-  },
-  nextSection(state) {
-    state.currentSectionIndex++;
-  },
-  replayMission(state) {
+  login(state) {
+    state.loggedIn = true;
   },
 };
 

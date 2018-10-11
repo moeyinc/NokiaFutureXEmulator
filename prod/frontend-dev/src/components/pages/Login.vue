@@ -10,7 +10,7 @@
           <h4 class="fite-lab">FITE Lab</h4>
         </div>
         <div class="password-block">
-          <form @submit.prevent="authorize()">
+          <form @submit.prevent="login()">
             <input
               type="password"
               placeholder="Enter Password"
@@ -18,7 +18,7 @@
           </form>
           <hr />
         </div>
-        <div class="start-block" @click="authorize()">
+        <div class="start-block" @click="login()">
           <div class="inner">
             <h3 class="start-session">Start Session</h3>
             <img :src="require('@/assets/images/arrow-right.png')"/>
@@ -33,8 +33,6 @@
  Script
 ================================================== -->
 <script>
-import APP_CONFIG from '@/config/app-config';
-
 export default {
   name: 'Login',
   data() {
@@ -43,14 +41,14 @@ export default {
     };
   },
   methods: {
-    authorize() {
-      if (this.password === APP_CONFIG.PASSWORD) {
-        console.log('authorized');
-        this.jumpTo('Stories', {transition: 'fade'});
-      } else {
-        console.log('wrong password!');
-        this.password = '';
-      }
+    login() {
+      this.$store.dispatch('login', this.password)
+          .then(() => {
+            this.jumpTo('Stories', {transition: 'fade'});
+          })
+          .catch(() => {
+            this.password = '';
+          });
     },
   },
 };

@@ -13,7 +13,7 @@
       <div class="padding-box"></div>
       <side-nav-menu-item
         :label="'Stories'"
-        :active="isOnStoryRelatedPage"
+        :active="!isOnRoomEffectsPage"
         :icon-filename="'story-icon.png'"
         :icon-filename-active="'story-icon-active.png'"/>
       <side-nav-menu-item
@@ -44,15 +44,6 @@ export default {
     SideNavMenuItem,
   },
   computed: {
-    isOnStoryRelatedPage() {
-      switch (this.$route.name) {
-        case 'Stories':
-        case 'StoryStart':
-        case 'TalkingPoints':
-          return true;
-      }
-      return false;
-    },
     isOnRoomEffectsPage() {
       if (this.$route.name === 'RoomEffects') return true;
       return false;
