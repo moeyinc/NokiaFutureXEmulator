@@ -8,26 +8,54 @@
         <h1>SEND A MESSAGE</h1>
 
         <section>
-          <h2>1. Message Type</h2>
+          <h2>1. Select Topic</h2>
+          <select
+            class="topic-selection"
+            v-model="selectedTopic">
+            <option disabled value="">
+              Select One
+            </option>
+            <option
+              v-for="(topic, index) in topics"
+              :value="topic"
+              :key="index">
+              {{topic}}
+            </option>
+          </select>
+        </section>
+
+        <section>
+          <h2>2. Message Type</h2>
           <select
             class="message-type-selection"
             v-model="selectedMessageType">
             <option disabled value="">
               Select One
             </option>
-            <option
-              v-for="(messageType, index) in messageTypes"
-              :value="messageType"
-              :key="index">
-              {{messageType.type}}
-            </option>
+            <optgroup label="Facilitator to Game">
+              <option
+                v-for="(messageType, index) in fab2GameMessageTypes"
+                :value="messageType"
+                :key="index">
+                {{messageType.type}}
+              </option>
+            </optgroup>
+            <optgroup label="Game to Facilitator">
+              <option
+                v-for="(messageType, index) in game2FabMessageTypes"
+                :value="messageType"
+                :key="index">
+                {{messageType.type}}
+              </option>
+            </optgroup>
+
           </select>
         </section>
 
         <section
           v-if="selectedMessageType.params ||
             selectedMessageType.networkParams">
-          <h2>2. Message Parameters</h2>
+          <h2>3. Message Parameters</h2>
           <div
             v-if="selectedMessageType.params"
             class="message-option-selections-container">
@@ -80,15 +108,23 @@
           <button class="publish-button" @click="publishMessage()">
             PUBLISH
           </button>
+          <p v-show="errorMessage" class="error-message">
+            {{errorMessage}}
+          </p>
         </section>
       </div>
 
       <div class="history-block">
         <h1>MESSAGE HISTORY</h1>
         <ul>
-          <li v-for="(message, index) in receivedMessages"
+          <li v-for="(item, index) in historyItems"
             :key="index">
-            {{ message }}
+            <div class="topic-column">
+              {{ item.topic }}
+            </div>
+            <div class="message-column">
+              {{ item.message }}
+            </div>
           </li>
         </ul>
       </div>
@@ -111,12 +147,22 @@ export default {
     return {
       mqttClient: null,
       selectedMessageType: '',
-      receivedMessages: [],
-      messageTypes: MESSAGE_CONFIG,
+      selectedTopic: '',
+      historyItems: [],
+      topics: APP_CONFIG.MQTT.TOPICS,
+      errorMessage: '',
     };
   },
   created: function() {
     this.initializeMqttClient();
+  },
+  computed: {
+    fab2GameMessageTypes() {
+      return MESSAGE_CONFIG.facilitatorToGame;
+    },
+    game2FabMessageTypes() {
+      return MESSAGE_CONFIG.gameToFacilitator;
+    },
   },
   methods: {
     initializeMqttClient() {
@@ -126,17 +172,22 @@ export default {
         port: APP_CONFIG.MQTT.PORT,
       });
 
-      // when it's connected to the broker, subscribe to a topic
+      // when it's connected to the broker, subscribe to all topics
       this.mqttClient.on('connect', () => {
-        const topic = APP_CONFIG.MQTT.TOPIC;
-        this.mqttClient.subscribe(topic);
+        const topics = APP_CONFIG.MQTT.TOPICS;
+        for (let topic of topics) {
+          this.mqttClient.subscribe(topic);
+        }
       });
 
       // when it receives a message, print it on the screen
       this.mqttClient.on('message', (topic, payload) => {
-        console.log('payload:', payload);
         let message = String.fromCharCode.apply(null, payload);
-        this.receivedMessages.push(message);
+        let item = {
+          topic: topic,
+          message: message,
+        };
+        this.historyItems.push(item);
       });
     },
     publishMessage() {
@@ -160,10 +211,18 @@ export default {
         }
       }
 
+      // check if a topic is selected
+      if (!this.selectedTopic) {
+        this.errorMessage = 'No topic is selected!';
+        return;
+      } else {
+        this.errorMessage = '';
+      }
+
       // publish the message
       console.log('publishing a message:', message);
       this.mqttClient.publish(
-          APP_CONFIG.MQTT.TOPIC, JSON.stringify(message));
+          this.selectedTopic, JSON.stringify(message));
     },
   },
 };
@@ -192,6 +251,10 @@ export default {
     h1
       font-size: 32px
       margin-bottom: 30px
+
+    .error-message
+      font-size: 12px
+      color: red
 
     .message-block
       width: 50%
@@ -228,9 +291,19 @@ export default {
         font-weight: bold
         border-radius: 5px
         background: linear-gradient(whitesmoke, lightgrey)
+        margin-bottom: 20px
 
     .history-block
       width: 50%
       padding: 20px
       border-left: solid 1px
+
+      li
+        display: flex
+        flex-direction: row
+
+        .topic-column
+          color: tomato
+          padding-right: 15px
+          min-width: 100px
 </style>
