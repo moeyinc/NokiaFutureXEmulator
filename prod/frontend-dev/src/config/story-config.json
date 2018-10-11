@@ -25,14 +25,14 @@
           "sectionTitle": "Mission 1",
           "missionId": 1,
           "hasTwoPlayerMode": false,
-          "replayable": true,
+          "replayable": true
         },
         {
           "sectionType": "mission",
           "sectionTitle": "Mission 2",
           "missionId": 2,
           "hasTwoPlayerMode": true,
-          "replayable": true,
+          "replayable": true
         },
         {
           "sectionType": "movie",
@@ -41,7 +41,7 @@
             {
               "heading": "Talking Point 1",
               "text": "Lorem ipsum dolor sit amet, consecteur adipisicing elit."
-            },
+            }
           ]
         }
       ],

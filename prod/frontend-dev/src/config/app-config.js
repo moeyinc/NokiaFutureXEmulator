@@ -1,8 +1,8 @@
 export default {
   PASSWORD: 'nokianokia',
   MQTT: {
-    HOST: 'test.mosquitto.org',
+    HOST: 'mqtt.jonahb.com',
     PORT: 8080,
-    TOPIC: 'moey',
+    TOPIC: 'moey-dev', // 'moey'
   },
 };
