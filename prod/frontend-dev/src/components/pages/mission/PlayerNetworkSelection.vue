@@ -14,7 +14,12 @@
 
     <div class="wrapper">
       <action-headline>
-        <span style="opacity: 0.5">Player Mode ></span> Setting
+        <span
+          style="opacity: 0.5"
+          @click="jumpTo('PlayerModeSelection', {transition: 'fade'})">
+          Player Mode >
+        </span>
+        Setting
       </action-headline>
       <action-table
         :items="actionTableItems"
@@ -25,10 +30,11 @@
       :action-button-label="'Start Mission'"
       :is-action-button-enabled="readyToStartMission"/>
 
-    <overlay-wrapper
-      v-if="overlay"
-      :header-title="'Select Player'">
-    </overlay-wrapper>
+    <select-player-overlay
+      v-if="overlay === 'player1' || overlay === 'player2'"
+      :player-index="overlay"
+      @close="overlay = false">
+    </select-player-overlay>
 
   </div>
 </template>
@@ -42,7 +48,7 @@ import ActionHeadline from '@/components/ActionHeadline';
 import ActionTable from '@/components/ActionTable';
 import FloatingActionButtonContainer from
   '@/components/FloatingActionButtonContainer';
-import OverlayWrapper from './overlays/OverlayWrapper';
+import SelectPlayerOverlay from './overlays/SelectPlayerOverlay';
 import selectedStoryMixin from '@/mixins/selected-story';
 import selectedMissionMixin from '@/mixins/selected-mission';
 
@@ -53,7 +59,7 @@ export default {
     ActionHeadline,
     ActionTable,
     FloatingActionButtonContainer,
-    OverlayWrapper,
+    SelectPlayerOverlay,
   },
   data() {
     return {
@@ -69,14 +75,14 @@ export default {
     actionTableItems() {
       let items = [];
       let player1 = {
-        type: 'player',
+        type: 'player1',
         name: 'Player 1',
         value: '',
         iconFilename: 'player-icon.png',
         iconFilenameActive: 'player-icon-active.png',
       };
       let player2 = {
-        type: 'player',
+        type: 'player2',
         name: 'Player 2',
         value: '',
         iconFilename: 'player-icon.png',

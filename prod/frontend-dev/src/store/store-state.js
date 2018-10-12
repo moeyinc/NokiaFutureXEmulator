@@ -3,7 +3,8 @@ const state = {
   isLoggedIn: false,
   roomEffects: {},
   selectedPlayerMode: null,
-  selectedPlayers: null,
+  selectedPlayerOne: null,
+  selectedPlayerTwo: null,
   selectedNetwork: null,
 };
 export default state;

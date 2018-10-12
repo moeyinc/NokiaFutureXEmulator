@@ -69,7 +69,7 @@ export default {
   methods: {
     selectPlayerMode(mode) {
       this.$store.commit('selectPlayerMode', mode);
-      this.jumpTo('PlayerNetworkSelection');
+      this.jumpTo('PlayerNetworkSelection', {transition: 'fade'});
     },
   },
 };

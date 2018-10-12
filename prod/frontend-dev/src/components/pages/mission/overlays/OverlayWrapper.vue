@@ -11,7 +11,8 @@
       </div>
       <icon-button
         :filename="'close-icon.png'"
-        :filename-active="'close-icon-active.png'"/>
+        :filename-active="'close-icon-active.png'"
+        @clicked="$emit('close-button-clicked')"/>
     </div>
     <slot></slot>
   </div>
