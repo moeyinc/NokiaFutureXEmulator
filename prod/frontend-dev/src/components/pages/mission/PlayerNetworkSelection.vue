@@ -5,10 +5,10 @@
   <div class="player-network-selection">
 
     <main-header
-      :title="'Future Factory 4.0'"
-      :subtitle="'MISSION 1'"
+      :title="selectedStory.title"
+      :subtitle="selectedMission.pageSubtitle"
       :has-nav-bar="true"
-      :category-name="'BUSINESS'"
+      :category-name="selectedStory.category"
       :back-button-label="'End Story'"
       @back-button-clicked="jumpTo('Stories', {transition: 'fade'})"/>
 
@@ -26,6 +26,7 @@
       :is-action-button-enabled="readyToStartMission"/>
 
     <overlay-wrapper
+      v-if="overlay"
       :header-title="'Select Player'">
     </overlay-wrapper>
 
@@ -42,6 +43,8 @@ import ActionTable from '@/components/ActionTable';
 import FloatingActionButtonContainer from
   '@/components/FloatingActionButtonContainer';
 import OverlayWrapper from './overlays/OverlayWrapper';
+import selectedStoryMixin from '@/mixins/selected-story';
+import selectedMissionMixin from '@/mixins/selected-mission';
 
 export default {
   name: 'PlayerNetworkSelection',
@@ -54,25 +57,44 @@ export default {
   },
   data() {
     return {
-      actionTableItems: [
-        {
-          type: 'player',
-          name: 'Player 1',
-          value: '',
-          iconFilename: 'player-icon.png',
-          iconFilenameActive: 'player-icon-active.png',
-        },
-        {
-          type: 'network',
-          name: 'Network',
-          value: 'Optimized',
-          iconFilename: 'network-icon.png',
-          iconFilenameActive: 'network-icon-active.png',
-        },
-      ],
       overlay: null,
       readyToStartMission: false,
     };
+  },
+  mixins: [
+    selectedStoryMixin,
+    selectedMissionMixin,
+  ],
+  computed: {
+    actionTableItems() {
+      let items = [];
+      let player1 = {
+        type: 'player',
+        name: 'Player 1',
+        value: '',
+        iconFilename: 'player-icon.png',
+        iconFilenameActive: 'player-icon-active.png',
+      };
+      let player2 = {
+        type: 'player',
+        name: 'Player 2',
+        value: '',
+        iconFilename: 'player-icon.png',
+        iconFilenameActive: 'player-icon-active.png',
+      };
+      let network = {
+        type: 'network',
+        name: 'Network',
+        value: 'Optimized',
+        iconFilename: 'network-icon.png',
+        iconFilenameActive: 'network-icon-active.png',
+      };
+      items.push(player1);
+      if (this.$store.state.selectedPlayerMode === 2) items.push(player2);
+      items.push(network);
+
+      return items;
+    },
   },
 };
 </script>

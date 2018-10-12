@@ -32,6 +32,7 @@
 import MainHeader from '@/components/MainHeader';
 import SummaryBlock from '@/components/SummaryBlock';
 import EventBus from '@/event-bus';
+import selectedStoryMixin from '@/mixins/selected-story';
 
 export default {
   name: 'TalkingPoints',
@@ -39,16 +40,13 @@ export default {
     MainHeader,
     SummaryBlock,
   },
+  mixins: [
+    selectedStoryMixin,
+  ],
   created() {
     this.setEventListeners();
   },
   computed: {
-    storyId() {
-      return parseInt(this.$route.params.story_id);
-    },
-    selectedStory() {
-      return this.$store.getters.getSelectedStory(this.storyId);
-    },
     tp() {
       let keyName;
       switch (this.$route.name) {
@@ -78,7 +76,7 @@ export default {
           this.jumpTo('PlayerModeSelection', {
             story_id: this.storyId,
             mission_id: 1,
-            transition: 'slide-right',
+            transition: 'fade',
           });
         } else {
           console.log('No action triggered because Im not on Intro page');
@@ -91,7 +89,7 @@ export default {
           this.jumpTo('PlayerModeSelection', {
             story_id: this.storyId,
             mission_id: 2,
-            transition: 'slide-right',
+            transition: 'fade',
           });
         } else {
           console.log('No action triggered because Im not on Interlude page');

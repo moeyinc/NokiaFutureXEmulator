@@ -24,7 +24,7 @@
         :thumbnail-filename="story.catchImageFilename"
         @clicked="jumpTo('StoryStart', {
           story_id: story.storyId,
-          transition: 'slide-left'})"/>
+          transition: 'fade'})"/>
     </ul>
 
   </div>

@@ -32,6 +32,33 @@ const getters = {
     console.error('There are no stories that have the given id', _storyId);
     return;
   },
+  getSelectedMission: (state, getters) => ({storyId, missionId}) => {
+    const _storyId = storyId;
+    const _missionId = missionId;
+    let selectedStory = getters.getSelectedStory(_storyId);
+
+    const missions = selectedStory.missions;
+    if (!missions || !Array.isArray(missions)) {
+      console.error('There is no missions array in the selected story');
+      return;
+    }
+
+    if (_missionId === undefined || _missionId === null) {
+      console.error('missionId is not specified', _missionId);
+      return;
+    }
+
+    for (let mission of missions) {
+      if (mission.hasOwnProperty('missionId')) {
+        if (mission.missionId === _missionId) return mission;
+      } else {
+        console.error('The mission object doesn\'t have a missionId!');
+      }
+    }
+
+    console.error('There are no missions that have the given id', _missionId);
+    return;
+  },
 };
 
 export default getters;

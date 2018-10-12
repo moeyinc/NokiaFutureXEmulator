@@ -7,7 +7,7 @@
       "summary": "Full automated manufacturing lines powered by 5G Network.",
       "catchImageFilename": "future-factory-catch.png",
       "intro": {
-        "pageSubtitle": "Intro",
+        "pageSubtitle": "INTRO",
         "talkingPoints": [
           {
             "heading": "Summary Here",
@@ -20,7 +20,7 @@
         ]
       },
       "outro": {
-        "pageSubtitle": "Outro",
+        "pageSubtitle": "OUTRO",
         "talkingPoints": [
           {
             "heading": "Summary Here",
@@ -30,13 +30,13 @@
       },
       "missions": [
         {
-          "pageSubtitle": "Mission 1",
+          "pageSubtitle": "MISSION 1",
           "missionId": 1,
           "hasTwoPlayerMode": false,
           "replayable": true
         },
         {
-          "pageSubtitle": "Mission 2",
+          "pageSubtitle": "MISSION 2",
           "missionId": 2,
           "hasTwoPlayerMode": true,
           "replayable": true

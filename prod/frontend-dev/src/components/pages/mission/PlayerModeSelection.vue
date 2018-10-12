@@ -5,10 +5,10 @@
   <div class="player-mode-selection">
 
     <main-header
-      :title="'Future Factory 4.0'"
-      :subtitle="'MISSION 1'"
+      :title="selectedStory.title"
+      :subtitle="selectedMission.pageSubtitle"
       :has-nav-bar="true"
-      :category-name="'BUSINESS'"
+      :category-name="selectedStory.category"
       :back-button-label="'End Story'"
       @back-button-clicked="jumpTo('Stories', {transition: 'fade'})"/>
 
@@ -17,17 +17,28 @@
       <div class="player-mode-button-container">
         <large-select-button
           class="left-button"
-          :width="320"
+          :width="selectedMission.hasTwoPlayerMode ? 204 : 320"
           :height="320"
           :icon-filename="'player-icon.png'"
           :icon-filename-active="'player-icon-active.png'"
-          :label="'1 Player Mode'"/>
+          :label="'1 Player Mode'"
+          @clicked="selectPlayerMode(1)"/>
         <large-select-button
-          :width="320"
+          v-if="selectedMission.hasTwoPlayerMode"
+          class="left-button"
+          :width="204"
+          :height="320"
+          :icon-filename="'two-player-icon.png'"
+          :icon-filename-active="'two-player-icon-active.png'"
+          :label="'2 Player Mode'"
+          @clicked="selectPlayerMode(2)"/>
+        <large-select-button
+          :width="selectedMission.hasTwoPlayerMode ? 204 : 320"
           :height="320"
           :icon-filename="'autoplay-icon.png'"
           :icon-filename-active="'autoplay-icon-active.png'"
-          :label="'Auto Play'"/>
+          :label="'Auto Play'"
+          @clicked="selectPlayerMode('auto')"/>
       </div>
     </div>
 
@@ -41,6 +52,8 @@
 import MainHeader from '@/components/MainHeader';
 import ActionHeadline from '@/components/ActionHeadline';
 import LargeSelectButton from '@/components/LargeSelectButton';
+import selectedStoryMixin from '@/mixins/selected-story';
+import selectedMissionMixin from '@/mixins/selected-mission';
 
 export default {
   name: 'PlayerModeSelection',
@@ -48,6 +61,16 @@ export default {
     MainHeader,
     ActionHeadline,
     LargeSelectButton,
+  },
+  mixins: [
+    selectedStoryMixin,
+    selectedMissionMixin,
+  ],
+  methods: {
+    selectPlayerMode(mode) {
+      this.$store.commit('selectPlayerMode', mode);
+      this.jumpTo('PlayerNetworkSelection');
+    },
   },
 };
 </script>
