@@ -36,6 +36,11 @@
       @close="overlay = false">
     </select-player-overlay>
 
+    <select-network-overlay
+      v-if="overlay === 'network'"
+      @close="overlay = false">
+    </select-network-overlay>
+
   </div>
 </template>
 
@@ -49,6 +54,7 @@ import ActionTable from '@/components/ActionTable';
 import FloatingActionButtonContainer from
   '@/components/FloatingActionButtonContainer';
 import SelectPlayerOverlay from './overlays/SelectPlayerOverlay';
+import SelectNetworkOverlay from './overlays/SelectNetworkOverlay';
 import selectedStoryMixin from '@/mixins/selected-story';
 import selectedMissionMixin from '@/mixins/selected-mission';
 
@@ -60,6 +66,7 @@ export default {
     ActionTable,
     FloatingActionButtonContainer,
     SelectPlayerOverlay,
+    SelectNetworkOverlay,
   },
   data() {
     return {
@@ -73,25 +80,29 @@ export default {
   ],
   computed: {
     actionTableItems() {
+      let selectedPlayerOne = this.$store.state.selectedPlayerOne;
+      let selectedPlayerTwo = this.$store.state.selectedPlayerTwo;
+      let selectedNetwork = this.$store.state.selectedNetwork;
+
       let items = [];
       let player1 = {
         type: 'player1',
         name: 'Player 1',
-        value: '',
+        data: selectedPlayerOne,
         iconFilename: 'player-icon.png',
         iconFilenameActive: 'player-icon-active.png',
       };
       let player2 = {
         type: 'player2',
         name: 'Player 2',
-        value: '',
+        data: selectedPlayerTwo,
         iconFilename: 'player-icon.png',
         iconFilenameActive: 'player-icon-active.png',
       };
       let network = {
         type: 'network',
         name: 'Network',
-        value: 'Optimized',
+        data: selectedNetwork,
         iconFilename: 'network-icon.png',
         iconFilenameActive: 'network-icon-active.png',
       };

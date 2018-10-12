@@ -17,14 +17,14 @@
         {{item.name}}
       </td>
       <td
-        v-if="!item.value"
-        class="item-value empty">
+        v-if="!item.data"
+        class="item-data empty">
         Not Selected
       </td>
       <td
         v-else
-        class="item-value">
-        {{item.value}}
+        class="item-data">
+        {{item.data.name}}
       </td>
     </tr>
   </table>
@@ -83,7 +83,7 @@ table
     td.item-name
       text-align: left
 
-    td.item-value
+    td.item-data
       text-align: right
 
       &.empty

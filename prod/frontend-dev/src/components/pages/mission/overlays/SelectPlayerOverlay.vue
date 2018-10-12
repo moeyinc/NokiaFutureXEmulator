@@ -95,7 +95,10 @@ export default {
   },
   methods: {
     itemClicked(player) {
-      this.$store.commit('selectPlayer', this.playerIndex, player);
+      this.$store.commit('selectPlayer', {
+        playerIndex: this.playerIndex,
+        player: player,
+      });
       this.$emit('close');
     },
   },
