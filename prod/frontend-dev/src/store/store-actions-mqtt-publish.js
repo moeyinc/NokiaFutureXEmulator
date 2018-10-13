@@ -64,6 +64,53 @@ const mqttPublishActions = {
       });
     });
   },
+  /**
+   * startMission - start a mission
+   *
+   * @param  {!Object} context Vuex context object
+   * @param  {!Number} missionId
+   * @return {!Promise<?Error>}
+   */
+  startMission(context, missionId) {
+    return new Promise((resolve, reject) => {
+      // set sutoPlay value
+      let autoPlay = false;
+      if (context.state.selectedPlayerMode === 'auto') {
+        autoPlay = true;
+      }
+
+      // set numberOfPlayers value
+      let numberOfPlayers = 1;
+      if (context.state.selectedPlayerMode === 2) {
+        numberOfPlayers = 2;
+      }
+
+      // set network value
+      if (!context.state.selectedNetwork) reject('No network selected');
+      let params = context.state.selectedNetwork.parameters;
+      let network = {
+        security: params.security.value,
+        latency: params.latency.value,
+        bandwidth: params.bandwidth.value,
+        reliability: params.reliability.value,
+      };
+
+      // set up a message object to publish
+      const message = {
+        type: 'start-mission',
+        mission: missionId,
+        autoPlay: autoPlay,
+        numberOfPlayers: numberOfPlayers,
+        network: network,
+      };
+
+      // publish the message
+      publishMessage(context.state.mqttClient, message, (err) => {
+        if (err) reject(err);
+        resolve();
+      });
+    });
+  },
 };
 
 export default mqttPublishActions;

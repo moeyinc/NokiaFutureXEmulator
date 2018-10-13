@@ -10,7 +10,6 @@ import PlayerModeSelection from
   '@/components/pages/mission/PlayerModeSelection';
 import PlayerNetworkSelection from
   '@/components/pages/mission/PlayerNetworkSelection';
-import Calibration from '@/components/pages/mission/Calibration';
 import MissionControls from '@/components/pages/mission/MissionControls';
 import PostMission from '@/components/pages/mission/PostMission';
 
@@ -77,12 +76,6 @@ export default new Router({
                     ':mission_id/player-network-selection',
                   name: 'PlayerNetworkSelection',
                   component: PlayerNetworkSelection,
-                },
-                {
-                  path: '/story-live/:story_id/mission/' +
-                    ':mission_id/calibration',
-                  name: 'Calibration',
-                  component: Calibration,
                 },
                 {
                   path: '/story-live/:story_id/mission/' +

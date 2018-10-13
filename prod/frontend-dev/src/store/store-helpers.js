@@ -1,9 +1,22 @@
 import APP_CONFIG from '@/config/app-config';
 import MESSAGE_CONFIG from '@/config/message-config';
 
+/**
+ * publishMessage - publish a mqtt message to subscribers.
+ * It validates the given message by comparing it with message-config file.
+ *
+ * @param  {!Object} mqttClient
+ * @param  {!Object} message message object to publish
+ * @param  {?Function} cb callback function
+ */
 export const publishMessage = function(mqttClient, message, cb) {
-  if (!validateMessage(message)) cb('Message validation failed');
+  // validate the message
+  if (!validateMessage(message)) {
+    cb('Message validation failed');
+    return;
+  }
 
+  // publish the message
   console.log('publishing a message:', message);
   mqttClient.publish(
       APP_CONFIG.MQTT.TOPIC, JSON.stringify(message),
@@ -51,6 +64,7 @@ function validateMessage(_message) {
             if (!isValueValidOption(_message.network[nKey], p)) return false;
             // nKey is valid
           }
+          continue;
         }
 
         // check other keys
@@ -110,7 +124,7 @@ function validateMessage(_message) {
       if (value == option) return true;
     }
 
-    console.log('The given value is not defined in options');
+    console.log('The given value is not defined in options', value);
     return false;
   }
 }

@@ -28,17 +28,18 @@
 
     <floating-action-button-container
       :action-button-label="'Start Mission'"
-      :is-action-button-enabled="readyToStartMission"/>
+      :is-action-button-enabled="readyToStartMission"
+      @action-button-clicked="startMission()"/>
 
     <select-player-overlay
       v-if="overlay === 'player1' || overlay === 'player2'"
       :player-index="overlay"
-      @close="overlay = false">
+      @close="overlay = null">
     </select-player-overlay>
 
     <select-network-overlay
       v-if="overlay === 'network'"
-      @close="overlay = false">
+      @close="overlay = null">
     </select-network-overlay>
 
   </div>
@@ -71,7 +72,6 @@ export default {
   data() {
     return {
       overlay: null,
-      readyToStartMission: false,
     };
   },
   mixins: [
@@ -111,6 +111,34 @@ export default {
       items.push(network);
 
       return items;
+    },
+    readyToStartMission() {
+      let selectedPlayerMode = this.$store.state.selectedPlayerMode;
+      let selectedPlayerOne = this.$store.state.selectedPlayerOne;
+      let selectedPlayerTwo = this.$store.state.selectedPlayerTwo;
+      let selectedNetwork = this.$store.state.selectedNetwork;
+      if (!selectedPlayerMode || !selectedPlayerOne || !selectedNetwork) {
+        return false;
+      }
+      if (selectedPlayerMode === 2 && !selectedPlayerTwo) {
+        return false;
+      }
+      return true;
+    },
+  },
+  methods: {
+    startMission() {
+      this.$store.dispatch('startMission', this.missionId)
+          .then(() => {
+            this.jumpTo('MissionControls', {
+              storyId: this.storyId,
+              missionId: this.missionId,
+              transition: 'fade',
+            });
+          })
+          .catch((err) => {
+            alert('There was error on publishing MQTT message', err);
+          });
     },
   },
 };

@@ -2,9 +2,11 @@ const mutations = {
   login(state) {
     state.loggedIn = true;
   },
+  // mode: 1 or 2 or 'auto'
   selectPlayerMode(state, mode) {
     state.selectedPlayerMode = mode;
   },
+  // playerIndex: 'player1' or 'player2'
   selectPlayer(state, {playerIndex, player}) {
     if (playerIndex === 'player1') state.selectedPlayerOne = player;
     else if (playerIndex === 'player2') state.selectedPlayerTwo = player;
