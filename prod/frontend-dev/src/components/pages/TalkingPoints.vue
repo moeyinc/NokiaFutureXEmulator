@@ -33,6 +33,7 @@ import MainHeader from '@/components/MainHeader';
 import SummaryBlock from '@/components/SummaryBlock';
 import EventBus from '@/event-bus';
 import selectedStoryMixin from '@/mixins/selected-story';
+import storyPageMixin from '@/mixins/story-page';
 
 export default {
   name: 'TalkingPoints',
@@ -42,6 +43,7 @@ export default {
   },
   mixins: [
     selectedStoryMixin,
+    storyPageMixin,
   ],
   created() {
     this.setEventListeners();

@@ -21,6 +21,12 @@ export default {
   components: {
     SideNavMenu,
   },
+  mounted() {
+    if (!this.$store.state.isLoggedIn) {
+      console.log('not logged in!', this.$store.state.isLoggedIn);
+      this.jumpTo('Login', {transition: 'fade'});
+    }
+  },
 };
 </script>
 

@@ -12,6 +12,8 @@ import PlayerNetworkSelection from
   '@/components/pages/mission/PlayerNetworkSelection';
 import MissionControls from '@/components/pages/mission/MissionControls';
 import PostMission from '@/components/pages/mission/PostMission';
+import RoomEffects from '@/components/pages/RoomEffects';
+import SleeveManagement from '@/components/pages/SleeveManagement';
 
 Vue.use(Router);
 
@@ -89,9 +91,23 @@ export default new Router({
                   name: 'PostMission',
                   component: PostMission,
                 },
+                {
+                  path: '/room-effects',
+                  name: 'RoomEffects',
+                  component: RoomEffects,
+                },
+                {
+                  path: '/sleeve-management',
+                  name: 'SleeveManagement',
+                  component: SleeveManagement,
+                },
               ],
             },
           ],
+        },
+        {
+          path: '*',
+          redirect: {name: 'Login'},
         },
       ],
     },

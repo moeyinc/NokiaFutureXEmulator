@@ -13,14 +13,22 @@
       <div class="padding-box"></div>
       <side-nav-menu-item
         :label="'Stories'"
-        :active="!isOnRoomEffectsPage"
+        :active="!isOnRoomEffectsPage && !isOnSleeveManagementPage"
         :icon-filename="'story-icon.png'"
-        :icon-filename-active="'story-icon-active.png'"/>
-      <side-nav-menu-item
+        :icon-filename-active="'story-icon-active.png'"
+        @clicked="jumpToLastStoryPage()"/>
+      <!-- <side-nav-menu-item
         :label="'Room Effects'"
         :active="isOnRoomEffectsPage"
         :icon-filename="'room-effect-icon.png'"
-        :icon-filename-active="'room-effect-icon-active.png'"/>
+        :icon-filename-active="'room-effect-icon-active.png'"
+        @clicked="jumpTo('RoomEffects', {transition: 'fade'})"/> -->
+      <side-nav-menu-item
+        :label="'Sleeve Management'"
+        :active="isOnSleeveManagementPage"
+        :icon-filename="'sleeve-icon.png'"
+        :icon-filename-active="'sleeve-icon-active.png'"
+        @clicked="jumpTo('SleeveManagement', {transition: 'fade'})"/>
 
       <side-nav-menu-item
         class="logout-item"
@@ -47,6 +55,20 @@ export default {
     isOnRoomEffectsPage() {
       if (this.$route.name === 'RoomEffects') return true;
       return false;
+    },
+    isOnSleeveManagementPage() {
+      if (this.$route.name === 'SleeveManagement') return true;
+      return false;
+    },
+  },
+  methods: {
+    jumpToLastStoryPage() {
+      let path = this.$store.state.lastStoryPagePath;
+      if (!path) {
+        console.error('No lastStoryPagePath found', path);
+        return;
+      }
+      this.jumpToPath(path, {transition: 'fade'});
     },
   },
 };

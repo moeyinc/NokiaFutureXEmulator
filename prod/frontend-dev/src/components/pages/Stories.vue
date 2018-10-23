@@ -37,6 +37,7 @@
 import MainHeader from '@/components/MainHeader';
 import SummaryBlock from '@/components/SummaryBlock';
 import StoryListItem from '@/components/StoryListItem';
+import storyPageMixin from '@/mixins/story-page';
 
 export default {
   name: 'Stories',
@@ -45,6 +46,7 @@ export default {
     SummaryBlock,
     StoryListItem,
   },
+  mixins: [storyPageMixin],
   computed: {
     getStories() {
       return this.$store.getters.getStories;

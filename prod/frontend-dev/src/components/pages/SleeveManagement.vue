@@ -2,8 +2,7 @@
  Template
 ================================================== -->
 <template>
-  <div class="live">
-    It seems like required data is missing.
+  <div class="sleeve-management">
   </div>
 </template>
 
@@ -12,7 +11,7 @@
 ================================================== -->
 <script>
 export default {
-  name: 'Live',
+  name: 'SleeveManagement',
 };
 </script>
 

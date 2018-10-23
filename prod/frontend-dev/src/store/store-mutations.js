@@ -1,6 +1,9 @@
 const mutations = {
   login(state) {
-    state.loggedIn = true;
+    state.isLoggedIn = true;
+  },
+  updateLastStoryPagePath(state, path) {
+    state.lastStoryPagePath = path;
   },
   // mode: 1 or 2 or 'auto'
   selectPlayerMode(state, mode) {

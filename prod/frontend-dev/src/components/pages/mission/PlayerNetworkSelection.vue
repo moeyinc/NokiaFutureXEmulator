@@ -58,6 +58,7 @@ import SelectPlayerOverlay from './overlays/SelectPlayerOverlay';
 import SelectNetworkOverlay from './overlays/SelectNetworkOverlay';
 import selectedStoryMixin from '@/mixins/selected-story';
 import selectedMissionMixin from '@/mixins/selected-mission';
+import storyPageMixin from '@/mixins/story-page';
 
 export default {
   name: 'PlayerNetworkSelection',
@@ -77,6 +78,7 @@ export default {
   mixins: [
     selectedStoryMixin,
     selectedMissionMixin,
+    storyPageMixin,
   ],
   computed: {
     actionTableItems() {

@@ -2,7 +2,9 @@
  Template
 ================================================== -->
 <template>
-  <div :class="['side-nav-menu-item', {'active': active}]">
+  <div
+    :class="['side-nav-menu-item', {'active': active}]"
+    @click="$emit('clicked')">
     <div class="icon-wrapper">
       <icon-button
         :filename="iconFilename"

@@ -39,6 +39,7 @@ import MainHeader from '@/components/MainHeader';
 import SummaryBlock from '@/components/SummaryBlock';
 import FloatingActionButtonContainer from
   '@/components/FloatingActionButtonContainer';
+import storyPageMixin from '@/mixins/story-page';
 
 export default {
   name: 'StoryStart',
@@ -47,6 +48,7 @@ export default {
     SummaryBlock,
     FloatingActionButtonContainer,
   },
+  mixins: [storyPageMixin],
   computed: {
     storyId() {
       return parseInt(this.$route.params.story_id);

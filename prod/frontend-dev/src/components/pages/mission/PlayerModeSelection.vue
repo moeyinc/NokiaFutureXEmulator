@@ -54,6 +54,7 @@ import ActionHeadline from '@/components/ActionHeadline';
 import LargeSelectButton from '@/components/LargeSelectButton';
 import selectedStoryMixin from '@/mixins/selected-story';
 import selectedMissionMixin from '@/mixins/selected-mission';
+import storyPageMixin from '@/mixins/story-page';
 
 export default {
   name: 'PlayerModeSelection',
@@ -65,6 +66,7 @@ export default {
   mixins: [
     selectedStoryMixin,
     selectedMissionMixin,
+    storyPageMixin,
   ],
   methods: {
     selectPlayerMode(mode) {
