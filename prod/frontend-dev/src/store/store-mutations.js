@@ -2,6 +2,9 @@ const mutations = {
   login(state) {
     state.isLoggedIn = true;
   },
+  logout(state) {
+    state.isLoggedIn = false;
+  },
   updateLastStoryPagePath(state, path) {
     state.lastStoryPagePath = path;
   },

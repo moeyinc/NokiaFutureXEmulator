@@ -31,6 +31,27 @@ const mqttPublishActions = {
     });
   },
   /**
+   * logout - logout from the system
+   *
+   * @param  {!Object} context Vuex context object
+   * @return {!Promise}
+   */
+  logout(context) {
+    return new Promise((resolve, reject) => {
+      // set up a message object to publish
+      const message = {
+        type: 'logout',
+      };
+
+      // publish the message
+      publishMessage(context.state.mqttClient, message, (err) => {
+        if (err) reject(err);
+        context.commit('logout');
+        resolve();
+      });
+    });
+  },
+  /**
    * startStory - start a story
    *
    * @param  {!Object} context Vuex context object
@@ -102,6 +123,26 @@ const mqttPublishActions = {
         autoPlay: autoPlay,
         numberOfPlayers: numberOfPlayers,
         network: network,
+      };
+
+      // publish the message
+      publishMessage(context.state.mqttClient, message, (err) => {
+        if (err) reject(err);
+        resolve();
+      });
+    });
+  },
+  /**
+   * calibrate - calibrate sleeves
+   *
+   * @param  {!Object} context Vuex context object
+   * @return {!Promise}
+   */
+  calibrate(context) {
+    return new Promise((resolve, reject) => {
+      // set up a message object to publish
+      const message = {
+        type: 'calibrate',
       };
 
       // publish the message

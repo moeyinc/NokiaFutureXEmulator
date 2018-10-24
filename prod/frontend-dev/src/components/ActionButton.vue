@@ -3,7 +3,7 @@
 ================================================== -->
 <template>
   <div
-    class="action-button"
+    :class="['action-button', {'small': small}]"
     :style="buttonStyle"
     @click="$emit('clicked')">
     {{label}}
@@ -19,6 +19,7 @@ export default {
   props: {
     label: String,
     enabled: Boolean,
+    small: Boolean,
   },
   computed: {
     buttonStyle() {
@@ -45,4 +46,8 @@ export default {
   font-size: 36px
   line-height: 52px
   letter-spacing: 0.75px
+
+  &.small
+    height: 80px
+    padding: 0px 80px
 </style>

@@ -18,12 +18,12 @@
       </td>
       <td
         v-if="!item.data"
-        class="item-data empty">
+        class="item-data disabled">
         Not Selected
       </td>
       <td
         v-else
-        class="item-data">
+        :class="['item-data', {disabled: item.data.disabled}]">
         {{item.data.name}}
       </td>
     </tr>
@@ -86,6 +86,6 @@ table
     td.item-data
       text-align: right
 
-      &.empty
+      &.disabled
         opacity: 0.5
 </style>

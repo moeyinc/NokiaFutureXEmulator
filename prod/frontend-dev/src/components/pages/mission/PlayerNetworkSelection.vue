@@ -31,11 +31,11 @@
       :is-action-button-enabled="readyToStartMission"
       @action-button-clicked="startMission()"/>
 
-    <select-player-overlay
+    <!-- <select-player-overlay
       v-if="overlay === 'player1' || overlay === 'player2'"
       :player-index="overlay"
       @close="overlay = null">
-    </select-player-overlay>
+    </select-player-overlay> -->
 
     <select-network-overlay
       v-if="overlay === 'network'"
@@ -73,7 +73,18 @@ export default {
   data() {
     return {
       overlay: null,
+      actionTableItems: [],
     };
+  },
+  created() {
+    this.setActionTableItems();
+  },
+  watch: {
+    overlay(newVal) {
+      if (!newVal) {
+        this.setActionTableItems();
+      }
+    },
   },
   mixins: [
     selectedStoryMixin,
@@ -81,9 +92,47 @@ export default {
     storyPageMixin,
   ],
   computed: {
-    actionTableItems() {
-      let selectedPlayerOne = this.$store.state.selectedPlayerOne;
-      let selectedPlayerTwo = this.$store.state.selectedPlayerTwo;
+    readyToStartMission() {
+      let selectedPlayerMode = this.$store.state.selectedPlayerMode;
+      // let selectedPlayerOne = this.$store.state.selectedPlayerOne;
+      // let selectedPlayerTwo = this.$store.state.selectedPlayerTwo;
+      let selectedPlayerOne = localStorage.getItem('playerOneSleeveId');
+      let selectedPlayerTwo = localStorage.getItem('playerTwoSleeveId');
+      let selectedNetwork = this.$store.state.selectedNetwork;
+      if (!selectedPlayerMode || !selectedPlayerOne || !selectedNetwork) {
+        return false;
+      }
+      if (selectedPlayerMode === 2 && !selectedPlayerTwo) {
+        return false;
+      }
+      return true;
+    },
+  },
+  methods: {
+    setActionTableItems() {
+      // let selectedPlayerOne = this.$store.state.selectedPlayerOne;
+      // let selectedPlayerTwo = this.$store.state.selectedPlayerTwo;
+
+      // get sleeve IDs from localStorage
+      let selectedPlayerOne = {
+        name: localStorage.getItem('playerOneSleeveId'),
+        disabled: true,
+      };
+      let selectedPlayerTwo = {
+        name: localStorage.getItem('playerTwoSleeveId'),
+        disabled: true,
+      };
+
+      // if mode is autoplay, the player name should be CPU
+      let selectedPlayerMode = this.$store.state.selectedPlayerMode;
+      if (selectedPlayerMode === 'auto') {
+        selectedPlayerOne = {
+          name: 'CPU',
+          disabled: true,
+        };
+      }
+
+      // get selected network settings
       let selectedNetwork = this.$store.state.selectedNetwork;
 
       let items = [];
@@ -112,23 +161,8 @@ export default {
       if (this.$store.state.selectedPlayerMode === 2) items.push(player2);
       items.push(network);
 
-      return items;
+      this.actionTableItems = items;
     },
-    readyToStartMission() {
-      let selectedPlayerMode = this.$store.state.selectedPlayerMode;
-      let selectedPlayerOne = this.$store.state.selectedPlayerOne;
-      let selectedPlayerTwo = this.$store.state.selectedPlayerTwo;
-      let selectedNetwork = this.$store.state.selectedNetwork;
-      if (!selectedPlayerMode || !selectedPlayerOne || !selectedNetwork) {
-        return false;
-      }
-      if (selectedPlayerMode === 2 && !selectedPlayerTwo) {
-        return false;
-      }
-      return true;
-    },
-  },
-  methods: {
     startMission() {
       this.$store.dispatch('startMission', this.missionId)
           .then(() => {

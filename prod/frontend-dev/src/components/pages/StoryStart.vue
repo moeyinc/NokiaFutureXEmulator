@@ -24,9 +24,7 @@
 
     <floating-action-button-container
       :action-button-label="'Start Interactive Version'"
-      :sub-action-button-label="'Play Video Ver.'"
-      @action-button-clicked="startStory('interactive')"
-      @sub-action-button-clicked="startStory('movie')"/>
+      @action-button-clicked="startStory('interactive')"/>
 
   </div>
 </template>

@@ -10,6 +10,7 @@
         <h1>{{headerTitle}}</h1>
       </div>
       <icon-button
+        v-if="!closeButtonDisabled"
         :filename="'close-icon.png'"
         :filename-active="'close-icon-active.png'"
         @clicked="$emit('close-button-clicked')"/>
@@ -32,6 +33,7 @@ export default {
   },
   props: {
     headerTitle: String,
+    closeButtonDisabled: Boolean,
   },
   computed: {
     backgroundColorWithOpacity() {

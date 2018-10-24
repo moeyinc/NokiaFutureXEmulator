@@ -35,7 +35,8 @@
         :label="'Logout'"
         :active="false"
         :icon-filename="'logout-icon.png'"
-        :icon-filename-active="'logout-icon-active.png'"/>
+        :icon-filename-active="'logout-icon-active.png'"
+        @clicked="logout()"/>
     </div>
   </div>
 </template>
@@ -69,6 +70,15 @@ export default {
         return;
       }
       this.jumpToPath(path, {transition: 'fade'});
+    },
+    logout() {
+      this.$store.dispatch('logout')
+          .then(() => {
+            this.jumpTo('Login', {transition: 'fade'});
+          })
+          .catch(() => {
+            console.error('Logout failed!');
+          });
     },
   },
 };

@@ -3,7 +3,12 @@
 ================================================== -->
 <template>
   <div class="sub-action-button" @click="$emit('clicked')">
-    {{label}}
+    <div class="inner">
+      <img
+        v-if="iconFilename"
+        :src="require('@/assets/images/' + iconFilename)"/>
+      <h6>{{label}}</h6>
+    </div>
   </div>
 </template>
 
@@ -15,6 +20,7 @@ export default {
   name: 'SubActionButton',
   props: {
     label: String,
+    iconFilename: String,
   },
 };
 </script>
@@ -29,4 +35,14 @@ export default {
   line-height: 52px
   letter-spacing: 0.5px
   border-bottom: solid 0.5px #5D8CEE
+
+  .inner
+    display: flex
+    flex-direction: row
+    align-items: center
+
+    img
+      width: 20px
+      height: 18px
+      margin-right: 11px
 </style>
