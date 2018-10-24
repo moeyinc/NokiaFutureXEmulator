@@ -8,6 +8,7 @@
         v-if="subActionButtonLabel"
         class="sub-action-button"
         :label="subActionButtonLabel"
+        :icon-filename="subActionButtonIconFilename"
         @clicked="$emit('sub-action-button-clicked')"/>
       <action-button
         class="action-button"
@@ -34,6 +35,7 @@ export default {
   props: {
     actionButtonLabel: String,
     subActionButtonLabel: String,
+    subActionButtonIconFilename: String,
     isActionButtonEnabled: {
       type: Boolean,
       default: true,

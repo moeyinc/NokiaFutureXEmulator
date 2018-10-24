@@ -152,6 +152,57 @@ const mqttPublishActions = {
       });
     });
   },
+  /**
+   * setNetwork - update network
+   *
+   * @param  {!Object} context Vuex context object
+   * @return {!Promise}
+   */
+  setNetwork(context) {
+    return new Promise((resolve, reject) => {
+      // set network value
+      if (!context.state.selectedNetwork) reject('No network selected');
+      let params = context.state.selectedNetwork.parameters;
+      let network = {
+        security: params.security.value,
+        latency: params.latency.value,
+        bandwidth: params.bandwidth.value,
+        reliability: params.reliability.value,
+      };
+
+      // set up a message object to publish
+      const message = {
+        type: 'set-network',
+        network: network,
+      };
+
+      // publish the message
+      publishMessage(context.state.mqttClient, message, (err) => {
+        if (err) reject(err);
+        resolve();
+      });
+    });
+  },
+  /**
+   * endMission - end mission
+   *
+   * @param  {!Object} context Vuex context object
+   * @return {!Promise}
+   */
+  endMission(context) {
+    return new Promise((resolve, reject) => {
+      // set up a message object to publish
+      const message = {
+        type: 'endMission',
+      };
+
+      // publish the message
+      publishMessage(context.state.mqttClient, message, (err) => {
+        if (err) reject(err);
+        resolve();
+      });
+    });
+  },
 };
 
 export default mqttPublishActions;

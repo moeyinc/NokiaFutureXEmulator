@@ -61,9 +61,6 @@ export default {
     storyPageMixin,
   ],
   methods: {
-    abortMission() {
-      console.log('abort mission');
-    },
     replayMission() {
       console.log('replay mission');
     },

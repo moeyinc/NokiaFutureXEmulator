@@ -42,7 +42,7 @@ export default {
     align-items: center
 
     img
-      width: 20px
-      height: 18px
+      width: 30px
+      height: 30px
       margin-right: 11px
 </style>

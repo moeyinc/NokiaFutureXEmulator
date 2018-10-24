@@ -48,6 +48,9 @@ export default {
   created() {
     this.setEventListeners();
   },
+  destroyed() {
+    this.remoeveEventListeners();
+  },
   computed: {
     tp() {
       let keyName;
@@ -109,6 +112,11 @@ export default {
             ' Prerendered page');
         }
       });
+    },
+    remoeveEventListeners() {
+      EventBus.$off('completed-story-intro');
+      EventBus.$off('completed-story-interlude');
+      EventBus.$off('completed-story');
     },
   },
 };
