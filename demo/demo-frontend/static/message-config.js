@@ -48,6 +48,11 @@ export default {
           options: [true, false],
           value: false,
         },
+        {
+          name: 'numberOfPlayers',
+          options: [1, 2],
+          value: 1,
+        },
       ],
       networkParams: [
         {
