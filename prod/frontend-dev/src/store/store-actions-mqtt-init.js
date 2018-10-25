@@ -1,5 +1,5 @@
 import mqtt from 'mqtt';
-import APP_CONFIG from '@/config/app-config';
+// import APP_CONFIG from '@/config/app-config';
 import EventBus from '@/event-bus';
 
 const mqttInitAction = {

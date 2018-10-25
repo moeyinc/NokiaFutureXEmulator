@@ -1,5 +1,5 @@
-import APP_CONFIG from '@/config/app-config';
-import MESSAGE_CONFIG from '@/config/message-config';
+// import APP_CONFIG from '@/config/app-config';
+// import MESSAGE_CONFIG from '@/config/message-config';
 
 /**
  * publishMessage - publish a mqtt message to subscribers.

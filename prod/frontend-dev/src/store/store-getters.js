@@ -1,4 +1,4 @@
-import STORY_CONFIG from '@/config/story-config.json';
+// import STORY_CONFIG from '@/config/story-config.json';
 
 const getters = {
   getStories: (state) => {
