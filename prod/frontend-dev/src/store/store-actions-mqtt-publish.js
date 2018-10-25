@@ -184,6 +184,26 @@ const mqttPublishActions = {
     });
   },
   /**
+   * proceed - proceed to next mission
+   *
+   * @param  {!Object} context Vuex context object
+   * @return {!Promise}
+   */
+  proceed(context) {
+    return new Promise((resolve, reject) => {
+      // set up a message object to publish
+      const message = {
+        type: 'proceed',
+      };
+
+      // publish the message
+      publishMessage(context.state.mqttClient, message, (err) => {
+        if (err) reject(err);
+        resolve();
+      });
+    });
+  },
+  /**
    * endMission - end mission
    *
    * @param  {!Object} context Vuex context object
@@ -193,7 +213,7 @@ const mqttPublishActions = {
     return new Promise((resolve, reject) => {
       // set up a message object to publish
       const message = {
-        type: 'endMission',
+        type: 'end-mission',
       };
 
       // publish the message

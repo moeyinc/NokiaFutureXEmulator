@@ -84,11 +84,17 @@ export default {
               });
         } else {
           // move to mission 2 player mode selection screen
-          this.jumpTo('PlayerModeSelection', {
-            story_id: this.storyId,
-            mission_id: this.missionId + 1,
-            transition: 'fade',
-          });
+          this.$store.dispatch('proceed')
+              .then(() => {
+                this.jumpTo('PlayerModeSelection', {
+                  story_id: this.storyId,
+                  mission_id: this.missionId + 1,
+                  transition: 'fade',
+                });
+              })
+              .catch((err) => {
+                alert('There was error on publishing MQTT message', err);
+              });
         }
       } else if (this.missionId === 2) {
         // if this is the mission 2, send a message to start outro
