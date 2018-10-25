@@ -62,10 +62,47 @@ export default {
   ],
   methods: {
     replayMission() {
-      console.log('replay mission');
+      this.jumpTo('PlayerModeSelection', {
+        storyId: this.storyId,
+        missionId: this.missionId,
+        transition: 'fade',
+      });
     },
     proceedToNext() {
-      console.log('proceed to next');
+      if (this.missionId === 1) {
+        if (this.selectedStory.interlude) {
+          // if this story has interlude, send the message to start it
+          this.$store.dispatch('playStoryInterlude')
+              .then(() => {
+                this.jumpTo('Interlude', {
+                  story_id: this.storyId,
+                  transition: 'fade',
+                });
+              })
+              .catch((err) => {
+                alert('There was error on publishing MQTT message', err);
+              });
+        } else {
+          // move to mission 2 player mode selection screen
+          this.jumpTo('PlayerModeSelection', {
+            story_id: this.storyId,
+            mission_id: this.missionId + 1,
+            transition: 'fade',
+          });
+        }
+      } else if (this.missionId === 2) {
+        // if this is the mission 2, send a message to start outro
+        this.$store.dispatch('playStoryOutro')
+            .then(() => {
+              this.jumpTo('Outro', {
+                story_id: this.storyId,
+                transition: 'fade',
+              });
+            })
+            .catch((err) => {
+              alert('There was error on publishing MQTT message', err);
+            });
+      }
     },
   },
 };

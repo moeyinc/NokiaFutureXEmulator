@@ -71,7 +71,11 @@ export default {
   methods: {
     selectPlayerMode(mode) {
       this.$store.commit('selectPlayerMode', mode);
-      this.jumpTo('PlayerNetworkSelection', {transition: 'fade'});
+      this.jumpTo('PlayerNetworkSelection', {
+        story_id: this.storyId,
+        mission_id: this.missionId,
+        transition: 'fade',
+      });
     },
   },
 };

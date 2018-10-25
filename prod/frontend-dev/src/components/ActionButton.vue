@@ -5,7 +5,7 @@
   <div
     :class="['action-button', {'small': small}]"
     :style="buttonStyle"
-    @click="$emit('clicked')">
+    @click="() => {if (enabled) $emit('clicked')}">
     {{label}}
   </div>
 </template>

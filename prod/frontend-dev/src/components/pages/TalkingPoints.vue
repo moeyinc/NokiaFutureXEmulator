@@ -49,7 +49,7 @@ export default {
     this.setEventListeners();
   },
   destroyed() {
-    this.remoeveEventListeners();
+    this.removeEventListeners();
   },
   computed: {
     tp() {
@@ -113,7 +113,7 @@ export default {
         }
       });
     },
-    remoeveEventListeners() {
+    removeEventListeners() {
       EventBus.$off('completed-story-intro');
       EventBus.$off('completed-story-interlude');
       EventBus.$off('completed-story');

@@ -61,12 +61,12 @@ export default {
           .then(() => {
             if (mode === 'interactive') {
               this.jumpTo('Intro', {
-                storyId: this.storyId,
+                story_id: this.storyId,
                 transition: 'fade',
               });
             } else if (mode === 'movie') {
               this.jumpTo('Prerendered', {
-                storyId: this.storyId,
+                story_id: this.storyId,
                 transition: 'fade',
               });
             }

@@ -108,19 +108,15 @@ export default {
   ],
   data() {
     return {
-      overlay: 'calibration',
+      overlay: null,
     };
   },
   created() {
-    EventBus.$on('completed-mission', () => {
-      this.jumpTo('PostMission', {
-        story_id: this.storyId,
-        mission_id: this.missionId,
-      });
-    });
+    this.setCalibrationOverlay();
+    this.setEventListeners();
   },
   destroyed() {
-    EventBus.$off('completed-mission');
+    this.removeEventListeners();
   },
   computed: {
     selectedNetwork() {
@@ -128,6 +124,25 @@ export default {
     },
   },
   methods: {
+    setCalibrationOverlay() {
+      let selectedPlayerMode = this.$store.state.selectedPlayerMode;
+      if (selectedPlayerMode === 'auto') {
+        this.overlay = null;
+      } else {
+        this.overlay = 'calibration';
+      }
+    },
+    setEventListeners() {
+      EventBus.$on('completed-mission', () => {
+        this.jumpTo('PostMission', {
+          story_id: this.storyId,
+          mission_id: this.missionId,
+        });
+      });
+    },
+    removeEventListeners() {
+      EventBus.$off('completed-mission');
+    },
     updateNetwork() {
       this.$store.dispatch('setNetwork')
           .then(() => {

@@ -167,8 +167,8 @@ export default {
       this.$store.dispatch('startMission', this.missionId)
           .then(() => {
             this.jumpTo('MissionControls', {
-              storyId: this.storyId,
-              missionId: this.missionId,
+              story_id: this.storyId,
+              mission_id: this.missionId,
               transition: 'fade',
             });
           })

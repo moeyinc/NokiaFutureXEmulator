@@ -203,6 +203,46 @@ const mqttPublishActions = {
       });
     });
   },
+  /**
+   * playStoryInterlude - play story interlude
+   *
+   * @param  {!Object} context Vuex context object
+   * @return {!Promise}
+   */
+  playStoryInterlude(context) {
+    return new Promise((resolve, reject) => {
+      // set up a message object to publish
+      const message = {
+        type: 'play-story-interlude',
+      };
+
+      // publish the message
+      publishMessage(context.state.mqttClient, message, (err) => {
+        if (err) reject(err);
+        resolve();
+      });
+    });
+  },
+  /**
+   * playStoryOutro - play story outro
+   *
+   * @param  {!Object} context Vuex context object
+   * @return {!Promise}
+   */
+  playStoryOutro(context) {
+    return new Promise((resolve, reject) => {
+      // set up a message object to publish
+      const message = {
+        type: 'play-story-outro',
+      };
+
+      // publish the message
+      publishMessage(context.state.mqttClient, message, (err) => {
+        if (err) reject(err);
+        resolve();
+      });
+    });
+  },
 };
 
 export default mqttPublishActions;
