@@ -78,6 +78,9 @@ export default {
       ],
     },
     {
+      type: 'proceed',
+    },
+    {
       type: 'end-mission',
     },
     {
