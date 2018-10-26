@@ -42,7 +42,7 @@
 <script>
 import OverlayWrapper from './OverlayWrapper';
 import SelectedPlayerIcon from '@/components/SelectedPlayerIcon';
-import SLEEVE_CONFIG from '@/config/sleeve-config';
+// import SLEEVE_CONFIG from '@/config/sleeve-config';
 
 export default {
   name: 'SelectSleeveOverlay',
