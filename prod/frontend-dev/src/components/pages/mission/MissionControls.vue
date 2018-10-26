@@ -10,10 +10,10 @@
       :has-nav-bar="true"
       :category-name="selectedStory.category"
       :back-button-label="'End Story'"
-      @back-button-clicked="jumpTo('Stories', {transition: 'fade'})"/>
+      @back-button-clicked="endStory()"/>
 
     <div class="wrapper">
-      <div class="outer-box" @click="overlay='network'">
+      <div class="outer-box">
         <div class="network-name">
           <div class="label">
             NETWORK
@@ -62,8 +62,8 @@
     <floating-action-button-container
       :action-button-label="'Update Network'"
       :sub-action-button-label="'Abort Mission'"
-      :sub-action-button-icon-filename="'arrow-left.png'"
-      @action-button-clicked="updateNetwork()"
+      :sub-action-button-icon-filename="'arrow-right.png'"
+      @action-button-clicked="overlay='network'"
       @sub-action-button-clicked="abortMission()"/>
 
     <calibration-overlay
@@ -73,7 +73,7 @@
 
     <select-network-overlay
       v-if="overlay === 'network'"
-      @close="overlay = null">
+      @close="updateNetwork()">
     </select-network-overlay>
 
   </div>
@@ -137,6 +137,7 @@ export default {
         this.jumpTo('PostMission', {
           story_id: this.storyId,
           mission_id: this.missionId,
+          transition: 'slide-left',
         });
       });
     },
@@ -147,9 +148,11 @@ export default {
       this.$store.dispatch('setNetwork')
           .then(() => {
             console.log('network is updated');
+            this.overlay = null;
           })
           .catch((err) => {
             console.error('There was an error sending an message!', err);
+            this.overlay = null;
           });
     },
     abortMission() {
@@ -158,10 +161,20 @@ export default {
             this.jumpTo('PostMission', {
               story_id: this.storyId,
               mission_id: this.missionId,
+              transition: 'slide-left',
             });
           })
           .catch((err) => {
             console.error('There was an error sending an message!', err);
+          });
+    },
+    endStory() {
+      this.$store.dispatch('endStory')
+          .then(() => {
+            this.jumpTo('Stories', {transition: 'fade'});
+          })
+          .catch(() => {
+            console.error('There was error on sending message');
           });
     },
   },

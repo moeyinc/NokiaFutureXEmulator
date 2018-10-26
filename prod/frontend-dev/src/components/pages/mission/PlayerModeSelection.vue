@@ -10,7 +10,7 @@
       :has-nav-bar="true"
       :category-name="selectedStory.category"
       :back-button-label="'End Story'"
-      @back-button-clicked="jumpTo('Stories', {transition: 'fade'})"/>
+      @back-button-clicked="endStory()"/>
 
     <div class="wrapper">
       <action-headline>Player Mode</action-headline>
@@ -30,15 +30,15 @@
           :height="320"
           :icon-filename="'two-player-icon.png'"
           :icon-filename-active="'two-player-icon-active.png'"
-          :label="'2 Player Mode'"
-          @clicked="selectPlayerMode(2)"/>
+          :label="'2 Player Mode'"/>
+          <!-- @clicked="selectPlayerMode(2)" -->
         <large-select-button
           :width="selectedMission.hasTwoPlayerMode ? 204 : 320"
           :height="320"
           :icon-filename="'autoplay-icon.png'"
           :icon-filename-active="'autoplay-icon-active.png'"
-          :label="'Auto Play'"
-          @clicked="selectPlayerMode('auto')"/>
+          :label="'Auto Play'"/>
+          <!-- @clicked="selectPlayerMode('auto')" -->
       </div>
     </div>
 
@@ -74,8 +74,17 @@ export default {
       this.jumpTo('PlayerNetworkSelection', {
         story_id: this.storyId,
         mission_id: this.missionId,
-        transition: 'fade',
+        transition: 'slide-left',
       });
+    },
+    endStory() {
+      this.$store.dispatch('endStory')
+          .then(() => {
+            this.jumpTo('Stories', {transition: 'fade'});
+          })
+          .catch(() => {
+            console.error('There was error on sending message');
+          });
     },
   },
 };

@@ -10,7 +10,7 @@
       :has-nav-bar="true"
       :category-name="selectedStory.category"
       :back-button-label="'End Story'"
-      @back-button-clicked="jumpTo('Stories', {transition: 'fade'})"/>
+      @back-button-clicked="endStory()"/>
 
     <div class="wrapper">
       <action-headline>Continue Mission or Proceed Story?</action-headline>
@@ -109,6 +109,15 @@ export default {
               alert('There was error on publishing MQTT message', err);
             });
       }
+    },
+    endStory() {
+      this.$store.dispatch('endStory')
+          .then(() => {
+            this.jumpTo('Stories', {transition: 'fade'});
+          })
+          .catch(() => {
+            console.error('There was error on sending message');
+          });
     },
   },
 };

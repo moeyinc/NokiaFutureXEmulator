@@ -42,8 +42,9 @@ export default {
   background-repeat: no-repeat
 
   #app-main
-    padding-left: 280px
+    margin-left: 280px
     height: 100%
     overflow-y: hidden // scroll
     overflow-x: hidden
+    position: relative
 </style>

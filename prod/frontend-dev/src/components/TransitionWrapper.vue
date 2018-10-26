@@ -45,9 +45,10 @@ export default {
 // .transition-wrapper
 //   position: relative
 
-  // .transition-child-view
-  //   position: absolute
-  //   width: 100%
-  //   top: 0px
-  //   left: 0px
+.transition-child-view
+  position: absolute
+  width: 100%
+  height: 100%
+  top: 0px
+  left: 0px
 </style>

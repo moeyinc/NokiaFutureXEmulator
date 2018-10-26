@@ -86,6 +86,26 @@ const mqttPublishActions = {
     });
   },
   /**
+   * endStory - end story
+   *
+   * @param  {!Object} context Vuex context object
+   * @return {!Promise}
+   */
+  endStory(context) {
+    return new Promise((resolve, reject) => {
+      // set up a message object to publish
+      const message = {
+        type: 'end-story',
+      };
+
+      // publish the message
+      publishMessage(context.state.mqttClient, message, (err) => {
+        if (err) reject(err);
+        resolve();
+      });
+    });
+  },
+  /**
    * startMission - start a mission
    *
    * @param  {!Object} context Vuex context object

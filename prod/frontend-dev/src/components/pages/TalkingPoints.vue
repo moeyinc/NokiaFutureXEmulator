@@ -10,7 +10,7 @@
       :has-nav-bar="true"
       :category-name="selectedStory.category"
       :back-button-label="'End Story'"
-      @back-button-clicked="jumpTo('Stories', {transition: 'fade'})"/>
+      @back-button-clicked="endStory()"/>
 
     <div v-if="tp">
       <summary-block
@@ -117,6 +117,15 @@ export default {
       EventBus.$off('completed-story-intro');
       EventBus.$off('completed-story-interlude');
       EventBus.$off('completed-story');
+    },
+    endStory() {
+      this.$store.dispatch('endStory')
+          .then(() => {
+            this.jumpTo('Stories', {transition: 'fade'});
+          })
+          .catch(() => {
+            console.error('There was error on sending message');
+          });
     },
   },
 };

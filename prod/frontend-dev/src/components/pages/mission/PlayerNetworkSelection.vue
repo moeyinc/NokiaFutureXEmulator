@@ -10,13 +10,13 @@
       :has-nav-bar="true"
       :category-name="selectedStory.category"
       :back-button-label="'End Story'"
-      @back-button-clicked="jumpTo('Stories', {transition: 'fade'})"/>
+      @back-button-clicked="endStory()"/>
 
     <div class="wrapper">
       <action-headline>
         <span
           style="opacity: 0.5"
-          @click="jumpTo('PlayerModeSelection', {transition: 'fade'})">
+          @click="jumpTo('PlayerModeSelection', {transition: 'slide-right'})">
           Player Mode >
         </span>
         Setting
@@ -174,6 +174,15 @@ export default {
           })
           .catch((err) => {
             alert('There was error on publishing MQTT message', err);
+          });
+    },
+    endStory() {
+      this.$store.dispatch('endStory')
+          .then(() => {
+            this.jumpTo('Stories', {transition: 'fade'});
+          })
+          .catch(() => {
+            console.error('There was error on sending message');
           });
     },
   },
