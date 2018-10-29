@@ -82,19 +82,19 @@ export default {
         parameters: {
           security: {
             raw: 'Low',
-            value: 0,
+            value: 4,
           },
           latency: {
             raw: '100ms',
-            value: 0,
+            value: 3,
           },
           bandwidth: {
             raw: '1mb/s',
-            value: 0,
+            value: 5,
           },
           reliability: {
             raw: '90.0%',
-            value: 0,
+            value: 4,
           },
         },
       };
