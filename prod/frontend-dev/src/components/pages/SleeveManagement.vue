@@ -34,7 +34,7 @@
 import MainHeader from '@/components/MainHeader';
 import SummaryBlock from '@/components/SummaryBlock';
 import ActionTable from '@/components/ActionTable';
-import SelectSleeveOverlay from './mission/overlays/SelectSleeveOverlay';
+import SelectSleeveOverlay from './overlays/SelectSleeveOverlay';
 
 export default {
   name: 'SleeveManagement',

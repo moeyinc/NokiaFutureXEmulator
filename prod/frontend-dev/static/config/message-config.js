@@ -29,6 +29,9 @@ var MESSAGE_CONFIG = [
     type: 'play',
   },
   {
+    type: 'skip',
+  },
+  {
     type: 'pause',
   },
   {
