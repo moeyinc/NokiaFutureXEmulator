@@ -63,6 +63,7 @@ export default {
   data() {
     return {
       overlay: null,
+      lastStoryPage: null,
     };
   },
   components: {
@@ -81,12 +82,16 @@ export default {
   },
   methods: {
     jumpToLastStoryPage() {
-      let path = this.$store.state.lastStoryPagePath;
-      if (!path) {
-        console.error('No lastStoryPagePath found', path);
+      let page = this.$store.state.lastStoryPage;
+      if (!page) {
+        console.error('No lastStoryPagePath found', page);
         return;
       }
-      this.jumpToPath(path, {transition: 'fade'});
+      this.jumpTo(page.name, {
+        story_id: page.story_id,
+        mission_id: page.mission_id,
+        transition: 'fade',
+      });
     },
     logout() {
       this.$store.dispatch('logout')

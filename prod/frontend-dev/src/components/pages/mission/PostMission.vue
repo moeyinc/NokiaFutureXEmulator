@@ -90,7 +90,7 @@ export default {
               .then(() => {
                 this.jumpTo('Interlude', {
                   story_id: this.storyId,
-                  transition: 'fade',
+                  transition: 'slide-left',
                 });
               })
               .catch((err) => {
@@ -103,7 +103,7 @@ export default {
                 this.jumpTo('PlayerModeSelection', {
                   story_id: this.storyId,
                   mission_id: this.missionId + 1,
-                  transition: 'fade',
+                  transition: 'slide-left',
                 });
               })
               .catch((err) => {
@@ -116,7 +116,7 @@ export default {
             .then(() => {
               this.jumpTo('Outro', {
                 story_id: this.storyId,
-                transition: 'fade',
+                transition: 'slide-left',
               });
             })
             .catch((err) => {

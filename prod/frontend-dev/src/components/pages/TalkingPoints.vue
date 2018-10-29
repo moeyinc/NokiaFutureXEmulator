@@ -26,6 +26,7 @@
       <action-button
         v-show="playing"
         style="margin-right: 30px"
+        :key="'pause'"
         :label="'Pause'"
         :icon-filename="'pause-icon.png'"
         :enabled="true"
@@ -33,6 +34,7 @@
       <action-button
         v-show="!playing"
         style="margin-right: 30px"
+        :key="'play'"
         :label="'Play'"
         :icon-filename="'play-icon.png'"
         :enabled="true"
@@ -123,7 +125,7 @@ export default {
           this.jumpTo('PlayerModeSelection', {
             story_id: this.storyId,
             mission_id: 1,
-            transition: 'fade',
+            transition: 'slide-left',
           });
         } else {
           console.log('No action triggered because Im not on Intro page');
@@ -136,7 +138,7 @@ export default {
           this.jumpTo('PlayerModeSelection', {
             story_id: this.storyId,
             mission_id: 2,
-            transition: 'fade',
+            transition: 'slide-left',
           });
         } else {
           console.log('No action triggered because Im not on Interlude page');
@@ -195,7 +197,7 @@ export default {
               this.jumpTo('PlayerModeSelection', {
                 story_id: this.storyId,
                 mission_id: 1,
-                transition: 'fade',
+                transition: 'slide-left',
               });
             })
             .catch(() => {

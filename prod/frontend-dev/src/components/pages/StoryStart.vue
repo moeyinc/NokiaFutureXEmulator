@@ -24,7 +24,7 @@
 
     <floating-action-button-container>
       <action-button
-        :label="'Start Interactive Version'"
+        :label="'Start Story'"
         :enabled="true"
         @clicked="startStory('interactive')"/>
     </floating-action-button-container>
@@ -67,12 +67,12 @@ export default {
             if (mode === 'interactive') {
               this.jumpTo('Intro', {
                 story_id: this.storyId,
-                transition: 'fade',
+                transition: 'slide-left',
               });
             } else if (mode === 'movie') {
               this.jumpTo('Prerendered', {
                 story_id: this.storyId,
-                transition: 'fade',
+                transition: 'slide-left',
               });
             }
           })
@@ -89,11 +89,10 @@ export default {
 ================================================== -->
 <style lang="stylus" scoped>
 .story-start
-
   .catch
     position: fixed
     top: 313px
-    left: 280px
+    // left: 280px
     width: 832px
     height: 381px
     background-size: cover

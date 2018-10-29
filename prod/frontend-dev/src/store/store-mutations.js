@@ -5,8 +5,9 @@ const mutations = {
   logout(state) {
     state.isLoggedIn = false;
   },
-  updateLastStoryPagePath(state, path) {
-    state.lastStoryPagePath = path;
+  // page: {name, story_id, mission_id}
+  updateLastStoryPage(state, page) {
+    state.lastStoryPage = page;
   },
   // mode: 1 or 2 or 'auto'
   selectPlayerMode(state, mode) {

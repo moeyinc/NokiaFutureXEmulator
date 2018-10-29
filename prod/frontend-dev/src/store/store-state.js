@@ -1,7 +1,7 @@
 const state = {
   mqttClient: null,
   isLoggedIn: false,
-  lastStoryPagePath: null,
+  lastStoryPage: null,
   // roomEffects: {},
   selectedPlayerMode: null,
   selectedPlayerOne: null,
