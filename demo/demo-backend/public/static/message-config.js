@@ -30,6 +30,9 @@ export default {
       type: 'play',
     },
     {
+      type: 'skip',
+    },
+    {
       type: 'pause',
     },
     {
