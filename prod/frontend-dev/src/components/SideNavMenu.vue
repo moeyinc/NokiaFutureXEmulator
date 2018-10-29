@@ -38,6 +38,9 @@
         :icon-filename-active="'logout-icon-active.png'"
         @clicked="logout()"/>
     </div>
+
+    <confirmation-modal-overlay
+      @close="overlay = null"/>
   </div>
 </template>
 
@@ -49,6 +52,11 @@ import SideNavMenuItem from '@/components/SideNavMenuItem';
 
 export default {
   name: 'SideNavMenu',
+  data() {
+    return {
+      overlay: null,
+    };
+  },
   components: {
     SideNavMenuItem,
   },

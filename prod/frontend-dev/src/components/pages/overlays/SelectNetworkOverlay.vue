@@ -42,7 +42,7 @@ export default {
       let selectedPlayerTwo = this.$store.state.selectedPlayerTwo;
 
       let optimized = {
-        name: 'Optimized Network',
+        name: 'Presaved Network 1 - 5G',
         category: 'BEST',
         parameters: {
           security: {
@@ -77,7 +77,7 @@ export default {
       };
 
       let notOptimized = {
-        name: 'Not Optimized Network',
+        name: 'Presaved Network 2 - Wifi/Legacy',
         category: 'BAD',
         parameters: {
           security: {

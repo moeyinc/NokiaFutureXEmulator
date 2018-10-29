@@ -86,8 +86,8 @@
 import MainHeader from '@/components/MainHeader';
 import FloatingActionButtonContainer from
   '@/components/FloatingActionButtonContainer';
-import CalibrationOverlay from './overlays/CalibrationOverlay';
-import SelectNetworkOverlay from './overlays/SelectNetworkOverlay';
+import CalibrationOverlay from '../overlays/CalibrationOverlay';
+import SelectNetworkOverlay from '../overlays/SelectNetworkOverlay';
 import selectedStoryMixin from '@/mixins/selected-story';
 import selectedMissionMixin from '@/mixins/selected-mission';
 import storyPageMixin from '@/mixins/story-page';
