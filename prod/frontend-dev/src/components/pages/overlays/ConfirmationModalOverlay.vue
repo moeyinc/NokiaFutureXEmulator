@@ -3,7 +3,6 @@
 ================================================== -->
 <template>
   <overlay-wrapper
-    class="confirmation-modal"
     @close-button-clicked="$emit('close')">
     <div class="container">
       <div class="content">
@@ -51,24 +50,21 @@ export default {
  Vue Style
 ================================================== -->
 <style lang="stylus" scoped>
-.confirmation-modal
-  position: relative
+.container
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
 
-  .container
-    position: absolute
-    top: 50%
-    left: 50%
-    transform: translate(-50%, -50%)
+  .message
+    font-size: 40px
+    margin-bottom: 60px
 
-    .message
-      font-size: 40px
-      margin-bottom: 60px
+  .button-container
+    display: flex
+    flex-direction: row
+    justify-content: center
 
-    .button-container
-      display: flex
-      flex-direction: row
-      justify-content: center
-
-      .left-button
-        margin-right: 20px
+    .left-button
+      margin-right: 20px
 </style>

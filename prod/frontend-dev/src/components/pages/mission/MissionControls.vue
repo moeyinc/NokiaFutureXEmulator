@@ -10,7 +10,7 @@
       :has-nav-bar="true"
       :category-name="selectedStory.category"
       :back-button-label="'End Story'"
-      @back-button-clicked="overlay = 'confirmation'"/>
+      @back-button-clicked="overlay = 'end-story-confirmation'"/>
 
     <div class="wrapper">
       <div class="outer-box">
@@ -65,7 +65,7 @@
         :label="'Exit Mission'"
         :icon-filename="'arrow-right.png'"
         :enabled="true"
-        @clicked="abortMission()"/>
+        @clicked="overlay = 'exit-mission-confirmation'"/>
       <action-button
         :label="'Update Network'"
         :enabled="true"
@@ -84,10 +84,18 @@
 
     <transition :name="'fade'">
       <confirmation-modal-overlay
-        v-if="overlay === 'confirmation'"
+        v-if="overlay === 'end-story-confirmation'"
         :message="'Are you sure to end story?'"
         @close="overlay = null"
         @execute="endStory()"/>
+    </transition>
+
+    <transition :name="'fade'">
+      <confirmation-modal-overlay
+        v-if="overlay === 'exit-mission-confirmation'"
+        :message="'Are you sure to exit mission?'"
+        @close="overlay = null"
+        @execute="abortMission()"/>
     </transition>
 
   </div>
