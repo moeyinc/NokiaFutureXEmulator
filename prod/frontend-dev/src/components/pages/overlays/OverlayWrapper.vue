@@ -2,21 +2,23 @@
  Template
 ================================================== -->
 <template>
-  <div
-    class="overlay-wrapper"
-    :style="{backgroundColor: backgroundColorWithOpacity}">
-    <div class="overlay-header">
-      <div class="title">
-        <h1>{{headerTitle}}</h1>
+  <transition :name="'fade'">
+    <div
+      class="overlay-wrapper"
+      :style="{backgroundColor: backgroundColorWithOpacity}">
+      <div class="overlay-header">
+        <div class="title">
+          <h1>{{headerTitle}}</h1>
+        </div>
+        <icon-button
+          v-if="!closeButtonDisabled"
+          :filename="'close-icon.png'"
+          :filename-active="'close-icon-active.png'"
+          @clicked="$emit('close-button-clicked')"/>
       </div>
-      <icon-button
-        v-if="!closeButtonDisabled"
-        :filename="'close-icon.png'"
-        :filename-active="'close-icon-active.png'"
-        @clicked="$emit('close-button-clicked')"/>
+      <slot></slot>
     </div>
-    <slot></slot>
-  </div>
+  </transition>
 </template>
 
 <!-- =================================================

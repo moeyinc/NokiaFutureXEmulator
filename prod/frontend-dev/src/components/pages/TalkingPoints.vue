@@ -44,13 +44,11 @@
         @clicked="skip()"/>
     </floating-action-button-container>
 
-    <transition :name="'fade'">
-      <confirmation-modal-overlay
-        v-if="overlay === 'confirmation'"
-        :message="'Are you sure to end story?'"
-        @close="overlay = null"
-        @execute="endStory()"/>
-    </transition>
+    <confirmation-modal-overlay
+      v-if="overlay === 'confirmation'"
+      :message="'Are you sure to end story?'"
+      @close="overlay = null"
+      @execute="endStory()"/>
 
   </div>
 </template>

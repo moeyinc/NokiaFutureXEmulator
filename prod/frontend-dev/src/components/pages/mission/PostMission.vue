@@ -34,13 +34,11 @@
       </div>
     </div>
 
-    <transition :name="'fade'">
-      <confirmation-modal-overlay
-        v-if="overlay === 'confirmation'"
-        :message="'Are you sure to end story?'"
-        @close="overlay = null"
-        @execute="endStory()"/>
-    </transition>
+    <confirmation-modal-overlay
+      v-if="overlay === 'confirmation'"
+      :message="'Are you sure to end story?'"
+      @close="overlay = null"
+      @execute="endStory()"/>
 
   </div>
 </template>
@@ -81,7 +79,7 @@ export default {
       this.jumpTo('PlayerModeSelection', {
         storyId: this.storyId,
         missionId: this.missionId,
-        transition: 'fade',
+        transition: 'slide-right',
       });
     },
     proceedToNext() {

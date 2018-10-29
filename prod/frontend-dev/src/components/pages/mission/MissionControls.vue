@@ -82,21 +82,17 @@
       @close="updateNetwork()">
     </select-network-overlay>
 
-    <transition :name="'fade'">
-      <confirmation-modal-overlay
-        v-if="overlay === 'end-story-confirmation'"
-        :message="'Are you sure to end story?'"
-        @close="overlay = null"
-        @execute="endStory()"/>
-    </transition>
+    <confirmation-modal-overlay
+      v-if="overlay === 'end-story-confirmation'"
+      :message="'Are you sure to end story?'"
+      @close="overlay = null"
+      @execute="endStory()"/>
 
-    <transition :name="'fade'">
-      <confirmation-modal-overlay
-        v-if="overlay === 'exit-mission-confirmation'"
-        :message="'Are you sure to exit mission?'"
-        @close="overlay = null"
-        @execute="abortMission()"/>
-    </transition>
+    <confirmation-modal-overlay
+      v-if="overlay === 'exit-mission-confirmation'"
+      :message="'Are you sure to exit mission?'"
+      @close="overlay = null"
+      @execute="abortMission()"/>
 
   </div>
 </template>
