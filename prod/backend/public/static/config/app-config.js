@@ -1,5 +1,5 @@
 var APP_CONFIG = {
-  PASSWORD: 'nokianokia',
+  PASSWORD: 'nokia',
   MQTT: {
     HOST: 'mqtt.jonahb.com',
     PORT: 8080,

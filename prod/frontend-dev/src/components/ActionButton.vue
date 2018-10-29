@@ -6,7 +6,12 @@
     :class="['action-button', {'small': small}]"
     :style="buttonStyle"
     @click="() => {if (enabled) $emit('clicked')}">
-    {{label}}
+    <div class="inner">
+      <img
+        v-if="iconFilename"
+        :src="require('@/assets/images/' + iconFilename)"/>
+      <h6>{{label}}</h6>
+    </div>
   </div>
 </template>
 
@@ -20,6 +25,7 @@ export default {
     label: String,
     enabled: Boolean,
     small: Boolean,
+    iconFilename: String,
   },
   computed: {
     buttonStyle() {
@@ -50,4 +56,14 @@ export default {
   &.small
     height: 80px
     padding: 0px 80px
+
+  .inner
+    display: flex
+    flex-direction: row
+    align-items: center
+
+    img
+      width: 50px
+      height: 50px
+      margin-right: 11px
 </style>

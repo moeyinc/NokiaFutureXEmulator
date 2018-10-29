@@ -10,7 +10,7 @@
       :has-nav-bar="true"
       :category-name="selectedStory.category"
       :back-button-label="'End Story'"
-      @back-button-clicked="endStory()"/>
+      @back-button-clicked="overlay = 'confirmation'"/>
 
     <div class="wrapper">
       <div class="outer-box">
@@ -60,11 +60,17 @@
     </div>
 
     <floating-action-button-container
-      :action-button-label="'Update Network'"
-      :sub-action-button-label="'Abort Mission'"
-      :sub-action-button-icon-filename="'arrow-right.png'"
-      @action-button-clicked="overlay='network'"
-      @sub-action-button-clicked="abortMission()"/>
+      :justify-content="'space-between'">
+      <sub-action-button
+        :label="'Exit Mission'"
+        :icon-filename="'arrow-right.png'"
+        :enabled="true"
+        @clicked="abortMission()"/>
+      <action-button
+        :label="'Update Network'"
+        :enabled="true"
+        @clicked="overlay='network'"/>
+    </floating-action-button-container>
 
     <calibration-overlay
       v-if="overlay === 'calibration'"
@@ -76,6 +82,14 @@
       @close="updateNetwork()">
     </select-network-overlay>
 
+    <transition :name="'fade'">
+      <confirmation-modal-overlay
+        v-if="overlay === 'confirmation'"
+        :message="'Are you sure to end story?'"
+        @close="overlay = null"
+        @execute="endStory()"/>
+    </transition>
+
   </div>
 </template>
 
@@ -86,8 +100,12 @@
 import MainHeader from '@/components/MainHeader';
 import FloatingActionButtonContainer from
   '@/components/FloatingActionButtonContainer';
+import ActionButton from '@/components/ActionButton';
+import SubActionButton from '@/components/SubActionButton';
 import CalibrationOverlay from '../overlays/CalibrationOverlay';
 import SelectNetworkOverlay from '../overlays/SelectNetworkOverlay';
+import ConfirmationModalOverlay from
+  '@/components/pages/overlays/ConfirmationModalOverlay';
 import selectedStoryMixin from '@/mixins/selected-story';
 import selectedMissionMixin from '@/mixins/selected-mission';
 import storyPageMixin from '@/mixins/story-page';
@@ -98,8 +116,11 @@ export default {
   components: {
     MainHeader,
     FloatingActionButtonContainer,
+    ActionButton,
+    SubActionButton,
     CalibrationOverlay,
     SelectNetworkOverlay,
+    ConfirmationModalOverlay,
   },
   mixins: [
     selectedStoryMixin,

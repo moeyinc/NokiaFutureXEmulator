@@ -3,18 +3,8 @@
 ================================================== -->
 <template>
   <div class="action-button-container">
-    <div class="inner" :style="justifyStyle">
-      <sub-action-button
-        v-if="subActionButtonLabel"
-        class="sub-action-button"
-        :label="subActionButtonLabel"
-        :icon-filename="subActionButtonIconFilename"
-        @clicked="$emit('sub-action-button-clicked')"/>
-      <action-button
-        class="action-button"
-        :label="actionButtonLabel"
-        :enabled="isActionButtonEnabled"
-        @clicked="$emit('action-button-clicked')"/>
+    <div class="inner" :style="{justifyContent: justifyContent}">
+      <slot></slot>
     </div>
   </div>
 </template>
@@ -23,30 +13,12 @@
  Script
 ================================================== -->
 <script>
-import ActionButton from '@/components/ActionButton';
-import SubActionButton from '@/components/SubActionButton';
-
 export default {
   name: 'FloatingActionButtonContainer',
-  components: {
-    ActionButton,
-    SubActionButton,
-  },
   props: {
-    actionButtonLabel: String,
-    subActionButtonLabel: String,
-    subActionButtonIconFilename: String,
-    isActionButtonEnabled: {
-      type: Boolean,
-      default: true,
-    },
-  },
-  computed: {
-    justifyStyle() {
-      return {
-        justifyContent: this.subActionButtonLabel ?
-          'space-between' : 'flex-end',
-      };
+    justifyContent: {
+      type: String,
+      default: 'flex-end',
     },
   },
 };

@@ -10,7 +10,7 @@
       :has-nav-bar="true"
       :category-name="selectedStory.category"
       :back-button-label="'End Story'"
-      @back-button-clicked="endStory()"/>
+      @back-button-clicked="overlay = 'confirmation'"/>
 
     <div v-if="tp">
       <summary-block
@@ -22,6 +22,36 @@
       </summary-block>
     </div>
 
+    <floating-action-button-container>
+      <action-button
+        v-show="playing"
+        style="margin-right: 30px"
+        :label="'Pause'"
+        :icon-filename="'pause-icon.png'"
+        :enabled="true"
+        @clicked="pause()"/>
+      <action-button
+        v-show="!playing"
+        style="margin-right: 30px"
+        :label="'Play'"
+        :icon-filename="'play-icon.png'"
+        :enabled="true"
+        @clicked="play()"/>
+      <action-button
+        :label="'Skip'"
+        :icon-filename="'skip-icon.png'"
+        :enabled="true"
+        @clicked="skip()"/>
+    </floating-action-button-container>
+
+    <transition :name="'fade'">
+      <confirmation-modal-overlay
+        v-if="overlay === 'confirmation'"
+        :message="'Are you sure to end story?'"
+        @close="overlay = null"
+        @execute="endStory()"/>
+    </transition>
+
   </div>
 </template>
 
@@ -31,6 +61,11 @@
 <script>
 import MainHeader from '@/components/MainHeader';
 import SummaryBlock from '@/components/SummaryBlock';
+import FloatingActionButtonContainer from
+  '@/components/FloatingActionButtonContainer';
+import ActionButton from '@/components/ActionButton';
+import ConfirmationModalOverlay from
+  '@/components/pages/overlays/ConfirmationModalOverlay';
 import EventBus from '@/event-bus';
 import selectedStoryMixin from '@/mixins/selected-story';
 import storyPageMixin from '@/mixins/story-page';
@@ -40,11 +75,20 @@ export default {
   components: {
     MainHeader,
     SummaryBlock,
+    FloatingActionButtonContainer,
+    ActionButton,
+    ConfirmationModalOverlay,
   },
   mixins: [
     selectedStoryMixin,
     storyPageMixin,
   ],
+  data() {
+    return {
+      playing: true,
+      overlay: null,
+    };
+  },
   created() {
     this.setEventListeners();
   },
@@ -126,6 +170,42 @@ export default {
           .catch(() => {
             console.error('There was error on sending message');
           });
+    },
+    play() {
+      this.$store.dispatch('play')
+          .then(() => {
+            this.playing = true;
+          })
+          .catch(() => {
+            console.error('There was error on sending message');
+          });
+    },
+    pause() {
+      this.$store.dispatch('pause')
+          .then(() => {
+            this.playing = false;
+          })
+          .catch(() => {
+            console.error('There was error on sending message');
+          });
+    },
+    skip() {
+      const routeName = this.$route.name;
+      if (routeName === 'Intro') {
+        this.$store.dispatch('skip')
+            .then(() => {
+              this.jumpTo('PlayerModeSelection', {
+                story_id: this.storyId,
+                mission_id: 1,
+                transition: 'fade',
+              });
+            })
+            .catch(() => {
+              console.error('There was error on sending message');
+            });
+      } else if (routeName === 'Outro') {
+        this.endStory();
+      }
     },
   },
 };

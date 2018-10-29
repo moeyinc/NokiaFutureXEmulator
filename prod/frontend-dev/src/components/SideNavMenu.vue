@@ -2,45 +2,51 @@
  Template
 ================================================== -->
 <template>
-  <div class="side-nav-menu">
-    <div class="brand-logo-block">
-      <img :src="require('@/assets/images/belllabs-logo.png')" />
-    </div>
-    <div class="menu-block">
-      <div class="fite-lab-box">
-        FITE Lab
+  <div>
+    <div class="side-nav-menu">
+      <div class="brand-logo-block">
+        <img :src="require('@/assets/images/belllabs-logo.png')" />
       </div>
-      <div class="padding-box"></div>
-      <side-nav-menu-item
-        :label="'Stories'"
-        :active="!isOnRoomEffectsPage && !isOnSleeveManagementPage"
-        :icon-filename="'story-icon.png'"
-        :icon-filename-active="'story-icon-active.png'"
-        @clicked="jumpToLastStoryPage()"/>
-      <!-- <side-nav-menu-item
-        :label="'Room Effects'"
-        :active="isOnRoomEffectsPage"
-        :icon-filename="'room-effect-icon.png'"
-        :icon-filename-active="'room-effect-icon-active.png'"
-        @clicked="jumpTo('RoomEffects', {transition: 'fade'})"/> -->
-      <side-nav-menu-item
-        :label="'Sleeve Management'"
-        :active="isOnSleeveManagementPage"
-        :icon-filename="'sleeve-icon.png'"
-        :icon-filename-active="'sleeve-icon-active.png'"
-        @clicked="jumpTo('SleeveManagement', {transition: 'fade'})"/>
+      <div class="menu-block">
+        <div class="fite-lab-box">
+          FITE Lab
+        </div>
+        <div class="padding-box"></div>
+        <side-nav-menu-item
+          :label="'Stories'"
+          :active="!isOnRoomEffectsPage && !isOnSleeveManagementPage"
+          :icon-filename="'story-icon.png'"
+          :icon-filename-active="'story-icon-active.png'"
+          @clicked="jumpToLastStoryPage()"/>
+        <!-- <side-nav-menu-item
+          :label="'Room Effects'"
+          :active="isOnRoomEffectsPage"
+          :icon-filename="'room-effect-icon.png'"
+          :icon-filename-active="'room-effect-icon-active.png'"
+          @clicked="jumpTo('RoomEffects', {transition: 'fade'})"/> -->
+        <side-nav-menu-item
+          :label="'Sleeve Management'"
+          :active="isOnSleeveManagementPage"
+          :icon-filename="'sleeve-icon.png'"
+          :icon-filename-active="'sleeve-icon-active.png'"
+          @clicked="jumpTo('SleeveManagement', {transition: 'fade'})"/>
 
-      <side-nav-menu-item
-        class="logout-item"
-        :label="'Logout'"
-        :active="false"
-        :icon-filename="'logout-icon.png'"
-        :icon-filename-active="'logout-icon-active.png'"
-        @clicked="logout()"/>
+        <side-nav-menu-item
+          class="logout-item"
+          :label="'Logout'"
+          :active="false"
+          :icon-filename="'logout-icon.png'"
+          :icon-filename-active="'logout-icon-active.png'"
+          @clicked="overlay = 'confirmation'"/>
+      </div>
     </div>
-
-    <confirmation-modal-overlay
-      @close="overlay = null"/>
+    <transition :name="'fade'">
+      <confirmation-modal-overlay
+        v-if="overlay === 'confirmation'"
+        :message="'Are you sure to logout?'"
+        @close="overlay = null"
+        @execute="logout()"/>
+    </transition>
   </div>
 </template>
 
@@ -49,6 +55,8 @@
 ================================================== -->
 <script>
 import SideNavMenuItem from '@/components/SideNavMenuItem';
+import ConfirmationModalOverlay from
+  '@/components/pages/overlays/ConfirmationModalOverlay';
 
 export default {
   name: 'SideNavMenu',
@@ -59,6 +67,7 @@ export default {
   },
   components: {
     SideNavMenuItem,
+    ConfirmationModalOverlay,
   },
   computed: {
     isOnRoomEffectsPage() {

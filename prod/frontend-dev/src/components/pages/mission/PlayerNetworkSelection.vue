@@ -10,7 +10,7 @@
       :has-nav-bar="true"
       :category-name="selectedStory.category"
       :back-button-label="'End Story'"
-      @back-button-clicked="endStory()"/>
+      @back-button-clicked="overlay = 'confirmation'"/>
 
     <div class="wrapper">
       <action-headline>
@@ -26,21 +26,25 @@
         @clicked="(itemType) => overlay = itemType"/>
     </div>
 
-    <floating-action-button-container
-      :action-button-label="'Start Mission'"
-      :is-action-button-enabled="readyToStartMission"
-      @action-button-clicked="startMission()"/>
-
-    <!-- <select-player-overlay
-      v-if="overlay === 'player1' || overlay === 'player2'"
-      :player-index="overlay"
-      @close="overlay = null">
-    </select-player-overlay> -->
+    <floating-action-button-container>
+      <action-button
+        :label="'Start Mission'"
+        :enabled="readyToStartMission"
+        @clicked="startMission()"/>
+    </floating-action-button-container>
 
     <select-network-overlay
       v-if="overlay === 'network'"
       @close="overlay = null">
     </select-network-overlay>
+
+    <transition :name="'fade'">
+      <confirmation-modal-overlay
+        v-if="overlay === 'confirmation'"
+        :message="'Are you sure to end story?'"
+        @close="overlay = null"
+        @execute="endStory()"/>
+    </transition>
 
   </div>
 </template>
@@ -54,8 +58,11 @@ import ActionHeadline from '@/components/ActionHeadline';
 import ActionTable from '@/components/ActionTable';
 import FloatingActionButtonContainer from
   '@/components/FloatingActionButtonContainer';
+import ActionButton from '@/components/ActionButton';
 import SelectPlayerOverlay from '../overlays/SelectPlayerOverlay';
 import SelectNetworkOverlay from '../overlays/SelectNetworkOverlay';
+import ConfirmationModalOverlay from
+  '@/components/pages/overlays/ConfirmationModalOverlay';
 import selectedStoryMixin from '@/mixins/selected-story';
 import selectedMissionMixin from '@/mixins/selected-mission';
 import storyPageMixin from '@/mixins/story-page';
@@ -67,8 +74,10 @@ export default {
     ActionHeadline,
     ActionTable,
     FloatingActionButtonContainer,
+    ActionButton,
     SelectPlayerOverlay,
     SelectNetworkOverlay,
+    ConfirmationModalOverlay,
   },
   data() {
     return {

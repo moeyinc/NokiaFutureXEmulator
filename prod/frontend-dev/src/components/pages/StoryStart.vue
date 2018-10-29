@@ -22,9 +22,12 @@
         ')'}">
     </div>
 
-    <floating-action-button-container
-      :action-button-label="'Start Interactive Version'"
-      @action-button-clicked="startStory('interactive')"/>
+    <floating-action-button-container>
+      <action-button
+        :label="'Start Interactive Version'"
+        :enabled="true"
+        @clicked="startStory('interactive')"/>
+    </floating-action-button-container>
 
   </div>
 </template>
@@ -37,6 +40,7 @@ import MainHeader from '@/components/MainHeader';
 import SummaryBlock from '@/components/SummaryBlock';
 import FloatingActionButtonContainer from
   '@/components/FloatingActionButtonContainer';
+import ActionButton from '@/components/ActionButton';
 import storyPageMixin from '@/mixins/story-page';
 
 export default {
@@ -45,6 +49,7 @@ export default {
     MainHeader,
     SummaryBlock,
     FloatingActionButtonContainer,
+    ActionButton,
   },
   mixins: [storyPageMixin],
   computed: {

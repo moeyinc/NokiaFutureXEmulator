@@ -10,7 +10,7 @@
       :has-nav-bar="true"
       :category-name="selectedStory.category"
       :back-button-label="'End Story'"
-      @back-button-clicked="endStory()"/>
+      @back-button-clicked="overlay = 'confirmation'"/>
 
     <div class="wrapper">
       <action-headline>Player Mode</action-headline>
@@ -42,6 +42,14 @@
       </div>
     </div>
 
+    <transition :name="'fade'">
+      <confirmation-modal-overlay
+        v-if="overlay === 'confirmation'"
+        :message="'Are you sure to end story?'"
+        @close="overlay = null"
+        @execute="endStory()"/>
+    </transition>
+
   </div>
 </template>
 
@@ -52,6 +60,8 @@
 import MainHeader from '@/components/MainHeader';
 import ActionHeadline from '@/components/ActionHeadline';
 import LargeSelectButton from '@/components/LargeSelectButton';
+import ConfirmationModalOverlay from
+  '@/components/pages/overlays/ConfirmationModalOverlay';
 import selectedStoryMixin from '@/mixins/selected-story';
 import selectedMissionMixin from '@/mixins/selected-mission';
 import storyPageMixin from '@/mixins/story-page';
@@ -62,12 +72,18 @@ export default {
     MainHeader,
     ActionHeadline,
     LargeSelectButton,
+    ConfirmationModalOverlay,
   },
   mixins: [
     selectedStoryMixin,
     selectedMissionMixin,
     storyPageMixin,
   ],
+  data() {
+    return {
+      overlay: null,
+    };
+  },
   methods: {
     selectPlayerMode(mode) {
       this.$store.commit('selectPlayerMode', mode);

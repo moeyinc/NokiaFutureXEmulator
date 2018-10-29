@@ -106,6 +106,66 @@ const mqttPublishActions = {
     });
   },
   /**
+   * pause - pause movie
+   *
+   * @param  {!Object} context Vuex context object
+   * @return {!Promise}
+   */
+  pause(context) {
+    return new Promise((resolve, reject) => {
+      // set up a message object to publish
+      const message = {
+        type: 'pause',
+      };
+
+      // publish the message
+      publishMessage(context.state.mqttClient, message, (err) => {
+        if (err) reject(err);
+        resolve();
+      });
+    });
+  },
+  /**
+   * play - play movie
+   *
+   * @param  {!Object} context Vuex context object
+   * @return {!Promise}
+   */
+  play(context) {
+    return new Promise((resolve, reject) => {
+      // set up a message object to publish
+      const message = {
+        type: 'play',
+      };
+
+      // publish the message
+      publishMessage(context.state.mqttClient, message, (err) => {
+        if (err) reject(err);
+        resolve();
+      });
+    });
+  },
+  /**
+   * skip - skip intro movie
+   *
+   * @param  {!Object} context Vuex context object
+   * @return {!Promise}
+   */
+  skip(context) {
+    return new Promise((resolve, reject) => {
+      // set up a message object to publish
+      const message = {
+        type: 'skip',
+      };
+
+      // publish the message
+      publishMessage(context.state.mqttClient, message, (err) => {
+        if (err) reject(err);
+        resolve();
+      });
+    });
+  },
+  /**
    * startMission - start a mission
    *
    * @param  {!Object} context Vuex context object
