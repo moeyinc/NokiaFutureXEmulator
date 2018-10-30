@@ -18,14 +18,14 @@
           :icon-filename="'story-icon.png'"
           :icon-filename-active="'story-icon-active.png'"
           @clicked="jumpToLastStoryPage()"/>
-        <!-- <side-nav-menu-item
+        <side-nav-menu-item
           :label="'Room Effects'"
           :active="isOnRoomEffectsPage"
           :icon-filename="'room-effect-icon.png'"
           :icon-filename-active="'room-effect-icon-active.png'"
-          @clicked="jumpTo('RoomEffects', {transition: 'fade'})"/> -->
+          @clicked="jumpTo('RoomEffects', {transition: 'fade'})"/>
         <side-nav-menu-item
-          :label="'Sleeve Management'"
+          :label="'Manage Sleeves'"
           :active="isOnSleeveManagementPage"
           :icon-filename="'sleeve-icon.png'"
           :icon-filename-active="'sleeve-icon-active.png'"

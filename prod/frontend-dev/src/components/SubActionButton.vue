@@ -2,7 +2,9 @@
  Template
 ================================================== -->
 <template>
-  <div class="sub-action-button" @click="$emit('clicked')">
+  <div
+    :class="['sub-action-button', {hasUnderline: hasUnderline}]"
+    @click="$emit('clicked')">
     <div class="inner">
       <img
         v-if="iconFilename"
@@ -21,6 +23,10 @@ export default {
   props: {
     label: String,
     iconFilename: String,
+    hasUnderline: {
+      type: Boolean,
+      default: true,
+    },
   },
 };
 </script>
@@ -34,7 +40,9 @@ export default {
   font-size: 24px
   line-height: 52px
   letter-spacing: 0.5px
-  border-bottom: solid 0.5px #5D8CEE
+
+  &.hasUnderline
+    border-bottom: solid 0.5px #5D8CEE
 
   .inner
     display: flex
