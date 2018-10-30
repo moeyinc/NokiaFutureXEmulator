@@ -202,6 +202,8 @@ const mqttPublishActions = {
         mission: missionId,
         autoPlay: autoPlay,
         numberOfPlayers: numberOfPlayers,
+        playerOneSleeveId: localStorage.getItem('playerOneSleeveId'),
+        playerTwoSleeveId: localStorage.getItem('playerTwoSleeveId'),
         network: network,
       };
 
