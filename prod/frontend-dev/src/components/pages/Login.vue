@@ -46,8 +46,11 @@ export default {
           .then(() => {
             this.jumpTo('Stories', {transition: 'fade'});
           })
-          .catch(() => {
-            this.password = '';
+          .catch((err) => {
+            if (err === 'WrongPassword') {
+              alert('Wrong Password!');
+              this.password = '';
+            }
           });
     },
   },

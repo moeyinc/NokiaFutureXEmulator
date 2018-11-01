@@ -76,11 +76,17 @@ export default {
   },
   methods: {
     replayMission() {
-      this.jumpTo('PlayerModeSelection', {
-        storyId: this.storyId,
-        missionId: this.missionId,
-        transition: 'slide-right',
-      });
+      this.$store.dispatch('replayMission')
+          .then(() => {
+            this.jumpTo('PlayerModeSelection', {
+              storyId: this.storyId,
+              missionId: this.missionId,
+              transition: 'slide-right',
+            });
+          })
+          .catch((err) => {
+            alert('There was error on publishing MQTT message', err);
+          });
     },
     proceedToNext() {
       if (this.missionId === 1) {

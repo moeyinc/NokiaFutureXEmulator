@@ -90,6 +90,9 @@ var MESSAGE_CONFIG = [
     ],
   },
   {
+    type: 'replay-mission',
+  },
+  {
     type: 'proceed',
   },
   {

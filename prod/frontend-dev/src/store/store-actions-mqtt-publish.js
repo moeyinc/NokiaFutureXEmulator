@@ -25,8 +25,7 @@ const mqttPublishActions = {
           resolve();
         });
       } else {
-        console.log('Wrong password!');
-        reject();
+        reject('WrongPassword');
       }
     });
   },
@@ -276,6 +275,26 @@ const mqttPublishActions = {
       // set up a message object to publish
       const message = {
         type: 'proceed',
+      };
+
+      // publish the message
+      publishMessage(context.state.mqttClient, message, (err) => {
+        if (err) reject(err);
+        resolve();
+      });
+    });
+  },
+  /**
+   * replayMission - replay the same mission
+   *
+   * @param  {!Object} context Vuex context object
+   * @return {!Promise}
+   */
+  replayMission(context) {
+    return new Promise((resolve, reject) => {
+      // set up a message object to publish
+      const message = {
+        type: 'replay-mission',
       };
 
       // publish the message
