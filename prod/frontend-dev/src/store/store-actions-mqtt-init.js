@@ -1,5 +1,4 @@
 import mqtt from 'mqtt';
-// import APP_CONFIG from '@/config/app-config';
 import EventBus from '@/event-bus';
 
 const mqttInitAction = {
@@ -22,6 +21,12 @@ const mqttInitAction = {
     context.state.mqttClient.on('connect', () => {
       const topic = APP_CONFIG.MQTT.TOPIC;
       context.state.mqttClient.subscribe(topic);
+    });
+
+    // when it's gone offline
+    context.state.mqttClient.on('offline', () => {
+      alert(`Connection for MQTT messaging went offline.
+        Please check the network connection and reopen the app.`);
     });
 
     // when it receives a message, console log

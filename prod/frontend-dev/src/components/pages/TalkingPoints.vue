@@ -166,8 +166,8 @@ export default {
           .then(() => {
             this.jumpTo('Stories', {transition: 'fade'});
           })
-          .catch(() => {
-            console.error('There was error on sending message');
+          .catch((err) => {
+            console.error('There was error on sending message', err);
           });
     },
     play() {
@@ -175,8 +175,8 @@ export default {
           .then(() => {
             this.playing = true;
           })
-          .catch(() => {
-            console.error('There was error on sending message');
+          .catch((err) => {
+            console.error('There was error on sending message', err);
           });
     },
     pause() {
@@ -184,8 +184,8 @@ export default {
           .then(() => {
             this.playing = false;
           })
-          .catch(() => {
-            console.error('There was error on sending message');
+          .catch((err) => {
+            console.error('There was error on sending message', err);
           });
     },
     skip() {
@@ -199,8 +199,8 @@ export default {
                 transition: 'slide-left',
               });
             })
-            .catch(() => {
-              console.error('There was error on sending message');
+            .catch((err) => {
+              console.error('There was error on sending message', err);
             });
       } else if (routeName === 'Outro') {
         this.endStory();

@@ -75,7 +75,7 @@ export default {
             }
           })
           .catch((err) => {
-            alert('There was error on publishing MQTT message', err);
+            console.error(err);
           });
     },
   },

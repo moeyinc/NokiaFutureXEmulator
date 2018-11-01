@@ -170,6 +170,12 @@ export default {
           transition: 'slide-left',
         });
       });
+
+      EventBus.$on('sleeve-unresponsive', () => {
+        alert(`Sleeve is not responding for 5 seconds.
+          Try using other sleeves from "Manage Sleeves tab."
+          and restart the mission.`);
+      });
     },
     removeEventListeners() {
       EventBus.$off('completed-mission');
@@ -211,8 +217,8 @@ export default {
           .then(() => {
             this.jumpTo('Stories', {transition: 'fade'});
           })
-          .catch(() => {
-            console.error('There was error on sending message');
+          .catch((err) => {
+            console.error('There was error on sending message', err);
           });
     },
   },

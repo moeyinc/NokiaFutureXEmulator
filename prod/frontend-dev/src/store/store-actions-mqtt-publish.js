@@ -1,4 +1,3 @@
-// import APP_CONFIG from '@/config/app-config';
 import {publishMessage} from './store-helpers';
 
 const mqttPublishActions = {
@@ -21,7 +20,11 @@ const mqttPublishActions = {
 
         // publish the message
         publishMessage(context.state.mqttClient, message, (err) => {
-          if (err) reject(err);
+          if (err) {
+            alert(`Network error. MQTT message was\'nt sent.
+              Please check the network connection and try again.`);
+            reject(err);
+          }
           resolve();
         });
       } else {
@@ -44,7 +47,11 @@ const mqttPublishActions = {
 
       // publish the message
       publishMessage(context.state.mqttClient, message, (err) => {
-        if (err) reject(err);
+        if (err) {
+          alert(`Network error. MQTT message was\'nt sent.
+            Please check the network connection and try again.`);
+          reject(err);
+        }
         context.commit('logout');
         resolve();
       });
@@ -79,7 +86,11 @@ const mqttPublishActions = {
 
       // publish the message
       publishMessage(context.state.mqttClient, message, (err) => {
-        if (err) reject(err);
+        if (err) {
+          alert(`Network error. MQTT message was\'nt sent.
+            Please check the network connection and try again.`);
+          reject(err);
+        }
         resolve();
       });
     });
@@ -99,7 +110,11 @@ const mqttPublishActions = {
 
       // publish the message
       publishMessage(context.state.mqttClient, message, (err) => {
-        if (err) reject(err);
+        if (err) {
+          alert(`Network error. MQTT message was\'nt sent.
+            Please check the network connection and try again.`);
+          reject(err);
+        }
         resolve();
       });
     });
@@ -119,7 +134,11 @@ const mqttPublishActions = {
 
       // publish the message
       publishMessage(context.state.mqttClient, message, (err) => {
-        if (err) reject(err);
+        if (err) {
+          alert(`Network error. MQTT message was\'nt sent.
+            Please check the network connection and try again.`);
+          reject(err);
+        }
         resolve();
       });
     });
@@ -139,7 +158,11 @@ const mqttPublishActions = {
 
       // publish the message
       publishMessage(context.state.mqttClient, message, (err) => {
-        if (err) reject(err);
+        if (err) {
+          alert(`Network error. MQTT message was\'nt sent.
+            Please check the network connection and try again.`);
+          reject(err);
+        }
         resolve();
       });
     });
@@ -159,7 +182,11 @@ const mqttPublishActions = {
 
       // publish the message
       publishMessage(context.state.mqttClient, message, (err) => {
-        if (err) reject(err);
+        if (err) {
+          alert(`Network error. MQTT message was\'nt sent.
+            Please check the network connection and try again.`);
+          reject(err);
+        }
         resolve();
       });
     });
@@ -208,7 +235,11 @@ const mqttPublishActions = {
 
       // publish the message
       publishMessage(context.state.mqttClient, message, (err) => {
-        if (err) reject(err);
+        if (err) {
+          alert(`Network error. MQTT message was\'nt sent.
+            Please check the network connection and try again.`);
+          reject(err);
+        }
         resolve();
       });
     });
@@ -228,7 +259,11 @@ const mqttPublishActions = {
 
       // publish the message
       publishMessage(context.state.mqttClient, message, (err) => {
-        if (err) reject(err);
+        if (err) {
+          alert(`Network error. MQTT message was\'nt sent.
+            Please check the network connection and try again.`);
+          reject(err);
+        }
         resolve();
       });
     });
@@ -259,7 +294,11 @@ const mqttPublishActions = {
 
       // publish the message
       publishMessage(context.state.mqttClient, message, (err) => {
-        if (err) reject(err);
+        if (err) {
+          alert(`Network error. MQTT message was\'nt sent.
+            Please check the network connection and try again.`);
+          reject(err);
+        }
         resolve();
       });
     });
@@ -279,7 +318,11 @@ const mqttPublishActions = {
 
       // publish the message
       publishMessage(context.state.mqttClient, message, (err) => {
-        if (err) reject(err);
+        if (err) {
+          alert(`Network error. MQTT message was\'nt sent.
+            Please check the network connection and try again.`);
+          reject(err);
+        }
         resolve();
       });
     });
@@ -299,7 +342,11 @@ const mqttPublishActions = {
 
       // publish the message
       publishMessage(context.state.mqttClient, message, (err) => {
-        if (err) reject(err);
+        if (err) {
+          alert(`Network error. MQTT message was\'nt sent.
+            Please check the network connection and try again.`);
+          reject(err);
+        }
         resolve();
       });
     });
@@ -319,7 +366,11 @@ const mqttPublishActions = {
 
       // publish the message
       publishMessage(context.state.mqttClient, message, (err) => {
-        if (err) reject(err);
+        if (err) {
+          alert(`Network error. MQTT message was\'nt sent.
+            Please check the network connection and try again.`);
+          reject(err);
+        }
         resolve();
       });
     });
@@ -339,7 +390,11 @@ const mqttPublishActions = {
 
       // publish the message
       publishMessage(context.state.mqttClient, message, (err) => {
-        if (err) reject(err);
+        if (err) {
+          alert(`Network error. MQTT message was\'nt sent.
+            Please check the network connection and try again.`);
+          reject(err);
+        }
         resolve();
       });
     });
@@ -359,7 +414,11 @@ const mqttPublishActions = {
 
       // publish the message
       publishMessage(context.state.mqttClient, message, (err) => {
-        if (err) reject(err);
+        if (err) {
+          alert(`Network error. MQTT message was\'nt sent.
+            Please check the network connection and try again.`);
+          reject(err);
+        }
         resolve();
       });
     });

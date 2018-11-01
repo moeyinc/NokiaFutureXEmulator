@@ -135,8 +135,8 @@ export default {
           .then(() => {
             this.jumpTo('Stories', {transition: 'fade'});
           })
-          .catch(() => {
-            console.error('There was error on sending message');
+          .catch((err) => {
+            console.error('There was error on sending message', err);
           });
     },
   },
