@@ -21,8 +21,8 @@ const mqttPublishActions = {
         // publish the message
         publishMessage(context.state.mqttClient, message, (err) => {
           if (err) {
-            alert(`Network error. MQTT message was\'nt sent.
-              Please check the network connection and try again.`);
+            alert('Network error. MQTT message was\'nt sent. ' +
+              'Please check the network connection and try again.');
             reject(err);
           }
           resolve();
@@ -48,8 +48,8 @@ const mqttPublishActions = {
       // publish the message
       publishMessage(context.state.mqttClient, message, (err) => {
         if (err) {
-          alert(`Network error. MQTT message was\'nt sent.
-            Please check the network connection and try again.`);
+          alert('Network error. MQTT message was\'nt sent. ' +
+            'Please check the network connection and try again.');
           reject(err);
         }
         context.commit('logout');
@@ -87,8 +87,8 @@ const mqttPublishActions = {
       // publish the message
       publishMessage(context.state.mqttClient, message, (err) => {
         if (err) {
-          alert(`Network error. MQTT message was\'nt sent.
-            Please check the network connection and try again.`);
+          alert('Network error. MQTT message was\'nt sent. ' +
+            'Please check the network connection and try again.');
           reject(err);
         }
         resolve();
@@ -111,8 +111,8 @@ const mqttPublishActions = {
       // publish the message
       publishMessage(context.state.mqttClient, message, (err) => {
         if (err) {
-          alert(`Network error. MQTT message was\'nt sent.
-            Please check the network connection and try again.`);
+          alert('Network error. MQTT message was\'nt sent. ' +
+            'Please check the network connection and try again.');
           reject(err);
         }
         resolve();
@@ -135,8 +135,8 @@ const mqttPublishActions = {
       // publish the message
       publishMessage(context.state.mqttClient, message, (err) => {
         if (err) {
-          alert(`Network error. MQTT message was\'nt sent.
-            Please check the network connection and try again.`);
+          alert('Network error. MQTT message was\'nt sent. ' +
+            'Please check the network connection and try again.');
           reject(err);
         }
         resolve();
@@ -159,8 +159,8 @@ const mqttPublishActions = {
       // publish the message
       publishMessage(context.state.mqttClient, message, (err) => {
         if (err) {
-          alert(`Network error. MQTT message was\'nt sent.
-            Please check the network connection and try again.`);
+          alert('Network error. MQTT message was\'nt sent. ' +
+            'Please check the network connection and try again.');
           reject(err);
         }
         resolve();
@@ -183,8 +183,8 @@ const mqttPublishActions = {
       // publish the message
       publishMessage(context.state.mqttClient, message, (err) => {
         if (err) {
-          alert(`Network error. MQTT message was\'nt sent.
-            Please check the network connection and try again.`);
+          alert('Network error. MQTT message was\'nt sent. ' +
+            'Please check the network connection and try again.');
           reject(err);
         }
         resolve();
@@ -236,8 +236,8 @@ const mqttPublishActions = {
       // publish the message
       publishMessage(context.state.mqttClient, message, (err) => {
         if (err) {
-          alert(`Network error. MQTT message was\'nt sent.
-            Please check the network connection and try again.`);
+          alert('Network error. MQTT message was\'nt sent. ' +
+            'Please check the network connection and try again.');
           reject(err);
         }
         resolve();
@@ -260,8 +260,8 @@ const mqttPublishActions = {
       // publish the message
       publishMessage(context.state.mqttClient, message, (err) => {
         if (err) {
-          alert(`Network error. MQTT message was\'nt sent.
-            Please check the network connection and try again.`);
+          alert('Network error. MQTT message was\'nt sent. ' +
+            'Please check the network connection and try again.');
           reject(err);
         }
         resolve();
@@ -295,8 +295,8 @@ const mqttPublishActions = {
       // publish the message
       publishMessage(context.state.mqttClient, message, (err) => {
         if (err) {
-          alert(`Network error. MQTT message was\'nt sent.
-            Please check the network connection and try again.`);
+          alert('Network error. MQTT message was\'nt sent. ' +
+            'Please check the network connection and try again.');
           reject(err);
         }
         resolve();
@@ -319,8 +319,8 @@ const mqttPublishActions = {
       // publish the message
       publishMessage(context.state.mqttClient, message, (err) => {
         if (err) {
-          alert(`Network error. MQTT message was\'nt sent.
-            Please check the network connection and try again.`);
+          alert('Network error. MQTT message was\'nt sent. ' +
+            'Please check the network connection and try again.');
           reject(err);
         }
         resolve();
@@ -343,8 +343,8 @@ const mqttPublishActions = {
       // publish the message
       publishMessage(context.state.mqttClient, message, (err) => {
         if (err) {
-          alert(`Network error. MQTT message was\'nt sent.
-            Please check the network connection and try again.`);
+          alert('Network error. MQTT message was\'nt sent. ' +
+            'Please check the network connection and try again.');
           reject(err);
         }
         resolve();
@@ -367,8 +367,8 @@ const mqttPublishActions = {
       // publish the message
       publishMessage(context.state.mqttClient, message, (err) => {
         if (err) {
-          alert(`Network error. MQTT message was\'nt sent.
-            Please check the network connection and try again.`);
+          alert('Network error. MQTT message was\'nt sent. ' +
+            'Please check the network connection and try again.');
           reject(err);
         }
         resolve();
@@ -391,8 +391,8 @@ const mqttPublishActions = {
       // publish the message
       publishMessage(context.state.mqttClient, message, (err) => {
         if (err) {
-          alert(`Network error. MQTT message was\'nt sent.
-            Please check the network connection and try again.`);
+          alert('Network error. MQTT message was\'nt sent. ' +
+            'Please check the network connection and try again.');
           reject(err);
         }
         resolve();
@@ -415,8 +415,8 @@ const mqttPublishActions = {
       // publish the message
       publishMessage(context.state.mqttClient, message, (err) => {
         if (err) {
-          alert(`Network error. MQTT message was\'nt sent.
-            Please check the network connection and try again.`);
+          alert('Network error. MQTT message was\'nt sent. ' +
+            'Please check the network connection and try again.');
           reject(err);
         }
         resolve();

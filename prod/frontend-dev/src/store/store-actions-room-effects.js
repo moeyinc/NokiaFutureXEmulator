@@ -10,8 +10,9 @@ const roomEffectsActions = {
             resolve(res);
           })
           .catch((err) => {
-            alert(`Network error. HTTP request for audio control wasn't sent.
-              Please check the network connection and try again.`);
+            alert('Network error. HTTP request for audio control ' +
+              'wasn\'t sent. Please check the network connection ' +
+              'and try again.');
             reject(err);
           });
     });
@@ -34,8 +35,9 @@ const roomEffectsActions = {
             resolve();
           })
           .catch((err) => {
-            alert(`Network error. HTTP request for audio control wasn't sent.
-              Please check the network connection and try again.`);
+            alert('Network error. HTTP request for audio control ' +
+              'wasn\'t sent. Please check the network connection ' +
+              'and try again.');
             reject(err);
           });
     });

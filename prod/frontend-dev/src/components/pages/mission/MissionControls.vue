@@ -172,9 +172,9 @@ export default {
       });
 
       EventBus.$on('sleeve-unresponsive', () => {
-        alert(`Sleeve is not responding for 5 seconds.
-          Try using other sleeves from "Manage Sleeves tab."
-          and restart the mission.`);
+        alert('Sleeve is not responding for 5 seconds. ' +
+        'Try using other sleeves from "Manage Sleeves tab." ' +
+        'and restart the mission.');
       });
     },
     removeEventListeners() {
