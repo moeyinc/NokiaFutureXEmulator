@@ -58,7 +58,7 @@ var MESSAGE_CONFIG = [
       {
         name: 'playerOneSleeveId',
         options: ['NSB23', 'NSB28', 'NSB29'],
-        value: 'NSB28',
+        value: 'NSB23',
       },
       {
         name: 'playerTwoSleeveId',
