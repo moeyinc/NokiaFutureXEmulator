@@ -58,12 +58,12 @@ export default {
         },
         {
           name: 'playerOneSleeveId',
-          options: ['NSB28', 'NSB29'],
-          value: 'NSB28',
+          options: ['NSB23', 'NSB28', 'NSB29'],
+          value: 'NSB23',
         },
         {
           name: 'playerTwoSleeveId',
-          options: ['NSB28', 'NSB29'],
+          options: ['NSB23', 'NSB28', 'NSB29'],
           value: 'NSB29',
         },
       ],
@@ -89,6 +89,9 @@ export default {
           value: 5,
         },
       ],
+    },
+    {
+      type: 'replay-mission',
     },
     {
       type: 'proceed',
