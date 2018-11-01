@@ -3,7 +3,7 @@ var APP_CONFIG = {
   MQTT: {
     HOST: 'mqtt.jonahb.com',
     PORT: 8080,
-    TOPIC: 'moey-dev', // 'moey'
+    TOPIC: 'moey', // 'moey'
   },
   MOTU: {
     URL: 'http://10.12.100.195:1280/0001f2fffe00abd7/datastore',

@@ -7,10 +7,8 @@
       :title="'Sleeve Management'"
       :has-nav-bar="false"/>
 
-    <summary-block>
-      Setting description comes here. Lorem ipsum dolor sit amet,
-      consectetur adipisicing elit.
-    </summary-block>
+    <summary-block
+      :summary-text="'Manage which sleeve to use for games in the stories.'"/>
 
     <div class="wrapper">
       <action-table

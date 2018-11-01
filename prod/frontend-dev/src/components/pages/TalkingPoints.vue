@@ -17,9 +17,8 @@
         v-for="(talkingPoint, index) in tp.talkingPoints"
         :key="index"
         class="talk-point"
-        :talk-point-label="talkingPoint.heading">
-        {{talkingPoint.text}}
-      </summary-block>
+        :talk-point-label="talkingPoint.heading"
+        :summary-text="talkingPoint.text"/>
     </div>
 
     <floating-action-button-container>
@@ -216,6 +215,9 @@ export default {
 ================================================== -->
 <style lang="stylus" scoped>
 .talking-points
+  padding-bottom: 150px
+  overflow-y: scroll
+
   .talk-point
     margin-bottom: 50px
 </style>

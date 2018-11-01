@@ -11,9 +11,7 @@
       :back-button-label="'Back To List'"
       @back-button-clicked="jumpTo('Stories', {transition: 'slide-right'})"/>
 
-    <summary-block>
-      {{selectedStory.summary}}
-    </summary-block>
+    <summary-block :summary-text="selectedStory.summary"/>
 
     <div
       class="catch"

@@ -7,10 +7,7 @@
       :title="'Room Effects'"
       :has-nav-bar="false"/>
 
-    <summary-block>
-      Setting description comes here. Lorem ipsum dolor sit amet,
-      consectetur adipisicing elit.
-    </summary-block>
+    <summary-block :summary-text="'Control audio and lights of the room.'"/>
 
     <effect-table
       class="audio-table"

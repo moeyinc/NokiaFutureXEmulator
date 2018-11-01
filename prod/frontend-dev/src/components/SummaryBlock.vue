@@ -6,11 +6,10 @@
     <p
       v-if="talkPointLabel"
       class="talk-point-label">
-      <span class="blue-text">Talk Point</span>
-      <span>{{talkPointLabel}}</span>
+      <span class="blue-text">Point</span>
+      <span class="talk-point-text">{{talkPointLabel}}</span>
     </p>
-    <p class="summary-text">
-      <slot></slot>
+    <p class="summary-text" v-html="summaryText">
     </p>
   </div>
 </template>
@@ -23,6 +22,7 @@ export default {
   name: 'SummaryBlock',
   props: {
     talkPointLabel: String,
+    summaryText: String,
   },
 };
 </script>
@@ -43,4 +43,7 @@ export default {
     span.blue-text
       color: #4F88FF
       margin-right: 12px
+
+    span.talk-point-text
+      font-weight: bold
 </style>

@@ -7,13 +7,9 @@
       :title="'Stories'"
       :has-nav-bar="false"/>
 
-    <summary-block>
-      Facilitator’s initial talking point comes here.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Ut enim ad minim veniam,
-      quis nostrud exercitation ullamco laboris nisi ut.
-    </summary-block>
+    <summary-block
+      :summary-text="'Talk about Future X Factory and ' +
+      'introduce yourself as factory\'s tele-manager and tele-operator'"/>
 
     <ul class="story-list">
       <story-list-item
