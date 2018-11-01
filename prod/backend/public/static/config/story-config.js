@@ -19,7 +19,7 @@ var STORY_CONFIG = {
           },
           {
             "heading": "Future X Factory unique characteristics:",
-            "text": "<li>No employees - Safety.  Full control remotely.</li>"
+            "text": "<li>Wireless</li>"
           },
           {
             "heading": "Drone launch",
