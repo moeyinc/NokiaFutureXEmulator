@@ -35,6 +35,9 @@ export default {
 ================================================== -->
 <style lang="stylus" scoped>
 .logged-in
+  position: fixed
+  top: 0
+  left: 0
   height: 100%
   background-image: url('~@/assets/images/loggedin-bg.png')
   background-size: cover

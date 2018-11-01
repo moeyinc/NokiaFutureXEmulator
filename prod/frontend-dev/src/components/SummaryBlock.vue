@@ -6,7 +6,7 @@
     <p
       v-if="talkPointLabel"
       class="talk-point-label">
-      <span class="blue-text">Point</span>
+      <span class="blue-text">Talking Point</span>
       <span class="talk-point-text">{{talkPointLabel}}</span>
     </p>
     <p class="summary-text" v-html="summaryText">

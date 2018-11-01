@@ -217,6 +217,8 @@ export default {
 .talking-points
   padding-bottom: 150px
   overflow-y: scroll
+  -webkit-overflow-scrolling: touch
+  overflow-scrolling: touch
 
   .talk-point
     margin-bottom: 50px
