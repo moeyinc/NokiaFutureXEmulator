@@ -13,7 +13,7 @@
           :label="'Reset to Default'"
           :icon-filename="'reset-icon.png'"
           :has-underline="false"
-          @clicked="reset()"/>
+          @clicked="$emit('reset')"/>
       </th>
       <th class="padding"></th>
     </tr>
@@ -33,7 +33,7 @@
           :max="param.max"
           :step="param.step"
           v-model="param.value"
-          @change="updateVolume(param.value)"/>
+          @change="$emit('changed', param.value)"/>
       </td>
       <td class="padding"></td>
     </tr>
@@ -50,27 +50,10 @@ export default {
   name: 'EffectTable',
   props: {
     title: String,
-    params: Array,
+    params: Object,
   },
   components: {
     SubActionButton,
-  },
-  methods: {
-    updateVolume(val) {
-      this.$store.dispatch('updateVolume', val)
-          .then(() => {
-            console.log('success');
-          })
-          .catch((err) => {
-            console.error(err);
-          });
-    },
-    reset() {
-      for (let param of this.params) {
-        this.updateVolume(param.default);
-        param.value = param.default;
-      }
-    },
   },
 };
 </script>

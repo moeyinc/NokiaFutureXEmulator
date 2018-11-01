@@ -60,10 +60,6 @@ export default {
   border: solid 4px white
   position: relative
 
-  &.selected
-    background-color: #0052FF
-    border: none
-
   .category-label
     position: absolute
     top: 30px
@@ -90,7 +86,7 @@ export default {
     left: 0
     right: 0
     bottom: 0
-    border-top: solid 0.5px #4F88FF
+    border-top: solid 0.5px white
 
     .network-parameter
       display: flex
@@ -101,8 +97,18 @@ export default {
       align-items: center
       font-size: 12px
       letter-spacing: 1.27px
-      border-bottom: solid 0.5px #4F88FF
+      border-bottom: solid 0.5px white
 
       &.last-item
         border-bottom: none
+
+  &.selected
+    background-color: #0052FF
+    border: none
+
+    .network-parameters-container
+      border-top: solid 0.5px #4F88FF
+
+      .network-parameter
+        border-bottom: solid 0.5px #4F88FF
 </style>

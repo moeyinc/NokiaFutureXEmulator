@@ -63,11 +63,12 @@ export default {
   align-items: center
 
   img.howtocalibrate
-    width: 624px
-    height: 392px
-    margin-left: 200px
-    margin-bottom: 40px
+    width: 550px
+    height: 523.31px
+    margin-top: -80px
+    margin-left: -15px
+    margin-bottom: -40px
 
   .action-button
-    margin-top: 40px
+    margin-top: 70px
 </style>

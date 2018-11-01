@@ -74,7 +74,7 @@
 
     <calibration-overlay
       v-if="overlay === 'calibration'"
-      @close="overlay = null">
+      @close="closeCalibrationOverlay()">
     </calibration-overlay>
 
     <select-network-overlay
@@ -154,7 +154,12 @@ export default {
       if (selectedPlayerMode === 'auto') {
         this.overlay = null;
       } else {
-        this.overlay = 'calibration';
+        console.log('hash', this.$route.hash);
+        if (this.$route.hash === '#calibration') {
+          this.overlay = 'calibration';
+        } else {
+          this.overlay = null;
+        }
       }
     },
     setEventListeners() {
@@ -168,6 +173,14 @@ export default {
     },
     removeEventListeners() {
       EventBus.$off('completed-mission');
+    },
+    closeCalibrationOverlay() {
+      this.overlay = null;
+      this.jumpTo('MissionControls', {
+        story_id: this.storyId,
+        mission_id: this.missionId,
+        transition: 'fade',
+      });
     },
     updateNetwork() {
       this.$store.dispatch('setNetwork')

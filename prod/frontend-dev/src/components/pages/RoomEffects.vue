@@ -15,7 +15,9 @@
     <effect-table
       class="audio-table"
       :title="'AUDIO'"
-      :params="audioParams"/>
+      :params="audioParams"
+      @reset="resetMasterVolume()"
+      @changed="updateMasterVolume"/>
   </div>
 </template>
 
@@ -36,8 +38,8 @@ export default {
   },
   data() {
     return {
-      audioParams: [
-        {
+      audioParams: {
+        master: {
           name: 'Master',
           value: 1.0,
           max: 3.0,
@@ -45,8 +47,35 @@ export default {
           step: 0.1,
           default: 1.0,
         },
-      ],
+      },
     };
+  },
+  created() {
+    this.initAudioMaster();
+  },
+  methods: {
+    initAudioMaster() {
+      this.$store.dispatch('getCurrentVolume')
+          .then((res) => {
+            this.audioParams.master.value = parseFloat(res.data.value);
+          })
+          .catch((err) => {
+            console.error(err);
+          });
+    },
+    updateMasterVolume(val) {
+      this.$store.dispatch('updateVolume', val)
+          .then(() => {
+            console.log('success');
+          })
+          .catch((err) => {
+            console.error(err);
+          });
+    },
+    resetMasterVolume() {
+      this.updateMasterVolume(this.audioParams.master.default);
+      this.audioParams.master.value = this.audioParams.master.default;
+    },
   },
 };
 </script>

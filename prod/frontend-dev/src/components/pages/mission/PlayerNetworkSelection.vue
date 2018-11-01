@@ -177,7 +177,7 @@ export default {
               story_id: this.storyId,
               mission_id: this.missionId,
               transition: 'fade',
-            });
+            }, '#calibration');
           })
           .catch((err) => {
             alert('There was error on publishing MQTT message', err);

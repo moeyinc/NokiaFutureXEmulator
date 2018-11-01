@@ -4,6 +4,7 @@ export default {
       name: this.$route.name,
       story_id: this.$route.params.story_id,
       mission_id: this.$route.params.mission_id,
+      hash: this.$route.hash,
     });
   },
 };
