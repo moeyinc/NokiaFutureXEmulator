@@ -15,6 +15,7 @@
       <story-list-item
         v-for="story in getStories"
         :key="story.storyId"
+        class="story-list-item"
         :category-name="story.category"
         :title="story.title"
         :thumbnail-filename="story.catchImageFilename"
@@ -55,6 +56,14 @@ export default {
  Vue Style
 ================================================== -->
 <style lang="stylus" scoped>
-ul.story-list
-  margin-top: 79px
+.stories
+  overflow-y: scroll
+  -webkit-overflow-scrolling: touch
+  overflow-scrolling: touch
+
+  ul.story-list
+    margin-top: 79px
+
+    .story-list-item
+      margin-bottom: 70px
 </style>

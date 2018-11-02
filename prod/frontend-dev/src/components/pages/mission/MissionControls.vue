@@ -171,14 +171,14 @@ export default {
         });
       });
 
-      EventBus.$on('sleeve-unresponsive', () => {
-        alert('Sleeve has not been responding for 5 seconds. ' +
-        'Try using other sleeves from "Manage Sleeves tab." ' +
+      EventBus.$on('sleeve-unresponsive', (message) => {
+        alert('Sleeve ' + message.sleeve + ' has not been responding ' +
+        'for 5 seconds. Try using other sleeves from "Manage Sleeves tab." ' +
         'and restart the mission.');
       });
 
-      EventBus.$on('sleeve-responsive', () => {
-        alert('Sleeve is now responsive!');
+      EventBus.$on('sleeve-responsive', (message) => {
+        alert('Sleeve ' + message.sleeve + ' is now responsive!');
       });
     },
     removeEventListeners() {

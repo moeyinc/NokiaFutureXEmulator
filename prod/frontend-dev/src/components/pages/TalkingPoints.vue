@@ -39,6 +39,7 @@
         :enabled="true"
         @clicked="play()"/>
       <action-button
+        v-if="storyId === 1"
         :label="'Skip'"
         :icon-filename="'skip-icon.png'"
         :enabled="true"
@@ -109,6 +110,9 @@ export default {
           break;
         case 'Prerendered':
           keyName = 'movieVersion';
+          break;
+        case 'Teaser':
+          keyName = 'teaser';
           break;
       }
       if (!keyName) return;

@@ -30,8 +30,8 @@
           :height="320"
           :icon-filename="'two-player-icon.png'"
           :icon-filename-active="'two-player-icon-active.png'"
-          :label="'2 Player Mode'"/>
-          <!-- @clicked="selectPlayerMode(2)" -->
+          :label="'2 Player Mode'"
+          @clicked="selectPlayerMode(2)"/>
         <large-select-button
           :width="selectedMission.hasTwoPlayerMode ? 204 : 320"
           :height="320"

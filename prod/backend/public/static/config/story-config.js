@@ -84,5 +84,37 @@ var STORY_CONFIG = {
         ]
       }
     }
+    // {
+    //   "storyId": 2,
+    //   "title": "City of Future",
+    //   "category": "CIVIL LIFE",
+    //   "summary": "5G network is providing radically new connectivity capabilities that are agile and sustainable enough to keep our life safe.",
+    //   "catchImageFilename": "future-factory-catch.png",
+    //   "teaser": {
+    //     "pageSubtitle": "TEASER",
+    //     "talkingPoints": [
+    //       {
+    //         "heading": "More speed, more safty",
+    //         "text": "5G network is providing radically new connectivity capabilities that are agile and sustainable enough to keep our life safe."
+    //       }
+    //     ]
+    //   }
+    // },
+    // {
+    //   "storyId": 3,
+    //   "title": "Moon Mission",
+    //   "category": "INNOVATION",
+    //   "summary": "The another first step on the Moon. Nokia is building communications infrastructure with highly energy efficient 4G network.",
+    //   "catchImageFilename": "future-factory-catch.png",
+    //   "teaser": {
+    //     "pageSubtitle": "TEASER",
+    //     "talkingPoints": [
+    //       {
+    //         "heading": "Connect in space",
+    //         "text": "The another first step on the Moon. Nokia is building communications infrastructure with highly energy efficient 4G network."
+    //       }
+    //     ]
+    //   }
+    // }
   ]
 };

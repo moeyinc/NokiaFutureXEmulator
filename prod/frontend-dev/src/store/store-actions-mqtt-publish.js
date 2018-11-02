@@ -69,7 +69,7 @@ const mqttPublishActions = {
     return new Promise((resolve, reject) => {
       // determine the message type
       let type;
-      if (mode === 'interactive') {
+      if (mode === 'interactive' || mode === 'teaser') {
         type = 'start-story';
       } else if (mode === 'movie') {
         type = 'start-story-prerendered';

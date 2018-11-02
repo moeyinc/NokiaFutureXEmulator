@@ -68,6 +68,11 @@ export default new Router({
                   component: TalkingPoints,
                 },
                 {
+                  path: '/story-live/:story_id/teaser',
+                  name: 'Teaser',
+                  component: TalkingPoints,
+                },
+                {
                   path: '/story-live/:story_id/mission/' +
                     ':mission_id/player-mode-selection',
                   name: 'PlayerModeSelection',

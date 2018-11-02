@@ -22,9 +22,15 @@
 
     <floating-action-button-container>
       <action-button
+        v-if="storyId === 1"
         :label="'Start Story'"
         :enabled="true"
         @clicked="startStory('interactive')"/>
+      <action-button
+        v-else
+        :label="'Watch Teaser'"
+        :enabled="true"
+        @clicked="startStory('teaser')"/>
     </floating-action-button-container>
 
   </div>
@@ -69,6 +75,11 @@ export default {
               });
             } else if (mode === 'movie') {
               this.jumpTo('Prerendered', {
+                story_id: this.storyId,
+                transition: 'slide-left',
+              });
+            } else if (mode === 'teaser') {
+              this.jumpTo('Teaser', {
                 story_id: this.storyId,
                 transition: 'slide-left',
               });
