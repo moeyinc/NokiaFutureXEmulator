@@ -171,13 +171,16 @@ export default {
       this.actionTableItems = items;
     },
     startMission() {
+      let calibration = '#calibration';
+      if (this.$store.state.selectedPlayerMode === 'auto') calibration = '';
+
       this.$store.dispatch('startMission', this.missionId)
           .then(() => {
             this.jumpTo('MissionControls', {
               story_id: this.storyId,
               mission_id: this.missionId,
               transition: 'fade',
-            }, '#calibration');
+            }, calibration);
           })
           .catch((err) => {
             alert('There was error on publishing MQTT message', err);

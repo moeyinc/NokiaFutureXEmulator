@@ -15,12 +15,15 @@ const mqttInitAction = {
     context.state.mqttClient = mqtt.connect({
       host: APP_CONFIG.MQTT.HOST,
       port: APP_CONFIG.MQTT.PORT,
+      qos: 2,
     });
 
     // when it's connected to the broker, subscribe to a topic
     context.state.mqttClient.on('connect', () => {
       const topic = APP_CONFIG.MQTT.TOPIC;
-      context.state.mqttClient.subscribe(topic);
+      context.state.mqttClient.subscribe(topic, {
+        qos: 2,
+      });
     });
 
     // when it's gone offline

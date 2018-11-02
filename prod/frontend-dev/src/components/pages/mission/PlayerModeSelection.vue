@@ -37,8 +37,8 @@
           :height="320"
           :icon-filename="'autoplay-icon.png'"
           :icon-filename-active="'autoplay-icon-active.png'"
-          :label="'Auto Play'"/>
-          <!-- @clicked="selectPlayerMode('auto')" -->
+          :label="'Auto Play'"
+          @clicked="selectPlayerMode('auto')"/>
       </div>
     </div>
 
