@@ -183,6 +183,8 @@ export default {
     },
     removeEventListeners() {
       EventBus.$off('completed-mission');
+      EventBus.$off('sleeve-unresponsive');
+      EventBus.$off('sleeve-responsive');
     },
     closeCalibrationOverlay() {
       this.overlay = null;
