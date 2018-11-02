@@ -89,7 +89,7 @@ var STORY_CONFIG = {
     //   "title": "City of Future",
     //   "category": "CIVIL LIFE",
     //   "summary": "5G network is providing radically new connectivity capabilities that are agile and sustainable enough to keep our life safe.",
-    //   "catchImageFilename": "future-factory-catch.png",
+    //   "catchImageFilename": "future-city-catch.png",
     //   "teaser": {
     //     "pageSubtitle": "TEASER",
     //     "talkingPoints": [
@@ -105,7 +105,7 @@ var STORY_CONFIG = {
     //   "title": "Moon Mission",
     //   "category": "INNOVATION",
     //   "summary": "The another first step on the Moon. Nokia is building communications infrastructure with highly energy efficient 4G network.",
-    //   "catchImageFilename": "future-factory-catch.png",
+    //   "catchImageFilename": "moon-mission-catch.png",
     //   "teaser": {
     //     "pageSubtitle": "TEASER",
     //     "talkingPoints": [
