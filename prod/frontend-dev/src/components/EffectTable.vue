@@ -10,6 +10,7 @@
       </th>
       <th class="reset">
         <sub-action-button
+          v-if="resetButton"
           :label="'Reset to Default'"
           :icon-filename="'reset-icon.png'"
           :has-underline="false"
@@ -27,6 +28,7 @@
       </td>
       <td class="control">
         <input
+          v-if="param.type === 'slider'"
           type="range"
           class="slider"
           :min="param.min"
@@ -34,6 +36,11 @@
           :step="param.step"
           v-model="param.value"
           @change="$emit('changed', param.value)"/>
+        <v-switch
+          v-if="param.type === 'toggle'"
+          v-model="param.value"
+          :color="'blue'"
+          @change="$emit('toggled', param.value)"/>
       </td>
       <td class="padding"></td>
     </tr>
@@ -51,6 +58,10 @@ export default {
   props: {
     title: String,
     params: Object,
+    resetButton: {
+      type: Boolean,
+      default: true,
+    },
   },
   components: {
     SubActionButton,

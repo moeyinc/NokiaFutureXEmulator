@@ -28,4 +28,5 @@ export default {
 @import './stylus/fonts'
 @import './stylus/global-styles'
 @import './stylus/vue-transitions'
+@import '~vuetify/src/stylus/main'
 </style>

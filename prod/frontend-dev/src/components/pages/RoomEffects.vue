@@ -15,6 +15,13 @@
       :params="audioParams"
       @reset="resetMasterVolume()"
       @changed="updateMasterVolume"/>
+
+    <effect-table
+      class="projector-table"
+      :title="'PROJECTORS'"
+      :params="projectorParams"
+      :reset-button="false"
+      @toggled="turnAllProjectors"/>
   </div>
 </template>
 
@@ -38,6 +45,7 @@ export default {
       audioParams: {
         master: {
           name: 'Master',
+          type: 'slider',
           value: 1.0,
           max: 3.0,
           min: 0.0,
@@ -45,10 +53,18 @@ export default {
           default: 1.0,
         },
       },
+      projectorParams: {
+        master: {
+          name: 'Master',
+          type: 'toggle',
+          value: false,
+        },
+      },
     };
   },
   created() {
     this.initAudioMaster();
+    this.initProjectorMaster();
   },
   methods: {
     initAudioMaster() {
@@ -60,8 +76,26 @@ export default {
             console.error(err);
           });
     },
+    initProjectorMaster() {
+      this.$store.dispatch('getCurrentProjectorState')
+          .then((state) => {
+            this.projectorParams.master.value = state;
+          })
+          .catch((err) => {
+            console.error(err);
+          });
+    },
     updateMasterVolume(val) {
       this.$store.dispatch('updateVolume', val)
+          .then(() => {
+            console.log('success');
+          })
+          .catch((err) => {
+            console.error(err);
+          });
+    },
+    turnAllProjectors(state) {
+      this.$store.dispatch('turnAllProjectors')
           .then(() => {
             console.log('success');
           })

@@ -1,7 +1,7 @@
 var APP_CONFIG = {
   PASSWORD: 'nokia',
   MQTT: {
-    HOST: 'moeys-mac-mini.local', // mqtt.jonahb.com
+    HOST: 'mqtt.jonahb.com', // mqtt.jonahb.com, moeys-mac-mini.local
     PORT: 8080,
     TOPIC: 'moey-dev', // 'moey'
   },
@@ -16,6 +16,20 @@ var APP_CONFIG = {
       "mix/chan/13/matrix/fader",
       "mix/chan/14/matrix/fader",
       "mix/chan/15/matrix/fader",
+    ],
+  },
+  PROJECTOR: {
+    API: {
+      GET_ONE_URL: '/api/projector',
+      POST_ALL_URL: '/api/projector/all',
+    },
+    IDS: [
+      'top',
+      'middle',
+      'bottom',
+      'floor',
+      'right',
+      'left',
     ],
   },
 };

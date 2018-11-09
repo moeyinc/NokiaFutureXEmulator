@@ -6,6 +6,7 @@ import router from './router';
 import Vuex from 'vuex';
 import _store from './store/store';
 import mixin from '@/mixins/global';
+import Vuetify from 'vuetify';
 
 // set global mixin
 Vue.mixin(mixin);
@@ -13,6 +14,9 @@ Vue.mixin(mixin);
 // use vuex
 Vue.use(Vuex);
 const store = new Vuex.Store(_store);
+
+// use vuetify
+Vue.use(Vuetify);
 
 // disable production tip
 Vue.config.productionTip = false;

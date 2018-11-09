@@ -11,7 +11,7 @@ const roomEffectsActions = {
           })
           .catch((err) => {
             alert('Network error. HTTP request for audio control ' +
-              'wasn\'t sent. Please check the network connection ' +
+              'wasn\'t successful. Please check the network connection ' +
               'and try again.');
             reject(err);
           });
@@ -36,7 +36,41 @@ const roomEffectsActions = {
           })
           .catch((err) => {
             alert('Network error. HTTP request for audio control ' +
-              'wasn\'t sent. Please check the network connection ' +
+              'wasn\'t successful. Please check the network connection ' +
+              'and try again.');
+            reject(err);
+          });
+    });
+  },
+  getCurrentProjectorState(context) {
+    return new Promise((resolve, reject) => {
+      // check only the state of the top one
+      const id = APP_CONFIG.PROJECTOR.IDS[0];
+      const url = APP_CONFIG.PROJECTOR.API.GET_ONE_URL;
+      axios.get(url + '/' + id)
+          .then((res) => {
+            console.log(res);
+            resolve(res.data);
+          })
+          .catch((err) => {
+            alert('Network error. HTTP request for projector control ' +
+              'wasn\'t successful. Please check the network connection ' +
+              'and try again.');
+            reject(err);
+          });
+    });
+  },
+  turnAllProjectors(context, state) {
+    return new Promise((resolve, reject) => {
+      const url = APP_CONFIG.PROJECTOR.API.POST_ALL_URL;
+      axios.post(url, {state: state})
+          .then((res) => {
+            console.log(res);
+            resolve();
+          })
+          .catch((err) => {
+            alert('Network error. HTTP request for projector control ' +
+              'wasn\'t successful. Please check the network connection ' +
               'and try again.');
             reject(err);
           });
