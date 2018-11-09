@@ -64,7 +64,7 @@ export default {
   },
   created() {
     this.initAudioMaster();
-    this.initProjectorMaster();
+    // this.initProjectorMaster();
   },
   methods: {
     initAudioMaster() {
