@@ -16,12 +16,12 @@
       @reset="resetMasterVolume()"
       @changed="updateMasterVolume"/>
 
-    <effect-table
+    <!-- <effect-table
       class="projector-table"
       :title="'PROJECTORS'"
       :params="projectorParams"
       :reset-button="false"
-      @toggled="turnAllProjectors"/>
+      @toggled="turnAllProjectors"/> -->
   </div>
 </template>
 
