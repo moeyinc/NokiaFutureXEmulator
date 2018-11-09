@@ -7,7 +7,7 @@ var Pjlink = require('pjlink');
 
 /* GET state of a projector */
 router.get('/projector/:id', function(req, res, next) {
-  var target = PROJECTORS.TARGETS[req.query.id];
+  var target = PROJECTORS.TARGETS[req.params.id];
   var pj = new Pjlink(target.URL, target.PORT, target.PASSWORD);
 
   // Returns current power state
@@ -32,6 +32,7 @@ router.post('/projector/all', function(req, res, next) {
   // once all requests are successfully completed, resolve
   Promise.all(tasks)
       .then(function() {
+        console.log('succcess!');
         res.sendStatus(200);
       })
       .catch(function(err) {
@@ -43,12 +44,27 @@ router.post('/projector/all', function(req, res, next) {
     return new Promise(function(resolve, reject) {
       var pj = new Pjlink(target.URL, target.PORT, target.PASSWORD);
 
-      var command = state ? pj.powerOn : pj.powerOff;
+      if (state) {
+        pj.powerOn(function(err) {
+          if (err) {
+            console.log('there was an error', err);
+            reject(err);
+          }
+          console.log('ok', target.URL);
+          resolve();
+        });
+      } else {
+        pj.powerOff(function(err) {
+          if (err) {
+            console.log('there was an error', err);
+            reject(err);
+          }
+          console.log('ok', target.URL);
+          resolve();
+        });
+      }
 
-      command(function(err) {
-        if (err) reject(err);
-        resolve();
-      });
+
     });
   }
 });

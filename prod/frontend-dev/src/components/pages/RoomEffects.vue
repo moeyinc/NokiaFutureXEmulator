@@ -95,7 +95,7 @@ export default {
           });
     },
     turnAllProjectors(state) {
-      this.$store.dispatch('turnAllProjectors')
+      this.$store.dispatch('turnAllProjectors', state)
           .then(() => {
             console.log('success');
           })
