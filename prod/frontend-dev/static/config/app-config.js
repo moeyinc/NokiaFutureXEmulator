@@ -20,8 +20,10 @@ var APP_CONFIG = {
   },
   PROJECTOR: {
     API: {
-      GET_ONE_URL: '/api/projector',
-      POST_ALL_URL: '/api/projector/all',
+      GET_POWER_ONE: '/api/projector/power',
+      POST_POWER_ALL: '/api/projector/power/all',
+      GET_SHUTTER_ONE: '/api/projector/shutter',
+      POST_SHUTTER_ALL: '/api/projector/shutter/all',
     },
     IDS: [
       'top',

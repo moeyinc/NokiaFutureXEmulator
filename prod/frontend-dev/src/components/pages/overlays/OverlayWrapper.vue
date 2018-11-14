@@ -7,7 +7,7 @@
       class="overlay-wrapper"
       :style="{backgroundColor: backgroundColorWithOpacity}">
       <div class="overlay-header">
-        <div class="title">
+        <div class="my-title">
           <h1>{{headerTitle}}</h1>
         </div>
         <icon-button
@@ -62,7 +62,7 @@ export default {
     padding: 59px 80px 40px 80px
     position: relative
 
-    .title
+    .my-title
       padding-top: 17px
       white-space: nowrap
 

@@ -14,14 +14,14 @@
       :title="'AUDIO'"
       :params="audioParams"
       @reset="resetMasterVolume()"
-      @changed="updateMasterVolume"/>
+      @changed="onAudioChanged"/>
 
-    <!-- <effect-table
+    <effect-table
       class="projector-table"
       :title="'PROJECTORS'"
       :params="projectorParams"
       :reset-button="false"
-      @toggled="turnAllProjectors"/> -->
+      @toggled="onProjectorToggled"/>
   </div>
 </template>
 
@@ -54,17 +54,23 @@ export default {
         },
       },
       projectorParams: {
-        master: {
-          name: 'Master',
+        power: {
+          name: 'Power On/Off',
           type: 'toggle',
           value: false,
         },
+        // shutter: {
+        //   name: 'Shutter On/Off',
+        //   type: 'toggle',
+        //   value: false,
+        // },
       },
     };
   },
   created() {
     this.initAudioMaster();
-    // this.initProjectorMaster();
+    this.initProjectorPowerState();
+    // this.initProjectorShutterState();
   },
   methods: {
     initAudioMaster() {
@@ -76,17 +82,40 @@ export default {
             console.error(err);
           });
     },
-    initProjectorMaster() {
+    initProjectorPowerState() {
       this.$store.dispatch('getCurrentProjectorState')
           .then((state) => {
-            this.projectorParams.master.value = state;
+            this.projectorParams.power.value = state;
           })
           .catch((err) => {
             console.error(err);
           });
     },
-    updateMasterVolume(val) {
-      this.$store.dispatch('updateVolume', val)
+    // initProjectorShutterState() {
+    //   this.$store.dispatch('getCurrentProjectorState')
+    //       .then((state) => {
+    //         this.projectorParams.shutter.value = state;
+    //       })
+    //       .catch((err) => {
+    //         console.error(err);
+    //       });
+    // },
+    onAudioChanged({key, value}) {
+      console.log('onAudioChanged', key, value);
+      if (key === 'master') {
+        this.updateMasterVolume(value);
+      }
+    },
+    onProjectorToggled({key, value}) {
+      console.log('onProjectorToggled', key, value);
+      if (key === 'power') {
+        this.turnAllProjectorsPower(value);
+      } else if (key ==='shutter') {
+        this.turnAllProjectorsShutter(value);
+      }
+    },
+    updateMasterVolume(value) {
+      this.$store.dispatch('updateVolume', value)
           .then(() => {
             console.log('success');
           })
@@ -94,8 +123,8 @@ export default {
             console.error(err);
           });
     },
-    turnAllProjectors(state) {
-      this.$store.dispatch('turnAllProjectors', state)
+    turnAllProjectorsPower(value) {
+      this.$store.dispatch('turnAllProjectors', value)
           .then(() => {
             console.log('success');
           })

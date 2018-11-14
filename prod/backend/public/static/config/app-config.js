@@ -1,9 +1,9 @@
 var APP_CONFIG = {
   PASSWORD: 'nokia',
   MQTT: {
-    HOST: 'moeys-mac-mini.local', // mqtt.jonahb.com, moeys-mac-mini.local
+    HOST: 'mqtt.jonahb.com', // mqtt.jonahb.com, moeys-mac-mini.local
     PORT: 8080,
-    TOPIC: 'moey', // 'moey'
+    TOPIC: 'moey-dev', // 'moey'
   },
   MOTU: {
     URL: 'http://10.12.100.195:1280/0001f2fffe00abd7/datastore',
@@ -20,8 +20,10 @@ var APP_CONFIG = {
   },
   PROJECTOR: {
     API: {
-      GET_ONE_URL: '/api/projector',
-      POST_ALL_URL: '/api/projector/all',
+      GET_POWER_ONE: '/api/projector/power',
+      POST_POWER_ALL: '/api/projector/power/all',
+      GET_SHUTTER_ONE: '/api/projector/shutter',
+      POST_SHUTTER_ALL: '/api/projector/shutter/all',
     },
     IDS: [
       'top',

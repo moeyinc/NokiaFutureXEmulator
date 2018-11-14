@@ -46,11 +46,11 @@ const roomEffectsActions = {
     return new Promise((resolve, reject) => {
       // check only the state of the top one
       const id = APP_CONFIG.PROJECTOR.IDS[0];
-      const url = APP_CONFIG.PROJECTOR.API.GET_ONE_URL;
+      const url = APP_CONFIG.PROJECTOR.API.GET_POWER_ONE;
       axios.get(url + '/' + id)
           .then((res) => {
             console.log(res);
-            resolve(res.data);
+            resolve(res.data.state);
           })
           .catch((err) => {
             alert('Network error. HTTP request for projector control ' +
@@ -62,7 +62,8 @@ const roomEffectsActions = {
   },
   turnAllProjectors(context, state) {
     return new Promise((resolve, reject) => {
-      const url = APP_CONFIG.PROJECTOR.API.POST_ALL_URL;
+      const url = APP_CONFIG.PROJECTOR.API.POST_POWER_ALL;
+      console.log('turnAllProjectors', url);
       axios.post(url, {state: state})
           .then((res) => {
             console.log(res);

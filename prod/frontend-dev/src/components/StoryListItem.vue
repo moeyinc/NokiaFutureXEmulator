@@ -8,7 +8,7 @@
         <h6>{{categoryName}}</h6>
         <hr class="underline"/>
       </div>
-      <h4 class="title">{{title}}</h4>
+      <h4 class="my-title">{{title}}</h4>
     </div>
     <img
       :src="require('@/assets/images/' + thumbnailFilename)"
@@ -65,7 +65,7 @@ export default {
         margin-inline-start: 0
         margin-inline-end: 0
 
-    h4.title
+    h4.my-title
       font-size: 36px
       line-height: 40px
       letter-spacing: 0.75px

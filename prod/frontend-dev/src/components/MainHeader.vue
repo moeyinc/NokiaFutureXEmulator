@@ -22,7 +22,7 @@
         </div>
       </div>
     </div>
-    <div class="title">
+    <div class="my-title">
       <h1>{{title}}</h1>
       <h2 v-if="subtitle">{{subtitle}}</h2>
     </div>
@@ -94,7 +94,7 @@ export default {
           transform-origin: center
           transform: rotate(180deg)
 
-  .title
+  .my-title
     padding-top: 17px
     white-space: nowrap
 

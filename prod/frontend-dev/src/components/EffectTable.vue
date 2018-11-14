@@ -5,7 +5,7 @@
   <table>
     <tr class="header-row">
       <th class="padding"></th>
-      <th class="title">
+      <th class="my-title">
         {{title}}
       </th>
       <th class="reset">
@@ -19,7 +19,7 @@
       <th class="padding"></th>
     </tr>
     <tr
-      v-for="(param, index) in params"
+      v-for="(param, key, index) in params"
       :key="index"
       class="data-row">
       <td class="padding"></td>
@@ -35,12 +35,16 @@
           :max="param.max"
           :step="param.step"
           v-model="param.value"
-          @change="$emit('changed', param.value)"/>
+          @change="$emit('changed', {
+            key: key,
+            value: param.value})"/>
         <v-switch
           v-if="param.type === 'toggle'"
           v-model="param.value"
           :color="'blue'"
-          @change="$emit('toggled', param.value)"/>
+          @change="$emit('toggled', {
+            key: key,
+            value: param.value})"/>
       </td>
       <td class="padding"></td>
     </tr>
@@ -95,11 +99,12 @@ table
     th.padding
       border-bottom: solid 0.5px #4F88FF
 
-    th.title
+    th.my-title
       color: #4F88FF
       font-family: 'NokiaPureText-Regular'
       text-align: left
       font-size: 30px
+      min-width: 200px
 
     th.reset
       text-align: right
