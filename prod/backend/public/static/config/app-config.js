@@ -7,7 +7,7 @@ var APP_CONFIG = {
   },
   MOTU: {
     // URL: 'http://10.12.100.195:1280/0001f2fffe00abd7/datastore',
-    URL: 'http://10.12.92.60:1280/0001f2fffe00abd7/datastore',
+    URL: 'http://10.12.92.52:1280/0001f2fffe00abd7/datastore',
     TARGETS: [
       "mix/chan/8/matrix/fader",
       "mix/chan/9/matrix/fader",
