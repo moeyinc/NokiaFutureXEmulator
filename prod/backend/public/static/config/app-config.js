@@ -1,7 +1,7 @@
 var APP_CONFIG = {
   PASSWORD: 'nokia',
   MQTT: {
-    HOST: 'moeys-mac-mini.local', // mqtt.jonahb.com, moeys-mac-mini.local
+    HOST: '10.12.92.51', // mqtt.jonahb.com, moeys-mac-mini.local
     PORT: 8080,
     TOPIC: 'moey', // 'moey'
   },
