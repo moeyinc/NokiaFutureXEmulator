@@ -1,9 +1,9 @@
 var APP_CONFIG = {
   PASSWORD: 'nokia',
   MQTT: {
-    HOST: '10.12.92.51', // mqtt.jonahb.com, moeys-mac-mini.local
+    HOST: 'mqtt.jonahb.com', // mqtt.jonahb.com, moeys-mac-mini.local
     PORT: 8080,
-    TOPIC: 'moey', // 'moey'
+    TOPIC: 'moey-dev', // 'moey'
   },
   MOTU: {
     // URL: 'http://10.12.100.195:1280/0001f2fffe00abd7/datastore',

@@ -10,9 +10,7 @@ const roomEffectsActions = {
             resolve(res);
           })
           .catch((err) => {
-            alert('Network error. HTTP request for audio control ' +
-              'wasn\'t successful. Please check the network connection ' +
-              'and try again.');
+            alert('Network error. Coudn\'t get the current audio volume');
             reject(err);
           });
     });
@@ -35,9 +33,7 @@ const roomEffectsActions = {
             resolve();
           })
           .catch((err) => {
-            alert('Network error. HTTP request for audio control ' +
-              'wasn\'t successful. Please check the network connection ' +
-              'and try again.');
+            alert('Network error. Coudn\'t update the audio volume');
             reject(err);
           });
     });
@@ -53,9 +49,8 @@ const roomEffectsActions = {
             resolve(res.data.state);
           })
           .catch((err) => {
-            alert('Network error. HTTP request for projector control ' +
-              'wasn\'t successful. Please check the network connection ' +
-              'and try again.');
+            alert('Network error. Coudn\'t get the current power state ' +
+              'of a projector ' + id);
             reject(err);
           });
     });
@@ -70,9 +65,8 @@ const roomEffectsActions = {
             resolve();
           })
           .catch((err) => {
-            alert('Network error. HTTP request for projector control ' +
-              'wasn\'t successful. Please check the network connection ' +
-              'and try again.');
+            alert('Network error. Coudn\'t change the power state of one of ' +
+              'the six projectors');
             reject(err);
           });
     });
