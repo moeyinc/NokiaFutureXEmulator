@@ -3,5 +3,7 @@ var SLEEVE_CONFIG = {
     "NSB23",
     "NSB28",
     "NSB29",
+    "NSB05",
+    "NSB09",
   ],
 };

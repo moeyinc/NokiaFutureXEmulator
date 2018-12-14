@@ -4,9 +4,9 @@
 <template>
   <overlay-wrapper
     @close-button-clicked="$emit('close')">
-    <div class="container">
-      <div class="content">
-        <div class="message">
+    <div class="confirmation-container">
+      <div class="confirmation-content">
+        <div class="confirmation-message">
           {{message}}
         </div>
         <div class="button-container">
@@ -50,13 +50,13 @@ export default {
  Vue Style
 ================================================== -->
 <style lang="stylus" scoped>
-.container
+.confirmation-container
   position: absolute
   top: 50%
   left: 50%
   transform: translate(-50%, -50%)
 
-  .message
+  .confirmation-message
     font-size: 40px
     margin-bottom: 60px
 

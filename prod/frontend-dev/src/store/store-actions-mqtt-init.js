@@ -28,8 +28,8 @@ const mqttInitAction = {
 
     // when it's gone offline
     context.state.mqttClient.on('offline', () => {
-      alert('Connection for MQTT messaging went offline. ' +
-        'Please check the network connection and reopen the app.');
+      console.log('Connection for MQTT messaging went offline.');
+      // alert('Connection for MQTT messaging went offline.');
     });
 
     // when it receives a message, console log
