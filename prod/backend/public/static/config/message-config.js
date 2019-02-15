@@ -57,13 +57,13 @@ var MESSAGE_CONFIG = [
       },
       {
         name: 'playerOneSleeveId',
-        options: ['NSB23', 'NSB28', 'NSB29', 'NSB05', 'NSB09'],
-        value: 'NSB23',
+        options: ['D0L5', 'D0R5'],
+        value: 'D0L5',
       },
       {
         name: 'playerTwoSleeveId',
-        options: ['NSB23', 'NSB28', 'NSB29', 'NSB05', 'NSB09'],
-        value: 'NSB29',
+        options: ['D0L5', 'D0R5'],
+        value: 'D0R5',
       },
     ],
     networkParams: [
