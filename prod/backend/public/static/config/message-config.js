@@ -57,12 +57,12 @@ var MESSAGE_CONFIG = [
       },
       {
         name: 'playerOneSleeveId',
-        options: ['D0L5', 'D0R5'],
+        options: ['D0L5', 'D0R5', 'FAKE'],
         value: 'D0L5',
       },
       {
         name: 'playerTwoSleeveId',
-        options: ['D0L5', 'D0R5'],
+        options: ['D0L5', 'D0R5', 'FAKE'],
         value: 'D0R5',
       },
     ],
