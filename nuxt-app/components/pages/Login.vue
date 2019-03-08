@@ -1,3 +1,6 @@
+<!-- =================================================
+ Template
+================================================== -->
 <template>
   <div class="screen-center-outer">
     <div class="screen-center-inner">
@@ -34,6 +37,9 @@
   </div>
 </template>
 
+<!-- =================================================
+ Script
+================================================== -->
 <script>
 export default {
   name: 'Login',
@@ -59,6 +65,9 @@ export default {
 };
 </script>
 
+<!-- =================================================
+ Vue Style
+================================================== -->
 <style lang="stylus" scoped>
 .screen-center-outer
   position: fixed

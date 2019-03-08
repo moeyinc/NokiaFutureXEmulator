@@ -1,4 +1,5 @@
 const pkg = require('./package');
+const path = require('path');
 
 module.exports = {
   mode: 'spa',
@@ -12,9 +13,18 @@ module.exports = {
       {charset: 'utf-8'},
       {name: 'viewport', content: 'width=device-width, initial-scale=1'},
       {hid: 'description', name: 'description', content: pkg.description},
+      {name: 'apple-mobile-web-app-capable', content: 'yes'},
+      {name: 'theme-color', content: '#000000'},
     ],
     link: [
-      {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'},
+      {rel: 'icon', size: '192x192', href: '/imgs/favicon-192.png'},
+      {rel: 'apple-touch-icon', size: '144x144', href: '/imgs/favicon-144.png'},
+    ],
+    script: [
+      {src: '/static/config/app-config.js'},
+      {src: '/static/config/message-config.js'},
+      {src: '/static/config/sleeve-config.js'},
+      {src: '/static/config/story-config.js'},
     ],
   },
 
@@ -27,12 +37,14 @@ module.exports = {
   ** Global CSS
   */
   css: [
+    '@/assets/styles/global.styl',
   ],
 
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '@/plugins/global',
   ],
 
   /*
@@ -66,6 +78,20 @@ module.exports = {
           exclude: /(node_modules)/,
         });
       }
+
+      // add aliases
+      config.resolve.alias['@styles'] = resolve('assets/styles');
+      config.resolve.alias['@images'] = resolve('assets/images');
+      config.resolve.alias['@fonts'] = resolve('assets/fonts');
+      config.resolve.alias['@comp'] = resolve('components');
     },
   },
 };
+
+/*
+ * resolve
+ * @return {!String} absolute path
+ */
+function resolve(relPath) {
+  return path.join(__dirname, relPath);
+}
