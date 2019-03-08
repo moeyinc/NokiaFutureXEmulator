@@ -1,4 +1,4 @@
-var SLEEVE_CONFIG = {
+module.exports = {
   availableSleeveIds: [
     "D0L5",
     "D0R5",

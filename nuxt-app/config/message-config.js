@@ -1,4 +1,4 @@
-var MESSAGE_CONFIG = [
+module.exports = [
   {
     type: 'login',
   },

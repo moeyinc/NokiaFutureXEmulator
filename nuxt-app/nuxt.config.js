@@ -1,5 +1,9 @@
 const pkg = require('./package');
 const path = require('path');
+const AppConfig = require('./config/app-config');
+const MessageConfig = require('./config/message-config');
+const SleeveConfig = require('./config/sleeve-config');
+const StoryConfig = require('./config/story-config');
 
 module.exports = {
   mode: 'spa',
@@ -19,12 +23,6 @@ module.exports = {
     link: [
       {rel: 'icon', size: '192x192', href: '/imgs/favicon-192.png'},
       {rel: 'apple-touch-icon', size: '144x144', href: '/imgs/favicon-144.png'},
-    ],
-    script: [
-      {src: '/static/config/app-config.js'},
-      {src: '/static/config/message-config.js'},
-      {src: '/static/config/sleeve-config.js'},
-      {src: '/static/config/story-config.js'},
     ],
   },
 
@@ -85,6 +83,12 @@ module.exports = {
       config.resolve.alias['@fonts'] = resolve('assets/fonts');
       config.resolve.alias['@comp'] = resolve('components');
     },
+  },
+  env: {
+    APP_CONFIG: AppConfig,
+    MESSAGE_CONFIG: MessageConfig,
+    SLEEVE_CONFIG: SleeveConfig,
+    STORY_CONFIG: StoryConfig,
   },
 };
 

@@ -1,7 +1,9 @@
-var APP_CONFIG = {
+require('dotenv').config();
+
+module.exports = {
   PASSWORD: 'nokia',
   MQTT: {
-    HOST: '10.12.92.104',
+    HOST: process.env.MQTT_HOST || '10.12.92.104',
     PORT: 8080,
     TOPIC: 'moey',
   },

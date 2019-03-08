@@ -1,4 +1,4 @@
-var STORY_CONFIG = {
+module.exports = {
   "stories": [
     {
       "storyId": 1,
