@@ -11,3 +11,4 @@ const createState = () => ({
 });
 
 export default createState;
+export const strict = false;

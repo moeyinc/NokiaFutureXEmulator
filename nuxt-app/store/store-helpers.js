@@ -1,3 +1,6 @@
+import APP_CONFIG from '@/config/app-config';
+import MESSAGE_CONFIG from '@/config/message-config';
+
 /**
  * publishMessage - publish a mqtt message to subscribers.
  * It validates the given message by comparing it with message-config file.

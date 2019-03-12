@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   "stories": [
     {
       "storyId": 1,

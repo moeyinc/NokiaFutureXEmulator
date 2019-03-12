@@ -42,6 +42,9 @@ export default {
       password: '',
     };
   },
+  created() {
+    this.$store.dispatch('initMqttClient');
+  },
   methods: {
     login() {
       this.$store.dispatch('login', this.password)

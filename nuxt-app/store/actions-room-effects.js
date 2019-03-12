@@ -1,4 +1,5 @@
 import axios from 'axios';
+import APP_CONFIG from '@/config/app-config';
 
 const roomEffectsActions = {
   getCurrentVolume(context) {

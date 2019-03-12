@@ -1,9 +1,5 @@
 const pkg = require('./package');
 const path = require('path');
-const AppConfig = require('./config/app-config');
-const MessageConfig = require('./config/message-config');
-const SleeveConfig = require('./config/sleeve-config');
-const StoryConfig = require('./config/story-config');
 
 module.exports = {
   mode: 'spa',
@@ -51,6 +47,7 @@ module.exports = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+    '@nuxtjs/dotenv',
   ],
   /*
   ** Axios module configuration
@@ -83,12 +80,6 @@ module.exports = {
       config.resolve.alias['@fonts'] = resolve('assets/fonts');
       config.resolve.alias['@comp'] = resolve('components');
     },
-  },
-  env: {
-    APP_CONFIG: AppConfig,
-    MESSAGE_CONFIG: MessageConfig,
-    SLEEVE_CONFIG: SleeveConfig,
-    STORY_CONFIG: StoryConfig,
   },
 };
 
