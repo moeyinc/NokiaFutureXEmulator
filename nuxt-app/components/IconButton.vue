@@ -1,6 +1,3 @@
-<!-- =================================================
- Template
-================================================== -->
 <template>
   <img
     class="icon-button"
@@ -12,9 +9,6 @@
   >
 </template>
 
-<!-- =================================================
- Script
-================================================== -->
 <script>
 export default {
   name: 'IconButton',
@@ -50,14 +44,11 @@ export default {
         file = this.filenameActive;
       }
 
-      return require('@/assets/images/' + file);
+      return require('@images/' + file);
     },
   },
 };
 </script>
 
-<!-- =================================================
- Vue Style
-================================================== -->
 <style lang="stylus" scoped>
 </style>

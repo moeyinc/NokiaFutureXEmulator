@@ -1,6 +1,3 @@
-<!-- =================================================
- Template
-================================================== -->
 <template>
   <div class="player-mode-selection">
     <main-header
@@ -54,9 +51,6 @@
   </div>
 </template>
 
-<!-- =================================================
- Script
-================================================== -->
 <script>
 import MainHeader from '@/components/MainHeader';
 import ActionHeadline from '@/components/ActionHeadline';
@@ -107,9 +101,6 @@ export default {
 };
 </script>
 
-<!-- =================================================
- Vue Style
-================================================== -->
 <style lang="stylus" scoped>
 .player-mode-selection
   .wrapper

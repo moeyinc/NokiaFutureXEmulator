@@ -1,6 +1,6 @@
 <template>
   <div class="talking-points">
-    <main-header
+    <MainHeader
       :title="selectedStory.title"
       :subtitle="tp && tp.pageSubtitle"
       :has-nav-bar="true"
@@ -10,7 +10,7 @@
     />
 
     <div v-if="tp">
-      <summary-block
+      <SummaryBlock
         v-for="(talkingPoint, index) in tp.talkingPoints"
         :key="index"
         class="talk-point"
@@ -19,8 +19,8 @@
       />
     </div>
 
-    <floating-action-button-container>
-      <action-button
+    <FloatingActionButtonContainer>
+      <ActionButton
         v-show="playing"
         :key="'pause'"
         style="margin-right: 30px"
@@ -29,7 +29,7 @@
         :enabled="true"
         @clicked="pause()"
       />
-      <action-button
+      <ActionButton
         v-show="!playing"
         :key="'play'"
         style="margin-right: 30px"
@@ -38,16 +38,16 @@
         :enabled="true"
         @clicked="play()"
       />
-      <action-button
+      <ActionButton
         v-if="storyId === 1"
         :label="'Skip'"
         :icon-filename="'skip-icon.png'"
         :enabled="true"
         @clicked="skip()"
       />
-    </floating-action-button-container>
+    </FloatingActionButtonContainer>
 
-    <confirmation-modal-overlay
+    <ConfirmationModalOverlay
       v-if="overlay === 'confirmation'"
       :message="'Are you sure to end story?'"
       @close="overlay = null"
@@ -57,19 +57,20 @@
 </template>
 
 <script>
-import MainHeader from '@/components/MainHeader';
-import SummaryBlock from '@/components/SummaryBlock';
+import MainHeader from '@comps/MainHeader';
+import SummaryBlock from '@comps/SummaryBlock';
 import FloatingActionButtonContainer from
-  '@/components/FloatingActionButtonContainer';
-import ActionButton from '@/components/ActionButton';
+  '@comps/FloatingActionButtonContainer';
+import ActionButton from '@comps/ActionButton';
 import ConfirmationModalOverlay from
-  '@/components/pages/overlays/ConfirmationModalOverlay';
+  '@comps/pages/overlays/ConfirmationModalOverlay';
 import EventBus from '@/event-bus';
 import selectedStoryMixin from '@/mixins/selected-story';
 import storyPageMixin from '@/mixins/story-page';
 
 export default {
   name: 'TalkingPoints',
+  layout: 'logged-in',
   components: {
     MainHeader,
     SummaryBlock,

@@ -1,27 +1,21 @@
-<!-- =================================================
- Template
-================================================== -->
 <template>
   <div class="player-box">
     <p>{{ label }}</p>
   </div>
 </template>
 
-<!-- =================================================
- Script
-================================================== -->
 <script>
 export default {
   name: 'SelectSleeveOverlay',
   props: {
-    label: String,
+    label: {
+      type: String,
+      default: '',
+    },
   },
 };
 </script>
 
-<!-- =================================================
- Vue Style
-================================================== -->
 <style lang="stylus" scoped>
 .player-box
   display: inline-block

@@ -1,13 +1,11 @@
-<!-- =================================================
- Template
-================================================== -->
 <template>
   <div
     :class="['side-nav-menu-item', {'active': active}]"
-    @click="$emit('clicked')"
+    @touchend.prevent="$emit('select')"
+    @click="$emit('select')"
   >
     <div class="icon-wrapper">
-      <icon-button
+      <IconButton
         :filename="iconFilename"
         :filename-active="iconFilenameActive"
         :overwrite-active="active"
@@ -20,11 +18,8 @@
   </div>
 </template>
 
-<!-- =================================================
- Script
-================================================== -->
 <script>
-import IconButton from '@/components/IconButton';
+import IconButton from '@comps/IconButton';
 
 export default {
   name: 'SideNavMenuItem',
@@ -52,19 +47,17 @@ export default {
 };
 </script>
 
-<!-- =================================================
- Vue Style
-================================================== -->
 <style lang="stylus" scoped>
+@import '~@styles/colors'
+
 .side-nav-menu-item
   height: 80px
-  background-color: #0052FF
-  border-bottom: solid 1px #0B4EC5
+  background-color: $primary-color
+  border-bottom: solid 1px $primary-border-color
   display: flex
   flex-direction: row
-
   &.active
-    background-color: #0049E4
+    background-color: $primary-active-color
 
   .icon-wrapper
     min-width: 70px
@@ -72,10 +65,8 @@ export default {
     display: flex
     align-items: center
     justify-content: flex-end
-
     img
       height: 23px
-
   .label-wrapper
     width: 100%
     padding: 0 17px

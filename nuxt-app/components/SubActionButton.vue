@@ -1,6 +1,3 @@
-<!-- =================================================
- Template
-================================================== -->
 <template>
   <div
     :class="['sub-action-button', {hasUnderline: hasUnderline}]"
@@ -16,15 +13,18 @@
   </div>
 </template>
 
-<!-- =================================================
- Script
-================================================== -->
 <script>
 export default {
   name: 'SubActionButton',
   props: {
-    label: String,
-    iconFilename: String,
+    label: {
+      type: String,
+      default: '',
+    },
+    iconFilename: {
+      type: String,
+      default: '',
+    },
     hasUnderline: {
       type: Boolean,
       default: true,
@@ -33,9 +33,6 @@ export default {
 };
 </script>
 
-<!-- =================================================
- Vue Style
-================================================== -->
 <style lang="stylus" scoped>
 .sub-action-button
   display: inline-block

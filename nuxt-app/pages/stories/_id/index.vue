@@ -1,36 +1,35 @@
 <template>
   <div class="story-start">
-    <main-header
+    <MainHeader
       :title="selectedStory.title"
       :has-nav-bar="true"
       :category-name="selectedStory.category"
       :back-button-label="'Back To List'"
-      @back-button-clicked="jumpTo('Stories', {transition: 'slide-right'})"
+      @back-button-clicked="jumpTo('stories', {transition: 'slide-right'})"
     />
 
-    <summary-block :summary-text="selectedStory.summary" />
+    <SummaryBlock :summary-text="selectedStory.summary" />
 
     <div
       class="catch"
       :style="{backgroundImage: 'url(' +
-        require('@/assets/images/' + selectedStory.catchImageFilename) +
-        ')'}"
+        require('@images/' + selectedStory.catchImageFilename) +')'}"
     />
 
-    <floating-action-button-container>
-      <action-button
+    <FloatingActionButtonContainer>
+      <ActionButton
         v-if="storyId === 1"
         :label="'Start Story'"
         :enabled="true"
         @clicked="startStory('interactive')"
       />
-      <action-button
+      <ActionButton
         v-else
         :label="'Watch Teaser'"
         :enabled="true"
         @clicked="startStory('teaser')"
       />
-    </floating-action-button-container>
+    </FloatingActionButtonContainer>
   </div>
 </template>
 
@@ -41,9 +40,11 @@ import FloatingActionButtonContainer from
   '@/components/FloatingActionButtonContainer';
 import ActionButton from '@/components/ActionButton';
 import storyPageMixin from '@/mixins/story-page';
+import {mapState} from 'vuex';
 
 export default {
   name: 'StoryStart',
+  layout: 'logged-in',
   components: {
     MainHeader,
     SummaryBlock,
@@ -52,8 +53,9 @@ export default {
   },
   mixins: [storyPageMixin],
   computed: {
+    ...mapState(['currentPage']),
     storyId() {
-      return parseInt(this.$route.params.story_id);
+      return parseInt(this.$nuxt.$route.params.id);
     },
     selectedStory() {
       return this.$store.getters.getSelectedStory(this.storyId);

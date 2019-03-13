@@ -12,11 +12,12 @@ export default {
    */
   init() {
     const host = process.env.MQTT_HOST || APP_CONFIG.MQTT.HOST;
+    const port = process.env.MQTT_PORT || APP_CONFIG.MQTT.PORT;
     console.log('connecting to MQTT broker', host);
     // connect to broker
     mqttClient = mqtt.connect({
       host: host,
-      port: APP_CONFIG.MQTT.PORT,
+      port: port,
       qos: 2,
     });
 

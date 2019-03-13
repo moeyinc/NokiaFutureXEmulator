@@ -1,6 +1,3 @@
-<!-- =================================================
- Template
-================================================== -->
 <template>
   <overlay-wrapper
     :header-title="'Sleeve Calibration'"
@@ -27,9 +24,6 @@
   </overlay-wrapper>
 </template>
 
-<!-- =================================================
- Script
-================================================== -->
 <script>
 import OverlayWrapper from './OverlayWrapper';
 import SubActionButton from '@/components/SubActionButton';
@@ -56,9 +50,6 @@ export default {
 };
 </script>
 
-<!-- =================================================
- Vue Style
-================================================== -->
 <style lang="stylus" scoped>
 .wrapper
   display: flex

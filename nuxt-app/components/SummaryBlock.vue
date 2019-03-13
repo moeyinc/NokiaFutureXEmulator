@@ -1,6 +1,3 @@
-<!-- =================================================
- Template
-================================================== -->
 <template>
   <div class="summary-block">
     <p
@@ -10,29 +7,31 @@
       <span class="blue-text">Talking Point</span>
       <span class="talk-point-text">{{ talkPointLabel }}</span>
     </p>
+    <!-- eslint-disable -->
     <p
       class="summary-text"
       v-html="summaryText"
     />
+    <!-- eslint-enable -->
   </div>
 </template>
 
-<!-- =================================================
- Script
-================================================== -->
 <script>
 export default {
   name: 'SummaryBlock',
   props: {
-    talkPointLabel: String,
-    summaryText: String,
+    talkPointLabel: {
+      type: String,
+      default: '',
+    },
+    summaryText: {
+      type: String,
+      default: '',
+    },
   },
 };
 </script>
 
-<!-- =================================================
- Vue Style
-================================================== -->
 <style lang="stylus" scoped>
 .summary-block
   padding: 0 80px

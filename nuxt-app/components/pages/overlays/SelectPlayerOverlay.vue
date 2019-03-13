@@ -1,6 +1,3 @@
-<!-- =================================================
- Template
-================================================== -->
 <template>
   <overlay-wrapper
     :header-title="'Select Player'"
@@ -54,9 +51,6 @@
   </overlay-wrapper>
 </template>
 
-<!-- =================================================
- Script
-================================================== -->
 <script>
 import OverlayWrapper from './OverlayWrapper';
 
@@ -66,7 +60,10 @@ export default {
     OverlayWrapper,
   },
   props: {
-    playerIndex: String,
+    playerIndex: {
+      type: String,
+      default: '',
+    },
   },
   data() {
     return {
@@ -106,9 +103,6 @@ export default {
 };
 </script>
 
-<!-- =================================================
- Vue Style
-================================================== -->
 <style lang="stylus" scoped>
 table
   width: 100%

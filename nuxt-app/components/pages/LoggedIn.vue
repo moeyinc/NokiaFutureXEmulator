@@ -1,6 +1,3 @@
-<!-- =================================================
- Template
-================================================== -->
 <template>
   <div class="logged-in">
     <side-nav-menu />
@@ -10,9 +7,6 @@
   </div>
 </template>
 
-<!-- =================================================
- Script
-================================================== -->
 <script>
 import SideNavMenu from '@/components/SideNavMenu';
 
@@ -30,9 +24,6 @@ export default {
 };
 </script>
 
-<!-- =================================================
- Vue Style
-================================================== -->
 <style lang="stylus" scoped>
 .logged-in
   position: fixed

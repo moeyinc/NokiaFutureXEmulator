@@ -1,6 +1,3 @@
-<!-- =================================================
- Template
-================================================== -->
 <template>
   <overlay-wrapper
     :header-title="'Select Sleeve'"
@@ -38,13 +35,10 @@
   </overlay-wrapper>
 </template>
 
-<!-- =================================================
- Script
-================================================== -->
 <script>
 import OverlayWrapper from './OverlayWrapper';
 import SelectedPlayerIcon from '@/components/SelectedPlayerIcon';
-// import SLEEVE_CONFIG from '@/config/sleeve-config';
+import SLEEVE_CONFIG from '@/config/sleeve-config';
 
 export default {
   name: 'SelectSleeveOverlay',
@@ -53,7 +47,10 @@ export default {
     SelectedPlayerIcon,
   },
   props: {
-    playerIndex: String,
+    playerIndex: {
+      type: String,
+      default: '',
+    },
   },
   computed: {
     availableSleeveIds() {
@@ -92,9 +89,6 @@ export default {
 };
 </script>
 
-<!-- =================================================
- Vue Style
-================================================== -->
 <style lang="stylus" scoped>
 table
   width: 100%

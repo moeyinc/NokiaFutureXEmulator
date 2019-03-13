@@ -1,6 +1,3 @@
-<!-- =================================================
- Template
-================================================== -->
 <template>
   <div
     class="large-select-button"
@@ -20,9 +17,6 @@
   </div>
 </template>
 
-<!-- =================================================
- Script
-================================================== -->
 <script>
 import IconButton from '@/components/IconButton';
 
@@ -32,11 +26,26 @@ export default {
     IconButton,
   },
   props: {
-    width: Number,
-    height: Number,
-    iconFilename: String,
-    iconFilenameActive: String,
-    label: String,
+    width: {
+      type: Number,
+      default: 0,
+    },
+    height: {
+      type: Number,
+      default: 0,
+    },
+    iconFilename: {
+      type: String,
+      default: '',
+    },
+    iconFilenameActive: {
+      type: String,
+      default: '',
+    },
+    label: {
+      type: String,
+      default: '',
+    },
   },
   data() {
     return {
@@ -52,9 +61,6 @@ export default {
 };
 </script>
 
-<!-- =================================================
- Vue Style
-================================================== -->
 <style lang="stylus" scoped>
 .large-select-button
   display: flex

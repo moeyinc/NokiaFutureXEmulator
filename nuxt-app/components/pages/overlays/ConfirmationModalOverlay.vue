@@ -1,8 +1,5 @@
-<!-- =================================================
- Template
-================================================== -->
 <template>
-  <overlay-wrapper
+  <OverlayWrapper
     @close-button-clicked="$emit('close')"
   >
     <div class="confirmation-container">
@@ -11,14 +8,14 @@
           {{ message }}
         </div>
         <div class="button-container">
-          <action-button
+          <ActionButton
             class="left-button"
             :label="'Yes'"
             :enabled="true"
             :small="true"
             @clicked="$emit('execute')"
           />
-          <action-button
+          <ActionButton
             :label="'No'"
             :enabled="true"
             :small="true"
@@ -27,15 +24,12 @@
         </div>
       </div>
     </div>
-  </overlay-wrapper>
+  </OverlayWrapper>
 </template>
 
-<!-- =================================================
- Script
-================================================== -->
 <script>
 import OverlayWrapper from './OverlayWrapper';
-import ActionButton from '@/components/ActionButton';
+import ActionButton from '@comps/ActionButton';
 
 export default {
   name: 'ConfirmationModalOverlay',
@@ -52,25 +46,19 @@ export default {
 };
 </script>
 
-<!-- =================================================
- Vue Style
-================================================== -->
 <style lang="stylus" scoped>
 .confirmation-container
   position: absolute
   top: 50%
   left: 50%
   transform: translate(-50%, -50%)
-
   .confirmation-message
     font-size: 40px
     margin-bottom: 60px
-
   .button-container
     display: flex
     flex-direction: row
     justify-content: center
-
     .left-button
       margin-right: 20px
 </style>

@@ -1,6 +1,3 @@
-<!-- =================================================
- Template
-================================================== -->
 <template>
   <transition :name="'fade'">
     <div
@@ -11,7 +8,7 @@
         <div class="my-title">
           <h1>{{ headerTitle }}</h1>
         </div>
-        <icon-button
+        <IconButton
           v-if="!closeButtonDisabled"
           :filename="'close-icon.png'"
           :filename-active="'close-icon-active.png'"
@@ -23,11 +20,8 @@
   </transition>
 </template>
 
-<!-- =================================================
- Script
-================================================== -->
 <script>
-import IconButton from '@/components/IconButton';
+import IconButton from '@comps/IconButton';
 const color = require('color');
 
 export default {
@@ -53,9 +47,6 @@ export default {
 };
 </script>
 
-<!-- =================================================
- Vue Style
-================================================== -->
 <style lang="stylus" scoped>
 .overlay-wrapper
   position: fixed
@@ -65,19 +56,15 @@ export default {
   left: 0
   z-index: 1000
   height: 100%
-
   .overlay-header
     padding: 59px 80px 40px 80px
     position: relative
-
     .my-title
       padding-top: 17px
       white-space: nowrap
-
       h1
         font-size: 40px
         line-height: 52px
-
     img
       position: absolute
       top: 60px

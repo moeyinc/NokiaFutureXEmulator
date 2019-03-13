@@ -1,13 +1,13 @@
 <template>
   <div class="room-effects">
-    <main-header
+    <MainHeader
       :title="'Room Effects'"
       :has-nav-bar="false"
     />
 
-    <summary-block :summary-text="'Control audio and lights of the room.'" />
+    <SummaryBlock :summary-text="'Control audio and lights of the room.'" />
 
-    <effect-table
+    <EffectTable
       class="audio-table"
       :title="'AUDIO'"
       :params="audioParams"
@@ -15,7 +15,7 @@
       @changed="onAudioChanged"
     />
 
-    <effect-table
+    <EffectTable
       class="projector-table"
       :title="'PROJECTORS'"
       :params="projectorParams"
@@ -26,12 +26,13 @@
 </template>
 
 <script>
-import MainHeader from '@/components/MainHeader';
-import SummaryBlock from '@/components/SummaryBlock';
-import EffectTable from '@/components/EffectTable';
+import MainHeader from '@comps/MainHeader';
+import SummaryBlock from '@comps/SummaryBlock';
+import EffectTable from '@comps/EffectTable';
 
 export default {
   name: 'RoomEffects',
+  layout: 'logged-in',
   components: {
     MainHeader,
     SummaryBlock,
@@ -56,18 +57,12 @@ export default {
           type: 'toggle',
           value: false,
         },
-        // shutter: {
-        //   name: 'Shutter On/Off',
-        //   type: 'toggle',
-        //   value: false,
-        // },
       },
     };
   },
   created() {
     this.initAudioMaster();
     this.initProjectorPowerState();
-    // this.initProjectorShutterState();
   },
   methods: {
     initAudioMaster() {
@@ -88,15 +83,6 @@ export default {
             console.error(err);
           });
     },
-    // initProjectorShutterState() {
-    //   this.$store.dispatch('getCurrentProjectorState')
-    //       .then((state) => {
-    //         this.projectorParams.shutter.value = state;
-    //       })
-    //       .catch((err) => {
-    //         console.error(err);
-    //       });
-    // },
     onAudioChanged({key, value}) {
       console.log('onAudioChanged', key, value);
       if (key === 'master') {

@@ -1,6 +1,3 @@
-<!-- =================================================
- Template
-================================================== -->
 <template>
   <table>
     <tr
@@ -34,9 +31,6 @@
   </table>
 </template>
 
-<!-- =================================================
- Script
-================================================== -->
 <script>
 import IconButton from '@/components/IconButton';
 
@@ -46,7 +40,10 @@ export default {
     IconButton,
   },
   props: {
-    items: Array,
+    items: {
+      type: Array,
+      default: () => [],
+    },
   },
   data() {
     return {
@@ -56,9 +53,6 @@ export default {
 };
 </script>
 
-<!-- =================================================
- Vue Style
-================================================== -->
 <style lang="stylus" scoped>
 table
   width: 100%

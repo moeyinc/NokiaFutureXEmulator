@@ -1,67 +1,60 @@
-<!-- =================================================
- Template
-================================================== -->
 <template>
-  <div>
+  <nav>
     <div class="side-nav-menu">
       <div class="brand-logo-block">
-        <img :src="require('@/assets/images/belllabs-logo.png')">
+        <img :src="require('@images/belllabs-logo.png')">
       </div>
       <div class="menu-block">
         <div class="fite-lab-box">
           FITE Lab
         </div>
         <div class="padding-box" />
-        <side-nav-menu-item
+        <SideNavMenuItem
           :label="'Stories'"
           :active="!isOnRoomEffectsPage && !isOnSleeveManagementPage"
           :icon-filename="'story-icon.png'"
           :icon-filename-active="'story-icon-active.png'"
-          @clicked="jumpToLastStoryPage()"
+          @select="jumpToLastStoryPage()"
         />
-        <side-nav-menu-item
+        <SideNavMenuItem
           :label="'Room Effects'"
           :active="isOnRoomEffectsPage"
           :icon-filename="'room-effect-icon.png'"
           :icon-filename-active="'room-effect-icon-active.png'"
-          @clicked="jumpTo('RoomEffects', {transition: 'fade'})"
+          @select="jumpTo('room-effects', {transition: 'fade'})"
         />
-        <side-nav-menu-item
+        <SideNavMenuItem
           :label="'Manage Sleeves'"
           :active="isOnSleeveManagementPage"
           :icon-filename="'sleeve-icon.png'"
           :icon-filename-active="'sleeve-icon-active.png'"
-          @clicked="jumpTo('SleeveManagement', {transition: 'fade'})"
+          @select="jumpTo('sleeve-management', {transition: 'fade'})"
         />
-
-        <side-nav-menu-item
+        <SideNavMenuItem
           class="logout-item"
           :label="'Logout'"
           :active="false"
           :icon-filename="'logout-icon.png'"
           :icon-filename-active="'logout-icon-active.png'"
-          @clicked="overlay = 'confirmation'"
+          @select="overlay = 'confirmation'"
         />
       </div>
     </div>
     <transition :name="'fade'">
-      <confirmation-modal-overlay
+      <ConfirmationModalOverlay
         v-if="overlay === 'confirmation'"
         :message="'Are you sure to logout?'"
         @close="overlay = null"
         @execute="logout()"
       />
     </transition>
-  </div>
+  </nav>
 </template>
 
-<!-- =================================================
- Script
-================================================== -->
 <script>
-import SideNavMenuItem from '@/components/SideNavMenuItem';
+import SideNavMenuItem from '@comps/SideNavMenuItem';
 import ConfirmationModalOverlay from
-  '@/components/pages/overlays/ConfirmationModalOverlay';
+  '@comps/pages/overlays/ConfirmationModalOverlay';
 
 export default {
   name: 'SideNavMenu',
@@ -77,11 +70,11 @@ export default {
   },
   computed: {
     isOnRoomEffectsPage() {
-      if (this.$route.name === 'RoomEffects') return true;
+      if (this.$route.name === 'room-effects') return true;
       return false;
     },
     isOnSleeveManagementPage() {
-      if (this.$route.name === 'SleeveManagement') return true;
+      if (this.$route.name === 'sleeve-management') return true;
       return false;
     },
   },
@@ -101,7 +94,7 @@ export default {
     logout() {
       this.$store.dispatch('logout')
           .then(() => {
-            this.jumpTo('Login', {transition: 'fade'});
+            this.jumpTo('index', {transition: 'fade'});
           })
           .catch(() => {
             console.error('Logout failed!');
@@ -111,15 +104,13 @@ export default {
 };
 </script>
 
-<!-- =================================================
- Vue Style
-================================================== -->
 <style lang="stylus" scoped>
+@import '~@styles/colors'
+
 .side-nav-menu
   position: fixed
   top: 0
   left: 0
-  background-color: purple
   display: flex
   flex-direction: column
   width: 280px
@@ -127,9 +118,8 @@ export default {
 
   .brand-logo-block
     min-height: 160px
-    background-color: #023EA8
+    background-color: $brand-bg-color
     position: relative
-
     img
       width: 180px
       position: absolute
@@ -139,19 +129,17 @@ export default {
 
   .menu-block
     position: relative
-    background-color: #0052FF
+    background-color: $primary-color
     height: 100%
     display: flex
     flex-direction: column
     justify-content: flex-start
-
     .padding-box
       height: 63px
-      background-color: #0052FF
-      border-bottom: solid 1px #0B4EC5
-
+      background-color: $primary-color
+      border-bottom: solid 1px $primary-border-color
     .fite-lab-box
-      background-color: #041B67
+      background-color: $brand-bg-color-dark
       font-family: "NokiaPureText-Regular"
       letter-spacing: 2px
       position: absolute
@@ -162,10 +150,9 @@ export default {
       text-align: center
       line-height: 45px
       z-index: 100
-
     .logout-item
       width: 100%
       position: absolute
       bottom: 0
-      border-top: solid 1px #0B4EC5
+      border-top: solid 1px $primary-border-color
 </style>

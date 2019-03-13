@@ -1,6 +1,3 @@
-<!-- =================================================
- Template
-================================================== -->
 <template>
   <overlay-wrapper
     :header-title="'Select Network'"
@@ -23,9 +20,6 @@
   </overlay-wrapper>
 </template>
 
-<!-- =================================================
- Script
-================================================== -->
 <script>
 import OverlayWrapper from './OverlayWrapper';
 import NetworkOptionButton from '@/components/NetworkOptionButton';
@@ -122,9 +116,6 @@ export default {
 };
 </script>
 
-<!-- =================================================
- Vue Style
-================================================== -->
 <style lang="stylus" scoped>
 .network-option-button-container
   display: flex

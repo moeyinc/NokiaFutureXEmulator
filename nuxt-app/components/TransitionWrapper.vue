@@ -1,6 +1,3 @@
-<!-- =================================================
- Template
-================================================== -->
 <template>
   <!-- <div class="transition-wrapper"> -->
   <transition :name="transitionName">
@@ -9,9 +6,6 @@
   <!-- </div> -->
 </template>
 
-<!-- =================================================
- Script
-================================================== -->
 <script>
 export default {
   name: 'TransitionWrapper',
@@ -37,9 +31,6 @@ export default {
 };
 </script>
 
-<!-- =================================================
- Style
-================================================== -->
 <style scoped lang='stylus'>
 @import '~@/stylus/vue-transitions'
 // .transition-wrapper

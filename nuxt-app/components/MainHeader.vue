@@ -1,8 +1,5 @@
-<!-- =================================================
- Template
-================================================== -->
 <template>
-  <div class="main-header">
+  <header>
     <div
       v-if="hasNavBar"
       class="nav-bar"
@@ -20,7 +17,7 @@
         @click="$emit('back-button-clicked')"
       >
         <div class="inner">
-          <img :src="require('@/assets/images/arrow-right.png')">
+          <img :src="require('@images/arrow-right.png')">
           <h6>{{ backButtonLabel }}</h6>
         </div>
       </div>
@@ -31,30 +28,39 @@
         {{ subtitle }}
       </h2>
     </div>
-  </div>
+  </header>
 </template>
 
-<!-- =================================================
- Script
-================================================== -->
 <script>
 export default {
   name: 'MainHeader',
   props: {
-    title: String,
-    subtitle: String,
-    hasNavBar: Boolean,
-    categoryName: String,
-    backButtonLabel: String,
+    title: {
+      type: String,
+      default: '',
+    },
+    subtitle: {
+      type: String,
+      default: '',
+    },
+    hasNavBar: {
+      type: Boolean,
+      default: false,
+    },
+    categoryName: {
+      type: String,
+      default: '',
+    },
+    backButtonLabel: {
+      type: String,
+      default: '',
+    },
   },
 };
 </script>
 
-<!-- =================================================
- Vue Style
-================================================== -->
 <style lang="stylus" scoped>
-.main-header
+header
   padding: 59px 80px 40px 80px
 
   .nav-bar
@@ -63,15 +69,12 @@ export default {
     display: flex
     flex-direction: row
     justify-content: space-between
-
     .category-name
       align-self: flex-start
-
       h6
         font-size: 12px
         padding-left: 3px
         margin-bottom: 7px
-
       hr.underline
         width: 64px
         border: solid 0.5px white
@@ -79,19 +82,15 @@ export default {
         margin-block-end: 0
         margin-inline-start: 0
         margin-inline-end: 0
-
     .back-button-wrapper
       display: inline-block
       border-bottom: solid 0.5px #5D8CEE
-
       .inner
         display: flex
         flex-direction: row
         align-items: center
-
         h6
           font-size: 20px
-
         img
           width: 20px
           height: 18px
@@ -102,12 +101,9 @@ export default {
   .my-title
     padding-top: 17px
     white-space: nowrap
-
     h1
       font-size: 60px
-
     h2
       font-size: 60px
       color: #4889FF
-
 </style>

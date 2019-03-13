@@ -1,6 +1,3 @@
-<!-- =================================================
- Template
-================================================== -->
 <template>
   <table>
     <tr class="header-row">
@@ -55,9 +52,6 @@
   </table>
 </template>
 
-<!-- =================================================
- Script
-================================================== -->
 <script>
 import SubActionButton from '@/components/SubActionButton';
 
@@ -67,8 +61,14 @@ export default {
     SubActionButton,
   },
   props: {
-    title: String,
-    params: Object,
+    title: {
+      type: String,
+      default: '',
+    },
+    params: {
+      type: Object,
+      default: () => {},
+    },
     resetButton: {
       type: Boolean,
       default: true,
@@ -77,9 +77,6 @@ export default {
 };
 </script>
 
-<!-- =================================================
- Vue Style
-================================================== -->
 <style lang="stylus" scoped>
 table
   width: 100%

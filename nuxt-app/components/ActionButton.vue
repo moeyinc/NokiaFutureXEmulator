@@ -1,6 +1,3 @@
-<!-- =================================================
- Template
-================================================== -->
 <template>
   <div
     :class="['action-button', {'small': small}]"
@@ -10,16 +7,13 @@
     <div class="inner">
       <img
         v-if="iconFilename"
-        :src="require('@/assets/images/' + iconFilename)"
+        :src="require('@images/' + iconFilename)"
       >
       <h6>{{ label }}</h6>
     </div>
   </div>
 </template>
 
-<!-- =================================================
- Script
-================================================== -->
 <script>
 export default {
   name: 'ActionButton',
@@ -53,9 +47,6 @@ export default {
 };
 </script>
 
-<!-- =================================================
- Vue Style
-================================================== -->
 <style lang="stylus" scoped>
 .action-button
   display: flex
@@ -66,16 +57,13 @@ export default {
   font-size: 36px
   line-height: 52px
   letter-spacing: 0.75px
-
   &.small
     height: 80px
     padding: 0px 80px
-
   .inner
     display: flex
     flex-direction: row
     align-items: center
-
     img
       width: 50px
       height: 50px

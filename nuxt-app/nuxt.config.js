@@ -35,6 +35,13 @@ module.exports = {
   ],
 
   /*
+  ** Vue router config
+  */
+  router: {
+    middleware: 'currentPage',
+  },
+
+  /*
   ** Plugins to load before mounting the App
   */
   plugins: [
@@ -48,6 +55,7 @@ module.exports = {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/dotenv',
+    '@nuxtjs/vuetify',
   ],
   /*
   ** Axios module configuration
@@ -78,7 +86,7 @@ module.exports = {
       config.resolve.alias['@styles'] = resolve('assets/styles');
       config.resolve.alias['@images'] = resolve('assets/images');
       config.resolve.alias['@fonts'] = resolve('assets/fonts');
-      config.resolve.alias['@comp'] = resolve('components');
+      config.resolve.alias['@comps'] = resolve('components');
     },
   },
 };

@@ -1,6 +1,3 @@
-<!-- =================================================
- Template
-================================================== -->
 <template>
   <div class="action-button-container">
     <div
@@ -12,9 +9,6 @@
   </div>
 </template>
 
-<!-- =================================================
- Script
-================================================== -->
 <script>
 export default {
   name: 'FloatingActionButtonContainer',
@@ -27,16 +21,12 @@ export default {
 };
 </script>
 
-<!-- =================================================
- Vue Style
-================================================== -->
 <style lang="stylus" scoped>
 .action-button-container
   position: fixed
   bottom: 0
   left: 280px
   right: 0
-
   .inner
     position: absolute
     bottom: 60px

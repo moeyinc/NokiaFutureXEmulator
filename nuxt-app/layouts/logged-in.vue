@@ -1,24 +1,28 @@
 <template>
   <div class="logged-in">
-    <side-nav-menu />
-    <main id="app-main">
-      <router-view />
+    <SideNavMenu />
+    <main>
+      <nuxt />
     </main>
   </div>
 </template>
 
 <script>
-import SideNavMenu from '@/components/SideNavMenu';
+import SideNavMenu from '@comps/SideNavMenu';
+import {mapState} from 'vuex';
 
 export default {
   name: 'LoggedIn',
   components: {
     SideNavMenu,
   },
+  computed: {
+    ...mapState(['isLoggedIn']),
+  },
   mounted() {
-    if (!this.$store.state.isLoggedIn) {
-      console.log('not logged in!', this.$store.state.isLoggedIn);
-      this.jumpTo('Login', {transition: 'fade'});
+    if (!this.isLoggedIn) {
+      console.log('Not logged in!');
+      this.jumpTo('index', {transition: 'fade'});
     }
   },
 };
@@ -30,15 +34,16 @@ export default {
   top: 0
   left: 0
   height: 100%
-  background-image: url('~@/assets/images/loggedin-bg.png')
+  background-image: url('~@images/loggedin-bg.png')
   background-size: cover
   background-position: center
   background-repeat: no-repeat
 
-  #app-main
+  main
     margin-left: 280px
+    width: 832px
     height: 100%
-    overflow-y: hidden // scroll
+    overflow-y: hidden
     overflow-x: hidden
     position: relative
 </style>

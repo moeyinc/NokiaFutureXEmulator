@@ -1,6 +1,3 @@
-<!-- =================================================
- Template
-================================================== -->
 <template>
   <div
     :class="['network-option-button', {'selected': isSelected}]"
@@ -33,27 +30,42 @@
   </div>
 </template>
 
-<!-- =================================================
- Script
-================================================== -->
 <script>
 export default {
   name: 'NetworkOptionButton',
   props: {
-    name: String,
-    category: String,
-    security: String,
-    latency: String,
-    bandwidth: String,
-    reliability: String,
-    isSelected: Boolean,
+    name: {
+      type: String,
+      default: '',
+    },
+    category: {
+      type: String,
+      default: '',
+    },
+    security: {
+      type: String,
+      default: '',
+    },
+    latency: {
+      type: String,
+      default: '',
+    },
+    bandwidth: {
+      type: String,
+      default: '',
+    },
+    reliability: {
+      type: String,
+      default: '',
+    },
+    isSelected: {
+      type: Boolean,
+      default: false,
+    },
   },
 };
 </script>
 
-<!-- =================================================
- Vue Style
-================================================== -->
 <style lang="stylus" scoped>
 .network-option-button
   width: 230px

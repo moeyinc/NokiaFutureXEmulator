@@ -1,6 +1,3 @@
-<!-- =================================================
- Template
-================================================== -->
 <template>
   <div class="mission-controls">
     <main-header
@@ -101,9 +98,6 @@
   </div>
 </template>
 
-<!-- =================================================
- Script
-================================================== -->
 <script>
 import MainHeader from '@/components/MainHeader';
 import FloatingActionButtonContainer from
@@ -235,9 +229,6 @@ export default {
 };
 </script>
 
-<!-- =================================================
- Vue Style
-================================================== -->
 <style lang="stylus" scoped>
 .mission-controls
   .wrapper

@@ -1,22 +1,22 @@
 <template>
   <div class="sleeve-management">
-    <main-header
+    <MainHeader
       :title="'Sleeve Management'"
       :has-nav-bar="false"
     />
 
-    <summary-block
+    <SummaryBlock
       :summary-text="'Manage which sleeve to use for games in the stories.'"
     />
 
     <div class="wrapper">
-      <action-table
+      <ActionTable
         :items="actionTableItems"
         @clicked="(itemType) => overlay = itemType"
       />
     </div>
 
-    <select-sleeve-overlay
+    <SelectSleeveOverlay
       v-if="overlay === 'player1' || overlay === 'player2'"
       :player-index="overlay"
       @close="overlay = null"
@@ -25,13 +25,14 @@
 </template>
 
 <script>
-import MainHeader from '@/components/MainHeader';
-import SummaryBlock from '@/components/SummaryBlock';
-import ActionTable from '@/components/ActionTable';
-import SelectSleeveOverlay from './overlays/SelectSleeveOverlay';
+import MainHeader from '@comps/MainHeader';
+import SummaryBlock from '@comps/SummaryBlock';
+import ActionTable from '@comps/ActionTable';
+import SelectSleeveOverlay from '@comps/pages/overlays/SelectSleeveOverlay';
 
 export default {
   name: 'SleeveManagement',
+  layout: 'logged-in',
   components: {
     MainHeader,
     SummaryBlock,
