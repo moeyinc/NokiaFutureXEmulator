@@ -38,6 +38,7 @@ export default {
     login() {
       this.$store.dispatch('login', this.password)
           .then(() => {
+            this.$store.dispatch('getStoryConfig');
             this.jumpTo('stories', {transition: 'fade'});
           })
           .catch((err) => {

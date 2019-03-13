@@ -8,6 +8,9 @@ const mutations = {
   logout(state) {
     state.isLoggedIn = false;
   },
+  updateStories(state, stories) {
+    state.stories = stories;
+  },
   // page: {name, story_id, mission_id}
   updateLastStoryPage(state, page) {
     state.lastStoryPage = page;

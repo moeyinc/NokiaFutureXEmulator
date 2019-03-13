@@ -89,6 +89,10 @@ module.exports = {
       config.resolve.alias['@comps'] = resolve('components');
     },
   },
+  serverMiddleware: [
+    // API middleware
+    '~/api/index.js',
+  ],
 };
 
 /*

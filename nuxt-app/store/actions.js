@@ -1,11 +1,3 @@
-// import mqttInitAction from './actions-mqtt-init';
-// import mqttPublishActions from './actions-mqtt-publish';
-// import roomEffectsActions from './actions-room-effects';
-//
-// const actions = {};
-// Object.assign(actions, mqttInitAction);
-// Object.assign(actions, mqttPublishActions);
-// Object.assign(actions, roomEffectsActions);
 import mqttClient from './mqtt-client';
 import axios from 'axios';
 import APP_CONFIG from '@/config/app-config';
@@ -74,6 +66,16 @@ const actions = {
         resolve();
       });
     });
+  },
+  getStoryConfig({commit}) {
+    const url = 'http://localhost:3000/api/experience/config';
+    axios.get(url)
+        .then((res) => {
+          console.log('getStoryConfig res', res);
+          const stories = res.data.stories;
+          commit('updateStories', stories);
+        })
+        .catch(console.error);
   },
   getCurrentVolume(context) {
     return new Promise((resolve, reject) => {

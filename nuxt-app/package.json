@@ -20,7 +20,8 @@
     "express": "^4.16.4",
     "mqtt": "^2.18.8",
     "nuxt": "^2.4.0",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "pjlink": "^0.2.4"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^0.0.1",

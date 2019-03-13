@@ -1,14 +1,6 @@
 import STORY_CONFIG from '@/config/story-config.json';
 
 const getters = {
-  getStories: (state) => {
-    const stories = STORY_CONFIG.stories;
-    if (!stories || !Array.isArray(stories)) {
-      console.error('There is no stories array in the JSON file');
-      return;
-    }
-    return stories;
-  },
   getSelectedStory: (state) => (_storyId) => {
     const stories = STORY_CONFIG.stories;
     if (!stories || !Array.isArray(stories)) {

@@ -9,13 +9,13 @@
 
     <ul class="story-list">
       <StoryListItem
-        v-for="story in getStories"
-        :key="story.storyId"
+        v-for="story in stories"
+        :key="story.id"
         class="story-list-item"
         :category-name="story.category"
         :title="story.title"
         :thumbnail-filename="story.catchImageFilename"
-        @select="startStory(story)"
+        @select="selectStory(story)"
       />
     </ul>
   </div>
@@ -26,7 +26,7 @@ import MainHeader from '@comps/MainHeader';
 import SummaryBlock from '@comps/SummaryBlock';
 import StoryListItem from '@comps/StoryListItem';
 import storyPageMixin from '@/mixins/story-page';
-import {mapGetters} from 'vuex';
+import {mapState} from 'vuex';
 
 export default {
   name: 'Stories',
@@ -38,11 +38,11 @@ export default {
   },
   mixins: [storyPageMixin],
   computed: {
-    ...mapGetters(['getStories']),
+    ...mapState(['stories']),
   },
   methods: {
-    startStory(story) {
-      this.$router.push('/stories/' + story.storyId);
+    selectStory(story) {
+      this.$router.push('/stories/' + story.id);
     },
   },
 };

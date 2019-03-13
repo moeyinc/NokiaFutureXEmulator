@@ -2,6 +2,7 @@ const createState = () => ({
   currentPage: 'index',
   mqttClient: null,
   isLoggedIn: false,
+  stories: [],
   lastStoryPage: null,
   // roomEffects: {},
   selectedPlayerMode: null,
