@@ -31,6 +31,32 @@ import {mapState} from 'vuex';
 export default {
   name: 'Stories',
   layout: 'logged-in',
+  transition: (to, from) => {
+    if (!to || !from) return;
+    const thisPageName = 'stories';
+    if (to.name === thisPageName) {
+      // when routing to this page,
+      // if the previous page is story-start page or
+      // story section page, apply slide-right animation
+      switch (from.name) {
+        case 'stories-storyId':
+        case 'stories-storyId-section-sectionId':
+          return 'slide-right';
+        default:
+          return 'fade';
+      }
+    } else if (from.name === thisPageName) {
+      // when routing to other pages,
+      // if the destination is story-start page,
+      // apply slide-left animation
+      switch (to.name) {
+        case 'stories-storyId':
+          return 'slide-left';
+        default:
+          return 'fade';
+      }
+    }
+  },
   components: {
     MainHeader,
     SummaryBlock,

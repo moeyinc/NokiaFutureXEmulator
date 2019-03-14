@@ -37,6 +37,31 @@ import storyPageMixin from '@/mixins/story-page';
 export default {
   name: 'StoryStart',
   layout: 'logged-in',
+  transition: (to, from) => {
+    if (!to || !from) return;
+    const thisPageName = 'stories-storyId';
+    if (to.name === thisPageName) {
+      // when routing to this page,
+      // if the previous page is stories page or
+      // story section page, apply slide-right animation
+      switch (from.name) {
+        case 'stories':
+          return 'slide-left';
+        default:
+          return 'fade';
+      }
+    } else if (from.name === thisPageName) {
+      // when routing to other pages,
+      // if the destination is stories page,
+      // apply slide-left animation
+      switch (to.name) {
+        case 'stories':
+          return 'slide-right';
+        default:
+          return 'fade';
+      }
+    }
+  },
   components: {
     MainHeader,
     SummaryBlock,

@@ -33,6 +33,7 @@ import SelectSleeveOverlay from '@comps/overlays/SelectSleeveOverlay';
 export default {
   name: 'SleeveManagement',
   layout: 'logged-in',
+  transition: 'fade',
   components: {
     MainHeader,
     SummaryBlock,

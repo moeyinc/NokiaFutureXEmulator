@@ -33,6 +33,7 @@ import EffectTable from '@comps/EffectTable';
 export default {
   name: 'RoomEffects',
   layout: 'logged-in',
+  transition: 'fade',
   components: {
     MainHeader,
     SummaryBlock,

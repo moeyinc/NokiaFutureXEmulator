@@ -49,6 +49,44 @@ import storyPageMixin from '@/mixins/story-page';
 export default {
   name: 'TalkingPoints',
   layout: 'logged-in',
+  transition: (to, from) => {
+    if (!to || !from) return;
+    const thisPageName = 'stories-storyId-section-sectionId';
+    if (to.name === thisPageName) {
+      // when routing to this page,
+      // if the previous page is story-start page apply slide-left animation
+      // if the origin is previous section page,
+      // apply slide-left animation.
+      // if the origin is next section page,
+      // apply slide-right animation.
+      switch (from.name) {
+        case 'stories-storyId':
+          return 'slide-left';
+        case thisPageName:
+          const mySectionId = to.params.sectionId;
+          const prevSectionId = from.params.sectionId;
+          if (prevSectionId > mySectionId) return 'slide-right';
+          else if (prevSectionId < mySectionId) return 'slide-left';
+        default:
+          return 'fade';
+      }
+    } else if (from.name === thisPageName) {
+      // when routing to other pages,
+      // if the destination is previous section page,
+      // apply slide-right animation.
+      // if the destination is next section page,
+      // apply slide-left animation.
+      switch (to.name) {
+        case thisPageName:
+          const mySectionId = from.params.sectionId;
+          const nextSectionId = to.params.sectionId;
+          if (nextSectionId > mySectionId) return 'slide-right';
+          else if (nextSectionId < mySectionId) return 'slide-left';
+        default:
+          return 'fade';
+      }
+    }
+  },
   components: {
     MainHeader,
     SummaryBlock,
