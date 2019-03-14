@@ -89,6 +89,9 @@ module.exports = {
       config.resolve.alias['@comps'] = resolve('components');
     },
   },
+  env: {
+    isDev: !(process.env.NODE_ENV === 'production'),
+  },
   serverMiddleware: [
     // API middleware
     '~/api/index.js',

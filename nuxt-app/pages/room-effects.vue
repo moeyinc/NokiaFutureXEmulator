@@ -61,8 +61,10 @@ export default {
     };
   },
   created() {
-    this.initAudioMaster();
-    this.initProjectorPowerState();
+    if (!process.env.isDev) {
+      this.initAudioMaster();
+      this.initProjectorPowerState();
+    }
   },
   methods: {
     initAudioMaster() {
