@@ -55,7 +55,7 @@ export default {
   computed: {
     ...mapState(['currentPage']),
     storyId() {
-      return parseInt(this.$nuxt.$route.params.id);
+      return parseInt(this.$nuxt.$route.params.storyId);
     },
     selectedStory() {
       return this.$store.getters.getSelectedStory(this.storyId);
