@@ -12,7 +12,7 @@
         <th class="padding" />
       </tr>
       <tr
-        v-for="(sleeveId, index) in availableSleeveIds"
+        v-for="(sleeveId, index) in sleeves"
         :key="index"
         class="data-row"
         @click="itemClicked(sleeveId)"
@@ -38,7 +38,7 @@
 <script>
 import OverlayWrapper from './OverlayWrapper';
 import SelectedPlayerIcon from '@/components/SelectedPlayerIcon';
-import SLEEVE_CONFIG from '@/config/sleeve-config';
+import {mapState} from 'vuex';
 
 export default {
   name: 'SelectSleeveOverlay',
@@ -53,9 +53,7 @@ export default {
     },
   },
   computed: {
-    availableSleeveIds() {
-      return SLEEVE_CONFIG.availableSleeveIds;
-    },
+    ...mapState(['sleeves']),
   },
   methods: {
     itemClicked(sleeveId) {

@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
-const storyConfig = require('../experience-config');
+const config = require('../experience-config');
 
 router.get('/experience/config', (req, res, next) => {
-  res.json(storyConfig);
+  res.json(config);
 });
 
 module.exports = router;

@@ -1,6 +1,6 @@
 import mqtt from 'mqtt';
 import EventBus from '@/event-bus';
-import APP_CONFIG from '@/config/app-config';
+import APP_CONFIG from '@/config';
 
 let mqttClient;
 

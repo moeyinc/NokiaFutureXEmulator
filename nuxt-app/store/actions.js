@@ -1,6 +1,6 @@
 import mqttClient from './mqtt-client';
 import axios from 'axios';
-import APP_CONFIG from '@/config/app-config';
+import APP_CONFIG from '@/config';
 
 const actions = {
   /**
@@ -67,13 +67,14 @@ const actions = {
       });
     });
   },
-  getStoryConfig({commit}) {
+  getExperienceConfig({commit}) {
     const url = 'http://localhost:3000/api/experience/config';
     axios.get(url)
         .then((res) => {
-          console.log('getStoryConfig res', res);
           const stories = res.data.stories;
+          const sleeves = res.data.sleeves;
           commit('updateStories', stories);
+          commit('updateSleeves', sleeves);
         })
         .catch(console.error);
   },
