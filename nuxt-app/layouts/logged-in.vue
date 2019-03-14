@@ -22,7 +22,7 @@ export default {
   mounted() {
     if (!this.isLoggedIn) {
       console.log('Not logged in!');
-      this.jumpTo('index', {transition: 'fade'});
+      this.$router.push('/');
     }
   },
 };

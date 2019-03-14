@@ -14,7 +14,6 @@ const mutations = {
   updateSleeves(state, sleeves) {
     state.sleeves = sleeves;
   },
-  // page: {name, story_id, mission_id}
   updateLastStoryPage(state, page) {
     state.lastStoryPage = page;
   },

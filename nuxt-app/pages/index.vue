@@ -39,7 +39,7 @@ export default {
     login() {
       this.$store.dispatch('login', this.password)
           .then(() => {
-            this.jumpTo('stories', {transition: 'fade'});
+            this.$router.push('/stories');
           })
           .catch((err) => {
             if (err.message === 'WrongPassword') {

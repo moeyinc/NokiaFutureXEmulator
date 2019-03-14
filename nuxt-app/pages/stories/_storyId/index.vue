@@ -5,7 +5,7 @@
       :has-nav-bar="true"
       :category-name="selectedStory.category"
       :back-button-label="'Back To List'"
-      @back-button-clicked="jumpTo('stories', {transition: 'slide-right'})"
+      @back-button-clicked="$router.push('/stories')"
     />
 
     <SummaryBlock :summary-text="selectedStory.summary" />
@@ -18,29 +18,21 @@
 
     <FloatingActionButtonContainer>
       <ActionButton
-        v-if="storyId === 1"
         :label="'Start Story'"
         :enabled="true"
-        @clicked="startStory('interactive')"
-      />
-      <ActionButton
-        v-else
-        :label="'Watch Teaser'"
-        :enabled="true"
-        @clicked="startStory('teaser')"
+        @clicked="startStory"
       />
     </FloatingActionButtonContainer>
   </div>
 </template>
 
 <script>
-import MainHeader from '@/components/MainHeader';
-import SummaryBlock from '@/components/SummaryBlock';
+import MainHeader from '@comps/MainHeader';
+import SummaryBlock from '@comps/SummaryBlock';
 import FloatingActionButtonContainer from
-  '@/components/FloatingActionButtonContainer';
-import ActionButton from '@/components/ActionButton';
+  '@comps/FloatingActionButtonContainer';
+import ActionButton from '@comps/ActionButton';
 import storyPageMixin from '@/mixins/story-page';
-import {mapState} from 'vuex';
 
 export default {
   name: 'StoryStart',
@@ -53,7 +45,6 @@ export default {
   },
   mixins: [storyPageMixin],
   computed: {
-    ...mapState(['currentPage']),
     storyId() {
       return parseInt(this.$nuxt.$route.params.storyId);
     },
@@ -62,29 +53,12 @@ export default {
     },
   },
   methods: {
-    startStory(mode) {
-      this.$store.dispatch('startStory', {mode, storyId: this.storyId})
+    startStory() {
+      this.$store.dispatch('startStory', {storyId: this.storyId})
           .then(() => {
-            if (mode === 'interactive') {
-              this.jumpTo('Intro', {
-                story_id: this.storyId,
-                transition: 'slide-left',
-              });
-            } else if (mode === 'movie') {
-              this.jumpTo('Prerendered', {
-                story_id: this.storyId,
-                transition: 'slide-left',
-              });
-            } else if (mode === 'teaser') {
-              this.jumpTo('Teaser', {
-                story_id: this.storyId,
-                transition: 'slide-left',
-              });
-            }
+            this.$router.push('/stories/' + this.storyId + '/section/1');
           })
-          .catch((err) => {
-            console.error(err);
-          });
+          .catch(console.error);
     },
   },
 };

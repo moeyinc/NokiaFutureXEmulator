@@ -14,21 +14,21 @@
           :active="!isOnRoomEffectsPage && !isOnSleeveManagementPage"
           :icon-filename="'story-icon.png'"
           :icon-filename-active="'story-icon-active.png'"
-          @select="jumpToLastStoryPage()"
+          @select="jumpToLastStoryPage"
         />
         <SideNavMenuItem
           :label="'Room Effects'"
           :active="isOnRoomEffectsPage"
           :icon-filename="'room-effect-icon.png'"
           :icon-filename-active="'room-effect-icon-active.png'"
-          @select="jumpTo('room-effects', {transition: 'fade'})"
+          @select="$router.push('/room-effects')"
         />
         <SideNavMenuItem
           :label="'Manage Sleeves'"
           :active="isOnSleeveManagementPage"
           :icon-filename="'sleeve-icon.png'"
           :icon-filename-active="'sleeve-icon-active.png'"
-          @select="jumpTo('sleeve-management', {transition: 'fade'})"
+          @select="$router.push('/sleeve-management')"
         />
         <SideNavMenuItem
           class="logout-item"
@@ -54,7 +54,8 @@
 <script>
 import SideNavMenuItem from '@comps/SideNavMenuItem';
 import ConfirmationModalOverlay from
-  '@comps/pages/overlays/ConfirmationModalOverlay';
+  '@comps/overlays/ConfirmationModalOverlay';
+import {mapState} from 'vuex';
 
 export default {
   name: 'SideNavMenu',
@@ -65,40 +66,41 @@ export default {
   data() {
     return {
       overlay: null,
-      lastStoryPage: null,
     };
   },
   computed: {
+    ...mapState(['currentPage', 'lastStoryPage']),
     isOnRoomEffectsPage() {
-      if (this.$route.name === 'room-effects') return true;
+      if (this.currentPage === 'room-effects') return true;
       return false;
     },
     isOnSleeveManagementPage() {
-      if (this.$route.name === 'sleeve-management') return true;
+      if (this.currentPage === 'sleeve-management') return true;
       return false;
     },
   },
   methods: {
     jumpToLastStoryPage() {
-      const page = this.$store.state.lastStoryPage;
-      if (!page) {
-        console.error('No lastStoryPagePath found', page);
+      if (!this.lastStoryPage) {
+        this.$router.push('/stories');
         return;
       }
-      this.jumpTo(page.name, {
-        story_id: page.story_id,
-        mission_id: page.mission_id,
-        transition: 'fade',
-      });
+      const storyId = this.lastStoryPage.params.storyId;
+      const sectionId = this.lastStoryPage.params.sectionId;
+      if (!storyId) {
+        this.$router.push('/stories');
+      } else if (!sectionId) {
+        this.$router.push('/stories/' + storyId);
+      } else {
+        this.$router.push('/stories/' + storyId + '/section/' + sectionId);
+      }
     },
     logout() {
       this.$store.dispatch('logout')
           .then(() => {
-            this.jumpTo('index', {transition: 'fade'});
+            this.$router.push('/');
           })
-          .catch(() => {
-            console.error('Logout failed!');
-          });
+          .catch(console.error);
     },
   },
 };

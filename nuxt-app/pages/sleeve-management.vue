@@ -28,7 +28,7 @@
 import MainHeader from '@comps/MainHeader';
 import SummaryBlock from '@comps/SummaryBlock';
 import ActionTable from '@comps/ActionTable';
-import SelectSleeveOverlay from '@comps/pages/overlays/SelectSleeveOverlay';
+import SelectSleeveOverlay from '@comps/overlays/SelectSleeveOverlay';
 
 export default {
   name: 'SleeveManagement',
