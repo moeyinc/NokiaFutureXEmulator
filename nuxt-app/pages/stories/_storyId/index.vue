@@ -54,7 +54,7 @@ export default {
   },
   methods: {
     startStory() {
-      this.$store.dispatch('startStory', {storyId: this.storyId})
+      this.$store.dispatch('startStory', this.storyId)
           .then(() => {
             this.$router.push('/stories/' + this.storyId + '/section/1');
           })

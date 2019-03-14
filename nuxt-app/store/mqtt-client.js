@@ -1,6 +1,6 @@
 import mqtt from 'mqtt';
 import EventBus from '@/event-bus';
-import APP_CONFIG from '@/config';
+import CONFIG from '@/config';
 
 let mqttClient;
 
@@ -11,8 +11,8 @@ export default {
    * to some events.
    */
   init() {
-    const host = process.env.MQTT_HOST || APP_CONFIG.MQTT.HOST;
-    const port = process.env.MQTT_PORT || APP_CONFIG.MQTT.PORT;
+    const host = process.env.MQTT_HOST || CONFIG.MQTT.HOST;
+    const port = process.env.MQTT_PORT || CONFIG.MQTT.PORT;
     console.log('connecting to MQTT broker', host);
     // connect to broker
     mqttClient = mqtt.connect({
@@ -23,7 +23,7 @@ export default {
 
     // when it's connected to the broker, subscribe to a topic
     mqttClient.on('connect', () => {
-      const topic = APP_CONFIG.MQTT.TOPIC;
+      const topic = CONFIG.MQTT.TOPIC;
       mqttClient.subscribe(topic, {
         qos: 2,
       });
@@ -53,7 +53,7 @@ export default {
     // publish the message
     console.log('publishing a message:', message);
     mqttClient.publish(
-        APP_CONFIG.MQTT.TOPIC, JSON.stringify(message),
+        CONFIG.MQTT.TOPIC, JSON.stringify(message),
         {},
         (err) => {
           if (err) cb(err);

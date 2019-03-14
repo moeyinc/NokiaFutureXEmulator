@@ -20,9 +20,9 @@
     <FloatingActionButtonContainer>
       <ActionButton
         :label="'Next'"
-        :icon-filename="'skip-icon.png'"
+        :icon-filename="'proceed-icon.png'"
         :enabled="true"
-        @clicked="skip()"
+        @clicked="proceed"
       />
     </FloatingActionButtonContainer>
 
@@ -72,6 +72,9 @@ export default {
     sectionId() {
       return parseInt(this.$nuxt.$route.params.sectionId);
     },
+    selectedStory() {
+      return this.$store.getters.getSelectedStory(this.storyId);
+    },
     selectedSection() {
       return this.$store.getters.getSelectedSection({
         storyId: this.storyId,
@@ -99,6 +102,16 @@ export default {
       this.$store.dispatch('endStory')
           .then(() => {
             this.$router.push('/stories');
+          })
+          .catch(console.error);
+    },
+    proceed() {
+      const nextSectionId = this.sectionId + 1;
+      this.$store.dispatch('gotoSection', nextSectionId)
+          .then(() => {
+            const path = '/stories/' + this.storyId +
+              '/section/' + nextSectionId;
+            this.$router.push(path);
           })
           .catch(console.error);
     },

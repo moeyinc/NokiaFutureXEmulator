@@ -1,6 +1,6 @@
 import mqttClient from './mqtt-client';
 import axios from 'axios';
-import APP_CONFIG from '@/config';
+import CONFIG from '@/config';
 
 const actions = {
   /**
@@ -20,7 +20,7 @@ const actions = {
    */
   login(context, password) {
     return new Promise((resolve, reject) => {
-      if (password === APP_CONFIG.PASSWORD) {
+      if (password === CONFIG.PASSWORD) {
         context.commit('login');
 
         // set up a message object to publish
@@ -78,9 +78,65 @@ const actions = {
         })
         .catch(console.error);
   },
+  startStory(context, storyId) {
+    return new Promise((resolve, reject) => {
+      // set up a message object to publish
+      const message = {
+        type: 'start-story',
+        story: storyId,
+      };
+
+      // publish the message
+      mqttClient.publishMessage(message, (err) => {
+        if (err) {
+          alert('Network error. The MQTT message (' +
+          message.type + ') was\'nt published successfully.');
+          reject(err);
+        }
+        resolve();
+      });
+    });
+  },
+  endStory(context, storyId) {
+    return new Promise((resolve, reject) => {
+      // set up a message object to publish
+      const message = {
+        type: 'end-story',
+      };
+
+      // publish the message
+      mqttClient.publishMessage(message, (err) => {
+        if (err) {
+          alert('Network error. The MQTT message (' +
+          message.type + ') was\'nt published successfully.');
+          reject(err);
+        }
+        resolve();
+      });
+    });
+  },
+  gotoSection(context, sectionId) {
+    return new Promise((resolve, reject) => {
+      // set up a message object to publish
+      const message = {
+        type: 'goto-section',
+        section: sectionId,
+      };
+
+      // publish the message
+      mqttClient.publishMessage(message, (err) => {
+        if (err) {
+          alert('Network error. The MQTT message (' +
+          message.type + ') was\'nt published successfully.');
+          reject(err);
+        }
+        resolve();
+      });
+    });
+  },
   getCurrentVolume(context) {
     return new Promise((resolve, reject) => {
-      const url = APP_CONFIG.MOTU.URL + '/' + APP_CONFIG.MOTU.TARGETS[0];
+      const url = CONFIG.MOTU.URL + '/' + CONFIG.MOTU.TARGETS[0];
       axios.get(url)
           .then((res) => {
             console.log(res);
@@ -94,11 +150,11 @@ const actions = {
   },
   updateVolume(context, value) {
     return new Promise((resolve, reject) => {
-      const url = APP_CONFIG.MOTU.URL;
+      const url = CONFIG.MOTU.URL;
 
       const data = {};
 
-      for (const target of APP_CONFIG.MOTU.TARGETS) {
+      for (const target of CONFIG.MOTU.TARGETS) {
         data[target] = value;
       }
 
@@ -118,8 +174,8 @@ const actions = {
   getCurrentProjectorState(context) {
     return new Promise((resolve, reject) => {
       // check only the state of the top one
-      const id = APP_CONFIG.PROJECTOR.IDS[0];
-      const url = APP_CONFIG.PROJECTOR.API.GET_POWER_ONE;
+      const id = CONFIG.PROJECTOR.IDS[0];
+      const url = CONFIG.PROJECTOR.API.GET_POWER_ONE;
       axios.get(url + '/' + id)
           .then((res) => {
             console.log(res);
@@ -134,7 +190,7 @@ const actions = {
   },
   turnAllProjectors(context, state) {
     return new Promise((resolve, reject) => {
-      const url = APP_CONFIG.PROJECTOR.API.POST_POWER_ALL;
+      const url = CONFIG.PROJECTOR.API.POST_POWER_ALL;
       console.log('turnAllProjectors', url);
       axios.post(url, {state: state})
           .then((res) => {
