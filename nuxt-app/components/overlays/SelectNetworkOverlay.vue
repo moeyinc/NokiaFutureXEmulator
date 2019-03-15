@@ -22,7 +22,7 @@
 
 <script>
 import OverlayWrapper from './OverlayWrapper';
-import NetworkOptionButton from '@/components/NetworkOptionButton';
+import NetworkOptionButton from '@comps/NetworkOptionButton';
 
 export default {
   name: 'SelectNetworkOverlay',

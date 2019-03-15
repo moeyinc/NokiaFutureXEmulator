@@ -6,7 +6,7 @@
     <div class="wrapper">
       <img
         class="howtocalibrate"
-        :src="require('@/assets/images/how-to-calibrate.png')"
+        :src="require('@images/how-to-calibrate.png')"
       >
       <sub-action-button
         class="sub-action-button"
@@ -26,8 +26,8 @@
 
 <script>
 import OverlayWrapper from './OverlayWrapper';
-import SubActionButton from '@/components/SubActionButton';
-import ActionButton from '@/components/ActionButton';
+import SubActionButton from '@comps/SubActionButton';
+import ActionButton from '@comps/ActionButton';
 
 export default {
   name: 'Calibration',

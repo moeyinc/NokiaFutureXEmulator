@@ -2,7 +2,7 @@
   <div
     :class="['action-button', {'small': small}]"
     :style="buttonStyle"
-    @click="() => {if (enabled) $emit('clicked')}"
+    @click="enabled && $emit('clicked')"
   >
     <div class="inner">
       <img
