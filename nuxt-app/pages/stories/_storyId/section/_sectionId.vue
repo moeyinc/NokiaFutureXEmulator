@@ -22,7 +22,7 @@
         :label="'Next'"
         :icon-filename="'proceed-icon.png'"
         :enabled="true"
-        @clicked="proceed"
+        @clicked="isLastSection ? endStory() : proceed()"
       />
     </FloatingActionButtonContainer>
 
@@ -119,6 +119,12 @@ export default {
         sectionId: this.sectionId,
       });
     },
+    isLastSection() {
+      return this.$store.getters.isLastSection({
+        storyId: this.storyId,
+        sectionId: this.sectionId,
+      });
+    },
   },
   created() {
     this.setEventListeners();
@@ -134,7 +140,7 @@ export default {
       });
     },
     removeEventListeners() {
-      EventBus.$off('eady-to-proceed');
+      EventBus.$off('ready-to-proceed');
     },
     endStory() {
       this.$store.dispatch('endStory')

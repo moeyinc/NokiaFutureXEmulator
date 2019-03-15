@@ -44,6 +44,21 @@ const getters = {
     console.error('There are no sections that have the given id', sectionId);
     return;
   },
+  isLastSection: (state, getters) => ({storyId, sectionId}) => {
+    console.log('isLastSection');
+    const selectedStory = getters.selectedStory(storyId);
+    const sections = selectedStory.sections;
+    if (!sections || !Array.isArray(sections)) {
+      console.error('There is no sections array in the story', storyId);
+      return;
+    }
+    if (sectionId === undefined || sectionId === null) {
+      console.error('sectionId is not specified', sectionId);
+      return;
+    }
+    // note: sectionId starts from 1
+    return sectionId === sections.length;
+  },
 };
 
 export default getters;
