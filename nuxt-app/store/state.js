@@ -5,6 +5,7 @@ const createState = () => ({
   stories: [],
   sleeves: [],
   lastStoryPage: null,
+  mqttMessageLogs: [],
 });
 
 export default createState;

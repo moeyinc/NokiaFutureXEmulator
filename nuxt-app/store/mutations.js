@@ -17,6 +17,9 @@ const mutations = {
   updateLastStoryPage(state, page) {
     state.lastStoryPage = page;
   },
+  updateMqttMessageLogs(state, log) {
+    state.mqttMessageLogs.push(log);
+  },
 };
 
 export default mutations;

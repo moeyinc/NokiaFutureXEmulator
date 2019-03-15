@@ -2,7 +2,7 @@
   <div class="logged-in">
     <SideNavMenu />
     <main>
-      <nuxt />
+      <nuxt data-app />
     </main>
   </div>
 </template>

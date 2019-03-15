@@ -6,9 +6,12 @@ export default {
    * initMqttClient - initialize mqtt client.
    * Connect to a broker, subscribe to a topic, and attach event listener
    * to some events.
+   *
+   * @param {!Object} context Vuexv context object
+   * @return {!Promise}
    */
-  initMqttClient() {
-    mqttClient.init();
+  initMqttClient(context) {
+    return mqttClient.init(context);
   },
   /**
    * login - authenticate the user with a given password
@@ -82,6 +85,12 @@ export default {
         section: sectionId,
       };
 
+      // publish the message
+      publish(message).then(resolve).catch(reject);
+    });
+  },
+  publishAnyMessage(context, message) {
+    return new Promise((resolve, reject) => {
       // publish the message
       publish(message).then(resolve).catch(reject);
     });
