@@ -34,4 +34,9 @@ export default {
       'left',
     ],
   },
+  EXPERIENCE: {
+    API: {
+      GET_CONFIG: '/api/experience/config',
+    },
+  },
 };

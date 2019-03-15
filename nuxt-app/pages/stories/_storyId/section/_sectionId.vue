@@ -111,10 +111,10 @@ export default {
       return parseInt(this.$nuxt.$route.params.sectionId);
     },
     selectedStory() {
-      return this.$store.getters.getSelectedStory(this.storyId);
+      return this.$store.getters.selectedStory(this.storyId);
     },
     selectedSection() {
-      return this.$store.getters.getSelectedSection({
+      return this.$store.getters.selectedSection({
         storyId: this.storyId,
         sectionId: this.sectionId,
       });

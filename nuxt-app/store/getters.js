@@ -1,5 +1,5 @@
 const getters = {
-  getSelectedStory: (state) => (storyId) => {
+  selectedStory: (state) => (storyId) => {
     const stories = state.stories;
     if (!stories || !Array.isArray(stories)) {
       console.error('There is no stories array in the JSON file');
@@ -22,8 +22,8 @@ const getters = {
     console.error('There are no stories that have the given id', storyId);
     return;
   },
-  getSelectedSection: (state, getters) => ({storyId, sectionId}) => {
-    const selectedStory = getters.getSelectedStory(storyId);
+  selectedSection: (state, getters) => ({storyId, sectionId}) => {
+    const selectedStory = getters.selectedStory(storyId);
     const sections = selectedStory.sections;
     if (!sections || !Array.isArray(sections)) {
       console.error('There is no sections array in the story', storyId);

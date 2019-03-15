@@ -74,7 +74,7 @@ export default {
       return parseInt(this.$nuxt.$route.params.storyId);
     },
     selectedStory() {
-      return this.$store.getters.getSelectedStory(this.storyId);
+      return this.$store.getters.selectedStory(this.storyId);
     },
   },
   methods: {
