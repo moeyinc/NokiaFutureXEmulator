@@ -34,6 +34,8 @@ module.exports = {
     '@/assets/styles/global.styl',
   ],
 
+  layoutTransition: 'fade',
+
   /*
   ** Vue router config
   */

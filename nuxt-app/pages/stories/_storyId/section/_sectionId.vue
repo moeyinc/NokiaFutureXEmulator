@@ -50,7 +50,7 @@ export default {
   name: 'TalkingPoints',
   layout: 'logged-in',
   transition: (to, from) => {
-    if (!to || !from) return;
+    if (!to || !from) return 'fade';
     const thisPageName = 'stories-storyId-section-sectionId';
     if (to.name === thisPageName) {
       // when routing to this page,
