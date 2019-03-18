@@ -30,6 +30,8 @@ export default {
 
 <style lang="stylus" scoped>
 .logged-in
+  user-select: none
+  overflow: hidden
   position: fixed
   top: 0
   left: 0

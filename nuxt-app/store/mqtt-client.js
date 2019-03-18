@@ -48,8 +48,11 @@ export default {
       mqttClient.on('message', (topic, payload) => {
         const message = String.fromCharCode.apply(null, payload);
         const messageObj = JSON.parse(message);
-        console.log('received message:', messageObj);
-        context.commit('updateMqttMessageLogs', messageObj);
+        const log = {
+          message: messageObj,
+          receivedAt: getCurrentTimeString(),
+        };
+        context.commit('updateMqttMessageLogs', log);
         if (!messageObj.type) {
           console.error('The received message doesnt have type!');
         } else {
@@ -71,3 +74,21 @@ export default {
         });
   },
 };
+
+/**
+ * getCurrentTimeString - get current time in string
+ *
+ * @return {!String} HH:MM:SS
+ */
+function getCurrentTimeString() {
+  const now = new Date();
+  let hours = now.getHours();
+  let minutes = now.getMinutes();
+  let seconds = now.getSeconds();
+
+  if (hours < 10) hours = '0' + hours;
+  if (minutes < 10) minutes = '0' + minutes;
+  if (seconds < 10) seconds = '0' + seconds;
+
+  return hours + ':' + minutes + ':' + seconds;
+}

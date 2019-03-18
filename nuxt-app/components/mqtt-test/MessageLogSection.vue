@@ -1,0 +1,104 @@
+<template>
+  <section>
+    <h2>Message Log</h2>
+    <VDataTable
+      :headers="headers"
+      :items="items"
+      :pagenation.sync="pagenation"
+      :hide-actions="true"
+      class="elevation-1 datatable"
+    >
+      <template
+        v-slot:items="props"
+        class="table-data"
+      >
+        <tr>
+          <td>
+            {{ props.item.messageSender }}
+          </td>
+          <td>
+            {{ props.item.messageType }}
+          </td>
+          <td>
+            {{ props.item.messageParam1 }}
+          </td>
+          <td>
+            {{ props.item.receivedAt }}
+          </td>
+        </tr>
+      </template>
+    </VDataTable>
+  </section>
+</template>
+
+<script>
+export default {
+  props: {
+    messageLogs: {
+      type: Array,
+      default: () => [],
+    },
+  },
+  data() {
+    return {
+      headers: [
+        {
+          text: 'Sender',
+          value: 'sender',
+          sortable: false,
+          align: 'left',
+        },
+        {
+          text: 'Type',
+          value: 'type',
+          sortable: false,
+          align: 'left',
+        },
+        {
+          text: 'Param 1',
+          value: 'param1',
+          sortable: false,
+          align: 'left',
+        },
+        {
+          text: 'Received at',
+          value: 'receivedAt',
+          sortable: false,
+          align: 'left',
+        },
+      ],
+      items: [],
+      pagenation: {
+        rowsPerPage: -1,
+      },
+    };
+  },
+  watch: {
+    messageLogs(newVal) {
+      console.log('watch', newVal);
+      const newLog = this.messageLogs[this.messageLogs.length - 1];
+      let messageParam1;
+      for (const key in newLog.message) {
+        if (key !== 'type' && key !== 'sender') {
+          messageParam1 = newLog.message[key];
+        }
+      }
+      const item = {
+        messageSender: newLog.message.sender,
+        messageType: newLog.message.type,
+        messageParam1: messageParam1,
+        receivedAt: newLog.receivedAt,
+      };
+      this.items.push(item);
+      console.log('items', this.items);
+    },
+  },
+};
+</script>
+
+<style scoped lang="stylus">
+h2
+  font-size: 18px
+  font-family: 'NokiaPureHeadline_Regular'
+  margin-bottom: 20px
+</style>

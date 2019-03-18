@@ -7,19 +7,30 @@
     />
     <MessageSelectSection
       class="message-select"
+      section-title="Select Sender"
+      :value="selectedSender"
+      :options="messageSenders"
+      @change="(val) => updateSelectedSender(val)"
+    />
+    <MessageSelectSection
+      v-show="selectedSender"
+      class="message-select"
       section-title="Select Message Type"
+      :value="selectedType"
       :options="messageTypes"
-      @change="(val) => selectedType = val"
+      @change="(val) => {updateSelectedType(val) && resetSelectedParameters()}"
     />
     <MessageSelectSection
       v-for="(param, index) in selectedMessage.params"
       :key="index"
       class="message-select"
       :section-title="`Select Parameter: '${param.name}'`"
+      :value="selectedParameters[param.name]"
       :options="param.options"
-      @change="(val) => selectedParameters[param.name] = val"
+      @change="(val) => updateSelectedParameters(param.name, val)"
     />
     <VBtn
+      v-show="readyToPublish"
       class="publish-button"
       color="#0052FF"
       block
@@ -29,30 +40,49 @@
     >
       Publish Message
     </VBtn>
+    <VDivider
+      v-show="mqttMessageLogs.length > 0"
+      class="divider"
+    />
+    <MessageLogSection
+      v-show="mqttMessageLogs.length > 0"
+      :message-logs="mqttMessageLogs"
+    />
   </main>
 </template>
 
 <script>
 import ConnectionStatusSection from '@comps/mqtt-test/ConnectionStatusSection';
 import MessageSelectSection from '@comps/mqtt-test/MessageSelectSection';
+import MessageLogSection from '@comps/mqtt-test/MessageLogSection';
 import {mapState} from 'vuex';
 
 export default {
-  layout: 'default',
+  layout: 'scrollable',
   components: {
     ConnectionStatusSection,
     MessageSelectSection,
+    MessageLogSection,
   },
   data() {
     return {
       mqttClient: null,
       experienceConfigLoaded: false,
+      selectedSender: '',
       selectedType: '',
       selectedParameters: {},
+      readyToPublish: false,
     };
   },
   computed: {
-    ...mapState(['sleeves']),
+    ...mapState(['sleeves', 'mqttMessageLogs']),
+    messageSenders() {
+      return [
+        'facilitator',
+        'unity',
+        'touchdesigner',
+      ];
+    },
     messageTypes() {
       const types = [];
       for (const m of this.messages) {
@@ -193,14 +223,62 @@ export default {
           })
           .catch(console.error);
     },
+    updateSelectedSender(val) {
+      this.selectedSender = val;
+    },
+    updateSelectedType(val) {
+      this.selectedType = val;
+      this.updateReadyToPublish();
+    },
+    updateSelectedParameters(key, val) {
+      this.selectedParameters[key] = val;
+      this.updateReadyToPublish();
+    },
+    resetSelectedSender() {
+      this.selectedSender = '';
+    },
+    resetSelectedType() {
+      this.selectedType = '';
+    },
+    resetSelectedParameters() {
+      console.log('reset selected parameters');
+      this.selectedParameters = {};
+    },
+    updateReadyToPublish() {
+      if (Object.keys(this.selectedMessage).length === 0) {
+        // no message is selected
+        this.readyToPublish = false;
+        return;
+      } else if (!this.selectedMessage.params) {
+        // message is selected and it doesn't require any paramters
+        this.readyToPublish = true;
+        return;
+      }
+
+      // else if message is selected and it requires some paramters,
+      // check if the selectedParameters has all the required parameters
+      for (const p of this.selectedMessage.params) {
+        if (this.selectedParameters[p.name] === undefined) {
+          this.readyToPublish = false;
+          return;
+        }
+      }
+      this.readyToPublish = true;
+    },
     publishMessage() {
+      // preparing the message object to send
       const message = {};
+      if (!this.selectedSender) {
+        console.error('No message sender');
+        return;
+      }
       if (!this.selectedType) {
         console.error('No message type');
         return;
       }
       message.type = this.selectedType;
 
+      // set all the parameters into the message object
       if (this.selectedParameters) {
         for (const key in this.selectedParameters) {
           if (this.selectedParameters.hasOwnProperty(key)) {
@@ -209,9 +287,16 @@ export default {
         }
       }
 
-      this.$store.dispatch('publishAnyMessage', message)
+      // publish the message
+      this.$store.dispatch('publishAnyMessage', {
+        message: message,
+        sender: this.selectedSender,
+      })
           .then(() => {
-            console.log('published');
+            this.resetSelectedSender();
+            this.resetSelectedType();
+            this.resetSelectedParameters();
+            this.updateReadyToPublish();
           })
           .catch(console.error);
     },
@@ -226,8 +311,11 @@ main
   color: black
   max-width: $mobile-max
   margin: 0 auto
-  padding: 20px
+  padding: 40px 20px
   font-size: 16px
+  overflow-y: scroll
+  -webkit-overflow-scrolling: touch
+  overflow-scrolling: touch
   h1
     font-size: 28px
     font-family: 'NokiaPureHeadline_Bold'
@@ -238,4 +326,6 @@ main
     margin-bottom: 40px
   .publish-button
     font-family: 'NokiaPureHeadline_Bold'
+  .divider
+    margin: 40px 0
 </style>

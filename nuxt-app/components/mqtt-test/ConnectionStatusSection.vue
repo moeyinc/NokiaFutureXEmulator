@@ -59,7 +59,7 @@ section
   ul
     list-style: disc inside
     li
-      padding: 5px 0
+      padding: 5px 0 5px 5px
       .normal
         color: green
       .error

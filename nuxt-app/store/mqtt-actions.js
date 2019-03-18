@@ -89,10 +89,10 @@ export default {
       publish(message).then(resolve).catch(reject);
     });
   },
-  publishAnyMessage(context, message) {
+  publishAnyMessage(context, {message, sender}) {
     return new Promise((resolve, reject) => {
       // publish the message
-      publish(message).then(resolve).catch(reject);
+      publish(message, sender).then(resolve).catch(reject);
     });
   },
 };
@@ -101,10 +101,12 @@ export default {
  * publish - publish a MQTT message
  *
  * @param  {!Object} message
+ * @param  {?String} sender tag
  * @return {!Promise}
  */
-function publish(message) {
+function publish(message, sender) {
   return new Promise((resolve, reject) => {
+    message.sender = sender || 'facilitator';
     mqttClient.publishMessage(message, (err) => {
       if (err) {
         alert('Network error. The MQTT message (' +

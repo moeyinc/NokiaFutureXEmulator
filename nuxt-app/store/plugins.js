@@ -4,7 +4,8 @@
  */
 const logMutation = (store) => {
   store.subscribe((mutation, state) => {
-    console.log(mutation.type, mutation.payload);
+    console.log('[store mutation] ' + mutation.type + ' | payload: ',
+        mutation.payload);
   });
 };
 

@@ -3,6 +3,7 @@
     <h2>{{ sectionTitle }}</h2>
     <VSelect
       :items="options"
+      :value="value"
       label="Select One"
       @change="(val) => $emit('change', val)"
     />
@@ -19,6 +20,10 @@ export default {
     options: {
       type: Array,
       default: () => [],
+    },
+    value: {
+      validator: () => true,
+      default: '',
     },
   },
 };
