@@ -30,7 +30,7 @@ import {mapState} from 'vuex';
 
 export default {
   name: 'Stories',
-  layout: 'logged-in',
+  layout: 'with-side-menu',
   transition: (to, from) => {
     if (!to || !from) return 'fade';
     const thisPageName = 'stories';

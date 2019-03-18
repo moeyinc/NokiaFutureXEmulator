@@ -48,7 +48,7 @@ import storyPageMixin from '@/mixins/story-page';
 
 export default {
   name: 'TalkingPoints',
-  layout: 'logged-in',
+  layout: 'with-side-menu',
   transition: (to, from) => {
     if (!to || !from) return 'fade';
     const thisPageName = 'stories-storyId-section-sectionId';

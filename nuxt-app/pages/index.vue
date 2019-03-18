@@ -21,7 +21,7 @@ import LoginStart from '@comps/LoginStart';
 
 export default {
   name: 'Login',
-  layout: 'not-logged-in',
+  layout: 'no-side-menu',
   transition: 'fade',
   components: {
     LoginBrandLogo,

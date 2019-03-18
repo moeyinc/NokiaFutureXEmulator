@@ -1,5 +1,5 @@
 <template>
-  <div class="logged-in">
+  <div class="with-side-menu">
     <SideNavMenu />
     <main>
       <nuxt data-app />
@@ -12,7 +12,7 @@ import SideNavMenu from '@comps/SideNavMenu';
 import {mapState} from 'vuex';
 
 export default {
-  name: 'LoggedIn',
+  name: 'WithSideMenu',
   components: {
     SideNavMenu,
   },
@@ -29,7 +29,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.logged-in
+.with-side-menu
   user-select: none
   overflow: hidden
   position: fixed

@@ -36,7 +36,7 @@ import storyPageMixin from '@/mixins/story-page';
 
 export default {
   name: 'StoryStart',
-  layout: 'logged-in',
+  layout: 'with-side-menu',
   transition: (to, from) => {
     if (!to || !from) return 'fade';
     const thisPageName = 'stories-storyId';
