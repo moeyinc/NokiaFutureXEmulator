@@ -4,6 +4,7 @@ const createState = () => ({
   isLoggedIn: false,
   stories: [],
   sleeves: [],
+  selectedSleeveId: '',
   lastStoryPage: null,
   mqttMessageLogs: [],
 });

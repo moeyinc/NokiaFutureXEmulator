@@ -14,6 +14,9 @@ const mutations = {
   updateSleeves(state, sleeves) {
     state.sleeves = sleeves;
   },
+  updateSelectedSleeveId(state, selectedSleeveId) {
+    state.selectedSleeveId = selectedSleeveId;
+  },
   updateLastStoryPage(state, page) {
     state.lastStoryPage = page;
   },

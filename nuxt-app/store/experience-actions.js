@@ -16,4 +16,27 @@ export default {
           .catch(reject);
     });
   },
+  getSelectedSleeveId({commit}) {
+    return new Promise((resolve, reject) => {
+      const url = CONFIG.EXPERIENCE.API.GET_SELECTED_SLEEVE_ID;
+      axios.get(url)
+          .then((res) => {
+            const selectedSleeveId = res.data.selectedSleeveId;
+            commit('updateSelectedSleeveId', selectedSleeveId);
+            resolve();
+          })
+          .catch(reject);
+    });
+  },
+  postSelectedSleeveId({commit}, sleeveId) {
+    return new Promise((resolve, reject) => {
+      const url = CONFIG.EXPERIENCE.API.POST_SELECTED_SLEEVE_ID;
+      axios.post(url, {sleeveId})
+          .then((res) => {
+            commit('updateSelectedSleeveId', sleeveId);
+            resolve();
+          })
+          .catch(reject);
+    });
+  },
 };

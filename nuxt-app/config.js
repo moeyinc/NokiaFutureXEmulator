@@ -37,6 +37,8 @@ export default {
   EXPERIENCE: {
     API: {
       GET_CONFIG: '/api/experience/config',
+      GET_SELECTED_SLEEVE_ID: '/api/experience/selected-sleeve-id',
+      POST_SELECTED_SLEEVE_ID: '/api/experience/selected-sleeve-id',
     },
   },
 };

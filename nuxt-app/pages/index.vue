@@ -41,7 +41,7 @@ export default {
     login() {
       this.$store.dispatch('login', this.password)
           .then(() => {
-            this.$router.push('/stories');
+            this.$router.push('/initial-calibration');
           })
           .catch((err) => {
             if (err.message === 'WrongPassword') {
@@ -56,16 +56,9 @@ export default {
 
 <style lang="stylus" scoped>
 .screen-center-outer
-  position: fixed
-  top: 0
-  left: 0
+  display: table
   width: 100%
   height: 100%
-  display: table
-  background-image: url('~@images/login-bg.png')
-  background-size: cover
-  background-repeat: no-repeat
-  background-position: center
   .screen-center-inner
     display: table-cell
     vertical-align: middle
