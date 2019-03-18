@@ -199,6 +199,12 @@ export default {
             },
           ],
         },
+        {
+          type: 'ping',
+        },
+        {
+          type: 'ping-back',
+        },
       ];
     },
   },
@@ -311,7 +317,7 @@ main
   color: black
   max-width: $mobile-max
   margin: 0 auto
-  padding: 40px 20px
+  padding: 40px 20px 150px
   font-size: 16px
   overflow-y: scroll
   -webkit-overflow-scrolling: touch

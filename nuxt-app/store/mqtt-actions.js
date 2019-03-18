@@ -89,6 +89,16 @@ export default {
       publish(message).then(resolve).catch(reject);
     });
   },
+  pingBack() {
+    return new Promise((resolve, reject) => {
+      const message = {
+        type: 'ping-back',
+      };
+
+      // publish the message
+      publish(message).then(resolve).catch(reject);
+    });
+  },
   publishAnyMessage(context, {message, sender}) {
     return new Promise((resolve, reject) => {
       // publish the message

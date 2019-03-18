@@ -56,6 +56,8 @@ export default {
         if (!messageObj.type) {
           console.error('The received message doesnt have type!');
         } else {
+          if (messageObj.type === 'ping') context.dispatch('pingBack');
+
           // emit the event to vue components subscribing the same event
           EventBus.$emit(messageObj.type, messageObj);
         }

@@ -9,4 +9,5 @@
   overflow: scroll
   -webkit-overflow-scrolling: touch
   overflow-scrolling: touch
+  height: 100%
 </style>
