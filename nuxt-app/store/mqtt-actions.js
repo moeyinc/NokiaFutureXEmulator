@@ -77,6 +77,28 @@ export default {
       publish(message).then(resolve).catch(reject);
     });
   },
+  startIntro() {
+    return new Promise((resolve, reject) => {
+      // set up a message object to publish
+      const message = {
+        type: 'start-intro',
+      };
+
+      // publish the message
+      publish(message).then(resolve).catch(reject);
+    });
+  },
+  skipIntro() {
+    return new Promise((resolve, reject) => {
+      // set up a message object to publish
+      const message = {
+        type: 'skip-intro',
+      };
+
+      // publish the message
+      publish(message).then(resolve).catch(reject);
+    });
+  },
   gotoSection(context, sectionId) {
     return new Promise((resolve, reject) => {
       // set up a message object to publish

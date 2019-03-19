@@ -50,6 +50,7 @@ section
       outline: none
   hr
     width: 100%
-    border-color: $secondary-color
-    border-style: solid
+    background-color: $secondary-color
+    height: 1px
+    border: none
 </style>

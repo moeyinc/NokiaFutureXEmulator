@@ -1,40 +1,35 @@
 <template>
-  <div class="wrapper">
+  <div class="page-wrapper">
     <h1>Sleeve Calibration</h1>
     <img
       class="howtocalibrate"
       :src="require('@images/how-to-calibrate.png')"
     >
-    <sub-action-button
-      class="sub-action-button"
-      :icon-filename="'calibrate-icon.png'"
-      :label="'Calibrate Sleeve'"
-    />
     <p class="sleeve-id">
       Sleeve ID: {{ selectedSleeveId }}
     </p>
-    <action-button
-      class="action-button"
-      :label="'Done'"
-      :enabled="true"
-      :small="true"
-      @clicked="calibrate()"
+    <FixedActionButton
+      label="Calibrate"
+      @click="startIntro"
     />
   </div>
 </template>
 
 <script>
-import SubActionButton from '@comps/SubActionButton';
-import ActionButton from '@comps/ActionButton';
+import FixedActionButton from '@comps/FixedActionButton';
+import requireLogInMixin from '@/mixins/requireLogIn.js';
 import {mapState} from 'vuex';
 
 export default {
   name: 'InitialCalibration',
   layout: 'no-side-menu',
+  transition: 'fade',
   components: {
-    SubActionButton,
-    ActionButton,
+    FixedActionButton,
   },
+  mixins: [
+    requireLogInMixin,
+  ],
   computed: {
     ...mapState(['selectedSleeveId']),
   },
@@ -42,21 +37,19 @@ export default {
     this.$store.dispatch('getSelectedSleeveId');
   },
   methods: {
-    calibrate() {
-      this.$store.dispatch('calibrate')
+    startIntro() {
+      this.$store.dispatch('startIntro')
           .then(() => {
-            // this.$emit('close');
+            this.$router.push('/intro');
           })
-          .catch(() => {
-            console.error('There was an error sending a message');
-          });
+          .catch(console.error);
     },
   },
 };
 </script>
 
 <style lang="stylus" scoped>
-.wrapper
+.page-wrapper
   width: 100%
   height: 100%
   display: flex
@@ -77,11 +70,14 @@ export default {
     margin-bottom: -15px
 
   p.sleeve-id
+    height: 30px
+    width: 180px
     font-size: 16px
-    margin-top: 20px
-
-  .action-button
-    position: absolute
-    right: 0
-    bottom: 60px
+    margin-top: 10px
+    background-color: rgba(255, 255, 255, .2)
+    display: flex
+    justify-content: center
+    align-items: center
+    border-radius: 15px
+    margin-bottom: 30px
 </style>

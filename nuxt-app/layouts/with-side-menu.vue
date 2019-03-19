@@ -9,22 +9,16 @@
 
 <script>
 import SideNavMenu from '@comps/SideNavMenu';
-import {mapState} from 'vuex';
+import requireLogInMixin from '@/mixins/requireLogIn.js';
 
 export default {
   name: 'WithSideMenu',
   components: {
     SideNavMenu,
   },
-  computed: {
-    ...mapState(['isLoggedIn']),
-  },
-  mounted() {
-    if (!this.isLoggedIn) {
-      console.log('Not logged in!');
-      this.$router.push('/');
-    }
-  },
+  mixins: [
+    requireLogInMixin,
+  ],
 };
 </script>
 

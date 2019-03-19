@@ -1,7 +1,7 @@
 <template>
   <div class="screen-center-outer">
     <div class="screen-center-inner">
-      <div class="container">
+      <div class="my-container">
         <LoginBrandLogo />
         <LoginPassword
           :password="password"
@@ -62,6 +62,6 @@ export default {
   .screen-center-inner
     display: table-cell
     vertical-align: middle
-    .container
+    .my-container
       text-align: center
 </style>
