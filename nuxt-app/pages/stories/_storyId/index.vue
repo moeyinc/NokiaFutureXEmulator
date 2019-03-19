@@ -1,5 +1,5 @@
 <template>
-  <div class="story-start">
+  <div class="story-start page">
     <MainHeader
       :title="selectedStory.title"
       :has-nav-bar="false"
@@ -93,8 +93,8 @@ export default {
 <style lang="stylus" scoped>
 .story-start
   .catch
-    position: fixed
-    top: 334px
+    position: absolute
+    bottom: 120px
     right: 0
     width: 832px
     height: 381px

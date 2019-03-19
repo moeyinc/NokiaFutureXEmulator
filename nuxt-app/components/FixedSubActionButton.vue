@@ -23,9 +23,9 @@ export default {
 
 <style scoped lang="stylus">
 .fixed-sub-action-button
-  position: fixed
-  top: 740px
-  right: 612px
+  position: absolute
+  bottom: 60px
+  left: 80px
   padding-bottom: 9px
   display: inline-block
   border-bottom: solid 0.5px #5D8CEE

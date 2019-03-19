@@ -1,5 +1,5 @@
 <template>
-  <div class="page-wrapper">
+  <div class="initial-calibration page">
     <h1>Sleeve Calibration</h1>
     <img
       class="howtocalibrate"
@@ -49,9 +49,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.page-wrapper
-  width: 100%
-  height: 100%
+.initial-calibration
   display: flex
   flex-direction: column
   align-items: center

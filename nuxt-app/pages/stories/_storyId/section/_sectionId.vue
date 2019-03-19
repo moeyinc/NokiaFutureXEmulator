@@ -1,5 +1,5 @@
 <template>
-  <div class="talking-points">
+  <div class="talking-points page">
     <MainHeader
       :title="selectedStory.title"
       :subtitle="selectedSection.title"
@@ -9,22 +9,19 @@
       @back-button-clicked="overlay = 'confirmation'"
     />
 
-    <SummaryBlock
-      v-for="(talkingPoint, index) in selectedSection.talkingPoints"
-      :key="index"
-      class="talk-point"
-      :talk-point-label="talkingPoint.heading"
-      :summary-text="talkingPoint.text"
+    <!-- eslint-disable -->
+    <p class="section-text">{{ selectedSection.text }}</p>
+    <!-- eslint-enable -->
+
+    <ARToggleButton
+      v-if="selectedSection.control === 'ar'"
+      :on="inStoryAREnabled"
     />
 
-    <FloatingActionButtonContainer>
-      <ActionButton
-        :label="'Next'"
-        :icon-filename="'proceed-icon.png'"
-        :enabled="true"
-        @clicked="isLastSection ? endStory() : proceed()"
-      />
-    </FloatingActionButtonContainer>
+    <FixedActionButton
+      :label="isLastSection ? 'End' : 'Next'"
+      @click="isLastSection ? endStory() : proceed()"
+    />
 
     <ConfirmationModalOverlay
       v-if="overlay === 'confirmation'"
@@ -37,14 +34,13 @@
 
 <script>
 import MainHeader from '@comps/MainHeader';
-import SummaryBlock from '@comps/SummaryBlock';
-import FloatingActionButtonContainer from
-  '@comps/FloatingActionButtonContainer';
-import ActionButton from '@comps/ActionButton';
+import FixedActionButton from '@comps/FixedActionButton';
+import ARToggleButton from '@comps/ARToggleButton';
 import ConfirmationModalOverlay from
   '@comps/overlays/ConfirmationModalOverlay';
 import EventBus from '@/event-bus';
 import storyPageMixin from '@/mixins/story-page';
+import {mapState} from 'vuex';
 
 export default {
   name: 'TalkingPoints',
@@ -89,10 +85,9 @@ export default {
   },
   components: {
     MainHeader,
-    SummaryBlock,
-    FloatingActionButtonContainer,
-    ActionButton,
+    FixedActionButton,
     ConfirmationModalOverlay,
+    ARToggleButton,
   },
   mixins: [
     storyPageMixin,
@@ -104,6 +99,7 @@ export default {
     };
   },
   computed: {
+    ...mapState(['inStoryAREnabled', 'inStorySelectedNetwork']),
     storyId() {
       return parseInt(this.$nuxt.$route.params.storyId);
     },
@@ -164,12 +160,13 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.talking-points
-  padding-bottom: 150px
+p.section-text
   overflow-y: scroll
   -webkit-overflow-scrolling: touch
   overflow-scrolling: touch
-
-  .talk-point
-    margin-bottom: 50px
+  white-space: pre-line
+  padding: 0 80px
+  font-size: 20px
+  line-height: 30px
+  color: white
 </style>

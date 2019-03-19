@@ -10,43 +10,82 @@ module.exports = {
       sections: [
         {
           id: 1,
-          title: 'XXXXX XXXXX',
-          talkingPoints: [
-            {
-              heading: 'Sed ut perspiciatis unde omnis iste natus',
-              text: 'Lorem ipsum dolor sit amet, consectetur adipiscing ' +
-                'elit, sed do eiusmod tempor incididunt ut labore et dolore ' +
-                'magna Ut enim ad minim veniam, quis nostrud exercitation' +
-                'ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            },
-            {
-              heading: 'Sed ut perspiciatis unde omnis iste natus',
-              text: 'Lorem ipsum dolor sit amet, consectetur adipiscing ' +
-                'elit, sed do eiusmod tempor incididunt ut labore et dolore ' +
-                'magna Ut enim ad minim veniam, quis nostrud exercitation' +
-                'ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            },
-          ],
+          title: 'Switching WAN to LAN',
+          control: 'ar',
+          text: 'As truck arrives it transfers from WAN to factory ' +
+            'controlled LAN network;\n' +
+            'Vehicles are autonomous, controlled by network.',
         },
         {
           id: 2,
-          title: 'YYYYY YYYYY',
-          talkingPoints: [
-            {
-              heading: 'Sed ut perspiciatis unde omnis iste natus',
-              text: 'Lorem ipsum dolor sit amet, consectetur adipiscing ' +
-                'elit, sed do eiusmod tempor incididunt ut labore et dolore ' +
-                'magna Ut enim ad minim veniam, quis nostrud exercitation' +
-                'ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            },
-            {
-              heading: 'Sed ut perspiciatis unde omnis iste natus',
-              text: 'Lorem ipsum dolor sit amet, consectetur adipiscing ' +
-                'elit, sed do eiusmod tempor incididunt ut labore et dolore ' +
-                'magna Ut enim ad minim veniam, quis nostrud exercitation' +
-                'ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            },
-          ],
+          title: 'Full Automated Factory',
+          control: 'ar',
+          text: 'A diversity of robots work together.',
+        },
+        {
+          id: 3,
+          title: 'Flexible Production',
+          control: 'ar',
+          text: 'Multiple products are made on the same factory floor.',
+        },
+        {
+          id: 4,
+          title: 'Robot Collaboration',
+          control: 'ar',
+          text: 'Some processes are highly synchronized.',
+        },
+        {
+          id: 5,
+          title: 'Control Room',
+          control: '',
+          text: 'People role is in control and decision making rather than ' +
+            'on actual manufacturing/producing.\n' +
+            'There will be more intuitive interfaces for human machine ' +
+            'interaction.\nBeing able to remotely control robots keeps ' +
+            'humans out of harm’s way.',
+        },
+        {
+          id: 6,
+          title: 'Production Robot Management',
+          control: '',
+          text: 'A single expert can control multiple robots, ' +
+            'increasing productivity.\nThe future factory constantly ' +
+            'monitors its own state and can instantaneously and dynamically ' +
+            'adjust to changes in demand.',
+        },
+        {
+          id: 7,
+          title: 'Dynamic Floor Configuration',
+          control: '',
+          text: 'Human operators are alerted when anything anomalous ' +
+            'occurs.\nChanges for factory optimization in response to ' +
+            'changing needs are determined by AI software but ' +
+            'HUMAN STAYS IN CONTROL!\n\n' +
+            'Assembly lines can dynamically change. New assembly lines ' +
+            'can automatically form. This flexibility allows the factory ' +
+            'to be made as productive as possible. The process of dynamic ' +
+            'reconfiguration requires low latency high performing networks. ' +
+            'Reconfiguring the factory requires all devices to be ' +
+            'wirelessly connected to a network. Since applications ' +
+            'running in the network have a global view of factory state, ' +
+            'they can direct the reconfiguration in a way that maximizes ' +
+            'productivity and ensures that robots stay within safe ' +
+            'distances of one another.',
+        },
+        {
+          id: 8,
+          title: 'Robot Training',
+          control: 'network',
+          text: 'High speed network is capable of remote operation with ' +
+            'hand craft quality.\nDemonstrate the defference between 5G, ' +
+            'Wifi and 4G network.',
+        },
+        {
+          id: 9,
+          title: 'Round Up',
+          control: '',
+          text: 'Facilitator gives summerized points about future ' +
+            'manufacturing.',
         },
       ],
     },
@@ -61,42 +100,8 @@ module.exports = {
         {
           id: 1,
           title: 'XXXXX XXXXX',
-          talkingPoints: [
-            {
-              heading: 'Sed ut perspiciatis unde omnis iste natus',
-              text: 'Lorem ipsum dolor sit amet, consectetur adipiscing ' +
-                'elit, sed do eiusmod tempor incididunt ut labore et dolore ' +
-                'magna Ut enim ad minim veniam, quis nostrud exercitation' +
-                'ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            },
-            {
-              heading: 'Sed ut perspiciatis unde omnis iste natus',
-              text: 'Lorem ipsum dolor sit amet, consectetur adipiscing ' +
-                'elit, sed do eiusmod tempor incididunt ut labore et dolore ' +
-                'magna Ut enim ad minim veniam, quis nostrud exercitation' +
-                'ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            },
-          ],
-        },
-        {
-          id: 2,
-          title: 'YYYYY YYYYY',
-          talkingPoints: [
-            {
-              heading: 'Sed ut perspiciatis unde omnis iste natus',
-              text: 'Lorem ipsum dolor sit amet, consectetur adipiscing ' +
-                'elit, sed do eiusmod tempor incididunt ut labore et dolore ' +
-                'magna Ut enim ad minim veniam, quis nostrud exercitation' +
-                'ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            },
-            {
-              heading: 'Sed ut perspiciatis unde omnis iste natus',
-              text: 'Lorem ipsum dolor sit amet, consectetur adipiscing ' +
-                'elit, sed do eiusmod tempor incididunt ut labore et dolore ' +
-                'magna Ut enim ad minim veniam, quis nostrud exercitation' +
-                'ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            },
-          ],
+          control: '',
+          text: '',
         },
       ],
     },

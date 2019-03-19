@@ -7,6 +7,8 @@ const createState = () => ({
   selectedSleeveId: '',
   lastStoryPage: null,
   mqttMessageLogs: [],
+  inStoryAREnabled: false,
+  inStorySelectedNetwork: '5G',
 });
 
 export default createState;

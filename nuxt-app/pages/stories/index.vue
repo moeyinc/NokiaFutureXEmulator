@@ -1,5 +1,5 @@
 <template>
-  <div class="stories">
+  <div class="stories page">
     <MainHeader title="Story Selection" />
 
     <SummaryBlock
@@ -68,6 +68,9 @@ export default {
   computed: {
     ...mapState(['stories']),
   },
+  mounted() {
+    this.$store.commit('resetStoryTempStates');
+  },
   methods: {
     selectStory(story) {
       this.$router.push('/stories/' + story.id);
@@ -78,9 +81,6 @@ export default {
 
 <style lang="stylus" scoped>
 .stories
-  position: relative
-  width: 100%
-  height: 100%
   .story-list
     position: absolute
     width: 100%

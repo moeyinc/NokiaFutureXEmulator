@@ -26,9 +26,10 @@ export default {
 .with-side-menu
   user-select: none
   overflow: hidden
-  position: fixed
+  position: absolute
   top: 0
   left: 0
+  width: 100%
   height: 100%
   background-image: url('~@images/loggedin-bg.png')
   background-size: cover
@@ -36,10 +37,12 @@ export default {
   background-repeat: no-repeat
 
   main
-    margin-left: 280px
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 280px
     width: 832px
     height: 100%
-    overflow-y: hidden
-    overflow-x: hidden
-    position: relative
+    overflow: hidden
 </style>

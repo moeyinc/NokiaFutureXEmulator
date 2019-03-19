@@ -23,6 +23,16 @@ const mutations = {
   updateMqttMessageLogs(state, log) {
     state.mqttMessageLogs.push(log);
   },
+  resetStoryTempStates(state) {
+    state.inStoryAREnabled = false;
+    state.inStorySelectedNetwork = '5G';
+  },
+  updateInStoryAREnabled(state, value) {
+    state.inStoryAREnabled = value;
+  },
+  updateInStorySelectedNetwork(state, networkName) {
+    state.inStorySelectedNetwork = networkName;
+  },
 };
 
 export default mutations;

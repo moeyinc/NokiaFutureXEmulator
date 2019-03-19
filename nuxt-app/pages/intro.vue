@@ -1,5 +1,5 @@
 <template>
-  <div class="intro">
+  <div class="intro page">
     <div class="text-container">
       <h1>
         Welcome to<br>
@@ -62,9 +62,6 @@ export default {
 @import '~@styles/colors'
 
 .intro
-  position: relative
-  width: 100%
-  height: 100%
   background-image: url('~@images/intro-background.png')
   background-position: bottom right
   background-size: contain

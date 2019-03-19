@@ -25,9 +25,9 @@ export default {
   width: 260px
   height: 100px
   background-color: $primary-color
-  position: fixed
+  position: absolute
   right: 0
-  top: 674px
+  bottom: 60px
   display: flex
   justify-content: center
   align-items: center

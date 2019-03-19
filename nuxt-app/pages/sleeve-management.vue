@@ -1,5 +1,5 @@
 <template>
-  <div class="sleeve-management">
+  <div class="sleeve-management page">
     <MainHeader
       :title="'Sleeve Management'"
       :has-nav-bar="false"

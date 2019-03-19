@@ -1,5 +1,5 @@
 <template>
-  <div class="screen-center-outer">
+  <div class="screen-center-outer page">
     <div class="screen-center-inner">
       <div class="my-container">
         <LoginBrandLogo />

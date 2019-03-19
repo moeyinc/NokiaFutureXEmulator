@@ -111,6 +111,30 @@ export default {
       publish(message).then(resolve).catch(reject);
     });
   },
+  enableAR({commit}, layer) {
+    return new Promise((resolve, reject) => {
+      // set up a message object to publish
+      const message = {
+        type: 'enable-ar',
+      };
+      if (layer) message.layer = layer;
+
+      // publish the message
+      publish(message).then(resolve).catch(reject);
+    });
+  },
+  disableAR({commit}, layer) {
+    return new Promise((resolve, reject) => {
+      // set up a message object to publish
+      const message = {
+        type: 'disable-ar',
+      };
+      if (layer) message.layer = layer;
+
+      // publish the message
+      publish(message).then(resolve).catch(reject);
+    });
+  },
   pingBack() {
     return new Promise((resolve, reject) => {
       const message = {

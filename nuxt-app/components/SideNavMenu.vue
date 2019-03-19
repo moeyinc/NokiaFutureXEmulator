@@ -109,52 +109,53 @@ export default {
 <style lang="stylus" scoped>
 @import '~@styles/colors'
 
-.side-nav-menu
-  position: fixed
+nav
+  position: absolute
   top: 0
   left: 0
-  display: flex
-  flex-direction: column
   width: 280px
-  height: 100%
-
-  .brand-logo-block
-    min-height: 160px
-    background-color: $brand-bg-color
-    position: relative
-    img
-      width: 180px
-      position: absolute
-      top: 50%
-      left: 50%
-      transform: translate(-50%, -50%)
-
-  .menu-block
-    position: relative
-    background-color: $primary-color
-    height: 100%
+  bottom: 0
+  .side-nav-menu
     display: flex
     flex-direction: column
-    justify-content: flex-start
-    .padding-box
-      height: 63px
+    height: 100%
+    .brand-logo-block
+      min-height: 160px
+      background-color: $brand-bg-color
+      position: relative
+      img
+        width: 180px
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+
+    .menu-block
+      position: relative
       background-color: $primary-color
-      border-bottom: solid 1px $primary-border-color
-    .fite-lab-box
-      background-color: $brand-bg-color-dark
-      font-family: "NokiaPureText-Regular"
-      letter-spacing: 2px
-      position: absolute
-      width: 180px
-      height: 45px
-      top: -22.5px
-      left: 0
-      text-align: center
-      line-height: 45px
-      z-index: 100
-    .logout-item
-      width: 100%
-      position: absolute
-      bottom: 0
-      border-top: solid 1px $primary-border-color
+      height: 100%
+      display: flex
+      flex-direction: column
+      justify-content: flex-start
+      .padding-box
+        height: 63px
+        background-color: $primary-color
+        border-bottom: solid 1px $primary-border-color
+      .fite-lab-box
+        background-color: $brand-bg-color-dark
+        font-family: "NokiaPureText-Regular"
+        letter-spacing: 2px
+        position: absolute
+        width: 180px
+        height: 45px
+        top: -22.5px
+        left: 0
+        text-align: center
+        line-height: 45px
+        z-index: 100
+      .logout-item
+        width: 100%
+        position: absolute
+        bottom: 0
+        border-top: solid 1px $primary-border-color
 </style>

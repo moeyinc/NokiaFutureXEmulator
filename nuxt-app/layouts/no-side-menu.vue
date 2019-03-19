@@ -8,7 +8,7 @@
 .no-side-menu
   user-select: none
   overflow: hidden
-  position: fixed
+  position: absolute
   top: 0
   left: 0
   width: 100%

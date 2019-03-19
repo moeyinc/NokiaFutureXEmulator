@@ -1,5 +1,5 @@
 <template>
-  <div class="room-effects">
+  <div class="room-effects page">
     <MainHeader
       :title="'Room Effects'"
       :has-nav-bar="false"
