@@ -18,6 +18,11 @@
       :on="inStoryAREnabled"
     />
 
+    <NetworkToggleButton
+      v-if="selectedSection.control === 'network'"
+      :selected-network="inStorySelectedNetwork"
+    />
+
     <FixedActionButton
       :label="isLastSection ? 'End' : 'Next'"
       @click="isLastSection ? endStory() : proceed()"
@@ -36,6 +41,7 @@
 import MainHeader from '@comps/MainHeader';
 import FixedActionButton from '@comps/FixedActionButton';
 import ARToggleButton from '@comps/ARToggleButton';
+import NetworkToggleButton from '@comps/NetworkToggleButton';
 import ConfirmationModalOverlay from
   '@comps/overlays/ConfirmationModalOverlay';
 import EventBus from '@/event-bus';
@@ -88,6 +94,7 @@ export default {
     FixedActionButton,
     ConfirmationModalOverlay,
     ARToggleButton,
+    NetworkToggleButton,
   },
   mixins: [
     storyPageMixin,

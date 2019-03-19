@@ -135,6 +135,18 @@ export default {
       publish(message).then(resolve).catch(reject);
     });
   },
+  setNetwork({commit}, networkName) {
+    return new Promise((resolve, reject) => {
+      // set up a message object to publish
+      const message = {
+        type: 'set-network',
+        network: networkName,
+      };
+
+      // publish the message
+      publish(message).then(resolve).catch(reject);
+    });
+  },
   pingBack() {
     return new Promise((resolve, reject) => {
       const message = {
