@@ -27,7 +27,7 @@ export default {
   background-color: $primary-color
   position: fixed
   right: 0
-  bottom: 60px
+  top: 674px
   display: flex
   justify-content: center
   align-items: center

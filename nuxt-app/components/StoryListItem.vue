@@ -1,17 +1,16 @@
 <template>
   <div
-    class="story-list-item"
-    @touchend.prevent="$emit('select')"
-    @click="$emit('select')"
+    :class="['story-list-item', {disabled}]"
+    @click="!disabled && $emit('select')"
   >
     <div class="title-box">
       <div class="category-name">
         <h6>{{ categoryName }}</h6>
         <hr class="underline">
       </div>
-      <h4 class="story-title">
-        {{ title }}
-      </h4>
+      <!-- eslint-disable -->
+      <h4 class="story-title">{{ title }}</h4>
+      <!-- eslint-enable -->
     </div>
     <img
       class="thumbnail"
@@ -36,6 +35,10 @@ export default {
       type: String,
       default: '',
     },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
   },
 };
 </script>
@@ -44,20 +47,12 @@ export default {
 @import '~@styles/colors'
 
 .story-list-item
-  width: 752px
-  height: 280px
-  margin-left: 80px
+  width: 316px
+  height: 309px
   position: relative
-  overflow: hidden
-
   .title-box
-    width: 250px
     height: 200px
     background-color: $primary-color
-    position: absolute
-    top: 0
-    left: 0
-    z-index: 100
     padding: 30px
     .category-name
       h6
@@ -66,18 +61,32 @@ export default {
         margin-bottom: 7px
       hr.underline
         width: 64px
-        border: solid 0.5px white
+        height: 1px
+        border: none
+        background-color: white
         margin-block-start: 0
         margin-block-end: 0
         margin-inline-start: 0
         margin-inline-end: 0
-    .story-title
+    h4.story-title
       font-size: 36px
       line-height: 40px
       letter-spacing: 0.75px
       margin-top: 33px
-
+      white-space: pre-line
   img.thumbnail
-    height: 100%
-    float: right
+    position: absolute
+    width: 100%
+    left: 0
+    bottom: 0
+    right: 0
+    z-index: 100
+
+  &.disabled
+    .title-box
+      background-color: $brand-bg-color-dark
+      color: $primary-color
+      .category-name
+        hr.underline
+          background-color: $primary-color
 </style>

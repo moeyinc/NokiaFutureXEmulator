@@ -1,23 +1,25 @@
 <template>
   <div class="stories">
-    <MainHeader :title="'Stories'" />
+    <MainHeader title="Story Selection" />
 
     <SummaryBlock
-      :summary-text="'Talk about Future X Factory and ' +
-        'introduce yourself as factory\'s tele-manager and tele-operator'"
+      :summary-text="'Talking point comes here. Lorem ipsum dolor sit amet, ' +
+        'consectetur adipisicing elit, sed do eiusmod tempor incididunt ut ' +
+        'labore et dolore magna aliqua. Ut enim ad minim veniam'"
     />
 
-    <ul class="story-list">
+    <div class="story-list">
       <StoryListItem
         v-for="story in stories"
         :key="story.id"
         class="story-list-item"
         :category-name="story.category"
         :title="story.title"
+        :disabled="story.disabled"
         :thumbnail-filename="story.catchImageFilename"
         @select="selectStory(story)"
       />
-    </ul>
+    </div>
   </div>
 </template>
 
@@ -76,11 +78,14 @@ export default {
 
 <style lang="stylus" scoped>
 .stories
-  overflow-y: scroll
-  -webkit-overflow-scrolling: touch
-  overflow-scrolling: touch
-  ul.story-list
-    margin-top: 79px
-    .story-list-item
-      margin-bottom: 70px
+  position: relative
+  width: 100%
+  height: 100%
+  .story-list
+    position: absolute
+    width: 100%
+    bottom: 109px
+    padding: 0 80px
+    display: flex
+    justify-content: space-between
 </style>

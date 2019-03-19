@@ -2,10 +2,7 @@
   <div class="story-start">
     <MainHeader
       :title="selectedStory.title"
-      :has-nav-bar="true"
-      :category-name="selectedStory.category"
-      :back-button-label="'Back To List'"
-      @back-button-clicked="$router.push('/stories')"
+      :has-nav-bar="false"
     />
 
     <SummaryBlock :summary-text="selectedStory.summary" />
@@ -16,22 +13,23 @@
         require('@images/' + selectedStory.catchImageFilename) +')'}"
     />
 
-    <FloatingActionButtonContainer>
-      <ActionButton
-        :label="'Start Story'"
-        :enabled="true"
-        @clicked="startStory"
-      />
-    </FloatingActionButtonContainer>
+    <FixedSubActionButton
+      label="Back to List"
+      @click="backToList"
+    />
+
+    <FixedActionButton
+      label="Start"
+      @click="startStory"
+    />
   </div>
 </template>
 
 <script>
 import MainHeader from '@comps/MainHeader';
 import SummaryBlock from '@comps/SummaryBlock';
-import FloatingActionButtonContainer from
-  '@comps/FloatingActionButtonContainer';
-import ActionButton from '@comps/ActionButton';
+import FixedActionButton from '@comps/FixedActionButton';
+import FixedSubActionButton from '@comps/FixedSubActionButton';
 import storyPageMixin from '@/mixins/story-page';
 
 export default {
@@ -65,8 +63,8 @@ export default {
   components: {
     MainHeader,
     SummaryBlock,
-    FloatingActionButtonContainer,
-    ActionButton,
+    FixedActionButton,
+    FixedSubActionButton,
   },
   mixins: [storyPageMixin],
   computed: {
@@ -85,6 +83,9 @@ export default {
           })
           .catch(console.error);
     },
+    backToList() {
+      this.$router.push('/stories');
+    },
   },
 };
 </script>
@@ -93,8 +94,8 @@ export default {
 .story-start
   .catch
     position: fixed
-    top: 313px
-    // left: 280px
+    top: 334px
+    right: 0
     width: 832px
     height: 381px
     background-size: cover
