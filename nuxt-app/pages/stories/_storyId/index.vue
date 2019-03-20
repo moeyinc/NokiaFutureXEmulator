@@ -10,7 +10,9 @@
         require('@images/' + selectedStory.catchImageFilename) +')'}"
     />
 
-    <FixedSubActionButton
+    <SubActionButton
+      fixed
+      back
       label="Back to List"
       @click="backToList"
     />
@@ -27,7 +29,7 @@
 import PageHeader from '@comps/PageHeader';
 import SummaryBlock from '@comps/SummaryBlock';
 import ActionButton from '@comps/buttons/ActionButton';
-import FixedSubActionButton from '@comps/buttons/FixedSubActionButton';
+import SubActionButton from '@comps/buttons/SubActionButton';
 import storyPageMixin from '@/mixins/story-page';
 
 export default {
@@ -62,7 +64,7 @@ export default {
     PageHeader,
     SummaryBlock,
     ActionButton,
-    FixedSubActionButton,
+    SubActionButton,
   },
   mixins: [storyPageMixin],
   computed: {

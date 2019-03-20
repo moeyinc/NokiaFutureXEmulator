@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="18px" viewBox="0 0 20 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>arrow</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Facilitator-App" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="FT-Story1-Start" transform="translate(-362.000000, -745.000000)" fill="#FFFFFF">
+            <g id="main" transform="translate(360.000000, 60.000000)">
+                <g id="back-to-list" transform="translate(0.000000, 680.000000)">
+                    <g id="arrow" transform="translate(12.000000, 14.000000) scale(-1, 1) translate(-12.000000, -14.000000) translate(2.000000, 5.000000)">
+                        <rect id="Rectangle-2" x="0" y="8.66666667" width="18.6666667" height="1"></rect>
+                        <polygon id="Rectangle-2-Copy" transform="translate(15.145010, 5.000000) rotate(-315.000000) translate(-15.145010, -5.000000) " points="9.14500961 4.66666667 21.1450096 4.66666667 21.1450096 5.33333333 9.14500961 5.33333333"></polygon>
+                        <polygon id="Rectangle-2-Copy-2" transform="translate(15.145010, 13.000000) scale(1, -1) rotate(-315.000000) translate(-15.145010, -13.000000) " points="9.14500961 12.6666667 21.1450096 12.6666667 21.1450096 13.3333333 9.14500961 13.3333333"></polygon>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
