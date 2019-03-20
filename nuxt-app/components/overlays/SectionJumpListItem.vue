@@ -42,7 +42,7 @@
 </template>
 
 <script>
-import ActionButton from '@comps/ActionButton';
+import ActionButton from '@comps/buttons/ActionButton';
 import SelectedIcon from '@images/selected-icon.svg';
 import ExitIcon from '@images/exit-icon.svg';
 

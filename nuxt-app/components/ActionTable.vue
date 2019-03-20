@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import IconButton from '@/components/IconButton';
+import IconButton from '@/components/buttons/IconButton';
 
 export default {
   name: 'ActionTable',

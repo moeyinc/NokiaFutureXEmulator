@@ -41,9 +41,9 @@
 
 <script>
 import SectionHeader from '@comps/SectionHeader';
-import ActionButton from '@comps/ActionButton';
-import ARToggleButton from '@comps/ARToggleButton';
-import NetworkToggleButton from '@comps/NetworkToggleButton';
+import ActionButton from '@comps/buttons/ActionButton';
+import ARToggleButton from '@comps/buttons/ARToggleButton';
+import NetworkToggleButton from '@comps/buttons/NetworkToggleButton';
 import JumpExitOverlay from '@comps/overlays/JumpExitOverlay';
 import EventBus from '@/event-bus';
 import storyPageMixin from '@/mixins/story-page';

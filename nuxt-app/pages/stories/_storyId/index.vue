@@ -26,8 +26,8 @@
 <script>
 import PageHeader from '@comps/PageHeader';
 import SummaryBlock from '@comps/SummaryBlock';
-import ActionButton from '@comps/ActionButton';
-import FixedSubActionButton from '@comps/FixedSubActionButton';
+import ActionButton from '@comps/buttons/ActionButton';
+import FixedSubActionButton from '@comps/buttons/FixedSubActionButton';
 import storyPageMixin from '@/mixins/story-page';
 
 export default {

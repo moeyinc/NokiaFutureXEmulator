@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import IconButton from '@comps/IconButton';
+import IconButton from '@comps/buttons/IconButton';
 
 export default {
   name: 'SideNavMenuItem',

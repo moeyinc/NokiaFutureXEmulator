@@ -53,7 +53,7 @@
 </template>
 
 <script>
-import SubActionButton from '@/components/SubActionButton';
+import SubActionButton from '@/components/buttons/SubActionButton';
 
 export default {
   name: 'EffectTable',

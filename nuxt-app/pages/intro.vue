@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import ActionButton from '@comps/ActionButton';
+import ActionButton from '@comps/buttons/ActionButton';
 import requireLogInMixin from '@/mixins/requireLogIn.js';
 import EventBus from '@/event-bus';
 

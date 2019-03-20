@@ -25,7 +25,7 @@
 
 <script>
 import OverlayWrapper from './OverlayWrapper';
-import ActionButton from '@comps/ActionButton';
+import ActionButton from '@comps/buttons/ActionButton';
 
 export default {
   name: 'ConfirmationModalOverlay',

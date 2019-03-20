@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import JumpExitButton from './JumpExitButton';
+import JumpExitButton from './buttons/JumpExitButton';
 
 export default {
   components: {

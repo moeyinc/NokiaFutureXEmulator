@@ -15,9 +15,9 @@
 </template>
 
 <script>
-import LoginBrandLogo from '@comps/LoginBrandLogo';
-import LoginPassword from '@comps/LoginPassword';
-import LoginStart from '@comps/LoginStart';
+import LoginBrandLogo from '@comps/login/LoginBrandLogo';
+import LoginPassword from '@comps/login/LoginPassword';
+import LoginStart from '@comps/login/LoginStart';
 
 export default {
   name: 'Login',

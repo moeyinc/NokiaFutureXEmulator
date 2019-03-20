@@ -26,8 +26,8 @@
 
 <script>
 import OverlayWrapper from './OverlayWrapper';
-import SubActionButton from '@comps/SubActionButton';
-import ActionButton from '@comps/ActionButton';
+import SubActionButton from '@comps/buttons/SubActionButton';
+import ActionButton from '@comps/buttons/ActionButton';
 
 export default {
   name: 'Calibration',
