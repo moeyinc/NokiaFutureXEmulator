@@ -1,9 +1,6 @@
 <template>
   <div class="story-start page">
-    <MainHeader
-      :title="selectedStory.title"
-      :has-nav-bar="false"
-    />
+    <PageHeader :title="selectedStory.title" />
 
     <SummaryBlock :summary-text="selectedStory.summary" />
 
@@ -26,7 +23,7 @@
 </template>
 
 <script>
-import MainHeader from '@comps/MainHeader';
+import PageHeader from '@comps/PageHeader';
 import SummaryBlock from '@comps/SummaryBlock';
 import FixedActionButton from '@comps/FixedActionButton';
 import FixedSubActionButton from '@comps/FixedSubActionButton';
@@ -61,7 +58,7 @@ export default {
     }
   },
   components: {
-    MainHeader,
+    PageHeader,
     SummaryBlock,
     FixedActionButton,
     FixedSubActionButton,

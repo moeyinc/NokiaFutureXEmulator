@@ -1,9 +1,6 @@
 <template>
   <div class="room-effects page">
-    <MainHeader
-      :title="'Room Effects'"
-      :has-nav-bar="false"
-    />
+    <PageHeader :title="'Room Effects'" />
 
     <SummaryBlock :summary-text="'Control audio and lights of the room.'" />
 
@@ -26,7 +23,7 @@
 </template>
 
 <script>
-import MainHeader from '@comps/MainHeader';
+import PageHeader from '@comps/PageHeader';
 import SummaryBlock from '@comps/SummaryBlock';
 import EffectTable from '@comps/EffectTable';
 
@@ -35,7 +32,7 @@ export default {
   layout: 'with-side-menu',
   transition: 'fade',
   components: {
-    MainHeader,
+    PageHeader,
     SummaryBlock,
     EffectTable,
   },

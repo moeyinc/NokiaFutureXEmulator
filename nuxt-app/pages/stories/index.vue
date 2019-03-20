@@ -1,6 +1,6 @@
 <template>
   <div class="stories page">
-    <MainHeader title="Story Selection" />
+    <PageHeader title="Story Selection" />
 
     <SummaryBlock
       :summary-text="'Talking point comes here. Lorem ipsum dolor sit amet, ' +
@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import MainHeader from '@comps/MainHeader';
+import PageHeader from '@comps/PageHeader';
 import SummaryBlock from '@comps/SummaryBlock';
 import StoryListItem from '@comps/StoryListItem';
 import storyPageMixin from '@/mixins/story-page';
@@ -60,7 +60,7 @@ export default {
     }
   },
   components: {
-    MainHeader,
+    PageHeader,
     SummaryBlock,
     StoryListItem,
   },

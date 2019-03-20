@@ -1,12 +1,10 @@
 <template>
   <div class="talking-points page">
-    <MainHeader
-      :title="selectedStory.title"
-      :subtitle="selectedSection.title"
-      :has-nav-bar="true"
-      :category-name="selectedStory.category"
-      :back-button-label="'End Story'"
-      @back-button-clicked="overlay = 'confirmation'"
+    <SectionHeader
+      :story-title="selectedStory.title"
+      :section-id="sectionId"
+      :section-title="selectedSection.title"
+      @jump-exit-button-clicked="overlay = 'confirmation'"
     />
 
     <!-- eslint-disable -->
@@ -38,7 +36,7 @@
 </template>
 
 <script>
-import MainHeader from '@comps/MainHeader';
+import SectionHeader from '@comps/SectionHeader';
 import FixedActionButton from '@comps/FixedActionButton';
 import ARToggleButton from '@comps/ARToggleButton';
 import NetworkToggleButton from '@comps/NetworkToggleButton';
@@ -90,7 +88,7 @@ export default {
     }
   },
   components: {
-    MainHeader,
+    SectionHeader,
     FixedActionButton,
     ConfirmationModalOverlay,
     ARToggleButton,

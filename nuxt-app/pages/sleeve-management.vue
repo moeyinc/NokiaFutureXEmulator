@@ -1,9 +1,6 @@
 <template>
   <div class="sleeve-management page">
-    <MainHeader
-      :title="'Sleeve Management'"
-      :has-nav-bar="false"
-    />
+    <PageHeader :title="'Sleeve Management'" />
 
     <SummaryBlock
       :summary-text="'Manage which sleeve to use for games in the stories.'"
@@ -25,7 +22,7 @@
 </template>
 
 <script>
-import MainHeader from '@comps/MainHeader';
+import PageHeader from '@comps/PageHeader';
 import SummaryBlock from '@comps/SummaryBlock';
 import ActionTable from '@comps/ActionTable';
 import SelectSleeveOverlay from '@comps/overlays/SelectSleeveOverlay';
@@ -35,7 +32,7 @@ export default {
   layout: 'with-side-menu',
   transition: 'fade',
   components: {
-    MainHeader,
+    PageHeader,
     SummaryBlock,
     ActionTable,
     SelectSleeveOverlay,
