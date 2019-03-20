@@ -18,3 +18,10 @@
   background-repeat: no-repeat
   background-position: center
 </style>
+
+<style lang="stylus">
+#__nuxt, #__layout
+  width: 1112px
+  height: 832px
+  position: relative
+</style>

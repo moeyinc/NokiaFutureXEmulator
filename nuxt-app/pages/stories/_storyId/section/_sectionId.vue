@@ -22,6 +22,7 @@
     />
 
     <ActionButton
+      v-show="readyToProceed"
       fixed
       :label="isLastSection ? 'End' : 'Next'"
       @click="isLastSection ? endStory() : gotoSection(sectionId + 1)"
@@ -97,7 +98,7 @@ export default {
   ],
   data() {
     return {
-      playing: true,
+      readyToProceed: false,
       overlay: null,
     };
   },
@@ -133,9 +134,8 @@ export default {
   },
   methods: {
     setEventListeners() {
-      // ready-to-proceed message
       EventBus.$on('ready-to-proceed', () => {
-        console.log('ready-to-proceed');
+        this.readyToProceed = true;
       });
     },
     removeEventListeners() {

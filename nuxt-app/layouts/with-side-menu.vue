@@ -46,3 +46,10 @@ export default {
     height: 100%
     overflow: hidden
 </style>
+
+<style lang="stylus">
+#__nuxt, #__layout
+  width: 1112px
+  height: 832px
+  position: relative
+</style>

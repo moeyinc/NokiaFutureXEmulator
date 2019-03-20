@@ -319,9 +319,9 @@ main
   margin: 0 auto
   padding: 40px 20px 150px
   font-size: 16px
-  overflow-y: scroll
-  -webkit-overflow-scrolling: touch
-  overflow-scrolling: touch
+  // overflow-y: scroll
+  // -webkit-overflow-scrolling: touch
+  // overflow-scrolling: touch
   h1
     font-size: 28px
     font-family: 'NokiaPureHeadline_Bold'
