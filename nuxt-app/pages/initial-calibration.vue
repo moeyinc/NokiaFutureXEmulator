@@ -8,7 +8,8 @@
     <p class="sleeve-id">
       Sleeve ID: {{ selectedSleeveId }}
     </p>
-    <FixedActionButton
+    <ActionButton
+      fixed
       label="Calibrate"
       @click="startIntro"
     />
@@ -16,7 +17,7 @@
 </template>
 
 <script>
-import FixedActionButton from '@comps/FixedActionButton';
+import ActionButton from '@comps/ActionButton';
 import requireLogInMixin from '@/mixins/requireLogIn.js';
 import {mapState} from 'vuex';
 
@@ -25,7 +26,7 @@ export default {
   layout: 'no-side-menu',
   transition: 'fade',
   components: {
-    FixedActionButton,
+    ActionButton,
   },
   mixins: [
     requireLogInMixin,

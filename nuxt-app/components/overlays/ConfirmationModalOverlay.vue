@@ -10,16 +10,12 @@
         <div class="button-container">
           <ActionButton
             class="left-button"
-            :label="'Yes'"
-            :enabled="true"
-            :small="true"
-            @clicked="$emit('execute')"
+            label="Yes"
+            @click="$emit('execute')"
           />
           <ActionButton
-            :label="'No'"
-            :enabled="true"
-            :small="true"
-            @clicked="$emit('close')"
+            label="No"
+            @click="$emit('close')"
           />
         </div>
       </div>
@@ -53,6 +49,7 @@ export default {
   left: 50%
   transform: translate(-50%, -50%)
   .confirmation-message
+    text-align: center
     font-size: 40px
     margin-bottom: 60px
   .button-container

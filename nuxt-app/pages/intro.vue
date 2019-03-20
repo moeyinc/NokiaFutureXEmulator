@@ -11,7 +11,8 @@
         sed do eiusmod tempor
       </p>
     </div>
-    <FixedActionButton
+    <ActionButton
+      fixed
       label="Skip Intro"
       @click="skipIntro"
     />
@@ -19,7 +20,7 @@
 </template>
 
 <script>
-import FixedActionButton from '@comps/FixedActionButton';
+import ActionButton from '@comps/ActionButton';
 import requireLogInMixin from '@/mixins/requireLogIn.js';
 import EventBus from '@/event-bus';
 
@@ -27,7 +28,7 @@ export default {
   layout: 'no-side-menu',
   transition: 'fade',
   components: {
-    FixedActionButton,
+    ActionButton,
   },
   mixins: [
     requireLogInMixin,

@@ -42,7 +42,6 @@ export default {
       // story section page, apply slide-right animation
       switch (from.name) {
         case 'stories-storyId':
-        case 'stories-storyId-section-sectionId':
           return 'slide-right';
         default:
           return 'fade';

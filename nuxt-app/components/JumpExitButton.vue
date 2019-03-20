@@ -4,11 +4,21 @@
     @click="$emit('click')"
   >
     <div class="inner">
-      <img :src="require('@images/arrow-right.png')">
+      <MenuIcon class="menu-icon" />
       <h6>Jump/Exit</h6>
     </div>
   </div>
 </template>
+
+<script>
+import MenuIcon from '@images/menu-icon.svg';
+
+export default {
+  components: {
+    MenuIcon,
+  },
+};
+</script>
 
 <style scoped lang="stylus">
 @import '~@styles/colors'
@@ -19,12 +29,11 @@
   .inner
     display: flex
     align-items: center
-    img
-      width: 20px
-      height: 18px
+    .menu-icon
+      fill: white
+      width: 15px
+      height: 13px
       margin-right: 11px
-      transform-origin: center
-      transform: rotate(180deg)
     h6
       font-size: 20px
 </style>

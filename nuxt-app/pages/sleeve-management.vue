@@ -12,12 +12,6 @@
         @clicked="(itemType) => overlay = itemType"
       />
     </div>
-
-    <SelectSleeveOverlay
-      v-if="overlay === 'player1' || overlay === 'player2'"
-      :player-index="overlay"
-      @close="overlay = null"
-    />
   </div>
 </template>
 
@@ -25,7 +19,6 @@
 import PageHeader from '@comps/PageHeader';
 import SummaryBlock from '@comps/SummaryBlock';
 import ActionTable from '@comps/ActionTable';
-import SelectSleeveOverlay from '@comps/overlays/SelectSleeveOverlay';
 
 export default {
   name: 'SleeveManagement',
@@ -35,7 +28,6 @@ export default {
     PageHeader,
     SummaryBlock,
     ActionTable,
-    SelectSleeveOverlay,
   },
   data() {
     return {

@@ -1,71 +1,58 @@
 <template>
   <div
-    :class="['action-button', {'small': small}]"
-    :style="buttonStyle"
-    @click="enabled && $emit('clicked')"
+    :class="['action-button', {fixed}]"
+    :style="style"
+    @click="$emit('click')"
   >
-    <div class="inner">
-      <img
-        v-if="iconFilename"
-        :src="require('@images/' + iconFilename)"
-      >
-      <h6>{{ label }}</h6>
-    </div>
+    {{ label }}
   </div>
 </template>
 
 <script>
 export default {
-  name: 'ActionButton',
   props: {
     label: {
       type: String,
       default: '',
     },
-    enabled: {
+    fixed: {
       type: Boolean,
       default: false,
     },
-    small: {
-      type: Boolean,
-      default: false,
-    },
-    iconFilename: {
+    width: {
       type: String,
       default: '',
     },
   },
   computed: {
-    buttonStyle() {
+    style() {
+      if (!this.width) return;
       return {
-        backgroundColor: this.enabled ? '#0052FF' : 'transparent',
-        opacity: this.enabled ? 1.0 : 0.5,
-        border: this.enabled ? 'none' : 'solid 5px white',
+        width: this.width,
       };
     },
   },
 };
 </script>
 
-<style lang="stylus" scoped>
+<style scoped lang="stylus">
+@import '~@styles/colors'
+
 .action-button
   display: flex
-  flex-direction: row
+  justify-content: center
   align-items: center
-  height: 100px
-  padding: 0px 30px
+  width: 300px
+  height: 80px
   font-size: 36px
-  line-height: 52px
-  letter-spacing: 0.75px
-  &.small
-    height: 80px
-    padding: 0px 80px
-  .inner
-    display: flex
-    flex-direction: row
-    align-items: center
-    img
-      width: 50px
-      height: 50px
-      margin-right: 11px
+  letter-spacing: .75px
+  background-color: $primary-color
+  &.fixed
+    position: absolute
+    right: 0
+    bottom: 60px
+    width: 260px
+    height: 100px
+    font-size: 40px
+    letter-spacing: .83px
 </style>

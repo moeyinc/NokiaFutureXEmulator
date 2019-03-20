@@ -15,7 +15,8 @@
       @click="backToList"
     />
 
-    <FixedActionButton
+    <ActionButton
+      fixed
       label="Start"
       @click="startStory"
     />
@@ -25,7 +26,7 @@
 <script>
 import PageHeader from '@comps/PageHeader';
 import SummaryBlock from '@comps/SummaryBlock';
-import FixedActionButton from '@comps/FixedActionButton';
+import ActionButton from '@comps/ActionButton';
 import FixedSubActionButton from '@comps/FixedSubActionButton';
 import storyPageMixin from '@/mixins/story-page';
 
@@ -60,7 +61,7 @@ export default {
   components: {
     PageHeader,
     SummaryBlock,
-    FixedActionButton,
+    ActionButton,
     FixedSubActionButton,
   },
   mixins: [storyPageMixin],
