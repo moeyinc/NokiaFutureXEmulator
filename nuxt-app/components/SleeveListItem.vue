@@ -8,14 +8,14 @@
       class="selected-icon"
     />
     <div class="text">
-      {{ sleeveId }}
+      {{ sleeveIdText }}
     </div>
     <ActionButton
       v-show="highlighted"
       class="select-button"
       :label="selected ? 'Recalibrate' : 'Select'"
       width="220px"
-      @click="$emit('select')"
+      @click="$emit('calibrate')"
     />
   </div>
 </template>
@@ -41,6 +41,12 @@ export default {
     selected: {
       type: Boolean,
       default: false,
+    },
+  },
+  computed: {
+    sleeveIdText() {
+      if (!this.selected) return this.sleeveId;
+      return this.sleeveId + ' (selected)';
     },
   },
 };

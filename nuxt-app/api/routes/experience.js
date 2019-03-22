@@ -16,12 +16,18 @@ router.get('/experience/selected-sleeve-id', (req, res, next) => {
 
 router.post('/experience/selected-sleeve-id', (req, res, next) => {
   const sleeveId = req.body.sleeveId;
-  const data = fs.readFileSync(path.resolve(__dirname, '../data.json'));
+  const filepath = path.resolve(__dirname, '../data.json');
+  const data = fs.readFileSync(filepath);
   const parsedData = JSON.parse(data)
   parsedData.selectedSleeveId = sleeveId;
   const newData = JSON.stringify(parsedData);
-  fs.writeFile(path.resolve(__dirname, '../data.json'), newData, 'utf8');
-  res.send('OK');
+  fs.writeFile(filepath, newData, 'utf8', (err) => {
+    if (err) res.status(500).send({error: 'Error on writing JSON'});
+    else {
+      console.log('New sleeveId: ', sleeveId);
+      res.send('OK');
+    }
+  });
 });
 
 module.exports = router;

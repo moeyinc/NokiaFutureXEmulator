@@ -3,6 +3,7 @@
     <div :class="['overlay-wrapper', {scrollable}]">
       <slot />
       <CloseIcon
+        v-if="!closeButtonDisabled"
         class="close-icon"
         @click="$emit('close-button-clicked')"
       />
@@ -19,6 +20,10 @@ export default {
   },
   props: {
     scrollable: {
+      type: Boolean,
+      default: false,
+    },
+    closeButtonDisabled: {
       type: Boolean,
       default: false,
     },

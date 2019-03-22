@@ -77,6 +77,29 @@ export default {
       publish(message).then(resolve).catch(reject);
     });
   },
+  openCalibrationScreen(context, sleeveId) {
+    return new Promise((resolve, reject) => {
+      // set up a message object to publish
+      const message = {
+        type: 'open-calibration-screen',
+        sleeve: sleeveId,
+      };
+
+      // publish the message
+      publish(message).then(resolve).catch(reject);
+    });
+  },
+  calibrate() {
+    return new Promise((resolve, reject) => {
+      // set up a message object to publish
+      const message = {
+        type: 'calibrate',
+      };
+
+      // publish the message
+      publish(message).then(resolve).catch(reject);
+    });
+  },
   startIntro() {
     return new Promise((resolve, reject) => {
       // set up a message object to publish
