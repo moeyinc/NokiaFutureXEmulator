@@ -6,19 +6,14 @@
       :summary-text="'Manage which sleeve to use for games in the stories.'"
     />
 
-    <div class="wrapper">
-      <ActionTable
-        :items="actionTableItems"
-        @clicked="(itemType) => overlay = itemType"
-      />
-    </div>
+    <SleeveList />
   </div>
 </template>
 
 <script>
 import PageHeader from '@comps/PageHeader';
 import SummaryBlock from '@comps/SummaryBlock';
-import ActionTable from '@comps/ActionTable';
+import SleeveList from '@comps/SleeveList';
 
 export default {
   name: 'SleeveManagement',
@@ -27,54 +22,14 @@ export default {
   components: {
     PageHeader,
     SummaryBlock,
-    ActionTable,
-  },
-  data() {
-    return {
-      overlay: null,
-      actionTableItems: [],
-    };
-  },
-  watch: {
-    overlay(newVal) {
-      if (!newVal) {
-        this.setActionTableItems();
-      }
-    },
-  },
-  created() {
-    this.setActionTableItems();
-  },
-  methods: {
-    setActionTableItems() {
-      const items = [];
-      const player1 = {
-        type: 'player1',
-        name: 'Player 1',
-        data: {name: localStorage.getItem('playerOneSleeveId')},
-        iconFilename: 'player-icon.png',
-        iconFilenameActive: 'player-icon-active.png',
-      };
-      const player2 = {
-        type: 'player2',
-        name: 'Player 2',
-        data: {name: localStorage.getItem('playerTwoSleeveId')},
-        iconFilename: 'player-icon.png',
-        iconFilenameActive: 'player-icon-active.png',
-      };
-
-      items.push(player1);
-      items.push(player2);
-
-      this.actionTableItems = items;
-    },
+    SleeveList,
   },
 };
 </script>
 
 <style lang="stylus" scoped>
 .sleeve-management
-  .wrapper
-    margin-top: 80px
-    padding: 0 80px
+  overflow-y: scroll
+  -webkit-overflow-scrolling: touch
+  overflow-scrolling: touch
 </style>

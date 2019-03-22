@@ -119,6 +119,9 @@ module.exports = {
   sleeves: [
     'D0L5',
     'D0R5',
-    'FAKE',
+    'FAKE 1',
+    'FAKE 2',
+    'FAKE 3',
+    'FAKE 4',
   ],
 };

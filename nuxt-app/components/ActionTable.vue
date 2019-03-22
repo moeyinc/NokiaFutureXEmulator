@@ -6,11 +6,11 @@
       @click="$emit('clicked', item.type)"
     >
       <td class="icon">
-        <icon-button
+        <!-- <icon-button
           :filename="item.iconFilename"
           :filename-active="item.iconFilenameActive"
           :clickable="false"
-        />
+        /> -->
       </td>
       <td class="item-name">
         {{ item.name }}
@@ -32,13 +32,13 @@
 </template>
 
 <script>
-import IconButton from '@/components/buttons/IconButton';
+// import IconButton from '@/components/buttons/IconButton';
 
 export default {
   name: 'ActionTable',
-  components: {
-    IconButton,
-  },
+  // components: {
+  //   IconButton,
+  // },
   props: {
     items: {
       type: Array,
