@@ -1,31 +1,23 @@
 <template>
   <div
-    :class="['side-nav-menu-item', {'active': active}]"
-    @touchend.prevent="$emit('select')"
-    @click="$emit('select')"
+    :class="['side-nav-menu-item', {active}]"
+    @click="$emit('click')"
   >
-    <div class="icon-wrapper">
-      <IconButton
-        :filename="iconFilename"
-        :filename-active="iconFilenameActive"
-        :overwrite-active="active"
-        :clickable="false"
-      />
+    <div class="icon-column">
+      <div class="icon-wrapper">
+        <div class="icon">
+          <slot />
+        </div>
+      </div>
     </div>
-    <div class="label-wrapper">
+    <div class="label-column">
       {{ label }}
     </div>
   </div>
 </template>
 
 <script>
-import IconButton from '@comps/buttons/IconButton';
-
 export default {
-  name: 'SideNavMenuItem',
-  components: {
-    IconButton,
-  },
   props: {
     label: {
       type: String,
@@ -34,14 +26,6 @@ export default {
     active: {
       type: Boolean,
       default: false,
-    },
-    iconFilename: {
-      type: String,
-      default: '',
-    },
-    iconFilenameActive: {
-      type: String,
-      default: '',
     },
   },
 };
@@ -58,16 +42,26 @@ export default {
   flex-direction: row
   &.active
     background-color: $primary-active-color
+    .icon
+      fill: $secondary-color !important
 
-  .icon-wrapper
+  .icon-column
     min-width: 70px
     text-align: right
     display: flex
     align-items: center
     justify-content: flex-end
-    img
-      height: 23px
-  .label-wrapper
+    .icon-wrapper
+      height: 30px
+      width: 30px
+      position: relative
+      .icon
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        fill: white
+  .label-column
     width: 100%
     padding: 0 17px
     text-align: left

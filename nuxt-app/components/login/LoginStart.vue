@@ -7,10 +7,21 @@
       <h3 class="start-session">
         Start Session
       </h3>
-      <img :src="require('@images/arrow-right.png')">
+      <ArrowIcon class="arrow-icon" />
     </div>
   </section>
 </template>
+
+<script>
+import ArrowIcon from '@images/arrow-icon.svg';
+
+export default {
+  components: {
+    ArrowIcon,
+  },
+};
+
+</script>
 
 <style scoped lang="stylus">
 section
@@ -21,8 +32,9 @@ section
     align-items: center
     h3.start-session
       font-size: 24px
-    img
+    .arrow-icon
       width: 25.5px
-      height: 23px
-      margin-left: 11px
+      margin-left: 10px
+      transform-origin: center
+      transform: rotate(180deg)
 </style>

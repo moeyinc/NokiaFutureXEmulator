@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>outline-close-24px 2</title>
+    <desc>Created with Sketch.</desc>
+    <g id="outline-close-24px-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.75">
+        <g id="outline-close-24px">
+            <g>
+                <g id="Bounding_Boxes">
+                    <polygon id="Shape" points="0 0 30 0 30 30 0 30"></polygon>
+                </g>
+                <g id="Outline_1_" transform="translate(6.250000, 6.250000)" fill="#FFFFFF" fill-rule="nonzero">
+                    <polygon id="Shape" points="17.5 1.7625 15.7375 0 8.75 6.9875 1.7625 0 0 1.7625 6.9875 8.75 0 15.7375 1.7625 17.5 8.75 10.5125 15.7375 17.5 17.5 15.7375 10.5125 8.75"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

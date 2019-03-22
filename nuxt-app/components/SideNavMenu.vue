@@ -10,34 +10,34 @@
         </div>
         <div class="padding-box" />
         <SideNavMenuItem
-          :label="'Stories'"
+          label="Stories"
           :active="!isOnRoomEffectsPage && !isOnSleeveManagementPage"
-          :icon-filename="'story-icon.png'"
-          :icon-filename-active="'story-icon-active.png'"
-          @select="jumpToLastStoryPage"
-        />
+          @click="jumpToLastStoryPage"
+        >
+          <StoryIcon class="icon" />
+        </SideNavMenuItem>
         <SideNavMenuItem
           :label="'Room Effects'"
           :active="isOnRoomEffectsPage"
-          :icon-filename="'room-effect-icon.png'"
-          :icon-filename-active="'room-effect-icon-active.png'"
-          @select="$router.push('/room-effects')"
-        />
+          @click="$router.push('/room-effects')"
+        >
+          <RoomEffectsIcon class="icon" />
+        </SideNavMenuItem>
         <SideNavMenuItem
           :label="'Manage Sleeves'"
           :active="isOnSleeveManagementPage"
-          :icon-filename="'sleeve-icon.png'"
-          :icon-filename-active="'sleeve-icon-active.png'"
-          @select="$router.push('/sleeve-management')"
-        />
+          @click="$router.push('/sleeve-management')"
+        >
+          <SleeveIcon class="icon" />
+        </SideNavMenuItem>
         <SideNavMenuItem
           class="logout-item"
           :label="'Logout'"
           :active="false"
-          :icon-filename="'logout-icon.png'"
-          :icon-filename-active="'logout-icon-active.png'"
-          @select="overlay = 'confirmation'"
-        />
+          @click="overlay = 'confirmation'"
+        >
+          <LogOutIcon class="icon" />
+        </SideNavMenuItem>
       </div>
     </div>
     <transition :name="'fade'">
@@ -52,14 +52,21 @@
 </template>
 
 <script>
+import StoryIcon from '@images/story-icon.svg';
+import RoomEffectsIcon from '@images/room-effects-icon.svg';
+import SleeveIcon from '@images/sleeve-icon.svg';
+import LogOutIcon from '@images/logout-icon.svg';
 import SideNavMenuItem from '@comps/SideNavMenuItem';
-import ConfirmationModalOverlay from
-  '@comps/overlays/ConfirmationModalOverlay';
+import ConfirmationModalOverlay from '@comps/overlays/ConfirmationModalOverlay';
 import {mapState} from 'vuex';
 
 export default {
   name: 'SideNavMenu',
   components: {
+    StoryIcon,
+    RoomEffectsIcon,
+    SleeveIcon,
+    LogOutIcon,
     SideNavMenuItem,
     ConfirmationModalOverlay,
   },
