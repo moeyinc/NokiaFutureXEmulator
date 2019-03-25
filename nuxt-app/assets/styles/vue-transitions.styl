@@ -1,4 +1,5 @@
 duration = .3s
+duration-long = .6s
 
 // fade animation
 .fade-enter-active, .fade-leave-active
@@ -49,3 +50,17 @@ duration = .3s
   opacity: 0
   -webkit-transform: translateY(5%)
   transform: translateY(5%)
+
+.pop-slide-left-enter
+  opacity: 0
+  -webkit-transform: translate(100%, 0)
+  transform: translate(100%, 0)
+
+.pop-slide-left-leave-active
+  opacity: 0
+  -webkit-transform: translate(-100%, 0)
+  transform: translate(-100%, 0)
+
+.pop-slide-left-enter-active,
+.pop-slide-left-leave-active
+  transition: all duration ease

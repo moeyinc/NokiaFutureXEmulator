@@ -11,11 +11,14 @@
         sed do eiusmod tempor
       </p>
     </div>
-    <ActionButton
-      fixed
-      label="Skip Intro"
-      @click="skipIntro"
-    />
+    <transition name="pop-slide-left">
+      <ActionButton
+        v-show="readyToProceed"
+        fixed
+        label="Skip Intro"
+        @click="skipIntro"
+      />
+    </transition>
   </div>
 </template>
 
@@ -33,8 +36,18 @@ export default {
   mixins: [
     requireLogInMixin,
   ],
+  data() {
+    return {
+      readyToProceed: false,
+    };
+  },
   created() {
     this.setEventListeners();
+  },
+  mounted() {
+    setTimeout(() => {
+      this.readyToProceed = true;
+    }, 500);
   },
   destroyed() {
     this.removeEventListeners();

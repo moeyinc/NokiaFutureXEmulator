@@ -21,12 +21,14 @@
       :selected-network="inStorySelectedNetwork"
     />
 
-    <ActionButton
-      v-show="readyToProceed"
-      fixed
-      :label="isLastSection ? 'End' : 'Next'"
-      @click="isLastSection ? endStory() : gotoSection(sectionId + 1)"
-    />
+    <transition name="pop-slide-left">
+      <ActionButton
+        v-show="readyToProceed"
+        fixed
+        :label="isLastSection ? 'End' : 'Next'"
+        @click="isLastSection ? endStory() : gotoSection(sectionId + 1)"
+      />
+    </transition>
 
     <JumpExitOverlay
       v-if="overlay === 'jumpexit'"
@@ -128,6 +130,11 @@ export default {
   },
   created() {
     this.setEventListeners();
+    if (process.env.isDev) {
+      setTimeout(() => {
+        this.readyToProceed = true;
+      }, 2000);
+    }
   },
   destroyed() {
     this.removeEventListeners();

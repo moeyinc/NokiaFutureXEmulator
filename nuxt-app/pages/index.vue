@@ -41,7 +41,7 @@ export default {
     login() {
       this.$store.dispatch('login', this.password)
           .then(() => {
-            this.$router.push('/initial-calibration');
+            this.$router.push('/intro');
           })
           .catch((err) => {
             if (err.message === 'WrongPassword') {

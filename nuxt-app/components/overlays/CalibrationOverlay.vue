@@ -9,11 +9,14 @@
       <p class="sleeve-id">
         Sleeve ID: {{ selectedSleeveId }}
       </p>
-      <ActionButton
-        fixed
-        label="Calibrate"
-        @click="calibrate"
-      />
+      <transition name="pop-slide-left">
+        <ActionButton
+          v-show="readyToProceed"
+          fixed
+          label="Calibrate"
+          @click="calibrate"
+        />
+      </transition>
     </div>
   </OverlayWrapper>
 </template>
@@ -29,11 +32,21 @@ export default {
     OverlayWrapper,
     ActionButton,
   },
+  data() {
+    return {
+      readyToProceed: false,
+    };
+  },
   computed: {
     ...mapState(['selectedSleeveId']),
   },
   created() {
     this.$store.dispatch('getSelectedSleeveId');
+  },
+  mounted() {
+    setTimeout(() => {
+      this.readyToProceed = true;
+    }, 500);
   },
   methods: {
     calibrate() {
