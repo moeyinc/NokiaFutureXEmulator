@@ -47,7 +47,7 @@ export default {
   mounted() {
     setTimeout(() => {
       this.readyToProceed = true;
-    }, 500);
+    }, 300);
   },
   destroyed() {
     this.removeEventListeners();

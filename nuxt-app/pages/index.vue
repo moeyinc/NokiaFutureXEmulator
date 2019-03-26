@@ -36,6 +36,7 @@ export default {
   created() {
     this.$store.dispatch('initMqttClient');
     this.$store.dispatch('getExperienceConfig');
+    this.$store.dispatch('getSelectedSleeveId');
   },
   methods: {
     login() {

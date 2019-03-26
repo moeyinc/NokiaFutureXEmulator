@@ -83,6 +83,8 @@ module.exports = {
           id: 8,
           title: 'Robot Training',
           control: 'network',
+          sleeveCalibration: true,
+          replayButton: true,
           thumbnail: 'section-thumbnail.png',
           text: 'High speed network is capable of remote operation with ' +
             'hand craft quality.\nDemonstrate the defference between 5G, ' +

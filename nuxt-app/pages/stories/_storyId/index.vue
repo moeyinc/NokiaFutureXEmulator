@@ -86,7 +86,7 @@ export default {
   mounted() {
     setTimeout(() => {
       this.readyToProceed = true;
-    }, 500);
+    }, 300);
   },
   methods: {
     startStory() {

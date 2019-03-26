@@ -1,6 +1,7 @@
 <template>
   <div
-    :class="['sub-action-button', {underline, fixed}]"
+    :class="['sub-action-button', {underline, fixed, large}]"
+    :style="additionalStyle"
     @click="$emit('click')"
   >
     <div class="inner">
@@ -37,6 +38,14 @@ export default {
       type: Boolean,
       default: false,
     },
+    large: {
+      type: Boolean,
+      default: false,
+    },
+    additionalStyle: {
+      type: Object,
+      default: () => {},
+    },
   },
 };
 </script>
@@ -46,7 +55,7 @@ export default {
 
 .sub-action-button
   display: inline-block
-  font-size: 24px
+  font-size: 20px
   letter-spacing: 0.5px
   &.underline
     padding-bottom: 9px
@@ -55,12 +64,13 @@ export default {
     position: absolute
     bottom: 60px
     left: 80px
+  &.large
+    font-size: 30px
+    letter-spacing: 0.75px
   .inner
     display: flex
     flex-direction: row
     align-items: center
-    h6
-      font-size: 20px
     .icon
       margin-right: 11px
     .back-icon

@@ -122,12 +122,14 @@ export default {
       publish(message).then(resolve).catch(reject);
     });
   },
-  gotoSection(context, sectionId) {
+  gotoSection(context, {sectionId, storyId}) {
     return new Promise((resolve, reject) => {
       // set up a message object to publish
       const message = {
         type: 'goto-section',
         section: sectionId,
+        story: storyId,
+        sleeve: context.state.selectedSleeveId,
       };
 
       // publish the message
@@ -164,6 +166,28 @@ export default {
       const message = {
         type: 'set-network',
         network: networkName,
+      };
+
+      // publish the message
+      publish(message).then(resolve).catch(reject);
+    });
+  },
+  autoplay() {
+    return new Promise((resolve, reject) => {
+      // set up a message object to publish
+      const message = {
+        type: 'autoplay',
+      };
+
+      // publish the message
+      publish(message).then(resolve).catch(reject);
+    });
+  },
+  replay() {
+    return new Promise((resolve, reject) => {
+      // set up a message object to publish
+      const message = {
+        type: 'replay',
       };
 
       // publish the message

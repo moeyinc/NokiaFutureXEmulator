@@ -39,6 +39,7 @@ export default {
   bottom: 0
   left: 0
   z-index: 9999
+  width: 100%
   height: 100%
   background-color: rgba(1, 12, 66, .85)
   &.scrollable

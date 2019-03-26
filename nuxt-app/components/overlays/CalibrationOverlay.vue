@@ -9,6 +9,7 @@
       <p class="sleeve-id">
         Sleeve ID: {{ selectedSleeveId }}
       </p>
+      <slot />
       <transition name="pop-slide-left">
         <ActionButton
           v-show="readyToProceed"
@@ -46,7 +47,7 @@ export default {
   mounted() {
     setTimeout(() => {
       this.readyToProceed = true;
-    }, 500);
+    }, 300);
   },
   methods: {
     calibrate() {
