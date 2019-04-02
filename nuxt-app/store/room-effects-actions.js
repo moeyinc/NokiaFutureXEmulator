@@ -11,7 +11,10 @@ export default {
             resolve(res);
           })
           .catch((err) => {
-            alert('Network error. Coudn\'t get the current audio volume');
+            context.commit('addAlertMessage', {
+              type: 'error',
+              message: 'Coudn\'t get the current audio volume from MOTU',
+            });
             reject(err);
           });
     });
@@ -34,7 +37,10 @@ export default {
             resolve();
           })
           .catch((err) => {
-            alert('Network error. Coudn\'t update the audio volume');
+            context.commit('addAlertMessage', {
+              type: 'error',
+              message: 'Coudn\'t update the audio volume with MOTU',
+            });
             reject(err);
           });
     });
@@ -50,8 +56,11 @@ export default {
             resolve(res.data.state);
           })
           .catch((err) => {
-            alert('Network error. Coudn\'t get the current power state ' +
-              'of a projector ' + id);
+            context.commit('addAlertMessage', {
+              type: 'error',
+              message: 'Coudn\'t get the current power state ' +
+                'of a projector ' + id,
+            });
             reject(err);
           });
     });
@@ -66,8 +75,10 @@ export default {
             resolve();
           })
           .catch((err) => {
-            alert('Network error. Coudn\'t change the power state of one of ' +
-              'the six projectors');
+            context.commit('addAlertMessage', {
+              type: 'error',
+              message: 'Coudn\'t change the power state of projectors',
+            });
             reject(err);
           });
     });

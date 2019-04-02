@@ -76,4 +76,5 @@ export default {
     .back-icon
       width: 20px
       height: 18px
+      fill: white
 </style>

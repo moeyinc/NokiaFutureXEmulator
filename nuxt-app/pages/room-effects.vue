@@ -70,18 +70,14 @@ export default {
           .then((res) => {
             this.audioParams.master.value = parseFloat(res.data.value);
           })
-          .catch((err) => {
-            console.error(err);
-          });
+          .catch(console.error);
     },
     initProjectorPowerState() {
       this.$store.dispatch('getCurrentProjectorState')
           .then((state) => {
             this.projectorParams.power.value = state;
           })
-          .catch((err) => {
-            console.error(err);
-          });
+          .catch(console.error);
     },
     onAudioChanged({key, value}) {
       console.log('onAudioChanged', key, value);
@@ -102,18 +98,14 @@ export default {
           .then(() => {
             console.log('success');
           })
-          .catch((err) => {
-            console.error(err);
-          });
+          .catch(console.error);
     },
     turnAllProjectorsPower(value) {
       this.$store.dispatch('turnAllProjectors', value)
           .then(() => {
             console.log('success');
           })
-          .catch((err) => {
-            console.error(err);
-          });
+          .catch(console.error);
     },
     resetMasterVolume() {
       this.updateMasterVolume(this.audioParams.master.default);

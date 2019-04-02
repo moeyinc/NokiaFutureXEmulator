@@ -31,8 +31,12 @@ export default {
         };
 
         // publish the message
-        publish(message).then(resolve).catch(reject);
+        publish(context, message).then(resolve).catch(reject);
       } else {
+        context.commit('addAlertMessage', {
+          type: 'error',
+          message: 'Wrong password: ' + password,
+        });
         reject(Error('WrongPassword'));
       }
     });
@@ -51,7 +55,7 @@ export default {
       };
 
       // publish the message
-      publish(message).then(resolve).catch(reject);
+      publish(context, message).then(resolve).catch(reject);
     });
   },
   startStory(context, storyId) {
@@ -63,7 +67,7 @@ export default {
       };
 
       // publish the message
-      publish(message).then(resolve).catch(reject);
+      publish(context, message).then(resolve).catch(reject);
     });
   },
   endStory(context, storyId) {
@@ -74,7 +78,7 @@ export default {
       };
 
       // publish the message
-      publish(message).then(resolve).catch(reject);
+      publish(context, message).then(resolve).catch(reject);
     });
   },
   openCalibrationScreen(context, sleeveId) {
@@ -86,10 +90,10 @@ export default {
       };
 
       // publish the message
-      publish(message).then(resolve).catch(reject);
+      publish(context, message).then(resolve).catch(reject);
     });
   },
-  calibrate() {
+  calibrate(context) {
     return new Promise((resolve, reject) => {
       // set up a message object to publish
       const message = {
@@ -97,10 +101,10 @@ export default {
       };
 
       // publish the message
-      publish(message).then(resolve).catch(reject);
+      publish(context, message).then(resolve).catch(reject);
     });
   },
-  startIntro() {
+  startIntro(context) {
     return new Promise((resolve, reject) => {
       // set up a message object to publish
       const message = {
@@ -108,10 +112,10 @@ export default {
       };
 
       // publish the message
-      publish(message).then(resolve).catch(reject);
+      publish(context, message).then(resolve).catch(reject);
     });
   },
-  skipIntro() {
+  skipIntro(context) {
     return new Promise((resolve, reject) => {
       // set up a message object to publish
       const message = {
@@ -119,7 +123,7 @@ export default {
       };
 
       // publish the message
-      publish(message).then(resolve).catch(reject);
+      publish(context, message).then(resolve).catch(reject);
     });
   },
   gotoSection(context, {sectionId, storyId}) {
@@ -133,10 +137,10 @@ export default {
       };
 
       // publish the message
-      publish(message).then(resolve).catch(reject);
+      publish(context, message).then(resolve).catch(reject);
     });
   },
-  enableAR({commit}, layer) {
+  enableAR(context, layer) {
     return new Promise((resolve, reject) => {
       // set up a message object to publish
       const message = {
@@ -145,10 +149,10 @@ export default {
       if (layer) message.layer = layer;
 
       // publish the message
-      publish(message).then(resolve).catch(reject);
+      publish(context, message).then(resolve).catch(reject);
     });
   },
-  disableAR({commit}, layer) {
+  disableAR(context, layer) {
     return new Promise((resolve, reject) => {
       // set up a message object to publish
       const message = {
@@ -157,10 +161,10 @@ export default {
       if (layer) message.layer = layer;
 
       // publish the message
-      publish(message).then(resolve).catch(reject);
+      publish(context, message).then(resolve).catch(reject);
     });
   },
-  setNetwork({commit}, networkName) {
+  setNetwork(context, networkName) {
     return new Promise((resolve, reject) => {
       // set up a message object to publish
       const message = {
@@ -169,10 +173,10 @@ export default {
       };
 
       // publish the message
-      publish(message).then(resolve).catch(reject);
+      publish(context, message).then(resolve).catch(reject);
     });
   },
-  autoplay() {
+  autoplay(context) {
     return new Promise((resolve, reject) => {
       // set up a message object to publish
       const message = {
@@ -180,10 +184,10 @@ export default {
       };
 
       // publish the message
-      publish(message).then(resolve).catch(reject);
+      publish(context, message).then(resolve).catch(reject);
     });
   },
-  replay() {
+  replay(context) {
     return new Promise((resolve, reject) => {
       // set up a message object to publish
       const message = {
@@ -191,23 +195,23 @@ export default {
       };
 
       // publish the message
-      publish(message).then(resolve).catch(reject);
+      publish(context, message).then(resolve).catch(reject);
     });
   },
-  pingBack() {
+  pingBack(context) {
     return new Promise((resolve, reject) => {
       const message = {
         type: 'ping-back',
       };
 
       // publish the message
-      publish(message).then(resolve).catch(reject);
+      publish(context, message).then(resolve).catch(reject);
     });
   },
   publishAnyMessage(context, {message, sender}) {
     return new Promise((resolve, reject) => {
       // publish the message
-      publish(message, sender).then(resolve).catch(reject);
+      publish(context, message, sender).then(resolve).catch(reject);
     });
   },
 };
@@ -215,17 +219,21 @@ export default {
 /**
  * publish - publish a MQTT message
  *
+ * @param  {!Object} context
  * @param  {!Object} message
  * @param  {?String} sender tag
  * @return {!Promise}
  */
-function publish(message, sender) {
+function publish(context, message, sender) {
   return new Promise((resolve, reject) => {
     message.sender = sender || 'facilitator';
     mqttClient.publishMessage(message, (err) => {
       if (err) {
-        alert('Network error. The MQTT message (' +
-        message.type + ') was\'nt published successfully.');
+        context.commit('addAlertMessage', {
+          type: 'error',
+          message: 'Unable to send MQTT message (type: ' +
+            message.type + ')',
+        });
         reject(err);
       }
       resolve();

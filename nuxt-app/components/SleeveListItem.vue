@@ -69,6 +69,8 @@ export default {
     left: 0
     transform: translateY(-50%)
     fill: $primary-color
+    width: 12px
+    height: 22px
   .text
     font-size: 24px
     letter-spacing: .8px

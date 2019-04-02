@@ -37,4 +37,5 @@ section
       margin-left: 10px
       transform-origin: center
       transform: rotate(180deg)
+      fill: white
 </style>

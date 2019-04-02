@@ -1,8 +1,19 @@
 <template>
   <div class="no-side-menu">
     <nuxt data-app />
+    <AlertContainer />
   </div>
 </template>
+
+<script>
+import AlertContainer from '@comps/AlertContainer';
+
+export default {
+  components: {
+    AlertContainer,
+  },
+};
+</script>
 
 <style scoped lang="stylus">
 .no-side-menu

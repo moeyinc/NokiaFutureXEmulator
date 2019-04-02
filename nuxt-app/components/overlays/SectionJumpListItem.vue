@@ -98,6 +98,8 @@ export default {
     left: 0
     transform: translateY(-50%)
     fill: $primary-color
+    width: 12px
+    height: 22px
   .section-id
     width: 90px
     max-width: 90px
@@ -105,7 +107,7 @@ export default {
     font-size: 44px
     text-align: center
     .exit-icon
-      width: 40px
+      width: 32px
       fill: $secondary-color
   .section-thumbnail
     width: 100px

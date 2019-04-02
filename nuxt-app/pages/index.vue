@@ -46,7 +46,6 @@ export default {
           })
           .catch((err) => {
             if (err.message === 'WrongPassword') {
-              alert('Wrong Password!');
               this.password = '';
             }
           });

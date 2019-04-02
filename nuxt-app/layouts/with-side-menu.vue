@@ -3,18 +3,21 @@
     <SideNavMenu />
     <main>
       <nuxt data-app />
+      <AlertContainer />
     </main>
   </div>
 </template>
 
 <script>
 import SideNavMenu from '@comps/SideNavMenu';
+import AlertContainer from '@comps/AlertContainer';
 import requireLogInMixin from '@/mixins/requireLogIn.js';
 
 export default {
   name: 'WithSideMenu',
   components: {
     SideNavMenu,
+    AlertContainer,
   },
   mixins: [
     requireLogInMixin,

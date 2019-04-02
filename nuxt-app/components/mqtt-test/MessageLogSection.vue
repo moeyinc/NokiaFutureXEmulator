@@ -34,7 +34,7 @@
 <script>
 export default {
   props: {
-    messageLogs: {
+    messageLog: {
       type: Array,
       default: () => [],
     },
@@ -74,9 +74,8 @@ export default {
     };
   },
   watch: {
-    messageLogs(newVal) {
-      console.log('watch', newVal);
-      const newLog = this.messageLogs[this.messageLogs.length - 1];
+    messageLog(newVal) {
+      const newLog = this.messageLog[this.messageLog.length - 1];
       let messageParam1;
       for (const key in newLog.message) {
         if (key !== 'type' && key !== 'sender') {
@@ -90,7 +89,6 @@ export default {
         receivedAt: newLog.receivedAt,
       };
       this.items.push(item);
-      console.log('items', this.items);
     },
   },
 };

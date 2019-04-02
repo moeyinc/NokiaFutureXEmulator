@@ -14,21 +14,21 @@
           :active="!isOnRoomEffectsPage && !isOnSleeveManagementPage"
           @click="jumpToLastStoryPage"
         >
-          <StoryIcon class="icon" />
+          <StoryIcon />
         </SideNavMenuItem>
         <SideNavMenuItem
           :label="'Room Effects'"
           :active="isOnRoomEffectsPage"
           @click="$router.push('/room-effects')"
         >
-          <RoomEffectsIcon class="icon" />
+          <RoomEffectsIcon />
         </SideNavMenuItem>
         <SideNavMenuItem
           :label="'Manage Sleeves'"
           :active="isOnSleeveManagementPage"
           @click="$router.push('/sleeve-management')"
         >
-          <SleeveIcon class="icon" />
+          <SleeveIcon />
         </SideNavMenuItem>
         <SideNavMenuItem
           class="logout-item"
@@ -36,7 +36,7 @@
           :active="false"
           @click="overlay = 'confirmation'"
         >
-          <LogOutIcon class="icon" />
+          <LogOutIcon />
         </SideNavMenuItem>
       </div>
     </div>

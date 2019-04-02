@@ -41,12 +41,12 @@
       Publish Message
     </VBtn>
     <VDivider
-      v-show="mqttMessageLogs.length > 0"
+      v-show="mqttMessageLog.length > 0"
       class="divider"
     />
     <MessageLogSection
-      v-show="mqttMessageLogs.length > 0"
-      :message-logs="mqttMessageLogs"
+      v-show="mqttMessageLog.length > 0"
+      :message-log="mqttMessageLog"
     />
   </main>
 </template>
@@ -75,7 +75,7 @@ export default {
     };
   },
   computed: {
-    ...mapState(['sleeves', 'mqttMessageLogs']),
+    ...mapState(['sleeves', 'mqttMessageLog']),
     messageSenders() {
       return [
         'facilitator',

@@ -61,6 +61,9 @@ export default {
         left: 50%
         transform: translate(-50%, -50%)
         fill: white
+        &>*
+          width: 25px
+          height: 25px
   .label-column
     width: 100%
     padding: 0 17px

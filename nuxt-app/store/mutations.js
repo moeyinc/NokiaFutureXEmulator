@@ -20,8 +20,8 @@ const mutations = {
   updateLastStoryPage(state, page) {
     state.lastStoryPage = page;
   },
-  updateMqttMessageLogs(state, log) {
-    state.mqttMessageLogs.push(log);
+  updateMqttMessageLog(state, message) {
+    state.mqttMessageLog.push(message);
   },
   resetStoryTempStates(state) {
     state.inStoryAREnabled = false;
@@ -32,6 +32,13 @@ const mutations = {
   },
   updateInStorySelectedNetwork(state, networkName) {
     state.inStorySelectedNetwork = networkName;
+  },
+  addAlertMessage(state, alertMessage) {
+    alertMessage.display = true;
+    state.alertMessages.push(alertMessage);
+  },
+  closeAlertMessage(state, index) {
+    state.alertMessages[index].display = false;
   },
 };
 

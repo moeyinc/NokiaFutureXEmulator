@@ -36,11 +36,19 @@ export default {
 
       // if there's an error on connecting, reject
       mqttClient.on('error', (err) => {
+        context.commit('addAlertMessage', {
+          type: 'error',
+          message: 'Couldn\'t get connected to MQTT broker',
+        });
         reject(err);
       });
 
       // when it's gone offline
       mqttClient.on('offline', () => {
+        context.commit('addAlertMessage', {
+          type: 'warning',
+          message: 'Disconnected from MQTT broker',
+        });
         console.log('Connection to MQTT broker went offline.');
       });
 
@@ -48,11 +56,10 @@ export default {
       mqttClient.on('message', (topic, payload) => {
         const message = String.fromCharCode.apply(null, payload);
         const messageObj = JSON.parse(message);
-        const log = {
+        context.commit('updateMqttMessageLog', {
           message: messageObj,
           receivedAt: getCurrentTimeString(),
-        };
-        context.commit('updateMqttMessageLogs', log);
+        });
         if (!messageObj.type) {
           console.error('The received message doesnt have type!');
         } else {
