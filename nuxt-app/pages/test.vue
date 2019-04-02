@@ -80,7 +80,6 @@ export default {
       return [
         'facilitator',
         'unity',
-        'touchdesigner',
       ];
     },
     messageTypes() {
@@ -105,18 +104,9 @@ export default {
       return [
         {
           type: 'login',
-          params: [
-            {
-              name: 'sleeve',
-              options: this.sleeves,
-            },
-          ],
         },
         {
           type: 'logout',
-        },
-        {
-          type: 'start-intro',
         },
         {
           type: 'skip-intro',
@@ -146,11 +136,10 @@ export default {
               name: 'section',
               options: [1, 2, 3, 4, 5, 6, 7, 8, 9],
             },
-          ],
-        },
-        {
-          type: 'start-calibration',
-          params: [
+            {
+              name: 'story',
+              options: [1],
+            },
             {
               name: 'sleeve',
               options: this.sleeves,
@@ -158,7 +147,13 @@ export default {
           ],
         },
         {
-          type: 'end-calibration',
+          type: 'open-calibration-screen',
+          params: [
+            {
+              name: 'sleeve',
+              options: this.sleeves,
+            },
+          ],
         },
         {
           type: 'calibrate',
@@ -185,10 +180,10 @@ export default {
           type: 'ready-to-proceed',
         },
         {
-          type: 'ready-to-replay',
+          type: 'replay',
         },
         {
-          type: 'replay',
+          type: 'autoplay',
         },
         {
           type: 'set-network',
@@ -319,9 +314,6 @@ main
   margin: 0 auto
   padding: 40px 20px 150px
   font-size: 16px
-  // overflow-y: scroll
-  // -webkit-overflow-scrolling: touch
-  // overflow-scrolling: touch
   h1
     font-size: 28px
     font-family: 'NokiaPureHeadline_Bold'

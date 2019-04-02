@@ -221,6 +221,7 @@ export default {
       this.$store.dispatch('replay')
           .then(() => {
             this.overlay = 'calibration';
+            this.readyToProceed = false;
           })
           .catch(console.error);
     },
