@@ -8,7 +8,7 @@ const createState = () => ({
   lastStoryPage: null,
   mqttMessageLog: [],
   alertMessages: [],
-  inStoryAREnabled: false,
+  inStoryAREnabled: true,
   inStorySelectedNetwork: '5G',
 });
 

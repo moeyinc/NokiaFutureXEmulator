@@ -24,7 +24,7 @@ const mutations = {
     state.mqttMessageLog.push(message);
   },
   resetStoryTempStates(state) {
-    state.inStoryAREnabled = false;
+    state.inStoryAREnabled = true;
     state.inStorySelectedNetwork = '5G';
   },
   updateInStoryAREnabled(state, value) {

@@ -6,13 +6,17 @@
         {{ title }}
       </th>
       <th class="reset">
-        <sub-action-button
+        <div
           v-if="resetButton"
-          :label="'Reset to Default'"
-          :icon-filename="'reset-icon.png'"
-          :has-underline="false"
-          @clicked="$emit('reset')"
-        />
+          class="inner"
+        >
+          <ResetIcon class="reset-icon" />
+          <SubActionButton
+            label="Reset to Default"
+            :underline="false"
+            @click="$emit('reset')"
+          />
+        </div>
       </th>
       <th class="padding" />
     </tr>
@@ -53,12 +57,14 @@
 </template>
 
 <script>
-import SubActionButton from '@/components/buttons/SubActionButton';
+import SubActionButton from '@comps/buttons/SubActionButton';
+import ResetIcon from '@images/reset-icon.svg';
 
 export default {
   name: 'EffectTable',
   components: {
     SubActionButton,
+    ResetIcon,
   },
   props: {
     title: {
@@ -108,7 +114,20 @@ table
       min-width: 200px
 
     th.reset
-      text-align: right
+      position: relative
+      .inner
+        position: absolute
+        right: 0
+        top: 50%
+        transform: translateY(-50%)
+        display: flex
+        justify-content: center
+        align-items: center
+      .reset-icon
+        fill: white
+        width: 24px
+        height: 24px
+        margin-right: 8px
 
     td.control
       width: 500px
