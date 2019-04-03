@@ -6,7 +6,7 @@
       </div>
       <div class="menu-block">
         <div class="fite-lab-box">
-          FITE Lab
+          Future X Emulator
         </div>
         <div class="padding-box" />
         <SideNavMenuItem
@@ -153,7 +153,7 @@ nav
         font-family: "NokiaPureText-Regular"
         letter-spacing: 2px
         position: absolute
-        width: 180px
+        width: 200px
         height: 45px
         top: -22.5px
         left: 0

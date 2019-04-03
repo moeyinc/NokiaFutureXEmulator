@@ -2,7 +2,7 @@
   <section>
     <img :src="require('@images/belllabs-logo.png')">
     <h4 class="fite-lab">
-      FITE Lab
+      Future X Emulator
     </h4>
   </section>
 </template>
