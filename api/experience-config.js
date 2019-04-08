@@ -81,17 +81,25 @@ module.exports = {
         },
         {
           id: 8,
+          title: 'Dispatching a Drone',
+          control: 'network',
+          thumbnail: 'section-thumbnail.png',
+          text: 'High speed network is capable of feeding high quality ' +
+            'live streaming.\n\nDemonstrate the deference between 5G and ' +
+            '4G/Wifi network',
+        },
+        {
+          id: 9,
           title: 'Robot Training',
           control: 'network',
           sleeveCalibration: true,
           replayButton: true,
           thumbnail: 'section-thumbnail.png',
           text: 'High speed network is capable of remote operation with ' +
-            'hand craft quality.\nDemonstrate the defference between 5G, ' +
-            'Wifi and 4G network.',
+            'hand craft quality.',
         },
         {
-          id: 9,
+          id: 10,
           title: 'Round Up',
           control: '',
           thumbnail: 'section-thumbnail.png',

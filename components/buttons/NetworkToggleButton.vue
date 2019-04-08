@@ -18,7 +18,7 @@ export default {
   props: {
     selectedNetwork: {
       type: String,
-      default: '5G',
+      default: '5g',
     },
   },
   data() {
@@ -43,11 +43,11 @@ export default {
     };
   },
   created() {
-    if (this.selectedNetwork === 'Wifi') {
+    if (this.selectedNetwork === 'wifi') {
       this.buttons[0].value = false;
       this.buttons[1].value = true;
       this.buttons[2].value = false;
-    } else if (this.selectedNetwork === '4G') {
+    } else if (this.selectedNetwork === '4g') {
       this.buttons[0].value = false;
       this.buttons[1].value = false;
       this.buttons[2].value = true;
