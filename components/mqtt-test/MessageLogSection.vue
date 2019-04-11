@@ -17,10 +17,10 @@
             {{ props.item.messageSender }}
           </td>
           <td>
-            {{ props.item.messageType }}
+            {{ props.item.topic }}
           </td>
           <td>
-            {{ props.item.messageParam1 }}
+            {{ props.item.messageType }}
           </td>
           <td>
             {{ props.item.receivedAt }}
@@ -49,14 +49,14 @@ export default {
           align: 'left',
         },
         {
-          text: 'Type',
-          value: 'type',
+          text: 'Topic',
+          value: 'topic',
           sortable: false,
           align: 'left',
         },
         {
-          text: 'Param 1',
-          value: 'param1',
+          text: 'Type',
+          value: 'type',
           sortable: false,
           align: 'left',
         },
@@ -76,16 +76,17 @@ export default {
   watch: {
     messageLog(newVal) {
       const newLog = this.messageLog[this.messageLog.length - 1];
-      let messageParam1;
-      for (const key in newLog.message) {
-        if (key !== 'type' && key !== 'sender') {
-          messageParam1 = newLog.message[key];
-        }
-      }
+      console.log('newLog', newLog);
+      // let messageParam1;
+      // for (const key in newLog.message) {
+      //   if (key !== 'type' && key !== 'sender') {
+      //     messageParam1 = newLog.message[key];
+      //   }
+      // }
       const item = {
         messageSender: newLog.message.sender,
+        topic: newLog.topic,
         messageType: newLog.message.type,
-        messageParam1: messageParam1,
         receivedAt: newLog.receivedAt,
       };
       this.items.push(item);

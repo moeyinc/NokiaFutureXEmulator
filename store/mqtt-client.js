@@ -58,6 +58,7 @@ export default {
         const message = String.fromCharCode.apply(null, payload);
         const messageObj = JSON.parse(message);
         context.commit('updateMqttMessageLog', {
+          topic: topic,
           message: messageObj,
           receivedAt: getCurrentTimeString(),
         });
@@ -80,8 +81,9 @@ export default {
   publishMessage(message, cb) {
     // publish the message
     console.log('publishing a message:', message);
+    const topic = process.env.MQTT_TOPIC || CONFIG.MQTT.TOPIC;
     mqttClient.publish(
-        CONFIG.MQTT.TOPIC, JSON.stringify(message),
+        topic, JSON.stringify(message),
         {},
         (err) => {
           if (err) cb(err);

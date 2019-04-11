@@ -50,7 +50,8 @@ export default {
       return '';
     },
     topic() {
-      return this.brokerUrl ? CONFIG.MQTT.TOPIC : '';
+      const topic = process.env.MQTT_TOPIC || CONFIG.MQTT.TOPIC;
+      return this.brokerUrl ? topic : '';
     },
   },
 };
