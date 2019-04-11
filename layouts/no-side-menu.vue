@@ -20,7 +20,7 @@ export default {
 <style scoped lang="stylus">
 .layout-wrapper
   width: 1112px
-  height: 794px
+  height: 834px
   position: relative
   .no-side-menu
     user-select: none
