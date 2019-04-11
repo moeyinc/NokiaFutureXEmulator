@@ -1,7 +1,7 @@
 <template>
   <div
     class="layout-wrapper"
-    @touchend.prevent
+    @touchstart.prevent
   >
     <div class="no-side-menu">
       <nuxt data-app />
