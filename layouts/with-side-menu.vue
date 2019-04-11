@@ -32,7 +32,7 @@ export default {
 <style lang="stylus" scoped>
 .layout-wrapper
   width: 1112px
-  height: 834px
+  height: 814px
   position: fixed
   .with-side-menu
     user-select: none
