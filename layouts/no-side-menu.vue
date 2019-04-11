@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="layout-wrapper"
-    @touchmove.prevent
-  >
+  <div class="layout-wrapper">
     <div class="no-side-menu">
       <nuxt data-app />
       <AlertContainer />
@@ -26,7 +23,7 @@ export default {
 .layout-wrapper
   width: 1112px
   height: 834px
-  position: relative
+  position: fixed
   .no-side-menu
     user-select: none
     overflow: hidden

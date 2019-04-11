@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="layout-wrapper"
-    @touchmove.prevent
-  >
+  <div class="layout-wrapper">
     <div class="with-side-menu">
       <SideNavMenu />
       <main>
@@ -36,7 +33,7 @@ export default {
 .layout-wrapper
   width: 1112px
   height: 834px
-  position: relative
+  position: fixed
   .with-side-menu
     user-select: none
     overflow: hidden
