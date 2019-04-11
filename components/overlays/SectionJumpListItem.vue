@@ -32,7 +32,7 @@
       {{ section.title }}
     </div>
     <ActionButton
-      v-show="highlighted && !selected"
+      v-show="highlighted"
       class="jump-button"
       :label="exit ? 'Exit' : 'Jump'"
       width="150px"

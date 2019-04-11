@@ -82,3 +82,6 @@ dist
 
 # Service worker
 sw.*
+
+# data.json for sleeve management
+api/data.json

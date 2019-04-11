@@ -17,14 +17,11 @@
       @click="backToList"
     />
 
-    <transition name="pop-slide-left">
-      <ActionButton
-        v-show="readyToProceed"
-        fixed
-        label="Start"
-        @click="startStory"
-      />
-    </transition>
+    <ActionButton
+      fixed
+      label="Start"
+      @click="startStory"
+    />
   </div>
 </template>
 
@@ -70,11 +67,6 @@ export default {
     SubActionButton,
   },
   mixins: [storyPageMixin],
-  data() {
-    return {
-      readyToProceed: false,
-    };
-  },
   computed: {
     storyId() {
       return parseInt(this.$nuxt.$route.params.storyId);
@@ -82,11 +74,6 @@ export default {
     selectedStory() {
       return this.$store.getters.selectedStory(this.storyId);
     },
-  },
-  mounted() {
-    setTimeout(() => {
-      this.readyToProceed = true;
-    }, 300);
   },
   methods: {
     startStory() {
