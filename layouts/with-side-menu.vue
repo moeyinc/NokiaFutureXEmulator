@@ -13,7 +13,8 @@
 <script>
 import SideNavMenu from '@comps/SideNavMenu';
 import AlertContainer from '@comps/AlertContainer';
-import requireLogInMixin from '@/mixins/requireLogIn.js';
+import requireLogInMixin from '@/mixins/requireLogIn';
+import notScrollablePageMixin from '@/mixins/notScrollablePage';
 
 export default {
   name: 'WithSideMenu',
@@ -23,6 +24,7 @@ export default {
   },
   mixins: [
     requireLogInMixin,
+    notScrollablePageMixin,
   ],
 };
 </script>
