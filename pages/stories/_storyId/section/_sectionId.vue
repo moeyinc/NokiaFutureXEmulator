@@ -34,10 +34,11 @@
       v-if="selectedSection.replayButton"
       class="replay-button"
       fixed
+      right
       back
       large
       label="Start Over"
-      :additional-style="subActionButtonPositionStyle"
+      :yield-to-action-button="readyToProceed"
       @click="replay"
     />
 
@@ -160,14 +161,6 @@ export default {
         sectionId: this.sectionId,
       });
     },
-    subActionButtonPositionStyle() {
-      const bottom = this.readyToProceed ? '200px' : '60px';
-      return {
-        left: 'auto',
-        right: '80px',
-        bottom: bottom,
-      };
-    },
   },
   watch: {
     overlay(newVal, oldVal) {
@@ -251,8 +244,6 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-@import '~@styles/vue-transitions'
-
 p.section-text
   overflow-y: scroll
   -webkit-overflow-scrolling: touch
@@ -262,7 +253,4 @@ p.section-text
   font-size: 20px
   line-height: 30px
   color: white
-
-.replay-button
-  transition: all duration ease
 </style>

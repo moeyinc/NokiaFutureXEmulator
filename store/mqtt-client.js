@@ -27,7 +27,8 @@ export default {
 
       // when it's connected to the broker, subscribe to a topic and resolve
       mqttClient.on('connect', () => {
-        const topic = CONFIG.MQTT.TOPIC;
+        const topic = process.env.MQTT_TOPIC || CONFIG.MQTT.TOPIC;
+        console.log('subscribing to a topic', topic);
         mqttClient.subscribe(topic, {
           qos: 2,
         });
@@ -66,7 +67,12 @@ export default {
           if (messageObj.type === 'ping') context.dispatch('pingBack');
 
           // emit the event to vue components subscribing the same event
-          EventBus.$emit(messageObj.type, messageObj);
+          const subscribingTopic = process.env.MQTT_TOPIC || CONFIG.MQTT.TOPIC;
+          if (topic === subscribingTopic) {
+            EventBus.$emit(messageObj.type, messageObj);
+          } else {
+            console.log('Ignored a message received in different topic', topic);
+          }
         }
       });
     });

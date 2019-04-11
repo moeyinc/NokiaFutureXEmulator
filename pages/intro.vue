@@ -13,53 +13,57 @@
     </div>
     <transition name="pop-slide-left">
       <ActionButton
-        v-show="readyToProceed"
+        v-show="!introMovieStarted"
         fixed
-        label="Skip Intro"
-        @click="skipIntro"
+        label="Start Intro"
+        @click="startIntro"
       />
     </transition>
+    <SubActionButton
+      fixed
+      forward
+      right
+      :yield-to-action-button="!introMovieStarted"
+      large
+      label="Skip Intro"
+      @click="skipIntro"
+    />
   </div>
 </template>
 
 <script>
 import ActionButton from '@comps/buttons/ActionButton';
+import SubActionButton from '@comps/buttons/SubActionButton';
 import requireLogInMixin from '@/mixins/requireLogIn.js';
-import EventBus from '@/event-bus';
 
 export default {
   layout: 'no-side-menu',
   transition: 'fade',
   components: {
     ActionButton,
+    SubActionButton,
   },
   mixins: [
     requireLogInMixin,
   ],
   data() {
     return {
-      readyToProceed: false,
+      introMovieStarted: false,
+      readyToShowButton: false,
     };
-  },
-  created() {
-    this.setEventListeners();
   },
   mounted() {
     setTimeout(() => {
-      this.readyToProceed = true;
+      this.readyToShowButton = true;
     }, 300);
   },
-  destroyed() {
-    this.removeEventListeners();
-  },
   methods: {
-    setEventListeners() {
-      EventBus.$on('completed-intro', () => {
-        this.$router.push('/stories');
-      });
-    },
-    removeEventListeners() {
-      EventBus.$off('completed-intro');
+    startIntro() {
+      this.$store.dispatch('startIntro')
+          .then(() => {
+            this.introMovieStarted = true;
+          })
+          .catch(console.error);
     },
     skipIntro() {
       this.$store.dispatch('skipIntro')

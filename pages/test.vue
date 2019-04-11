@@ -109,6 +109,9 @@ export default {
           type: 'logout',
         },
         {
+          type: 'start-intro',
+        },
+        {
           type: 'skip-intro',
         },
         {

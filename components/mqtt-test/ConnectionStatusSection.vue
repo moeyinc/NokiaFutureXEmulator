@@ -21,11 +21,17 @@
         Broker URL:
         <span class="normal">{{ brokerUrl }}</span>
       </li>
+      <li>
+        Topic:
+        <span class="normal">{{ topic }}</span>
+      </li>
     </ul>
   </section>
 </template>
 
 <script>
+import CONFIG from '@/config';
+
 export default {
   props: {
     mqttClient: {
@@ -42,6 +48,9 @@ export default {
         return host + ':' + port + path;
       }
       return '';
+    },
+    topic() {
+      return this.brokerUrl ? CONFIG.MQTT.TOPIC : '';
     },
   },
 };

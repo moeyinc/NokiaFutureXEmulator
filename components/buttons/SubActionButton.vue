@@ -1,15 +1,25 @@
 <template>
   <div
-    :class="['sub-action-button', {underline, fixed, large}]"
+    :class="[
+      'sub-action-button',
+      {
+        underline, fixed, right, large,
+        'yield-to-action-button': yieldToActionButton
+      },
+    ]"
     :style="additionalStyle"
     @click="$emit('click')"
   >
     <div class="inner">
       <BackIcon
         v-if="back"
-        class="icon back-icon"
+        class="icon-left back-icon"
       />
       <h6>{{ label }}</h6>
+      <BackIcon
+        v-if="forward"
+        class="icon-right back-icon forward"
+      />
     </div>
   </div>
 </template>
@@ -34,7 +44,19 @@ export default {
       type: Boolean,
       default: false,
     },
+    forward: {
+      type: Boolean,
+      default: false,
+    },
     fixed: {
+      type: Boolean,
+      default: false,
+    },
+    right: {
+      type: Boolean,
+      default: false,
+    },
+    yieldToActionButton: {
       type: Boolean,
       default: false,
     },
@@ -52,11 +74,13 @@ export default {
 
 <style lang="stylus" scoped>
 @import '~@styles/colors'
+@import '~@styles/vue-transitions'
 
 .sub-action-button
   display: inline-block
   font-size: 20px
   letter-spacing: 0.5px
+  transition: all duration ease
   &.underline
     padding-bottom: 9px
     border-bottom: solid 0.5px $secondary-border-color
@@ -64,6 +88,11 @@ export default {
     position: absolute
     bottom: 60px
     left: 80px
+    &.right
+      left: auto
+      right: 80px
+    &.yield-to-action-button
+      bottom: 200px
   &.large
     font-size: 30px
     letter-spacing: 0.75px
@@ -71,10 +100,15 @@ export default {
     display: flex
     flex-direction: row
     align-items: center
-    .icon
+    .icon-left
       margin-right: 11px
+    .icon-right
+      margin-left: 11px
     .back-icon
       width: 20px
       height: 18px
       fill: white
+      &.forward
+        transform-origin: center
+        transform: rotate(180deg)
 </style>
