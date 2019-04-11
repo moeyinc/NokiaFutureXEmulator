@@ -1,5 +1,8 @@
 <template>
-  <div class="layout-wrapper">
+  <div
+    class="layout-wrapper"
+    @touchend.prevent
+  >
     <div class="no-side-menu">
       <nuxt data-app />
       <AlertContainer />
