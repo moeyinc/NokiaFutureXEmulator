@@ -1,5 +1,8 @@
 <template>
-  <div class="layout-wrapper">
+  <div
+    class="layout-wrapper"
+    @touchmove.prevent
+  >
     <div class="with-side-menu">
       <SideNavMenu />
       <main>
