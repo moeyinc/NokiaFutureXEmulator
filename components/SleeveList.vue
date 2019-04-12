@@ -12,14 +12,14 @@
       :highlighted="sleeveId === highlightedSleeveId"
       :selected="sleeveId === selectedSleeveId"
       @row-clicked="onRowClicked(sleeveId)"
-      @calibrate="openCalibrationOverlay"
+      @calibrate="openCalibrationScreen"
     />
   </div>
 </template>
 
 <script>
 import SleeveListItem from '@comps/SleeveListItem';
-import {mapState} from 'vuex';
+import {mapState, mapMutations} from 'vuex';
 
 export default {
   components: {
@@ -28,23 +28,23 @@ export default {
   data() {
     return {
       highlightedSleeveId: '',
-      overlay: null,
     };
   },
   computed: {
     ...mapState(['sleeves', 'selectedSleeveId']),
   },
   methods: {
+    ...mapMutations(['showOverlay']),
     onRowClicked(sleeveId) {
       this.highlightedSleeveId = sleeveId;
       this.$emit('highlight', sleeveId);
     },
-    openCalibrationOverlay() {
+    openCalibrationScreen() {
       const newSleeveId = this.highlightedSleeveId;
       this.$store.dispatch('postSelectedSleeveId', newSleeveId)
           .then(this.$store.dispatch('openCalibrationScreen', newSleeveId))
           .then(() => {
-            this.$emit('open-calibration-overlay');
+            this.showOverlay('calibration');
             this.highlightedSleeveId = '';
           })
           .catch(console.error);

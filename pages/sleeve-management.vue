@@ -1,19 +1,10 @@
 <template>
   <div class="sleeve-management page">
     <PageHeader :title="'Sleeve Management'" />
-
     <SummaryBlock
       :summary-text="'Manage which sleeve to use for games in the stories.'"
     />
-
-    <SleeveList
-      @open-calibration-overlay="openCalibrationOverlay"
-    />
-
-    <CalibrationOverlay
-      v-if="overlay === 'calibration'"
-      @close="closeCalibrationOverlay"
-    />
+    <SleeveList />
   </div>
 </template>
 
@@ -21,7 +12,6 @@
 import PageHeader from '@comps/PageHeader';
 import SummaryBlock from '@comps/SummaryBlock';
 import SleeveList from '@comps/SleeveList';
-import CalibrationOverlay from '@comps/overlays/CalibrationOverlay';
 
 export default {
   name: 'SleeveManagement',
@@ -31,20 +21,6 @@ export default {
     PageHeader,
     SummaryBlock,
     SleeveList,
-    CalibrationOverlay,
-  },
-  data() {
-    return {
-      overlay: null,
-    };
-  },
-  methods: {
-    openCalibrationOverlay() {
-      this.overlay = 'calibration';
-    },
-    closeCalibrationOverlay() {
-      this.overlay = null;
-    },
   },
 };
 </script>

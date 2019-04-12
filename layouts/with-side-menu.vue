@@ -6,6 +6,10 @@
         <nuxt data-app />
         <AlertContainer />
       </main>
+      <CalibrationOverlay
+        v-if="overlay === 'calibration'"
+        @close="hideOverlay"
+      />
     </div>
   </div>
 </template>
@@ -13,17 +17,26 @@
 <script>
 import SideNavMenu from '@comps/SideNavMenu';
 import AlertContainer from '@comps/AlertContainer';
+import CalibrationOverlay from '@comps/overlays/CalibrationOverlay';
 import requireLogInMixin from '@/mixins/requireLogIn';
+import {mapState, mapMutations} from 'vuex';
 
 export default {
   name: 'WithSideMenu',
   components: {
     SideNavMenu,
     AlertContainer,
+    CalibrationOverlay,
   },
   mixins: [
     requireLogInMixin,
   ],
+  computed: {
+    ...mapState(['overlay']),
+  },
+  methods: {
+    ...mapMutations(['hideOverlay']),
+  },
 };
 </script>
 

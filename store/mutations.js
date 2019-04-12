@@ -40,6 +40,12 @@ const mutations = {
   closeAlertMessage(state, index) {
     state.alertMessages[index].display = false;
   },
+  showOverlay(state, overlayName) {
+    state.overlay = overlayName;
+  },
+  hideOverlay(state) {
+    state.overlay = '';
+  },
 };
 
 export default mutations;

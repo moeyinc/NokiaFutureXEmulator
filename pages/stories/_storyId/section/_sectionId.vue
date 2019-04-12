@@ -1,5 +1,5 @@
 <template>
-  <div class="talking-points page">
+  <div class="section page">
     <SectionHeader
       :story-title="selectedStory.title"
       :section-id="sectionId"
@@ -81,7 +81,6 @@ import storyPageMixin from '@/mixins/story-page';
 import {mapState} from 'vuex';
 
 export default {
-  name: 'TalkingPoints',
   layout: 'with-side-menu',
   transition: (to, from) => {
     if (!to || !from) return 'fade';
