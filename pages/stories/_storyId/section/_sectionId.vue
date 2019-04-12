@@ -42,29 +42,33 @@
       @click="replay"
     />
 
-    <JumpExitOverlay
-      v-if="overlay === 'jumpexit'"
-      :sections="selectedStory.sections"
-      :selected-section-id="sectionId"
-      @close="overlay = null"
-      @jump="gotoSection"
-      @exit="endStory"
-    />
-
-    <CalibrationOverlay
-      v-if="overlay === 'calibration'"
-      @close="overlay = null"
-    >
-      <SubActionButton
-        fixed
-        label="No sleeve operation. AUTO PILOT this task."
-        :additional-style="{
-          left: '50%',
-          transform: 'translateX(-50%)',
-        }"
-        @click="autoplay"
+    <transition :name="'fade'">
+      <JumpExitOverlay
+        v-if="overlay === 'jumpexit'"
+        :sections="selectedStory.sections"
+        :selected-section-id="sectionId"
+        @close="overlay = null"
+        @jump="gotoSection"
+        @exit="endStory"
       />
-    </CalibrationOverlay>
+    </transition>
+
+    <transition :name="'fade'">
+      <CalibrationOverlay
+        v-if="overlay === 'calibration'"
+        @close="overlay = null"
+      >
+        <SubActionButton
+          fixed
+          label="No sleeve operation. AUTO PILOT this task."
+          :additional-style="{
+            left: '50%',
+            transform: 'translateX(-50%)',
+          }"
+          @click="autoplay"
+        />
+      </CalibrationOverlay>
+    </transition>
   </div>
 </template>
 

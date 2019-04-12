@@ -6,10 +6,12 @@
         <nuxt data-app />
         <AlertContainer />
       </main>
-      <CalibrationOverlay
-        v-if="overlay === 'calibration'"
-        @close="hideOverlay"
-      />
+      <transition :name="'fade'">
+        <CalibrationOverlay
+          v-if="overlay === 'calibration'"
+          @close="hideOverlay"
+        />
+      </transition>
     </div>
   </div>
 </template>

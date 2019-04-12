@@ -1,14 +1,12 @@
 <template>
-  <transition :name="'fade'">
-    <div :class="['overlay-wrapper', {scrollable}]">
-      <slot />
-      <CloseIcon
-        v-if="!closeButtonDisabled"
-        class="close-icon"
-        @click="$emit('close-button-clicked')"
-      />
-    </div>
-  </transition>
+  <div :class="['overlay-wrapper', {scrollable}]">
+    <slot />
+    <CloseIcon
+      v-if="!closeButtonDisabled"
+      class="close-icon"
+      @click="$emit('close-button-clicked')"
+    />
+  </div>
 </template>
 
 <script>
