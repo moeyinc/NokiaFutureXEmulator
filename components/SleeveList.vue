@@ -14,22 +14,16 @@
       @row-clicked="onRowClicked(sleeveId)"
       @calibrate="openCalibrationOverlay"
     />
-    <CalibrationOverlay
-      v-if="overlay === 'calibration'"
-      @close="closeCalibrationOverlay"
-    />
   </div>
 </template>
 
 <script>
 import SleeveListItem from '@comps/SleeveListItem';
-import CalibrationOverlay from '@comps/overlays/CalibrationOverlay';
 import {mapState} from 'vuex';
 
 export default {
   components: {
     SleeveListItem,
-    CalibrationOverlay,
   },
   data() {
     return {
@@ -50,13 +44,10 @@ export default {
       this.$store.dispatch('postSelectedSleeveId', newSleeveId)
           .then(this.$store.dispatch('openCalibrationScreen', newSleeveId))
           .then(() => {
-            this.overlay = 'calibration';
+            this.$emit('open-calibration-overlay');
             this.highlightedSleeveId = '';
           })
           .catch(console.error);
-    },
-    closeCalibrationOverlay() {
-      this.overlay = null;
     },
   },
 };

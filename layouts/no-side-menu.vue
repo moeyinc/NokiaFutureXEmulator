@@ -9,13 +9,11 @@
 
 <script>
 import AlertContainer from '@comps/AlertContainer';
-import notScrollablePageMixin from '@/mixins/notScrollablePage';
 
 export default {
   components: {
     AlertContainer,
   },
-  mixins: [notScrollablePageMixin],
 };
 </script>
 
