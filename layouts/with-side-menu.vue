@@ -32,6 +32,7 @@ export default {
   width: 1112px
   height: 814px
   position: fixed
+  -webkit-transform: translate3d(0, 0, 0)
   .with-side-menu
     user-select: none
     overflow: hidden
