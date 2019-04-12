@@ -99,7 +99,9 @@ export default {
       } else if (!sectionId) {
         this.$router.push('/stories/' + storyId);
       } else {
-        this.$router.push('/stories/' + storyId + '/section/' + sectionId);
+        const path = '/stories/' + storyId + '/section/' + sectionId +
+          '#no-overlay';
+        this.$router.push(path);
       }
     },
     logout() {

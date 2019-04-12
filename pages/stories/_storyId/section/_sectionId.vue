@@ -161,6 +161,9 @@ export default {
         sectionId: this.sectionId,
       });
     },
+    noOverlayHash() {
+      return this.$route.hash === '#no-overlay';
+    },
   },
   watch: {
     overlay(newVal, oldVal) {
@@ -177,7 +180,7 @@ export default {
     // set event listeners for MQTT messages
     this.setEventListeners();
 
-    // for dev, turn readyToProceed flag on after 500ms
+    // for dev, turn readyToProceed flag on after 300ms
     if (process.env.isDev && !this.selectedSection.sleeveCalibration) {
       setTimeout(() => {
         this.readyToProceed = true;
@@ -185,7 +188,7 @@ export default {
     }
 
     // show claibtration overlay if needed
-    if (this.selectedSection.sleeveCalibration) {
+    if (this.selectedSection.sleeveCalibration && !this.noOverlayHash) {
       setTimeout(() => {
         this.overlay = 'calibration';
       }, 400);
