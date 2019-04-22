@@ -24,7 +24,7 @@
         />
         <SectionJumpListItem
           exit
-          :section="{title: 'Exit Story'}"
+          :section="{title: 'Exit Scenario'}"
           :highlighted="highlightedSectionId === -1"
           @exit="$emit('exit')"
           @row-clicked="onRowClicked(-1)"

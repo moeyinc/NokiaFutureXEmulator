@@ -1,6 +1,6 @@
 <template>
   <div class="stories page">
-    <PageHeader title="Story Selection" />
+    <PageHeader title="Future X Scenarios" />
 
     <SummaryBlock
       :summary-text="'Talking point comes here. Lorem ipsum dolor sit amet, ' +

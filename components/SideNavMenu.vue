@@ -10,7 +10,7 @@
         </div>
         <div class="padding-box" />
         <SideNavMenuItem
-          label="Stories"
+          label="Scenarios"
           :active="!isOnRoomEffectsPage && !isOnSleeveManagementPage"
           @click="jumpToLastStoryPage"
         >
