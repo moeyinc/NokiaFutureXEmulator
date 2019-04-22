@@ -94,6 +94,7 @@ module.exports = {
           control: 'network',
           sleeveCalibration: true,
           replayButton: true,
+          actionButtonLabel: 'Accept',
           thumbnail: 'section-thumbnail.png',
           text: 'High speed network is capable of remote operation with ' +
             'hand craft quality.',

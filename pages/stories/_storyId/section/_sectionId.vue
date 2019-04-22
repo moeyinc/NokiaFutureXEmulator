@@ -25,22 +25,24 @@
       <ActionButton
         v-show="readyToProceed"
         fixed
-        :label="isLastSection ? 'End' : 'Next'"
+        :label="isLastSection ? 'End' : actionButtonLabel"
         @click="isLastSection ? endStory() : gotoSection(sectionId + 1)"
       />
     </transition>
 
-    <SubActionButton
-      v-if="selectedSection.replayButton"
-      class="replay-button"
-      fixed
-      right
-      back
-      large
-      label="Start Over"
-      :yield-to-action-button="readyToProceed"
-      @click="replay"
-    />
+    <transition name="pop-slide-left">
+      <SubActionButton
+        v-if="selectedSection.replayButton && readyToProceed"
+        class="replay-button"
+        fixed
+        right
+        back
+        large
+        label="Redo"
+        :yield-to-action-button="readyToProceed"
+        @click="replay"
+      />
+    </transition>
 
     <transition :name="'fade'">
       <JumpExitOverlay
@@ -166,6 +168,9 @@ export default {
     },
     noOverlayHash() {
       return this.$route.hash === '#no-overlay';
+    },
+    actionButtonLabel() {
+      return this.selectedSection.actionButtonLabel || 'Next';
     },
   },
   watch: {
