@@ -186,6 +186,12 @@ export default {
           type: 'replay',
         },
         {
+          type: 'accept',
+        },
+        {
+          type: 'completed-mission',
+        },
+        {
           type: 'autoplay',
         },
         {
