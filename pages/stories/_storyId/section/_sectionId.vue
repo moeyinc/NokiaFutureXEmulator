@@ -25,21 +25,30 @@
       <ActionButton
         v-show="readyToProceed"
         fixed
-        :label="isLastSection ? 'End' : actionButtonLabel"
+        :label="isLastSection ? 'End' : 'Next'"
         @click="isLastSection ? endStory() : gotoSection(sectionId + 1)"
       />
     </transition>
 
     <transition name="pop-slide-left">
+      <ActionButton
+        v-show="showMissionButton"
+        fixed
+        label="Accept"
+        @click="accept"
+      />
+    </transition>
+
+    <transition name="pop-slide-left">
       <SubActionButton
-        v-if="selectedSection.replayButton && readyToProceed"
+        v-if="showMissionButton"
         class="replay-button"
         fixed
         right
         back
         large
         label="Redo"
-        :yield-to-action-button="readyToProceed"
+        :yield-to-action-button="true"
         @click="replay"
       />
     </transition>
@@ -139,6 +148,8 @@ export default {
   data() {
     return {
       readyToProceed: false,
+      completedMission: false,
+      acceptedMission: false,
       overlay: null,
       transitionDone: false,
     };
@@ -169,14 +180,26 @@ export default {
     noOverlayHash() {
       return this.$route.hash === '#no-overlay';
     },
-    actionButtonLabel() {
-      return this.selectedSection.actionButtonLabel || 'Next';
+    showMissionButton() {
+      return this.selectedSection.acceptButton &&
+        this.completedMission && !this.acceptedMission;
     },
   },
   watch: {
     overlay(newVal, oldVal) {
+      // for dev
       if (!newVal && oldVal === 'calibration') {
         if (process.env.isDev && this.selectedSection.sleeveCalibration) {
+          setTimeout(() => {
+            this.completedMission = true;
+          }, 300);
+        }
+      }
+    },
+    acceptedMission(newVal, oldVal) {
+      // for dev
+      if (newVal && !oldVal) {
+        if (process.env.isDev) {
           setTimeout(() => {
             this.readyToProceed = true;
           }, 300);
@@ -210,9 +233,13 @@ export default {
       EventBus.$on('ready-to-proceed', () => {
         this.readyToProceed = true;
       });
+      EventBus.$on('completed-mission', () => {
+        this.completedMission = true;
+      });
     },
     removeEventListeners() {
       EventBus.$off('ready-to-proceed');
+      EventBus.$off('completed-mission');
     },
     autoplay() {
       this.$store.dispatch('autoplay')
@@ -225,7 +252,14 @@ export default {
       this.$store.dispatch('replay')
           .then(() => {
             this.overlay = 'calibration';
-            this.readyToProceed = false;
+            this.completedMission = false;
+          })
+          .catch(console.error);
+    },
+    accept() {
+      this.$store.dispatch('accept')
+          .then(() => {
+            this.acceptedMission = true;
           })
           .catch(console.error);
     },

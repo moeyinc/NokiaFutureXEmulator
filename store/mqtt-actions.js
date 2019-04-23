@@ -198,6 +198,17 @@ export default {
       publish(context, message).then(resolve).catch(reject);
     });
   },
+  accept(context) {
+    return new Promise((resolve, reject) => {
+      // set up a message object to publish
+      const message = {
+        type: 'accept',
+      };
+
+      // publish the message
+      publish(context, message).then(resolve).catch(reject);
+    });
+  },
   pingBack(context) {
     return new Promise((resolve, reject) => {
       const message = {
