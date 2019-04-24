@@ -155,12 +155,14 @@ nav
         font-family: "NokiaPureText-Regular"
         letter-spacing: 2px
         position: absolute
-        width: 200px
+        width: 230px
         height: 45px
         top: -22.5px
         left: 0
-        text-align: center
+        text-align: left
+        padding-left: 45px
         line-height: 45px
+        font-size: 14px
         z-index: 100
       .logout-item
         width: 100%

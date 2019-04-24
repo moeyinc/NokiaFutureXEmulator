@@ -12,7 +12,7 @@ module.exports = {
           id: 1,
           title: 'Switching WAN to LAN',
           control: 'ar',
-          thumbnail: 'section-thumbnail.png',
+          thumbnail: 'section-01.png',
           text: 'As truck arrives it transfers from WAN to factory ' +
             'controlled LAN network;\n' +
             'Vehicles are autonomous, controlled by network.',
@@ -21,28 +21,28 @@ module.exports = {
           id: 2,
           title: 'Full Automated Factory',
           control: 'ar',
-          thumbnail: 'section-thumbnail.png',
+          thumbnail: 'section-02.png',
           text: 'A diversity of robots work together.',
         },
         {
           id: 3,
           title: 'Flexible Production',
           control: 'ar',
-          thumbnail: 'section-thumbnail.png',
+          thumbnail: 'section-03.png',
           text: 'Multiple products are made on the same factory floor.',
         },
         {
           id: 4,
           title: 'Robot Collaboration',
           control: 'ar',
-          thumbnail: 'section-thumbnail.png',
+          thumbnail: 'section-04.png',
           text: 'Some processes are highly synchronized.',
         },
         {
           id: 5,
           title: 'Control Room',
           control: '',
-          thumbnail: 'section-thumbnail.png',
+          thumbnail: 'section-05.png',
           text: 'People role is in control and decision making rather than ' +
             'on actual manufacturing/producing.\n' +
             'There will be more intuitive interfaces for human machine ' +
@@ -53,7 +53,7 @@ module.exports = {
           id: 6,
           title: 'Production Robot Management',
           control: '',
-          thumbnail: 'section-thumbnail.png',
+          thumbnail: 'section-06.png',
           text: 'A single expert can control multiple robots, ' +
             'increasing productivity.\nThe future factory constantly ' +
             'monitors its own state and can instantaneously and dynamically ' +
@@ -63,7 +63,7 @@ module.exports = {
           id: 7,
           title: 'Dynamic Floor Configuration',
           control: '',
-          thumbnail: 'section-thumbnail.png',
+          thumbnail: 'section-07.png',
           text: 'Human operators are alerted when anything anomalous ' +
             'occurs.\nChanges for factory optimization in response to ' +
             'changing needs are determined by AI software but ' +
@@ -83,7 +83,7 @@ module.exports = {
           id: 8,
           title: 'Dispatching a Drone',
           control: 'network',
-          thumbnail: 'section-thumbnail.png',
+          thumbnail: 'section-08.png',
           text: 'High speed network is capable of feeding high quality ' +
             'live streaming.\n\nDemonstrate the deference between 5G and ' +
             '4G/Wifi network',
@@ -95,7 +95,7 @@ module.exports = {
           sleeveCalibration: true,
           replayButton: true,
           acceptButton: true,
-          thumbnail: 'section-thumbnail.png',
+          thumbnail: 'section-09.png',
           text: 'High speed network is capable of remote operation with ' +
             'hand craft quality.',
         },
@@ -103,7 +103,7 @@ module.exports = {
           id: 10,
           title: 'Round Up',
           control: '',
-          thumbnail: 'section-thumbnail.png',
+          thumbnail: 'section-10.png',
           text: 'Facilitator gives summerized points about future ' +
             'manufacturing.',
         },

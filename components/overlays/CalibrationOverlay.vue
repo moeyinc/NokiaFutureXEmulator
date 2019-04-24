@@ -62,11 +62,11 @@ export default {
     white-space: nowrap
 
   img.howtocalibrate
-    width: 550px
-    height: 523.31px
-    margin-top: -15px
+    width: 660px
+    height: 660px
+    margin-top: -80px
     margin-left: -15px
-    margin-bottom: -15px
+    margin-bottom: -100px
 
   p.sleeve-id
     height: 30px
