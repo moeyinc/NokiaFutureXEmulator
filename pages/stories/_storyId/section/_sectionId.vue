@@ -26,6 +26,7 @@
         v-show="readyToProceed"
         fixed
         :label="isLastSection ? 'End' : 'Next'"
+        :sublabel="selectedSection.nextText"
         @click="isLastSection ? endStory() : gotoSection(sectionId + 1)"
       />
     </transition>
