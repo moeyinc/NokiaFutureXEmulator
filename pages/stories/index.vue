@@ -3,9 +3,10 @@
     <PageHeader title="Future X Scenarios" />
 
     <SummaryBlock
-      :summary-text="'Talking point comes here. Lorem ipsum dolor sit amet, ' +
-        'consectetur adipisicing elit, sed do eiusmod tempor incididunt ut ' +
-        'labore et dolore magna aliqua. Ut enim ad minim veniam'"
+      :summary-text="'From here we have a view of the Future City. ' +
+        'A fast, reliable 5G network connects everything and allows us ' +
+        'to collect the information we need. An entire city can be ' +
+        'efficiently managed by fewer people and it is more secure than ever.'"
     />
 
     <div class="story-list">

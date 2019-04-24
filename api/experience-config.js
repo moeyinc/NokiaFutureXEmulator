@@ -5,107 +5,127 @@ module.exports = {
       title: 'Future X Factory',
       disabled: false,
       category: 'BUSINESS',
-      summary: 'Full automated manufacturing lines powered by 5G Network.',
+      summary: 'Let\'s go inside a fully automated factory where ' +
+        'manufacturing lines are powered by a fast, reliable 5G Network. ' +
+        'Manufucturing and its process will never be the same.',
       catchImageFilename: 'future-factory-catch.png',
       sections: [
         {
           id: 1,
-          title: 'Switching WAN to LAN',
+          title: '5G Vehicles',
           control: 'ar',
           thumbnail: 'section-01.png',
-          text: 'As truck arrives it transfers from WAN to factory ' +
-            'controlled LAN network;\n' +
-            'Vehicles are autonomous, controlled by network.',
+          text: 'A truck drives to a Nokia factory, directed by a ' +
+            '5G network beam. In the future, vehicles are autonomous, ' +
+            'controlled by a network. \nAs the truck arrives it transfers ' +
+            'from a WAN newtwork to factory controlled LAN network.',
+          nextText: 'Fully Automated',
         },
         {
           id: 2,
-          title: 'Full Automated Factory',
+          title: 'Fully Automated Factory',
           control: 'ar',
           thumbnail: 'section-02.png',
-          text: 'A diversity of robots work together.',
+          text: 'All asembly processes are automated. ' +
+            'Robots are capable of handling complex movements ' +
+            'and some processes are highly synchronized.',
+          nextText: 'Flexible Prod.',
         },
         {
           id: 3,
           title: 'Flexible Production',
           control: 'ar',
           thumbnail: 'section-03.png',
-          text: 'Multiple products are made on the same factory floor.',
+          text: 'In the Future X Factory the production process is ' +
+            'hyper-flexible. \nEach assembly line produces different types ' +
+            'of products to deal with daily orders.',
+          nextText: 'Robots at Work',
         },
         {
           id: 4,
-          title: 'Robot Collaboration',
+          title: 'Robots at Work',
           control: 'ar',
           thumbnail: 'section-04.png',
-          text: 'Some processes are highly synchronized.',
+          text: 'All asembly processes are automated. Robots are capable ' +
+            'of handling complex movements and some processes are highly ' +
+            'synchronized.',
+          nextText: 'Control Room',
         },
         {
           id: 5,
           title: 'Control Room',
           control: '',
           thumbnail: 'section-05.png',
-          text: 'People role is in control and decision making rather than ' +
-            'on actual manufacturing/producing.\n' +
-            'There will be more intuitive interfaces for human machine ' +
-            'interaction.\nBeing able to remotely control robots keeps ' +
-            'humans out of harm’s way.',
+          text: 'Now we are in the control room. This is where people, ' +
+            'out of harm\'s way, supervise and control productivity by ' +
+            'operating the 5G network. \nAs the robots work, the 5G network ' +
+            'collects enormous amounts of production related information ' +
+            'for us without any lag.',
+          nextText: 'Factory Management',
         },
         {
           id: 6,
-          title: 'Production Robot Management',
+          title: 'Factory Management',
           control: '',
           thumbnail: 'section-06.png',
-          text: 'A single expert can control multiple robots, ' +
-            'increasing productivity.\nThe future factory constantly ' +
-            'monitors its own state and can instantaneously and dynamically ' +
-            'adjust to changes in demand.',
+          text: 'A single expert can control multiple robots, increasing ' +
+            'productivity. \nThe future factory constantly monitors its own ' +
+            'state and can instantaneously and dynamically adjust to ' +
+            'changes on demand.',
+          nextText: 'Reconfiguration',
         },
         {
           id: 7,
-          title: 'Dynamic Floor Configuration',
+          title: 'Dynamic Reconfiguration',
           control: '',
           thumbnail: 'section-07.png',
-          text: 'Human operators are alerted when anything anomalous ' +
-            'occurs.\nChanges for factory optimization in response to ' +
-            'changing needs are determined by AI software but ' +
-            'HUMAN STAYS IN CONTROL!\n\n' +
-            'Assembly lines can dynamically change. New assembly lines ' +
-            'can automatically form. This flexibility allows the factory ' +
-            'to be made as productive as possible. The process of dynamic ' +
-            'reconfiguration requires low latency high performing networks. ' +
-            'Reconfiguring the factory requires all devices to be ' +
-            'wirelessly connected to a network. Since applications ' +
-            'running in the network have a global view of factory state, ' +
-            'they can direct the reconfiguration in a way that maximizes ' +
-            'productivity and ensures that robots stay within safe ' +
-            'distances of one another.',
+          text: 'Human operators receive alerts when necessary. ' +
+            'AI software determines when and how to optimize the ' +
+            'factory and dynamically adjusts its assembly lines, ' +
+            'but a human always stays in control. This controlled ' +
+            'flexibility allows the factory to be made as productive ' +
+            'as possible. \nThe process of dynamic reconfiguration requires ' +
+            'low-latency, high-performing wireless networks.',
+          nextText: 'Drone Supervision',
         },
         {
           id: 8,
-          title: 'Dispatching a Drone',
+          title: 'Drone Supervision',
           control: 'network',
           thumbnail: 'section-08.png',
-          text: 'High speed network is capable of feeding high quality ' +
-            'live streaming.\n\nDemonstrate the deference between 5G and ' +
-            '4G/Wifi network',
+          text: 'The AI has reported a problem: one robot is moving its ' +
+            'arm inefficiently. It will not fulfill the order in time. ' +
+            'A human operator dispatches a drone to investigate and finds ' +
+            'the problem right away through high-quality live streaming. ' +
+            '\nThis is one more thing that sets 5G apart from Wifi and LTE ' +
+            'networks.',
+          nextText: 'Reprogramming',
         },
         {
           id: 9,
-          title: 'Robot Training',
+          title: 'Robot Reprogramming',
           control: 'network',
           sleeveCalibration: true,
           replayButton: true,
           acceptButton: true,
           thumbnail: 'section-09.png',
-          text: 'High speed network is capable of remote operation with ' +
-            'hand craft quality.',
+          text: 'A human operator can manually program the robot\'s ' +
+            'arm movement with an interactive sleeve. The high speed ' +
+            'network is capable of remote operation with hand-craft ' +
+            'quality. Now we can quickly reprogram the robot. ' +
+            'Only 5G can make this possible.',
+          nextText: 'Round Up',
         },
         {
           id: 10,
           title: 'Round Up',
           control: '',
           thumbnail: 'section-10.png',
-          text: 'Facilitator gives summerized points about future ' +
-            'manufacturing.',
+          text: 'Thanks to the 5G network capability, factory production ' +
+            'is now back on schedule. Future X  Factory is managed by ' +
+            'fewer people but with more efficiency. The high-speed, ' +
+            'reliable network maximizes productivity more than ever before.',
+          nextText: 'Back to Scenarios',
         },
       ],
     },

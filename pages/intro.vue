@@ -6,9 +6,9 @@
         <span class="future">The Future</span>
       </h1>
       <p>
-        Facilitator’s initial talking point comes here.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-        sed do eiusmod tempor
+        What is the future city like? The new 5G network technology will
+        improve all aspects of our life. This is not a sci-fi fairy tale
+        anymore. It is happening.
       </p>
     </div>
     <transition name="pop-slide-left">

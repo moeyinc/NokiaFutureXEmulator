@@ -2,7 +2,7 @@
   <div class="sleeve-management page">
     <PageHeader :title="'Sleeve Management'" />
     <SummaryBlock
-      :summary-text="'Manage which sleeve to use for games in the stories.'"
+      :summary-text="'Manage which sleeve to use.'"
     />
     <SleeveList />
   </div>
