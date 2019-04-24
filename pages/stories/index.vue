@@ -21,6 +21,13 @@
         @select="selectStory(story)"
       />
     </div>
+
+    <SubActionButton
+      fixed
+      back
+      label="Replay Intro"
+      @click="replayIntro"
+    />
   </div>
 </template>
 
@@ -29,6 +36,7 @@ import PageHeader from '@comps/PageHeader';
 import SummaryBlock from '@comps/SummaryBlock';
 import StoryListItem from '@comps/StoryListItem';
 import storyPageMixin from '@/mixins/story-page';
+import SubActionButton from '@comps/buttons/SubActionButton';
 import {mapState} from 'vuex';
 
 export default {
@@ -54,6 +62,8 @@ export default {
       switch (to.name) {
         case 'stories-storyId':
           return 'slide-left';
+        case 'intro':
+          return 'slide-right';
         default:
           return 'fade';
       }
@@ -63,6 +73,7 @@ export default {
     PageHeader,
     SummaryBlock,
     StoryListItem,
+    SubActionButton,
   },
   mixins: [storyPageMixin],
   computed: {
@@ -75,6 +86,16 @@ export default {
     selectStory(story) {
       this.$router.push('/stories/' + story.id);
     },
+    replayIntro() {
+      this.$store.dispatch('startIntro')
+          .then(() => {
+            this.$router.push({
+              path: '/intro',
+              hash: '#replay',
+            });
+          })
+          .catch(console.error);
+    },
   },
 };
 </script>
@@ -84,7 +105,7 @@ export default {
   .story-list
     position: absolute
     width: 100%
-    bottom: 109px
+    bottom: 150px
     padding: 0 80px
     display: flex
     justify-content: space-between

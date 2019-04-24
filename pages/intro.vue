@@ -38,7 +38,31 @@ import requireLogInMixin from '@/mixins/requireLogIn.js';
 
 export default {
   layout: 'no-side-menu',
-  transition: 'fade',
+  transition: (to, from) => {
+    if (!to || !from) return 'fade';
+    const thisPageName = 'intro';
+    if (to.name === thisPageName) {
+      // when routing to this page,
+      // if the previous page is stories page or
+      // story section page, apply slide-right animation
+      switch (from.name) {
+        case 'stories':
+          return 'slide-right';
+        default:
+          return 'fade';
+      }
+    } else if (from.name === thisPageName) {
+      // when routing to other pages,
+      // if the destination is stories page,
+      // apply fade animation
+      switch (to.name) {
+        case 'stories':
+          return 'fade';
+        default:
+          return 'fade';
+      }
+    }
+  },
   components: {
     ActionButton,
     SubActionButton,
@@ -51,6 +75,11 @@ export default {
       introMovieStarted: false,
       readyToShowButton: false,
     };
+  },
+  created() {
+    if (this.$route.hash === '#replay') {
+      this.introMovieStarted = true;
+    }
   },
   mounted() {
     setTimeout(() => {
