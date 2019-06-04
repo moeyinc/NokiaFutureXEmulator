@@ -4,6 +4,10 @@ module.exports = {
       name: 'connected-nodes',
       thumbnail: 'connected-nodes.png',
     },
+    {
+      name: 'attract',
+      thumbnail: 'attract.png',
+    },
   ],
   introModules: [
     {

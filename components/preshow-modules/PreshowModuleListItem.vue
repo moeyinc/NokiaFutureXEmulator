@@ -45,6 +45,9 @@ export default {
   background-repeat: no-repeat
   background-size: cover
   position: relative
+  opacity: .66
+  &.selected
+    opacity: 1.0
   &.selected::before
     position: absolute
     width: 100%

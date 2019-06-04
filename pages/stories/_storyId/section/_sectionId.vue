@@ -294,7 +294,7 @@ export default {
 
 <style lang="stylus" scoped>
 p.section-text
-  overflow-y: scroll
+  overflow-y: auto
   -webkit-overflow-scrolling: touch
   overflow-scrolling: touch
   white-space: pre-line
