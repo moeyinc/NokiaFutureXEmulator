@@ -2,41 +2,36 @@
   <div class="stories page">
     <PageHeader title="Future X Scenarios" />
 
-    <SummaryBlock
-      :summary-text="'From here we have a view of the Future City. ' +
-        'A fast, reliable 5G network connects everything and allows us ' +
-        'to collect the information we need. An entire city can be ' +
-        'efficiently managed by fewer people and it is more secure than ever.'"
+    <PreshowModuleListContainer
+      class="preshow-modules-layout"
     />
 
-    <div class="story-list">
-      <StoryListItem
-        v-for="story in stories"
-        :key="story.id"
-        class="story-list-item"
-        :category-name="story.category"
-        :title="story.title"
-        :disabled="story.disabled"
-        :thumbnail-filename="story.catchImageFilename"
-        @select="selectStory(story)"
-      />
-    </div>
-
-    <SubActionButton
-      fixed
-      back
-      label="Replay Intro"
-      @click="replayIntro"
-    />
+    <section class="story-section">
+      <h5 class="story-list-title">
+        Scenarios
+      </h5>
+      <div class="story-list">
+        <StoryListItem
+          v-for="story in stories"
+          :key="story.id"
+          class="story-list-item"
+          :category-name="story.category"
+          :title="story.title"
+          :disabled="story.disabled"
+          :thumbnail-filename="story.catchImageFilename"
+          @select="startStory(story)"
+        />
+      </div>
+    </section>
   </div>
 </template>
 
 <script>
 import PageHeader from '@comps/PageHeader';
-import SummaryBlock from '@comps/SummaryBlock';
 import StoryListItem from '@comps/StoryListItem';
 import storyPageMixin from '@/mixins/story-page';
-import SubActionButton from '@comps/buttons/SubActionButton';
+import PreshowModuleListContainer
+  from '@comps/preshow-modules/PreshowModuleListContainer';
 import {mapState} from 'vuex';
 
 export default {
@@ -61,6 +56,7 @@ export default {
       // apply slide-left animation
       switch (to.name) {
         case 'stories-storyId':
+        case 'stories-storyId-section-sectionId':
           return 'slide-left';
         case 'intro':
           return 'slide-right';
@@ -71,9 +67,8 @@ export default {
   },
   components: {
     PageHeader,
-    SummaryBlock,
+    PreshowModuleListContainer,
     StoryListItem,
-    SubActionButton,
   },
   mixins: [storyPageMixin],
   computed: {
@@ -83,16 +78,10 @@ export default {
     this.$store.commit('resetStoryTempStates');
   },
   methods: {
-    selectStory(story) {
-      this.$router.push('/stories/' + story.id);
-    },
-    replayIntro() {
-      this.$store.dispatch('startIntro')
+    startStory(story) {
+      this.$store.dispatch('startStory', story.id)
           .then(() => {
-            this.$router.push({
-              path: '/intro',
-              hash: '#replay',
-            });
+            this.$router.push('/stories/' + story.id + '/section/1');
           })
           .catch(console.error);
     },
@@ -101,12 +90,27 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+@import '~@styles/colors'
+
 .stories
-  .story-list
+  .preshow-modules-layout
     position: absolute
     width: 100%
-    bottom: 150px
+    top: 170px
+
+  section.story-section
+    position: absolute
+    bottom: 53px
     padding: 0 80px
-    display: flex
-    justify-content: space-between
+    h5.story-list-title
+      font-size: 20px
+      line-height: 30px
+      color: $secondary-border-color
+      margin-bottom: 15px
+    .story-list
+      display: flex
+      justify-content: flex-start
+      .story-list-item
+        &:not(:first-child)
+          margin-left: 40px
 </style>

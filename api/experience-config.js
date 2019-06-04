@@ -1,13 +1,25 @@
 module.exports = {
+  ambientModules: [
+    {
+      name: 'connected-nodes',
+      thumbnail: 'connected-nodes.png',
+    },
+  ],
+  introModules: [
+    {
+      name: 'city-intro',
+      thumbnail: 'city-intro.png',
+    },
+    {
+      name: 'city-top',
+      thumbnail: 'city-top.png',
+    },
+  ],
   stories: [
     {
       id: 1,
       title: 'Future X Factory',
       disabled: false,
-      category: 'BUSINESS',
-      summary: 'Let\'s go inside a fully automated factory where ' +
-        'manufacturing lines are powered by a fast, reliable 5G Network. ' +
-        'Manufucturing and its process will never be the same.',
       catchImageFilename: 'future-factory-catch.png',
       sections: [
         {
@@ -131,10 +143,8 @@ module.exports = {
     },
     {
       id: 2,
-      title: 'City of \nFuture',
+      title: 'Fire \nEmergency',
       disabled: true,
-      category: 'COMING SOON',
-      summary: 'Full automated manufacturing lines powered by 5G Network.',
       catchImageFilename: 'future-city-catch.png',
       sections: [
         {

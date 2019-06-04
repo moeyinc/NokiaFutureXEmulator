@@ -11,6 +11,9 @@ const createState = () => ({
   alertMessages: [],
   inStoryAREnabled: true,
   inStorySelectedNetwork: '5G',
+  selectedPreshowModuleName: '',
+  ambientModules: [],
+  introModules: [],
 });
 
 export default createState;

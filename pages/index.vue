@@ -42,7 +42,9 @@ export default {
     login() {
       this.$store.dispatch('login', this.password)
           .then(() => {
-            this.$router.push('/intro');
+            this.$router.push('/stories');
+            const name = 'connected-nodes';
+            this.$store.commit('updateSelectedPreshowModuleName', name);
           })
           .catch((err) => {
             if (err.message === 'WrongPassword') {

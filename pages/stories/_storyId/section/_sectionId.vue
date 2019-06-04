@@ -110,6 +110,7 @@ export default {
       // else, apply fade animation.
       switch (from.name) {
         case 'stories-storyId':
+        case 'stories':
           return 'slide-left';
           break;
         case thisPageName:
@@ -269,6 +270,8 @@ export default {
           .then(() => {
             this.$router.push('/stories');
             this.overlay = null;
+            const name = 'city-top';
+            this.$store.commit('updateSelectedPreshowModuleName', name);
           })
           .catch(console.error);
     },

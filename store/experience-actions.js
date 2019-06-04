@@ -9,8 +9,12 @@ export default {
           .then((res) => {
             const stories = res.data.stories;
             const sleeves = res.data.sleeves;
+            const ambientModules = res.data.ambientModules;
+            const introModules = res.data.introModules;
             commit('updateStories', stories);
             commit('updateSleeves', sleeves);
+            commit('updateAmbientModules', ambientModules);
+            commit('updateIntroModules', introModules);
             resolve();
           })
           .catch(reject);

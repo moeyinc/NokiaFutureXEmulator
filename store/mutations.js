@@ -14,6 +14,12 @@ const mutations = {
   updateSleeves(state, sleeves) {
     state.sleeves = sleeves;
   },
+  updateAmbientModules(state, ambientModules) {
+    state.ambientModules = ambientModules;
+  },
+  updateIntroModules(state, introModules) {
+    state.introModules = introModules;
+  },
   updateSelectedSleeveId(state, selectedSleeveId) {
     state.selectedSleeveId = selectedSleeveId;
   },
@@ -45,6 +51,9 @@ const mutations = {
   },
   hideOverlay(state) {
     state.overlay = '';
+  },
+  updateSelectedPreshowModuleName(state, name) {
+    state.selectedPreshowModuleName = name;
   },
 };
 
