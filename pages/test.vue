@@ -109,13 +109,13 @@ export default {
           type: 'logout',
         },
         {
-          type: 'start-intro',
-        },
-        {
-          type: 'skip-intro',
-        },
-        {
-          type: 'completed-intro',
+          type: 'play-preshow-module',
+          params: [
+            {
+              name: 'name',
+              options: ['connected-nodes', 'city-intro', 'city-top'],
+            },
+          ],
         },
         {
           type: 'start-story',
