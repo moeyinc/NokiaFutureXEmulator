@@ -46,10 +46,10 @@ export default {
 
       // when it's gone offline
       mqttClient.on('offline', () => {
-        context.commit('addAlertMessage', {
-          type: 'warning',
-          message: 'Disconnected from MQTT broker',
-        });
+        // context.commit('addAlertMessage', {
+        //   type: 'warning',
+        //   message: 'Disconnected from MQTT broker',
+        // });
         console.log('Connection to MQTT broker went offline.');
       });
 
