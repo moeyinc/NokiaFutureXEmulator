@@ -8,14 +8,14 @@ export default {
   MOTU: {
     URL: 'http://10.12.92.52:1280/0001f2fffe00abd7/datastore',
     TARGETS: [
-      'mix/chan/8/matrix/fader',
-      'mix/chan/9/matrix/fader',
-      'mix/chan/10/matrix/fader',
-      'mix/chan/11/matrix/fader',
-      'mix/chan/12/matrix/fader',
-      'mix/chan/13/matrix/fader',
-      'mix/chan/14/matrix/fader',
-      'mix/chan/15/matrix/fader',
+      'mix/chan/0/matrix/fader',
+      'mix/chan/1/matrix/fader',
+      'mix/chan/2/matrix/fader',
+      'mix/chan/3/matrix/fader',
+      'mix/chan/4/matrix/fader',
+      'mix/chan/5/matrix/fader',
+      'mix/chan/6/matrix/fader',
+      'mix/chan/7/matrix/fader',
     ],
   },
   PROJECTOR: {
