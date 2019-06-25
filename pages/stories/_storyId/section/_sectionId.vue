@@ -70,12 +70,15 @@
         v-if="overlay === 'calibration'"
         @close="overlay = null"
       >
-        <SubActionButton
+        <ActionButton
           fixed
-          label="No sleeve operation. AUTO PILOT this task."
+          label="Auto Mode"
           :additional-style="{
             left: '50%',
             transform: 'translateX(-50%)',
+            height: '62px',
+            fontSize: '30px',
+            width: '220px',
           }"
           @click="autoplay"
         />

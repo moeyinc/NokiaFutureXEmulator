@@ -78,5 +78,5 @@ export default {
     justify-content: center
     align-items: center
     border-radius: 15px
-    margin-bottom: 30px
+    margin-bottom: 70px
 </style>

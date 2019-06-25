@@ -1,7 +1,7 @@
 <template>
   <div
     :class="['action-button', {fixed}]"
-    :style="style"
+    :style="[style, additionalStyle]"
     @click="$emit('click')"
   >
     <div class="inner">
@@ -36,6 +36,10 @@ export default {
     width: {
       type: String,
       default: '',
+    },
+    additionalStyle: {
+      type: Object,
+      default: () => {},
     },
   },
   computed: {
