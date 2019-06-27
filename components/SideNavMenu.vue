@@ -100,7 +100,7 @@ export default {
         this.$router.push('/stories/' + storyId);
       } else {
         const path = '/stories/' + storyId + '/section/' + sectionId +
-          '#no-overlay';
+          '#return';
         this.$router.push(path);
       }
     },

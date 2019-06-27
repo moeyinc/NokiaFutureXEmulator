@@ -182,8 +182,8 @@ export default {
         sectionId: this.sectionId,
       });
     },
-    noOverlayHash() {
-      return this.$route.hash === '#no-overlay';
+    returnHash() {
+      return this.$route.hash === '#return';
     },
     showMissionButton() {
       return this.selectedSection.acceptButton &&
@@ -223,8 +223,13 @@ export default {
       }, 300);
     }
 
+    // if you return from other pages, show Next button immediately
+    if (this.returnHash) {
+      this.readyToProceed = true;
+    }
+
     // show claibtration overlay if needed
-    if (this.selectedSection.sleeveCalibration && !this.noOverlayHash) {
+    if (this.selectedSection.sleeveCalibration && !this.returnHash) {
       setTimeout(() => {
         this.overlay = 'calibration';
       }, 400);
