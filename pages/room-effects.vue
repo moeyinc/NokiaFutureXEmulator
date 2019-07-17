@@ -45,7 +45,7 @@ export default {
           value: 1.0,
           max: 3.0,
           min: 0.0,
-          step: 0.1,
+          step: 0.01,
           default: 1.0,
         },
       },
