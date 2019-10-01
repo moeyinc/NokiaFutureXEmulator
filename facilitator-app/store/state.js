@@ -11,6 +11,7 @@ const createState = () => ({
   alertMessages: [],
   inStoryAREnabled: true,
   inStorySelectedNetwork: '5G',
+  inStorySelectedDistributer: 'amazon',
   selectedPreshowModuleName: '',
   ambientModules: [],
   introModules: [],

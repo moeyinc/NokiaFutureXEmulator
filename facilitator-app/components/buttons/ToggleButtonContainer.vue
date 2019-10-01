@@ -10,9 +10,11 @@
       <ToggleButtonItem
         v-for="(button, index) in buttons"
         :key="index"
+        :square-image-button="squareImageButton"
         :label="button.label"
         :value="button.value"
         :width="buttonWidth"
+        :image-filename="button.imgFilename"
         @click="$emit('select', {button, index})"
       />
     </div>
@@ -27,6 +29,10 @@ export default {
     ToggleButtonItem,
   },
   props: {
+    squareImageButton: {
+      type: Boolean,
+      default: false,
+    },
     buttons: {
       type: Array,
       default: () => [],

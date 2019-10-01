@@ -39,6 +39,9 @@ const mutations = {
   updateInStorySelectedNetwork(state, networkName) {
     state.inStorySelectedNetwork = networkName;
   },
+  updateInStorySelectedDistributer(state, distributer) {
+    state.inStorySelectedDistributer = distributer;
+  },
   addAlertMessage(state, alertMessage) {
     alertMessage.display = true;
     state.alertMessages.push(alertMessage);

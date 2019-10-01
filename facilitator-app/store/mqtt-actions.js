@@ -176,6 +176,18 @@ export default {
       publish(context, message).then(resolve).catch(reject);
     });
   },
+  setDistributer(context, distributerName) {
+    return new Promise((resolve, reject) => {
+      // set up a message object to publish
+      const message = {
+        type: 'set-distributer',
+        distributer: distributerName,
+      };
+
+      // publish the message
+      publish(context, message).then(resolve).catch(reject);
+    });
+  },
   autoplay(context) {
     return new Promise((resolve, reject) => {
       // set up a message object to publish

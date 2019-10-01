@@ -1,6 +1,9 @@
 <template>
   <div
-    :class="['toggle-button-item', {active: value}]"
+    :class="['toggle-button-item', {
+      active: value,
+      'square-image-button': squareImageButton,
+    }]"
     :style="style"
     @click="$emit('click')"
   >
@@ -11,6 +14,10 @@
 <script>
 export default {
   props: {
+    squareImageButton: {
+      type: Boolean,
+      default: false,
+    },
     label: {
       type: String,
       default: '',
@@ -23,11 +30,19 @@ export default {
       type: Number,
       default: 174,
     },
+    imageFilename: {
+      type: String,
+      default: '',
+    },
   },
   computed: {
     style() {
       return {
         width: this.width + 'px',
+        height: this.squareImageButton ? this.width + 'px' : '62px',
+        // backgroundImage: this.squareImageButton
+        //   ? 'url(' + require('@images/' + this.imageFilename) + ')'
+        //   : '',
       };
     },
   },
@@ -46,11 +61,20 @@ export default {
   font-family: 'NokiaPureText-Regular'
   font-size: 30px
   color: $secondary-border-color
-  &.active
-    color: white
-    background-color: $primary-color
-  &:first-child
-    border-radius: 8px 0 0 8px
-  &:last-child
-    border-radius: 0 8px 8px 0
+  &:not(.square-image-button)
+    &.active
+      color: white
+      background-color: $primary-color
+    &:first-child
+      border-radius: 8px 0 0 8px
+    &:last-child
+      border-radius: 0 8px 8px 0
+  &.square-image-button
+    border: none
+    background-size: cover
+    background-position: center
+    background-repeat: no-repeat
+    border-radius: 0
+    &:not(.active)
+      opacity: 0.5
 </style>

@@ -155,6 +155,7 @@ module.exports = {
           id: 1,
           title: 'Load Up Package',
           control: 'ar',
+          distributerSelection: true,
           thumbnail: 'section-01.png',
           text: 'We are at warehouses located in close proximity to an airport. ' +
             'An airplane takes off, rumbling the room. \n' +

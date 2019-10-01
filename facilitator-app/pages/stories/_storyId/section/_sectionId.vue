@@ -21,6 +21,10 @@
       :selected-network="inStorySelectedNetwork"
     />
 
+    <DistributerSelection
+      v-if="selectedSection.distributerSelection"
+    />
+
     <transition name="pop-slide-left">
       <ActionButton
         v-show="readyToProceed"
@@ -93,6 +97,7 @@ import ActionButton from '@comps/buttons/ActionButton';
 import SubActionButton from '@comps/buttons/SubActionButton';
 import ARToggleButton from '@comps/buttons/ARToggleButton';
 import NetworkToggleButton from '@comps/buttons/NetworkToggleButton';
+import DistributerSelection from '@comps/buttons/DistributerSelection';
 import JumpExitOverlay from '@comps/overlays/JumpExitOverlay';
 import CalibrationOverlay from '@comps/overlays/CalibrationOverlay';
 import EventBus from '@/event-bus';
@@ -145,6 +150,7 @@ export default {
     JumpExitOverlay,
     ARToggleButton,
     NetworkToggleButton,
+    DistributerSelection,
     CalibrationOverlay,
   },
   mixins: [
