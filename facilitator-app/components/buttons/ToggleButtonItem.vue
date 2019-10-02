@@ -40,9 +40,9 @@ export default {
       return {
         width: this.width + 'px',
         height: this.squareImageButton ? this.width + 'px' : '62px',
-        // backgroundImage: this.squareImageButton
-        //   ? 'url(' + require('@images/' + this.imageFilename) + ')'
-        //   : '',
+        backgroundImage: this.squareImageButton
+          ? 'url(' + require('@images/' + this.imageFilename) + ')'
+          : '',
       };
     },
   },
@@ -75,6 +75,8 @@ export default {
     background-position: center
     background-repeat: no-repeat
     border-radius: 0
+    margin-right: 25px
+    transition: opacity 0.3s
     &:not(.active)
       opacity: 0.5
 </style>

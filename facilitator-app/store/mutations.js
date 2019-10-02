@@ -32,6 +32,7 @@ const mutations = {
   resetStoryTempStates(state) {
     state.inStoryAREnabled = true;
     state.inStorySelectedNetwork = '5G';
+    state.inStorySelectedDistributer = 'amazon';
   },
   updateInStoryAREnabled(state, value) {
     state.inStoryAREnabled = value;

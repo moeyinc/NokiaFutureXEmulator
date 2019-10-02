@@ -14,7 +14,7 @@
         :label="button.label"
         :value="button.value"
         :width="buttonWidth"
-        :image-filename="button.imgFilename"
+        :image-filename="button.imageFilename"
         @click="$emit('select', {button, index})"
       />
     </div>

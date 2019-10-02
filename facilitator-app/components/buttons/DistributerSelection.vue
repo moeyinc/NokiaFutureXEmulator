@@ -21,27 +21,27 @@ export default {
     return {
       buttons: [
         {
-          distributorName: 'amazon',
+          distributerName: 'amazon',
           imageFilename: 'distributer-amazon.png',
           value: false,
         },
         {
-          distributorName: 'fedex',
+          distributerName: 'fedex',
           imageFilename: 'distributer-fedex.png',
           value: false,
         },
         {
-          distributorName: 'ups',
+          distributerName: 'ups',
           imageFilename: 'distributer-ups.png',
           value: false,
         },
         {
-          distributorName: 'dhl',
+          distributerName: 'dhl',
           imageFilename: 'distributer-dhl.png',
           value: false,
         },
         {
-          distributorName: 'usps',
+          distributerName: 'usps',
           imageFilename: 'distributer-usps.png',
           value: false,
         },
@@ -52,17 +52,23 @@ export default {
     ...mapState(['inStorySelectedDistributer']),
   },
   created() {
+    console.log('distributer', this.inStorySelectedDistributer);
     switch (this.inStorySelectedDistributer) {
       case 'amazon':
         this.buttons[0].value = true;
+        break;
       case 'fedex':
         this.buttons[1].value = true;
+        break;
       case 'ups':
         this.buttons[2].value = true;
+        break;
       case 'dhl':
         this.buttons[3].value = true;
+        break;
       case 'usps':
         this.buttons[4].value = true;
+        break;
     }
   },
   methods: {
@@ -87,5 +93,5 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="stylus">
 </style>

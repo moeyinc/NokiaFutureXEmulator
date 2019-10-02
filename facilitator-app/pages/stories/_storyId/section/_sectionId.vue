@@ -23,6 +23,7 @@
 
     <DistributerSelection
       v-if="selectedSection.distributerSelection"
+      class="distributer-selection"
     />
 
     <transition name="pop-slide-left">
@@ -316,4 +317,8 @@ p.section-text
   font-size: 20px
   line-height: 30px
   color: white
+
+.distributer-selection
+  padding: 0 80px
+  margin-top: 40px
 </style>
