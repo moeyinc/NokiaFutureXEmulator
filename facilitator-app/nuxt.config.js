@@ -57,6 +57,7 @@ module.exports = {
     '@nuxtjs/axios',
     '@nuxtjs/dotenv',
     '@nuxtjs/vuetify',
+    '@nuxtjs/pwa',
   ],
   /*
   ** Axios module configuration
