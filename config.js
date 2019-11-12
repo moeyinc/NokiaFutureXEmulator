@@ -6,7 +6,7 @@ export default {
     TOPIC: 'moey2',
   },
   MOTU: {
-    URL: 'http://10.12.92.118:1280/0001f2fffe00abd7/datastore',
+    URL: 'http://10.12.92.112:1280/0001f2fffe00abd7/datastore',
     TARGETS: [
       'mix/chan/0/matrix/fader',
       'mix/chan/1/matrix/fader',
