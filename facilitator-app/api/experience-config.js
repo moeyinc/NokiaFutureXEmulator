@@ -149,14 +149,14 @@ module.exports = {
       id: 2,
       title: 'Future \nLogistics',
       disabled: false,
-      catchImageFilename: 'future-city-catch.png',
+      catchImageFilename: 'future-logistics-catch.png',
       sections: [
         {
           id: 1,
           title: 'Load Up Package',
           control: 'ar',
           distributerSelection: true,
-          thumbnail: 'section-01.png',
+          thumbnail: '2-section-01.png',
           text: 'We are at warehouses located in close proximity to an airport. ' +
             'An airplane takes off, rumbling the room. \n' +
             'Future warehouses are full-automated with robots connected 5G networks. ' +
@@ -168,7 +168,7 @@ module.exports = {
           id: 2,
           title: 'Getting on Highway',
           control: 'ar',
-          thumbnail: 'section-02.png',
+          thumbnail: '2-section-02.png',
           text: 'An autonomous truck with the distinctive parcel drives towards a highway. ' +
             'At the onramp, local 4G and LTE towers make handoff to 5G ' +
             'low frequency towers repeated along the highway. ' +
@@ -180,7 +180,7 @@ module.exports = {
           id: 3,
           title: 'Platoon System',
           control: 'ar',
-          thumbnail: 'section-03.png',
+          thumbnail: '2-section-03.png',
           text: 'When AR Overlay is turned on (generally) truck range and efficiency are shown. ' +
             'System reports low fuel level alert to the lead truck and it automatically arranges the truck order.',
           nextText: 'Transferring Parcel',
@@ -189,7 +189,7 @@ module.exports = {
           id: 4,
           title: 'Transferring Parcel',
           control: 'ar',
-          thumbnail: 'section-04.png',
+          thumbnail: '2-section-04.png',
           text: 'System recommends  to transfer the package has a destination better matched with another truck in the same platoon. \n' +
             'Drone with packages dispatches to other truck.',
           nextText: 'Obstacle Ahead',
@@ -198,7 +198,7 @@ module.exports = {
           id: 5,
           title: 'Obstacle Ahead',
           control: 'ar',
-          thumbnail: 'section-05.png',
+          thumbnail: '2-section-05.png',
           text: 'System alerts there is a slow malfunctional car ahead.\n' +
             'Platoon disbands with some trucks moving to the left lane and others to the right. Once beyond the stalled car, the platoon reforms.',
           nextText: 'Control Room',
@@ -207,7 +207,7 @@ module.exports = {
           id: 6,
           title: 'Control Room',
           control: '',
-          thumbnail: 'section-06.png',
+          thumbnail: '2-section-06.png',
           text: 'Camera view pulls into the control room.\n' +
             'Displays around room show an array of maps each with dynamically updated visuals of maps with platoons depicted in different colors mixed with camera views of drones.\n' +
             'Single operator can handle enormous and complex delivery tasks with an AI support.',
@@ -217,7 +217,7 @@ module.exports = {
           id: 7,
           title: 'Re-route Package',
           control: '',
-          thumbnail: 'section-07.png',
+          thumbnail: '2-section-07.png',
           text: 'The distinctive package could be re-routed to an approaching \n' +
             'platoon which has additional packages in the same delivery region. ' +
             'Will increase trip efficiency, plus package will get delivered sooner.',
@@ -227,7 +227,7 @@ module.exports = {
           id: 8,
           title: 'Multiple Carriers',
           control: '',
-          thumbnail: 'section-08.png',
+          thumbnail: '2-section-08.png',
           text: 'A truck with distinctively different brand requests to join convoy. \n' +
             'After operator’s request comfirmation. ' +
             'The truck joined the platoon and its information is shared in the platoon information panel.',
@@ -237,7 +237,7 @@ module.exports = {
           id: 9,
           title: 'Exit Highway',
           control: '',
-          thumbnail: 'section-09.png',
+          thumbnail: '2-section-09.png',
           text: 'System notifies that an exit for the truck with the distinctive package is approaching. ' +
             'The truck leaves the platoon and gets off the highway to the delivery area.',
           nextText: 'Drone Delivery',
@@ -248,7 +248,7 @@ module.exports = {
           control: 'network',
           sleeveCalibration: true,
           replayButton: true,
-          thumbnail: 'section-10.png',
+          thumbnail: '2-section-10.png',
           text: 'System receives an immediate delivery request of the distinctive package which was originally to be delivered in hours. ' +
             'The operator manual-pilots delivery drone remotely to make it.',
           nextText: 'Round Up',
@@ -257,7 +257,7 @@ module.exports = {
           id: 11,
           title: 'Round Up',
           control: '',
-          thumbnail: 'section-10.png',
+          thumbnail: '2-section-11.png',
           text: 'Fture logistics are highly efficient and flexible with a help of 5G networks.',
           nextText: 'Back to Scenarios',
         },
