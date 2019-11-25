@@ -43,7 +43,7 @@ export default {
           name: 'Master',
           type: 'slider',
           value: 1.0,
-          max: 3.0,
+          max: 2.0,
           min: 0.0,
           step: 0.01,
           default: 1.0,
