@@ -32,7 +32,7 @@ import StoryListItem from '@comps/StoryListItem';
 import storyPageMixin from '@/mixins/story-page';
 import PreshowModuleListContainer
   from '@comps/preshow-modules/PreshowModuleListContainer';
-import {mapState} from 'vuex';
+import {mapState, mapMutations} from 'vuex';
 
 export default {
   name: 'Stories',
@@ -75,9 +75,11 @@ export default {
     ...mapState(['stories']),
   },
   mounted() {
-    this.$store.commit('resetStoryTempStates');
+    this.resetStoryTempStates();
+    this.resetSectionTempStates();
   },
   methods: {
+    ...mapMutations(['resetStoryTempStates', 'resetSectionTempStates']),
     startStory(story) {
       this.$store.dispatch('startStory', story.id)
           .then(() => {

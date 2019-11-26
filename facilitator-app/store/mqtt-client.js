@@ -1,5 +1,4 @@
 import mqtt from 'mqtt';
-import EventBus from '@/event-bus';
 import CONFIG from '@/config';
 
 let mqttClient;
@@ -67,10 +66,17 @@ export default {
         } else {
           if (messageObj.type === 'ping') context.dispatch('pingBack');
 
-          // emit the event to vue components subscribing the same event
+          // update store.state when you receive specific messages
           const subscribingTopic = process.env.MQTT_TOPIC || CONFIG.MQTT.TOPIC;
           if (topic === subscribingTopic) {
-            EventBus.$emit(messageObj.type, messageObj);
+            switch (messageObj.type) {
+              case 'ready-to-proceed':
+                context.commit('updateInSectionReadyToProceed', true);
+                break;
+              case 'completed-mission':
+                context.commit('updateInSectionCompletedMission', true);
+                break;
+            }
           } else {
             console.log('Ignored a message received in different topic', topic);
           }

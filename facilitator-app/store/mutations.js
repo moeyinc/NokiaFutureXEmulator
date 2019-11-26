@@ -43,6 +43,16 @@ const mutations = {
   updateInStorySelectedDistributer(state, distributer) {
     state.inStorySelectedDistributer = distributer;
   },
+  resetSectionTempStates(state) {
+    state.inSectionReadyToProceed = false;
+    state.inSectionCompletedMission = false;
+  },
+  updateInSectionReadyToProceed(state, value) {
+    state.inSectionReadyToProceed = value;
+  },
+  updateInSectionCompletedMission(state, value) {
+    state.inSectionCompletedMission = value;
+  },
   addAlertMessage(state, alertMessage) {
     alertMessage.display = true;
     state.alertMessages.push(alertMessage);

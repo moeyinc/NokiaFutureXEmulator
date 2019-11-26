@@ -157,7 +157,12 @@ module.exports = {
           control: 'ar',
           distributerSelection: true,
           thumbnail: '2-section-01.png',
-          text: 'We are at a warehouse near an airport. An airplane takes off, rumbling the room. Future warehouses are fully automated with robots connected through 5G networks. Loader robots are loading entire shelves onto trucks. Drones are picking up and dropping off packages from neighboring facilities.',
+          text: 'We are at a warehouse near an airport. ' +
+            'An airplane takes off, rumbling the room. ' +
+            'Future warehouses are fully automated with robots connected ' +
+            'through 5G networks. Loader robots are loading entire shelves ' +
+            'onto trucks. Drones are picking up and dropping off packages ' +
+            'from neighboring facilities.',
           nextText: 'Getting on the Highway',
         },
         {
@@ -165,7 +170,9 @@ module.exports = {
           title: 'Getting on the Highway',
           control: 'ar',
           thumbnail: '2-section-02.png',
-          text: 'An autonomous truck with the hero package drives towards a highway. A platoon passes by directly ahead. Our truck merges onto the highway and joins the platoon.',
+          text: 'An autonomous truck with the hero package drives towards ' +
+            'a highway. A platoon passes by directly ahead. Our truck merges ' +
+            'onto the highway and joins the platoon.',
           nextText: 'Platoon System',
         },
         {
@@ -173,7 +180,9 @@ module.exports = {
           title: 'Platoon System',
           control: 'ar',
           thumbnail: '2-section-03.png',
-          text: 'The AR Overlay shows the truck’s range and efficiency. The system reports low fuel level for the lead truck and it automatically rearranges the truck order.',
+          text: 'The AR Overlay shows the truck’s range and efficiency. ' +
+          'The system reports low fuel level for the lead truck and it ' +
+          'automatically rearranges the truck order.',
           nextText: 'Transferring Package',
         },
         {
@@ -181,7 +190,10 @@ module.exports = {
           title: 'Transferring Package',
           control: 'ar',
           thumbnail: '2-section-04.png',
-          text: 'The system reports that the hero package has a destination better matched with another truck in the same platoon. System recommends transferring the package. A drone is dispatched to move the package to the other truck.',
+          text: 'The system reports that the hero package has a destination ' +
+            'better matched with another truck in the same platoon. ' +
+            'System recommends transferring the package. A drone is ' +
+            'dispatched to move the package to the other truck.',
           nextText: 'Obstacle Ahead',
         },
         {
@@ -189,7 +201,10 @@ module.exports = {
           title: 'Obstacle Ahead',
           control: 'ar',
           thumbnail: '2-section-05.png',
-          text: 'The system alerts that there is a disabled vehicle ahead. The platoon disbands. Some trucks move to the left lane and others to the right. Once beyond the stalled car, the platoon reforms.',
+          text: 'The system alerts that there is a disabled vehicle ahead. ' +
+            'The platoon disbands. Some trucks move to the left lane and ' +
+            'others to the right. Once beyond the stalled car, the platoon ' +
+            'reforms.',
           nextText: 'Control Room',
         },
         {
@@ -197,7 +212,10 @@ module.exports = {
           title: 'Control Room',
           control: '',
           thumbnail: '2-section-06.png',
-          text: 'Inside the control room we see an array of maps. Each shows platoons in different colors as well as views from drones. A single operator can handle enormous and complex delivery tasks with AI support.',
+          text: 'Inside the control room we see an array of maps. ' +
+            'Each shows platoons in different colors as well as views ' +
+            'from drones. A single operator can handle enormous and ' +
+            'complex delivery tasks with AI support.',
           nextText: 'Reroute Package',
         },
         {
@@ -205,7 +223,12 @@ module.exports = {
           title: 'Reroute Package',
           control: '',
           thumbnail: '2-section-07.png',
-          text: 'The system notifies the operator that the truck with the hero package could be re-routed to an approaching platoon with more vehicles travelling to the same delivery region. This increases trip efficiency, and the package will get delivered sooner. After the operator confirms, the truck joins the new platoon.',
+          text: 'The system notifies the operator that the truck with ' +
+            'the hero package could be re-routed to an approaching platoon ' +
+            'with more vehicles travelling to the same delivery region. ' +
+            'This increases trip efficiency, and the package will get ' +
+            'delivered sooner. After the operator confirms, the truck ' +
+            'joins the new platoon.',
           nextText: 'Multiple Carriers',
         },
         {
@@ -213,7 +236,10 @@ module.exports = {
           title: 'Multiple Carriers',
           control: '',
           thumbnail: '2-section-08.png',
-          text: 'A truck from a different delivery company requests to join the platoon. After the operator confirms, the truck joins the platoon and its information is shared in the platoon information panel.',
+          text: 'A truck from a different delivery company requests to ' +
+            'join the platoon. After the operator confirms, the truck joins ' +
+            'the platoon and its information is shared in the platoon ' +
+            'information panel.',
           nextText: 'Exit Highway',
         },
         {
@@ -221,17 +247,22 @@ module.exports = {
           title: 'Exit Highway',
           control: '',
           thumbnail: '2-section-09.png',
-          text: 'System notifies that the exit for the truck with the hero package is approaching. The truck leaves the platoon and gets off the highway to the delivery area.',
+          text: 'System notifies that the exit for the truck with the hero ' +
+            'package is approaching. The truck leaves the platoon and gets ' +
+            'off the highway to the delivery area.',
           nextText: 'Drone Delivery',
         },
         {
           id: 10,
           title: 'Drone Delivery',
-          control: 'network',
+          control: 'ar',
           sleeveCalibration: true,
           replayButton: true,
           thumbnail: '2-section-10.png',
-          text: 'System receives an immediate delivery request for the hero package which was originally scheduled for delivery later. The operator manually pilots a delivery drone to make the new delivery deadline.',
+          text: 'System receives an immediate delivery request for the ' +
+            'hero package which was originally scheduled for delivery later. ' +
+            'The operator manually pilots a delivery drone to make the new ' +
+            'delivery deadline.',
           nextText: 'Round Up',
         },
         {
@@ -239,7 +270,8 @@ module.exports = {
           title: 'Round Up',
           control: '',
           thumbnail: '2-section-11.png',
-          text: 'Future logistics are highly efficient and flexible with the help of 5G networks.',
+          text: 'Future logistics are highly efficient and flexible with ' +
+            'the help of 5G networks.',
           nextText: 'Back to Scenarios',
         },
       ],

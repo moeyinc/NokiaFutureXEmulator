@@ -28,7 +28,7 @@
 
     <transition name="pop-slide-left">
       <ActionButton
-        v-show="readyToProceed"
+        v-show="inSectionReadyToProceed"
         fixed
         :label="isLastSection ? 'End' : 'Next'"
         :sublabel="selectedSection.nextText"
@@ -101,9 +101,8 @@ import NetworkToggleButton from '@comps/buttons/NetworkToggleButton';
 import DistributerSelection from '@comps/buttons/DistributerSelection';
 import JumpExitOverlay from '@comps/overlays/JumpExitOverlay';
 import CalibrationOverlay from '@comps/overlays/CalibrationOverlay';
-import EventBus from '@/event-bus';
 import storyPageMixin from '@/mixins/story-page';
-import {mapState} from 'vuex';
+import {mapState, mapMutations} from 'vuex';
 
 export default {
   layout: 'with-side-menu',
@@ -159,15 +158,18 @@ export default {
   ],
   data() {
     return {
-      readyToProceed: false,
-      completedMission: false,
       acceptedMission: false,
       overlay: null,
       transitionDone: false,
     };
   },
   computed: {
-    ...mapState(['inStoryAREnabled', 'inStorySelectedNetwork']),
+    ...mapState([
+      'inStoryAREnabled',
+      'inStorySelectedNetwork',
+      'inSectionReadyToProceed',
+      'inSectionCompletedMission',
+    ]),
     storyId() {
       return parseInt(this.$nuxt.$route.params.storyId);
     },
@@ -194,7 +196,7 @@ export default {
     },
     showMissionButton() {
       return this.selectedSection.acceptButton &&
-        this.completedMission && !this.acceptedMission;
+        this.inSectionCompletedMission && !this.acceptedMission;
     },
   },
   watch: {
@@ -203,7 +205,7 @@ export default {
       if (!newVal && oldVal === 'calibration') {
         if (process.env.isDev && this.selectedSection.sleeveCalibration) {
           setTimeout(() => {
-            this.completedMission = true;
+            this.updateInSectionCompletedMission(true);
           }, 300);
         }
       }
@@ -213,51 +215,39 @@ export default {
       if (newVal && !oldVal) {
         if (process.env.isDev) {
           setTimeout(() => {
-            this.readyToProceed = true;
+            this.updateInSectionReadyToProceed(true);
           }, 300);
         }
       }
     },
   },
   created() {
-    // set event listeners for MQTT messages
-    this.setEventListeners();
-
     // for dev, turn readyToProceed flag on after 300ms
     if (process.env.isDev && !this.selectedSection.sleeveCalibration) {
       setTimeout(() => {
-        this.readyToProceed = true;
+        this.updateInSectionReadyToProceed(true);
       }, 300);
     }
 
-    // if you return from other pages, show Next button immediately
-    if (this.returnHash) {
-      this.readyToProceed = true;
+    // if returning from other pages, don't reset
+    // readyToProceed and completedMission flags
+    if (!this.returnHash) {
+      this.resetSectionTempStates();
     }
 
-    // show claibtration overlay if needed
+    // show calibtration overlay if needed
     if (this.selectedSection.sleeveCalibration && !this.returnHash) {
       setTimeout(() => {
         this.overlay = 'calibration';
       }, 400);
     }
   },
-  destroyed() {
-    this.removeEventListeners();
-  },
   methods: {
-    setEventListeners() {
-      EventBus.$on('ready-to-proceed', () => {
-        this.readyToProceed = true;
-      });
-      EventBus.$on('completed-mission', () => {
-        this.completedMission = true;
-      });
-    },
-    removeEventListeners() {
-      EventBus.$off('ready-to-proceed');
-      EventBus.$off('completed-mission');
-    },
+    ...mapMutations([
+      'updateInSectionReadyToProceed',
+      'updateInSectionCompletedMission',
+      'resetSectionTempStates',
+    ]),
     autoplay() {
       this.$store.dispatch('autoplay')
           .then(() => {
@@ -269,7 +259,7 @@ export default {
       this.$store.dispatch('replay')
           .then(() => {
             this.overlay = 'calibration';
-            this.completedMission = false;
+            this.updateInSectionCompletedMission(false);
           })
           .catch(console.error);
     },
