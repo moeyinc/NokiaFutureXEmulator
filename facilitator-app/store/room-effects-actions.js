@@ -4,6 +4,10 @@ import CONFIG from '@/config';
 export default {
   getCurrentVolume(context) {
     return new Promise((resolve, reject) => {
+      if (process.env.DISABLE_MOTU_CONTROL) {
+        reject(new Error('MOTU control is disabled'));
+      }
+
       const url = CONFIG.MOTU.URL + '/' + CONFIG.MOTU.TARGETS[0];
       axios.get(url)
           .then((res) => {
@@ -21,8 +25,11 @@ export default {
   },
   updateVolume(context, value) {
     return new Promise((resolve, reject) => {
-      const url = CONFIG.MOTU.URL;
+      if (process.env.DISABLE_MOTU_CONTROL) {
+        reject(new Error('MOTU control is disabled'));
+      }
 
+      const url = CONFIG.MOTU.URL;
       const data = {};
 
       for (const target of CONFIG.MOTU.TARGETS) {
