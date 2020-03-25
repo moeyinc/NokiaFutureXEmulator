@@ -5,7 +5,12 @@ export default {
   getCurrentVolume(context) {
     return new Promise((resolve, reject) => {
       if (process.env.DISABLE_MOTU_CONTROL) {
+        context.commit('addAlertMessage', {
+          type: 'error',
+          message: 'MOTU control is disabled',
+        });
         reject(new Error('MOTU control is disabled'));
+        return;
       }
 
       const url = CONFIG.MOTU.URL + '/' + CONFIG.MOTU.TARGETS[0];
@@ -26,7 +31,12 @@ export default {
   updateVolume(context, value) {
     return new Promise((resolve, reject) => {
       if (process.env.DISABLE_MOTU_CONTROL) {
+        context.commit('addAlertMessage', {
+          type: 'error',
+          message: 'MOTU control is disabled',
+        });
         reject(new Error('MOTU control is disabled'));
+        return;
       }
 
       const url = CONFIG.MOTU.URL;
@@ -54,6 +64,15 @@ export default {
   },
   getCurrentProjectorState(context) {
     return new Promise((resolve, reject) => {
+      if (process.env.DISABLE_PROJECTOR_CONTROL) {
+        context.commit('addAlertMessage', {
+          type: 'error',
+          message: 'projector control is disabled',
+        });
+        reject(new Error('projector control is disabled'));
+        return;
+      }
+
       // check only the state of the top one
       const id = CONFIG.PROJECTOR.IDS[0];
       const url = CONFIG.PROJECTOR.API.GET_POWER_ONE;
@@ -74,6 +93,14 @@ export default {
   },
   turnAllProjectors(context, state) {
     return new Promise((resolve, reject) => {
+      if (process.env.DISABLE_PROJECTOR_CONTROL) {
+        context.commit('addAlertMessage', {
+          type: 'error',
+          message: 'projector control is disabled',
+        });
+        reject(new Error('projector control is disabled'));
+        return;
+      }
       const url = CONFIG.PROJECTOR.API.POST_POWER_ALL;
       console.log('turnAllProjectors', url);
       axios.post(url, {state: state})
