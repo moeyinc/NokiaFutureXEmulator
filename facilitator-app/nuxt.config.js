@@ -1,8 +1,13 @@
 const pkg = require('./package');
 const path = require('path');
+require('dotenv').config();
 
 module.exports = {
   mode: 'spa',
+  server: {
+    host: process.env.HOST || '0.0.0.0',
+    port: process.env.PORT || '3333',
+  },
 
   /*
   ** Headers of the page
