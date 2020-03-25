@@ -1,7 +1,7 @@
 require('dotenv').config();
 
 module.exports = {
-  DISABLED: process.env.DISABLE_PROJECTOR,
+  DISABLED: process.env.DISABLE_PROJECTOR_CONTROL,
   TARGETS: {
     'top': {
       URL: process.env.PROJECTOR_TOP_URL || '10.12.92.60', // '10.12.100.104'
