@@ -1,12 +1,12 @@
 export default {
-  PASSWORD: 'nokia',
+  PASSWORD: process.env.LOGON_PW || 'nokia',
   MQTT: {
-    HOST: '10.12.92.104',
-    PORT: 8080,
-    TOPIC: 'moey3',
+    HOST: process.env.MQTT_HOST || '10.12.92.104',
+    PORT: process.env.MQTT_PORT || '8080',
+    TOPIC: process.env.MQTT_TOPIC || 'moey3',
   },
   MOTU: {
-    URL: 'http://10.12.92.112:1280/0001f2fffe00abd7/datastore',
+    URL: process.env.MOTU_URL || 'http://10.12.92.112:1280/0001f2fffe00abd7/datastore',
     TARGETS: [
       'mix/chan/0/matrix/fader',
       'mix/chan/1/matrix/fader',

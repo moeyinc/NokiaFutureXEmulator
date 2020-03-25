@@ -14,8 +14,8 @@ export default {
    */
   init(context) {
     return new Promise((resolve, reject) => {
-      const host = process.env.MQTT_HOST || CONFIG.MQTT.HOST;
-      const port = process.env.MQTT_PORT || CONFIG.MQTT.PORT;
+      const host = CONFIG.MQTT.HOST;
+      const port = CONFIG.MQTT.PORT;
       console.log('connecting to MQTT broker', host);
       // connect to broker
       mqttClient = mqtt.connect({
@@ -26,7 +26,7 @@ export default {
 
       // when it's connected to the broker, subscribe to a topic and resolve
       mqttClient.on('connect', () => {
-        const topic = process.env.MQTT_TOPIC || CONFIG.MQTT.TOPIC;
+        const topic = CONFIG.MQTT.TOPIC;
         console.log('subscribing to a topic', topic);
         mqttClient.subscribe(topic, {
           qos: 2,
@@ -67,7 +67,7 @@ export default {
           if (messageObj.type === 'ping') context.dispatch('pingBack');
 
           // update store.state when you receive specific messages
-          const subscribingTopic = process.env.MQTT_TOPIC || CONFIG.MQTT.TOPIC;
+          const subscribingTopic = CONFIG.MQTT.TOPIC;
           if (topic === subscribingTopic) {
             switch (messageObj.type) {
               case 'ready-to-proceed':
@@ -87,7 +87,7 @@ export default {
   publishMessage(message, cb) {
     // publish the message
     console.log('publishing a message:', message);
-    const topic = process.env.MQTT_TOPIC || CONFIG.MQTT.TOPIC;
+    const topic = CONFIG.MQTT.TOPIC;
     mqttClient.publish(
         topic, JSON.stringify(message),
         {},
