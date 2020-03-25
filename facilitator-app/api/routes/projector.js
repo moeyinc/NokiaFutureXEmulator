@@ -6,6 +6,11 @@ var Pjlink = require('pjlink');
 /* GET state of a projector */
 router.get('/projector/power/:id', function(req, res, next) {
   console.log('get state of a projector', req.params.id);
+  if (PROJECTORS.DISABLED) {
+    console.log('projector control is disabled by your configuration');
+    res.send({state: false});
+    return;
+  }
   var target = PROJECTORS.TARGETS[req.params.id];
   var pj = new Pjlink(target.URL, target.PORT, target.PASSWORD);
 
@@ -24,6 +29,11 @@ router.get('/projector/power/:id', function(req, res, next) {
 /* POST turn on/off all projectors */
 router.post('/projector/power/all', function(req, res, next) {
   console.log('turning all projector', req.body.state);
+  if (PROJECTORS.DISABLED) {
+    console.log('projector control is disabled by your configuration');
+    res.send();
+    return;
+  }
 
   // send requests to all projectors
   var tasks = [];
