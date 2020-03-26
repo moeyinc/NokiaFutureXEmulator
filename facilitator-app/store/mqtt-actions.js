@@ -272,6 +272,6 @@ function publish(context, message, sender) {
         reject(err);
       }
       resolve();
-    });
+    }, {qos: 2});
   });
 }

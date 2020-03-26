@@ -14,15 +14,14 @@ export default {
    */
   init(context) {
     return new Promise((resolve, reject) => {
+      const protocol = CONFIG.MQTT.PROTOCOL;
       const host = CONFIG.MQTT.HOST;
       const port = CONFIG.MQTT.PORT;
-      console.log('connecting to MQTT broker', host);
+      const url = protocol + '://' + host + ':' + port;
+      console.log('connecting to MQTT broker', url);
+
       // connect to broker
-      mqttClient = mqtt.connect({
-        host: host,
-        port: port,
-        qos: 2,
-      });
+      mqttClient = mqtt.connect(url);
 
       // when it's connected to the broker, subscribe to a topic and resolve
       mqttClient.on('connect', () => {

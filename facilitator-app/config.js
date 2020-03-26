@@ -1,6 +1,7 @@
 export default {
   PASSWORD: process.env.LOGON_PW || 'nokia',
   MQTT: {
+    PROTOCOL: process.env.MQTT_PROTOCOL || 'ws',
     HOST: process.env.MQTT_HOST || '10.12.92.104',
     PORT: process.env.MQTT_PORT || '8080',
     TOPIC: process.env.MQTT_TOPIC || 'moey3',
