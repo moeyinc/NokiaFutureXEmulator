@@ -1,10 +1,10 @@
 export default {
-  PASSWORD: process.env.LOGON_PW || 'nokia',
+  PASSWORD: process.env.LOGON_PW,
   MQTT: {
     PROTOCOL: process.env.MQTT_PROTOCOL || 'ws',
     HOST: process.env.MQTT_HOST || '10.12.92.104',
-    PORT: process.env.MQTT_PORT || '8080',
-    TOPIC: process.env.MQTT_TOPIC || 'moey3',
+    PORT: process.env.MQTT_PORT,
+    TOPIC: process.env.MQTT_TOPIC,
   },
   MOTU: {
     URL: process.env.MOTU_URL || 'http://10.12.92.112:1280/0001f2fffe00abd7/datastore',
