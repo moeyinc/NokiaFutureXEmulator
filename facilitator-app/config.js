@@ -4,6 +4,7 @@ export default {
     PROTOCOL: process.env.MQTT_PROTOCOL || 'ws',
     HOST: process.env.MQTT_HOST || '10.12.92.104',
     PORT: process.env.MQTT_PORT,
+    PATH: process.env.MQTT_PATH,
     TOPIC: process.env.MQTT_TOPIC,
   },
   MOTU: {
