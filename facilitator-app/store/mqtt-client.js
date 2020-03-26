@@ -17,7 +17,7 @@ export default {
       const protocol = CONFIG.MQTT.PROTOCOL;
       const host = CONFIG.MQTT.HOST;
       const port = CONFIG.MQTT.PORT;
-      const url = protocol + '://' + host + ':' + port;
+      const url = port ? (protocol + '://' + host + ':' + port) : (protocol + '://' + host);
       console.log('connecting to MQTT broker', url);
 
       // connect to broker
