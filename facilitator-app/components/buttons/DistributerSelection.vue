@@ -1,21 +1,37 @@
 <template>
-  <ToggleButtonContainer
-    square-image-button
+  <div>
+    <h6 class="label">
+      Select Hero Package Skin
+    </h6>
+    <div class="button-container">
+      <SquareImageButton
+        v-for="(button, index) in buttons"
+        :key="index"
+        :value="button.value"
+        :width="100"
+        :image-filename="button.imageFilename"
+        @click="onSelect({button, index})"
+      />
+    </div>
+  </div>
+  <!-- <ToggleButtonContainer
     :buttons="buttons"
     :button-width="100"
     title="Select Hero Package Skin"
     class="distributer-selection"
     @select="onSelect"
-  />
+  /> -->
 </template>
 
 <script>
-import ToggleButtonContainer from './ToggleButtonContainer';
+// import ToggleButtonContainer from './ToggleButtonContainer';
+import SquareImageButton from './SquareImageButton';
 import {mapState, mapMutations, mapActions} from 'vuex';
 
 export default {
   components: {
-    ToggleButtonContainer,
+    // ToggleButtonContainer,
+    SquareImageButton,
   },
   data() {
     return {
@@ -52,7 +68,6 @@ export default {
     ...mapState(['inStorySelectedDistributer']),
   },
   created() {
-    console.log('distributer', this.inStorySelectedDistributer);
     switch (this.inStorySelectedDistributer) {
       case 'amazon':
         this.buttons[0].value = true;
@@ -94,4 +109,14 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+@import '~@styles/colors'
+
+h6.label
+  color: $secondary-color
+  font-size: 20px
+  line-height: 30px
+  margin-bottom: 10px
+
+.button-container
+  display: flex
 </style>
