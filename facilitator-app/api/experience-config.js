@@ -197,7 +197,7 @@ module.exports = {
           nextText: 'Edge Server',
         },
         {
-          id: 401,
+          id: 5,
           title: 'Edge Server',
           networkVisualization: ['wireless', 'wired'],
           thumbnail: '2-section-04.png',
@@ -208,7 +208,7 @@ module.exports = {
           nextText: 'Private Slices',
         },
         {
-          id: 402,
+          id: 6,
           title: 'Private Slices',
           networkVisualization: ['wireless', 'wired'],
           thumbnail: '2-section-04.png',
@@ -219,10 +219,10 @@ module.exports = {
           nextText: 'Obstacle Ahead',
         },
         {
-          id: 5,
+          id: 7,
           title: 'Obstacle Ahead',
           networkVisualization: ['wireless'],
-          thumbnail: '2-section-05.png',
+          thumbnail: '2-section-07.png',
           text: 'The system alerts that there is a disabled vehicle ahead. ' +
             'The platoon disbands. Some trucks move to the left lane and ' +
             'others to the right. Once beyond the stalled car, the platoon ' +
@@ -230,10 +230,10 @@ module.exports = {
           nextText: 'Control Room',
         },
         {
-          id: 6,
+          id: 8,
           title: 'Control Room',
           networkVisualization: [],
-          thumbnail: '2-section-06.png',
+          thumbnail: '2-section-08.png',
           text: 'Inside the control room we see an array of maps. ' +
             'Each shows platoons in different colors as well as views ' +
             'from drones. A single operator can handle enormous and ' +
@@ -241,10 +241,10 @@ module.exports = {
           nextText: 'Reroute Package',
         },
         {
-          id: 7,
+          id: 9,
           title: 'Reroute Package',
           networkVisualization: [],
-          thumbnail: '2-section-07.png',
+          thumbnail: '2-section-09.png',
           text: 'The system notifies the operator that the truck with ' +
             'the hero package could be re-routed to an approaching platoon ' +
             'with more vehicles travelling to the same delivery region. ' +
@@ -254,12 +254,12 @@ module.exports = {
           nextText: 'Network Structure',
         },
         {
-          id: 701,
+          id: 10,
           title: 'Network Structure',
           networkVisualization: [],
           networkCoverArea: true,
           networkStructure: true,
-          thumbnail: '2-section-07.png',
+          thumbnail: '2-section-09.png',
           text: 'The system notifies the operator that the truck with ' +
             'the hero package could be re-routed to an approaching platoon ' +
             'with more vehicles travelling to the same delivery region. ' +
@@ -269,10 +269,10 @@ module.exports = {
           nextText: 'Multiple Carriers',
         },
         {
-          id: 8,
+          id: 11,
           title: 'Multiple Carriers',
           networkVisualization: [],
-          thumbnail: '2-section-08.png',
+          thumbnail: '2-section-11.png',
           text: 'A truck from a different delivery company requests to ' +
             'join the platoon. After the operator confirms, the truck joins ' +
             'the platoon and its information is shared in the platoon ' +
@@ -280,23 +280,23 @@ module.exports = {
           nextText: 'Exit Highway',
         },
         {
-          id: 9,
+          id: 12,
           title: 'Exit Highway',
           networkVisualization: [],
-          thumbnail: '2-section-09.png',
+          thumbnail: '2-section-12.png',
           text: 'System notifies that the exit for the truck with the hero ' +
             'package is approaching. The truck leaves the platoon and gets ' +
             'off the highway to the delivery area.',
           nextText: 'Drone Delivery',
         },
         {
-          id: 10,
+          id: 13,
           title: 'Drone Delivery',
           networkVisualization: ['wireless', 'wired'],
           networkTypeSelection: true,
           sleeveCalibration: true,
           replayButton: true,
-          thumbnail: '2-section-10.png',
+          thumbnail: '2-section-13.png',
           text: 'System receives an immediate delivery request for the ' +
             'hero package which was originally scheduled for delivery later. ' +
             'The operator manually pilots a delivery drone to make the new ' +
@@ -304,10 +304,10 @@ module.exports = {
           nextText: 'Round Up',
         },
         {
-          id: 11,
+          id: 14,
           title: 'Round Up',
           networkVisualization: ['wireless'],
-          thumbnail: '2-section-11.png',
+          thumbnail: '2-section-14.png',
           text: 'Future logistics are highly efficient and flexible with ' +
             'the help of 5G networks.',
           nextText: 'Back to Scenarios',
