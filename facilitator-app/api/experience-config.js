@@ -29,7 +29,7 @@ module.exports = {
         {
           id: 1,
           title: '5G Vehicles',
-          control: 'ar',
+          networkVisualization: ['wireless'],
           thumbnail: 'section-01.png',
           text: 'A truck drives to a Nokia factory, directed by a ' +
             '5G network beam. In the future, vehicles are autonomous, ' +
@@ -40,7 +40,7 @@ module.exports = {
         {
           id: 2,
           title: 'Fully Automated Factory',
-          control: 'ar',
+          networkVisualization: ['wireless'],
           thumbnail: 'section-02.png',
           text: 'All asembly processes are automated. ' +
             'Robots are capable of handling complex movements ' +
@@ -50,7 +50,7 @@ module.exports = {
         {
           id: 3,
           title: 'Flexible Production',
-          control: 'ar',
+          networkVisualization: ['wireless'],
           thumbnail: 'section-03.png',
           text: 'In the Future X Factory the production process is ' +
             'hyper-flexible. \nEach assembly line produces different types ' +
@@ -60,7 +60,7 @@ module.exports = {
         {
           id: 4,
           title: 'Robots at Work',
-          control: 'ar',
+          networkVisualization: ['wireless'],
           thumbnail: 'section-04.png',
           text: 'All asembly processes are automated. Robots are capable ' +
             'of handling complex movements and some processes are highly ' +
@@ -70,7 +70,7 @@ module.exports = {
         {
           id: 5,
           title: 'Control Room',
-          control: '',
+          networkVisualization: ['wireless'],
           thumbnail: 'section-05.png',
           text: 'Now we are in the control room. This is where people, ' +
             'out of harm\'s way, supervise and control productivity by ' +
@@ -82,7 +82,7 @@ module.exports = {
         {
           id: 6,
           title: 'Factory Management',
-          control: '',
+          networkVisualization: ['wireless'],
           thumbnail: 'section-06.png',
           text: 'A single expert can control multiple robots, increasing ' +
             'productivity. \nThe future factory constantly monitors its own ' +
@@ -93,7 +93,7 @@ module.exports = {
         {
           id: 7,
           title: 'Dynamic Reconfiguration',
-          control: '',
+          networkVisualization: ['wireless'],
           thumbnail: 'section-07.png',
           text: 'Human operators receive alerts when necessary. ' +
             'AI software determines when and how to optimize the ' +
@@ -107,7 +107,7 @@ module.exports = {
         {
           id: 8,
           title: 'Drone Supervision',
-          control: 'network',
+          networkVisualization: ['wireless'],
           thumbnail: 'section-08.png',
           text: 'The AI has reported a problem: one robot is moving its ' +
             'arm inefficiently. It will not fulfill the order in time. ' +
@@ -120,7 +120,7 @@ module.exports = {
         {
           id: 9,
           title: 'Robot Reprogramming',
-          control: 'network',
+          networkVisualization: ['wireless'],
           sleeveCalibration: true,
           replayButton: true,
           acceptButton: true,
@@ -135,7 +135,7 @@ module.exports = {
         {
           id: 10,
           title: 'Round Up',
-          control: '',
+          networkVisualization: ['wireless'],
           thumbnail: 'section-10.png',
           text: 'Thanks to the 5G network capability, factory production ' +
             'is now back on schedule. Future X  Factory is managed by ' +
@@ -154,7 +154,7 @@ module.exports = {
         {
           id: 1,
           title: 'Loading Package',
-          control: 'ar',
+          networkVisualization: ['wireless', 'wired'],
           distributerSelection: true,
           thumbnail: '2-section-01.png',
           text: 'We are at a warehouse near an airport. ' +
@@ -168,7 +168,7 @@ module.exports = {
         {
           id: 2,
           title: 'Getting on the Highway',
-          control: 'ar',
+          networkVisualization: ['wireless'],
           thumbnail: '2-section-02.png',
           text: 'An autonomous truck with the hero package drives towards ' +
             'a highway. A platoon passes by directly ahead. Our truck merges ' +
@@ -178,7 +178,7 @@ module.exports = {
         {
           id: 3,
           title: 'Platoon System',
-          control: 'ar',
+          networkVisualization: ['wireless'],
           thumbnail: '2-section-03.png',
           text: 'The AR Overlay shows the truck’s range and efficiency. ' +
           'The system reports low fuel level for the lead truck and it ' +
@@ -188,7 +188,29 @@ module.exports = {
         {
           id: 4,
           title: 'Transferring Package',
-          control: 'ar',
+          networkVisualization: ['wireless'],
+          thumbnail: '2-section-04.png',
+          text: 'The system reports that the hero package has a destination ' +
+            'better matched with another truck in the same platoon. ' +
+            'System recommends transferring the package. A drone is ' +
+            'dispatched to move the package to the other truck.',
+          nextText: 'Edge Server',
+        },
+        {
+          id: 401,
+          title: 'Edge Server',
+          networkVisualization: ['wireless', 'wired'],
+          thumbnail: '2-section-04.png',
+          text: 'The system reports that the hero package has a destination ' +
+            'better matched with another truck in the same platoon. ' +
+            'System recommends transferring the package. A drone is ' +
+            'dispatched to move the package to the other truck.',
+          nextText: 'Private Slices',
+        },
+        {
+          id: 402,
+          title: 'Private Slices',
+          networkVisualization: ['wireless', 'wired'],
           thumbnail: '2-section-04.png',
           text: 'The system reports that the hero package has a destination ' +
             'better matched with another truck in the same platoon. ' +
@@ -199,7 +221,7 @@ module.exports = {
         {
           id: 5,
           title: 'Obstacle Ahead',
-          control: 'ar',
+          networkVisualization: ['wireless'],
           thumbnail: '2-section-05.png',
           text: 'The system alerts that there is a disabled vehicle ahead. ' +
             'The platoon disbands. Some trucks move to the left lane and ' +
@@ -210,7 +232,7 @@ module.exports = {
         {
           id: 6,
           title: 'Control Room',
-          control: '',
+          networkVisualization: [],
           thumbnail: '2-section-06.png',
           text: 'Inside the control room we see an array of maps. ' +
             'Each shows platoons in different colors as well as views ' +
@@ -221,7 +243,22 @@ module.exports = {
         {
           id: 7,
           title: 'Reroute Package',
-          control: '',
+          networkVisualization: [],
+          thumbnail: '2-section-07.png',
+          text: 'The system notifies the operator that the truck with ' +
+            'the hero package could be re-routed to an approaching platoon ' +
+            'with more vehicles travelling to the same delivery region. ' +
+            'This increases trip efficiency, and the package will get ' +
+            'delivered sooner. After the operator confirms, the truck ' +
+            'joins the new platoon.',
+          nextText: 'Network Structure',
+        },
+        {
+          id: 701,
+          title: 'Network Structure',
+          networkVisualization: [],
+          networkCoverArea: true,
+          networkStructure: true,
           thumbnail: '2-section-07.png',
           text: 'The system notifies the operator that the truck with ' +
             'the hero package could be re-routed to an approaching platoon ' +
@@ -234,7 +271,7 @@ module.exports = {
         {
           id: 8,
           title: 'Multiple Carriers',
-          control: '',
+          networkVisualization: [],
           thumbnail: '2-section-08.png',
           text: 'A truck from a different delivery company requests to ' +
             'join the platoon. After the operator confirms, the truck joins ' +
@@ -245,7 +282,7 @@ module.exports = {
         {
           id: 9,
           title: 'Exit Highway',
-          control: '',
+          networkVisualization: [],
           thumbnail: '2-section-09.png',
           text: 'System notifies that the exit for the truck with the hero ' +
             'package is approaching. The truck leaves the platoon and gets ' +
@@ -255,7 +292,8 @@ module.exports = {
         {
           id: 10,
           title: 'Drone Delivery',
-          control: 'ar',
+          networkVisualization: ['wireless', 'wired'],
+          networkTypeSelection: true,
           sleeveCalibration: true,
           replayButton: true,
           thumbnail: '2-section-10.png',
@@ -268,7 +306,7 @@ module.exports = {
         {
           id: 11,
           title: 'Round Up',
-          control: '',
+          networkVisualization: ['wireless'],
           thumbnail: '2-section-11.png',
           text: 'Future logistics are highly efficient and flexible with ' +
             'the help of 5G networks.',

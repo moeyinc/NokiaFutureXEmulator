@@ -1,7 +1,7 @@
 <template>
   <div>
     <h6 class="label">
-      Select Hero Package Skin
+      Network Select
     </h6>
     <div class="button-container">
       <SquareImageButton
@@ -28,58 +28,42 @@ export default {
     return {
       buttons: [
         {
-          distributerName: 'amazon',
-          imageFilename: 'distributer-amazon.png',
+          name: '5g',
+          imageFilename: 'network-type-5g.png',
           value: false,
         },
         {
-          distributerName: 'fedex',
-          imageFilename: 'distributer-fedex.png',
+          name: 'wifi',
+          imageFilename: 'network-type-wifi.png',
           value: false,
         },
         {
-          distributerName: 'ups',
-          imageFilename: 'distributer-ups.png',
-          value: false,
-        },
-        {
-          distributerName: 'dhl',
-          imageFilename: 'distributer-dhl.png',
-          value: false,
-        },
-        {
-          distributerName: 'usps',
-          imageFilename: 'distributer-usps.png',
+          name: '4g',
+          imageFilename: 'network-type-4g.png',
           value: false,
         },
       ],
     };
   },
   computed: {
-    ...mapState(['inStorySelectedDistributer']),
+    ...mapState(['inStorySelectedNetworkType']),
   },
   created() {
-    switch (this.inStorySelectedDistributer) {
-      case 'amazon':
+    switch (this.inStorySelectedNetworkType) {
+      case '5g':
         this.buttons[0].value = true;
         break;
-      case 'fedex':
+      case 'wifi':
         this.buttons[1].value = true;
         break;
-      case 'ups':
+      case '4g':
         this.buttons[2].value = true;
-        break;
-      case 'dhl':
-        this.buttons[3].value = true;
-        break;
-      case 'usps':
-        this.buttons[4].value = true;
         break;
     }
   },
   methods: {
-    ...mapMutations(['updateInStorySelectedDistributer']),
-    ...mapActions(['setDistributer']),
+    ...mapMutations(['updateInStorySelectedNetworkType']),
+    ...mapActions(['updateUI']),
     onSelect({button, index}) {
       const targetButton = this.buttons[index];
       if (targetButton.value) return;
@@ -87,11 +71,11 @@ export default {
         b.value = false;
       }
 
-      const distributerName = targetButton.distributerName;
-      this.setDistributer(distributerName)
+      const networkType = targetButton.name;
+      this.updateUI({key: 'network-type', value: networkType})
           .then(() => {
             targetButton.value = true;
-            this.updateInStorySelectedDistributer(distributerName);
+            this.updateInStorySelectedNetworkType(networkType);
           })
           .catch(console.error);
     },

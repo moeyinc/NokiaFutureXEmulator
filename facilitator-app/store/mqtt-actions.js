@@ -140,42 +140,6 @@ export default {
       publish(context, message).then(resolve).catch(reject);
     });
   },
-  enableAR(context, layer) {
-    return new Promise((resolve, reject) => {
-      // set up a message object to publish
-      const message = {
-        type: 'enable-ar',
-      };
-      if (layer) message.layer = layer;
-
-      // publish the message
-      publish(context, message).then(resolve).catch(reject);
-    });
-  },
-  disableAR(context, layer) {
-    return new Promise((resolve, reject) => {
-      // set up a message object to publish
-      const message = {
-        type: 'disable-ar',
-      };
-      if (layer) message.layer = layer;
-
-      // publish the message
-      publish(context, message).then(resolve).catch(reject);
-    });
-  },
-  setNetwork(context, networkName) {
-    return new Promise((resolve, reject) => {
-      // set up a message object to publish
-      const message = {
-        type: 'set-network',
-        network: networkName,
-      };
-
-      // publish the message
-      publish(context, message).then(resolve).catch(reject);
-    });
-  },
   setDistributer(context, distributerName) {
     return new Promise((resolve, reject) => {
       // set up a message object to publish
@@ -183,6 +147,18 @@ export default {
         type: 'set-distributer',
         distributer: distributerName,
       };
+
+      // publish the message
+      publish(context, message).then(resolve).catch(reject);
+    });
+  },
+  updateUI(context, {key, value}) {
+    return new Promise((resolve, reject) => {
+      // set up a message object to publish
+      const message = {
+        type: 'update-ui',
+      };
+      message[key] = value;
 
       // publish the message
       publish(context, message).then(resolve).catch(reject);

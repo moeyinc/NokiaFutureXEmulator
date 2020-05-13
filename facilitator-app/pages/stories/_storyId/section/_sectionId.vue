@@ -11,14 +11,18 @@
     <p class="section-text">{{ selectedSection.text }}</p>
     <!-- eslint-enable -->
 
-    <ARToggleButton
-      v-if="selectedSection.control === 'ar'"
-      :on="inStoryAREnabled"
+    <NetworkTypeSelection
+      v-if="selectedSection.networkTypeSelection"
+      class="network-type-selection"
     />
 
-    <NetworkToggleButton
-      v-if="selectedSection.control === 'network'"
-      :selected-network="inStorySelectedNetwork"
+    <NetworkVisualizationController
+      v-if="selectedSection.networkVisualization
+        && selectedSection.networkVisualization.length > 0"
+      :has-wireless-button="
+        selectedSection.networkVisualization.includes('wireless')
+      "
+      :has-wired-button="selectedSection.networkVisualization.includes('wired')"
     />
 
     <DistributerSelection
@@ -96,8 +100,9 @@
 import SectionHeader from '@comps/SectionHeader';
 import ActionButton from '@comps/buttons/ActionButton';
 import SubActionButton from '@comps/buttons/SubActionButton';
-import ARToggleButton from '@comps/buttons/ARToggleButton';
-import NetworkToggleButton from '@comps/buttons/NetworkToggleButton';
+import NetworkTypeSelection from '@comps/buttons/NetworkTypeSelection';
+import NetworkVisualizationController
+  from '@comps/buttons/NetworkVisualizationController';
 import DistributerSelection from '@comps/buttons/DistributerSelection';
 import JumpExitOverlay from '@comps/overlays/JumpExitOverlay';
 import CalibrationOverlay from '@comps/overlays/CalibrationOverlay';
@@ -148,8 +153,8 @@ export default {
     ActionButton,
     SubActionButton,
     JumpExitOverlay,
-    ARToggleButton,
-    NetworkToggleButton,
+    NetworkTypeSelection,
+    NetworkVisualizationController,
     DistributerSelection,
     CalibrationOverlay,
   },
@@ -165,8 +170,6 @@ export default {
   },
   computed: {
     ...mapState([
-      'inStoryAREnabled',
-      'inStorySelectedNetwork',
       'inSectionReadyToProceed',
       'inSectionCompletedMission',
     ]),
@@ -308,7 +311,7 @@ p.section-text
   line-height: 30px
   color: white
 
-.distributer-selection
+.distributer-selection, .network-type-selection
   padding: 0 80px
   margin-top: 40px
 </style>

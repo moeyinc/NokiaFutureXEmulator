@@ -34,14 +34,16 @@ const mutations = {
     state.inStorySelectedNetwork = '5G';
     state.inStorySelectedDistributer = 'amazon';
   },
-  updateInStoryAREnabled(state, value) {
-    state.inStoryAREnabled = value;
-  },
-  updateInStorySelectedNetwork(state, networkName) {
-    state.inStorySelectedNetwork = networkName;
+  updateInStoryNetworkViz(state, {key, value}) {
+    if (key === 'wireless' || key === 'wired') {
+      state.inStoryNetworkViz[key] = value;
+    }
   },
   updateInStorySelectedDistributer(state, distributer) {
     state.inStorySelectedDistributer = distributer;
+  },
+  updateInStorySelectedNetworkType(state, type) {
+    state.inStorySelectedNetworkType = type;
   },
   resetSectionTempStates(state) {
     state.inSectionReadyToProceed = false;
