@@ -257,7 +257,6 @@ module.exports = {
           id: 10,
           title: 'Network Structure',
           networkVisualization: [],
-          networkCoverArea: true,
           networkStructure: true,
           thumbnail: '2-section-09.png',
           text: 'The system notifies the operator that the truck with ' +

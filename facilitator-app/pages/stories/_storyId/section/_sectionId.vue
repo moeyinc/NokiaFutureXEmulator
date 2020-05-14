@@ -13,7 +13,17 @@
 
     <NetworkTypeSelection
       v-if="selectedSection.networkTypeSelection"
-      class="network-type-selection"
+      class="selection-container"
+    />
+
+    <NetworkStructureSelection
+      v-if="selectedSection.networkStructure"
+      class="selection-container"
+    />
+
+    <DistributerSelection
+      v-if="selectedSection.distributerSelection"
+      class="selection-container"
     />
 
     <NetworkVisualizationController
@@ -23,11 +33,6 @@
         selectedSection.networkVisualization.includes('wireless')
       "
       :has-wired-button="selectedSection.networkVisualization.includes('wired')"
-    />
-
-    <DistributerSelection
-      v-if="selectedSection.distributerSelection"
-      class="distributer-selection"
     />
 
     <transition name="pop-slide-left">
@@ -101,6 +106,8 @@ import SectionHeader from '@comps/SectionHeader';
 import ActionButton from '@comps/buttons/ActionButton';
 import SubActionButton from '@comps/buttons/SubActionButton';
 import NetworkTypeSelection from '@comps/buttons/NetworkTypeSelection';
+import NetworkStructureSelection
+  from '@comps/buttons/NetworkStructureSelection';
 import NetworkVisualizationController
   from '@comps/buttons/NetworkVisualizationController';
 import DistributerSelection from '@comps/buttons/DistributerSelection';
@@ -154,6 +161,7 @@ export default {
     SubActionButton,
     JumpExitOverlay,
     NetworkTypeSelection,
+    NetworkStructureSelection,
     NetworkVisualizationController,
     DistributerSelection,
     CalibrationOverlay,
@@ -311,7 +319,7 @@ p.section-text
   line-height: 30px
   color: white
 
-.distributer-selection, .network-type-selection
+.selection-container
   padding: 0 80px
   margin-top: 40px
 </style>
