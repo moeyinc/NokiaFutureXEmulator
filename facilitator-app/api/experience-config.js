@@ -70,7 +70,7 @@ module.exports = {
         {
           id: 5,
           title: 'Control Room',
-          networkVisualization: ['wireless'],
+          networkVisualization: [],
           thumbnail: 'section-05.png',
           text: 'Now we are in the control room. This is where people, ' +
             'out of harm\'s way, supervise and control productivity by ' +
@@ -82,7 +82,7 @@ module.exports = {
         {
           id: 6,
           title: 'Factory Management',
-          networkVisualization: ['wireless'],
+          networkVisualization: [],
           thumbnail: 'section-06.png',
           text: 'A single expert can control multiple robots, increasing ' +
             'productivity. \nThe future factory constantly monitors its own ' +
@@ -93,7 +93,7 @@ module.exports = {
         {
           id: 7,
           title: 'Dynamic Reconfiguration',
-          networkVisualization: ['wireless'],
+          networkVisualization: [],
           thumbnail: 'section-07.png',
           text: 'Human operators receive alerts when necessary. ' +
             'AI software determines when and how to optimize the ' +
@@ -107,7 +107,8 @@ module.exports = {
         {
           id: 8,
           title: 'Drone Supervision',
-          networkVisualization: ['wireless'],
+          networkVisualization: [],
+          networkTypeSelection: true,
           thumbnail: 'section-08.png',
           text: 'The AI has reported a problem: one robot is moving its ' +
             'arm inefficiently. It will not fulfill the order in time. ' +
@@ -120,7 +121,8 @@ module.exports = {
         {
           id: 9,
           title: 'Robot Reprogramming',
-          networkVisualization: ['wireless'],
+          networkVisualization: [],
+          networkTypeSelection: true,
           sleeveCalibration: true,
           replayButton: true,
           acceptButton: true,
@@ -135,7 +137,7 @@ module.exports = {
         {
           id: 10,
           title: 'Round Up',
-          networkVisualization: ['wireless'],
+          networkVisualization: [],
           thumbnail: 'section-10.png',
           text: 'Thanks to the 5G network capability, factory production ' +
             'is now back on schedule. Future X  Factory is managed by ' +

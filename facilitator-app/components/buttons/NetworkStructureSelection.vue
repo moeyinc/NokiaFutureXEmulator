@@ -41,44 +41,44 @@ export default {
         {
           key: '5g',
           label: '5G Cover Area',
-          value: true,
+          value: false,
         },
         {
           key: '4g',
           label: '4G Cover Area',
-          value: true,
+          value: false,
         },
       ],
       networkStructureCheckboxes: [
         {
           key: 'fiber-cable',
           label: 'Fiber Cable',
-          value: true,
+          value: false,
         },
         {
           key: 'aggregator',
           label: 'Aggregator',
-          value: true,
+          value: false,
         },
         {
           key: 'fiber-node',
           label: 'Fiber Node',
-          value: true,
+          value: false,
         },
         {
           key: 'small-cell',
           label: 'Small Cell',
-          value: true,
+          value: false,
         },
         {
           key: 'base-station',
           label: 'Base Station',
-          value: true,
+          value: false,
         },
         {
           key: 'edge-cloud',
           label: 'Edge Cloud',
-          value: true,
+          value: false,
         },
       ],
     };
