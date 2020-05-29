@@ -203,10 +203,8 @@ module.exports = {
           title: 'Edge Server',
           networkVisualization: ['wireless', 'wired'],
           thumbnail: '2-section-04.png',
-          text: 'The system reports that the hero package has a destination ' +
-            'better matched with another truck in the same platoon. ' +
-            'System recommends transferring the package. A drone is ' +
-            'dispatched to move the package to the other truck.',
+          text: 'Edge servers manage applications dynamically providing ' +
+            'specific services on demand including security.',
           nextText: 'Private Slices',
         },
         {
@@ -214,10 +212,8 @@ module.exports = {
           title: 'Private Slices',
           networkVisualization: ['wireless', 'wired'],
           thumbnail: '2-section-04.png',
-          text: 'The system reports that the hero package has a destination ' +
-            'better matched with another truck in the same platoon. ' +
-            'System recommends transferring the package. A drone is ' +
-            'dispatched to move the package to the other truck.',
+          text: 'Private slices not only include allocated bandwidth and speed, ' +
+            'but also applications that are dynamically managed by Edge Servers.',
           nextText: 'Obstacle Ahead',
         },
         {
@@ -261,12 +257,10 @@ module.exports = {
           networkVisualization: [],
           networkStructure: true,
           thumbnail: '2-section-09.png',
-          text: 'The system notifies the operator that the truck with ' +
-            'the hero package could be re-routed to an approaching platoon ' +
-            'with more vehicles travelling to the same delivery region. ' +
-            'This increases trip efficiency, and the package will get ' +
-            'delivered sooner. After the operator confirms, the truck ' +
-            'joins the new platoon.',
+          text: 'Fiber cores arranged in loops provide redundancy and the ' +
+            'backbone for 5G and 4G networks. Edge Servers insure that ' +
+            'mission critical ultra low latency, high bandwidth information ' +
+            'is managed as locally.',
           nextText: 'Multiple Carriers',
         },
         {
