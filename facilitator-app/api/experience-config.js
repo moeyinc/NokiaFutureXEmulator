@@ -202,7 +202,7 @@ module.exports = {
           id: 5,
           title: 'Edge Server',
           networkVisualization: ['wireless', 'wired'],
-          thumbnail: '2-section-04.png',
+          thumbnail: '2-section-05.png',
           text: 'Edge servers manage applications dynamically providing ' +
             'specific services on demand including security.',
           nextText: 'Private Slices',
@@ -211,7 +211,7 @@ module.exports = {
           id: 6,
           title: 'Private Slices',
           networkVisualization: ['wireless', 'wired'],
-          thumbnail: '2-section-04.png',
+          thumbnail: '2-section-06.png',
           text: 'Private slices not only include allocated bandwidth and speed, ' +
             'but also applications that are dynamically managed by Edge Servers.',
           nextText: 'Obstacle Ahead',
@@ -256,7 +256,7 @@ module.exports = {
           title: 'Network Structure',
           networkVisualization: [],
           networkStructure: true,
-          thumbnail: '2-section-09.png',
+          thumbnail: '2-section-10.png',
           text: 'Fiber cores arranged in loops provide redundancy and the ' +
             'backbone for 5G and 4G networks. Edge Servers insure that ' +
             'mission critical ultra low latency, high bandwidth information ' +
