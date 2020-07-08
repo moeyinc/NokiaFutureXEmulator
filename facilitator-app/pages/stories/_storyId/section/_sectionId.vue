@@ -252,12 +252,16 @@ export default {
         this.overlay = 'calibration';
       }, 400);
     }
+
+    // wired value always starts with false
+    this.updateInStoryNetworkViz({key: 'wired', value: false});
   },
   methods: {
     ...mapMutations([
       'updateInSectionReadyToProceed',
       'updateInSectionCompletedMission',
       'resetSectionTempStates',
+      'updateInStoryNetworkViz',
     ]),
     autoplay() {
       this.$store.dispatch('autoplay')

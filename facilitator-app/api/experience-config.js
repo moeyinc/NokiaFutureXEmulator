@@ -277,7 +277,7 @@ module.exports = {
         {
           id: 12,
           title: 'Exit Highway',
-          networkVisualization: [],
+          networkVisualization: ['wireless', 'wired'],
           thumbnail: '2-section-12.png',
           text: 'System notifies that the exit for the truck with the hero ' +
             'package is approaching. The truck leaves the platoon and gets ' +
@@ -287,7 +287,7 @@ module.exports = {
         {
           id: 13,
           title: 'Drone Delivery',
-          networkVisualization: ['wireless', 'wired'],
+          networkVisualization: ['wireless'],
           networkTypeSelection: true,
           sleeveCalibration: true,
           replayButton: true,

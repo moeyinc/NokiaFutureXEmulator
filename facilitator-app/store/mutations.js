@@ -30,7 +30,7 @@ const mutations = {
     state.mqttMessageLog.push(message);
   },
   resetStoryTempStates(state) {
-    state.inStoryNetworkViz = {wireless: true, wired: true};
+    state.inStoryNetworkViz = {wireless: true, wired: false};
     state.inStorySelectedNetworkType = '5g';
     state.inStorySelectedDistributer = 'amazon';
   },
