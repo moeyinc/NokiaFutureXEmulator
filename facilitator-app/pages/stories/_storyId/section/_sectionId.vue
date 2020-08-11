@@ -26,6 +26,11 @@
       class="selection-container"
     />
 
+    <CraneControl
+      v-if="selectedSection.craneControl"
+      class="selection-container"
+    />
+
     <NetworkVisualizationController
       v-if="selectedSection.networkVisualization
         && selectedSection.networkVisualization.length > 0"
@@ -108,6 +113,7 @@ import SubActionButton from '@comps/buttons/SubActionButton';
 import NetworkTypeSelection from '@comps/buttons/NetworkTypeSelection';
 import NetworkStructureSelection
   from '@comps/buttons/NetworkStructureSelection';
+import CraneControl from '@comps/buttons/CraneControl';
 import NetworkVisualizationController
   from '@comps/buttons/NetworkVisualizationController';
 import DistributerSelection from '@comps/buttons/DistributerSelection';
@@ -162,6 +168,7 @@ export default {
     JumpExitOverlay,
     NetworkTypeSelection,
     NetworkStructureSelection,
+    CraneControl,
     NetworkVisualizationController,
     DistributerSelection,
     CalibrationOverlay,

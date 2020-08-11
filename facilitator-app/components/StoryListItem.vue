@@ -44,6 +44,7 @@ export default {
 
 .story-list-item
   width: 280px
+  min-width: 280px
   height: 249px
   position: relative
   .title-box

@@ -21,13 +21,23 @@ export default {
       type: String,
       default: '',
     },
+    toggleImage: {
+      type: Boolean,
+      default: false,
+    },
+    imageFilenameOff: {
+      type: String,
+      default: '',
+    },
   },
   computed: {
     style() {
+      const targetImage = (this.toggleImage && !this.value)
+        ? this.imageFilenameOff : this.imageFilename;
       return {
         width: this.width + 'px',
         height: this.width + 'px',
-        backgroundImage: `url(${require('@images/' + this.imageFilename)})`,
+        backgroundImage: `url(${require('@images/' + targetImage)})`,
       };
     },
   },

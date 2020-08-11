@@ -10,17 +10,22 @@
       <h5 class="story-list-title">
         Scenarios
       </h5>
-      <div class="story-list">
-        <StoryListItem
-          v-for="story in stories"
-          :key="story.id"
-          class="story-list-item"
-          :category-name="story.category"
-          :title="story.title"
-          :disabled="story.disabled"
-          :thumbnail-filename="story.catchImageFilename"
-          @select="startStory(story)"
-        />
+      <div class="story-list-container">
+        <div
+          class="story-list"
+          :style="{ width: (280 + 40) * stories.length + 'px' }"
+        >
+          <StoryListItem
+            v-for="story in stories"
+            :key="story.id"
+            class="story-list-item"
+            :category-name="story.category"
+            :title="story.title"
+            :disabled="story.disabled"
+            :thumbnail-filename="story.catchImageFilename"
+            @select="startStory(story)"
+          />
+        </div>
       </div>
     </section>
   </div>
@@ -101,18 +106,21 @@ export default {
     top: 170px
 
   section.story-section
+    width: 100%
     position: absolute
     bottom: 53px
-    padding: 0 80px
+    padding: 0 0 0 80px
     h5.story-list-title
       font-size: 20px
       line-height: 30px
       color: $secondary-border-color
       margin-bottom: 15px
-    .story-list
-      display: flex
-      justify-content: flex-start
-      .story-list-item
-        &:not(:first-child)
-          margin-left: 40px
+    .story-list-container
+      overflow-x: scroll
+      .story-list
+        display: flex
+        justify-content: flex-start
+        .story-list-item
+          &:not(:first-child)
+            margin-left: 40px
 </style>
