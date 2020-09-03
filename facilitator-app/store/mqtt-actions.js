@@ -197,6 +197,17 @@ export default {
       publish(context, message).then(resolve).catch(reject);
     });
   },
+  startMission(context) {
+    return new Promise((resolve, reject) => {
+      // set up a message object to publish
+      const message = {
+        type: 'start-mission',
+      };
+
+      // publish the message
+      publish(context, message).then(resolve).catch(reject);
+    });
+  },
   playPreshowModule(context, name) {
     return new Promise((resolve, reject) => {
       // set up a message object to publish

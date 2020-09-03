@@ -76,7 +76,18 @@ export default {
                 context.commit('updateInSectionReadyToProceed', true);
                 break;
               case 'completed-mission':
-                context.commit('updateInSectionCompletedMission', true);
+                context.commit('updateInSectionMissionState', 'completed');
+                break;
+              case 'update-facilitator-ui':
+                const params = {};
+                if (messageObj.hasOwnProperty('display-sway-control')) {
+                  params.displaySwayControl =
+                    messageObj['display-sway-control'];
+                }
+                if (messageObj.hasOwnProperty('sway-control')) {
+                  params.swayControl = messageObj['sway-control'];
+                }
+                context.commit('updateInStoryUIParams', params);
                 break;
             }
           } else {

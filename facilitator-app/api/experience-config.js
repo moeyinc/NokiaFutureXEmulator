@@ -320,7 +320,7 @@ module.exports = {
           title: 'Satellite Network',
           networkVisualization: [],
           thumbnail: '3-section-01.png',
-          text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in.',
+          text: 'Communications are at the core of logistics and global shipping.',
           nextText: 'Global Shipping Lane',
         },
         {
@@ -328,7 +328,7 @@ module.exports = {
           title: 'Global Shipping Lane',
           networkVisualization: [],
           thumbnail: '3-section-02.png',
-          text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in.',
+          text: 'Maritime transport is the backbone of global trade and the global economy.',
           nextText: 'HAPS',
         },
         {
@@ -336,7 +336,7 @@ module.exports = {
           title: 'HAPS',
           networkVisualization: [],
           thumbnail: '3-section-03.png',
-          text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in.',
+          text: 'High-Altitude Pseudo Satellite (HAPS) aircraft provide network specifically for shipping lanes.',
           nextText: 'Network Hand-off',
         },
         {
@@ -344,7 +344,7 @@ module.exports = {
           title: 'Network Hand-off',
           networkVisualization: ['wireless'],
           thumbnail: '3-section-04.png',
-          text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in.',
+          text: 'Mission-critical solutions for industries will need to handle global and local networks with seamless handoffs between them. Ships are served by a WAN slice using satellite access until they reache the coverage area of a harbor, where control is handed off to a port LAN (5G) slice.',
           nextText: 'Container Ship Bridge',
         },
         {
@@ -352,7 +352,7 @@ module.exports = {
           title: 'Container Ship Bridge',
           networkVisualization: ['wireless'],
           thumbnail: '3-section-05.png',
-          text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in.',
+          text: 'Ships bridge comes alive with data from the port and AR that interprets the ships and obstacles ahead.',
           nextText: 'Control Room',
         },
         {
@@ -360,7 +360,7 @@ module.exports = {
           title: 'Control Room',
           networkVisualization: ['wireless'],
           thumbnail: '3-section-06.png',
-          text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in.',
+          text: 'All aspects of the Port are monitored from the safety of the control room.',
           nextText: 'Network Structure',
         },
         {
@@ -368,7 +368,7 @@ module.exports = {
           title: 'Network Structure',
           networkVisualization: ['wireless', 'wired'],
           thumbnail: '3-section-07.png',
-          text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in.',
+          text: 'The port is fortified with a structure of fiber lines along the perimeter that meet at the location of the local edge network.  A mesh of 5G mm-wave beaming serves the autonomous equipment.',
           nextText: 'Docking Ship',
         },
         {
@@ -376,17 +376,18 @@ module.exports = {
           title: 'Docking Ship',
           networkVisualization: ['wireless'],
           thumbnail: '3-section-08.png',
-          text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in.',
+          text: 'These sensors and actuators are much faster at mooring a ship than traditional methods. They dynamically hold the ship with less movement so unloading is easier and can be done faster. Additionally, they better protect the dock which is very costly to repair.',
           nextText: 'Crane Operation',
         },
         {
           id: 9,
           title: 'Crane Operation',
           networkVisualization: [],
+          startMissionButton: true,
           craneControl: true,
           replayButton: true,
           thumbnail: '3-section-09.png',
-          text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in.',
+          text: 'We can virtually enter the cab of a ship-to-shore crane to take over its opperation and bring a priority container to shore.',
           nextText: 'Container Scan',
         },
         {
@@ -394,7 +395,7 @@ module.exports = {
           title: 'Container Scan',
           networkVisualization: ['wireless'],
           thumbnail: '3-section-10.png',
-          text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in.',
+          text: 'This advanced scanner takes advantage of multiple technologies including embedded data loggers, exterior sensors and the container manifest in combination with a high tech scan that penetrates the steal container to potentially reveal contraband or other illegal cargo.',
           nextText: 'Round Up',
         },
         {
@@ -402,7 +403,7 @@ module.exports = {
           title: 'Round Up',
           networkVisualization: ['wireless'],
           thumbnail: '3-section-11.png',
-          text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in.',
+          text: 'This container has been carefully tracked from its orign to its final destination using an array of networks and network configurations.  Future networks like the ones we have just seen will enable ports to work more efficiently and with more certaintly about the cargo that passes through.',
           nextText: 'Back to Scenarios',
         },
       ],

@@ -6,7 +6,7 @@
     <div class="button-container">
       <SquareImageButton
         toggle-image
-        :value="isSwayControlEnabled"
+        :value="inStoryUIParams.swayControl"
         :width="100"
         image-filename="crane-operation-on.png"
         image-filename-off="crane-operation-off.png"
@@ -18,24 +18,28 @@
 
 <script>
 import SquareImageButton from './SquareImageButton';
-import {mapActions} from 'vuex';
+import {mapState, mapMutations, mapActions} from 'vuex';
 
 export default {
   components: {
     SquareImageButton,
   },
-  data: () => ({
-    isSwayControlEnabled: false,
-  }),
+  computed: {
+    ...mapState(['inStoryUIParams']),
+  },
   methods: {
     ...mapActions(['updateUI']),
+    ...mapMutations(['updateInStoryUIParams']),
     onSelect() {
-      const newVal = !this.isSwayControlEnabled;
-      this.updateUI({key: 'sway-control', value: newVal})
-          .then(() => {
-            this.isSwayControlEnabled = newVal;
-          })
-          .catch(console.error);
+      const newVal = !this.inStoryUIParams.swayControl;
+
+      if (newVal === true) {
+        this.updateUI({key: 'sway-control', value: newVal})
+            .then(() => {
+              this.updateInStoryUIParams({swayControl: newVal});
+            })
+            .catch(console.error);
+      }
     },
   },
 };

@@ -26,10 +26,28 @@
       class="selection-container"
     />
 
-    <CraneControl
-      v-if="selectedSection.craneControl"
-      class="selection-container"
-    />
+    <transition name="fade">
+      <CraneControl
+        v-if="selectedSection.craneControl &&
+          inStoryUIParams.displaySwayControl"
+        class="selection-container"
+      />
+    </transition>
+
+    <transition name="fade">
+      <ActionButton
+        v-show="showStartMissionButton"
+        label="Start"
+        :additional-style="{
+          width: '240px',
+          position: 'absolute',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          marginTop: '90px',
+        }"
+        @click="startMission"
+      />
+    </transition>
 
     <NetworkVisualizationController
       v-if="selectedSection.networkVisualization
@@ -52,7 +70,7 @@
 
     <transition name="pop-slide-left">
       <ActionButton
-        v-show="showMissionButton"
+        v-show="showAcceptButton"
         fixed
         label="Accept"
         @click="accept"
@@ -61,7 +79,7 @@
 
     <transition name="pop-slide-left">
       <SubActionButton
-        v-if="showMissionButton"
+        v-show="showReplayButton"
         class="replay-button"
         fixed
         right
@@ -180,13 +198,14 @@ export default {
     return {
       acceptedMission: false,
       overlay: null,
-      transitionDone: false,
+      isReadyToStartMission: true,
     };
   },
   computed: {
     ...mapState([
       'inSectionReadyToProceed',
-      'inSectionCompletedMission',
+      'inSectionMissionState',
+      'inStoryUIParams',
     ]),
     storyId() {
       return parseInt(this.$nuxt.$route.params.storyId);
@@ -212,9 +231,18 @@ export default {
     returnHash() {
       return this.$route.hash === '#return';
     },
-    showMissionButton() {
+    showReplayButton() {
+      return this.selectedSection.replayButton &&
+        this.inSectionMissionState === 'completed' && !this.acceptedMission;
+    },
+    showAcceptButton() {
       return this.selectedSection.acceptButton &&
-        this.inSectionCompletedMission && !this.acceptedMission;
+        this.inSectionMissionState === 'completed' && !this.acceptedMission;
+    },
+    showStartMissionButton() {
+      return this.selectedSection.startMissionButton &&
+        this.inSectionMissionState === 'not-started' &&
+        this.isReadyToStartMission;
     },
   },
   watch: {
@@ -223,7 +251,10 @@ export default {
       if (!newVal && oldVal === 'calibration') {
         if (process.env.isDev && this.selectedSection.sleeveCalibration) {
           setTimeout(() => {
-            this.updateInSectionCompletedMission(true);
+            this.updateInSectionMissionState('completed');
+            if (!this.selectedSection.acceptButton) {
+              this.updateInSectionReadyToProceed(true);
+            }
           }, 300);
         }
       }
@@ -241,7 +272,10 @@ export default {
   },
   created() {
     // for dev, turn readyToProceed flag on after 300ms
-    if (process.env.isDev && !this.selectedSection.sleeveCalibration) {
+    if (process.env.isDev &&
+      !this.selectedSection.sleeveCalibration &&
+      !this.selectedSection.startMissionButton
+    ) {
       setTimeout(() => {
         this.updateInSectionReadyToProceed(true);
       }, 300);
@@ -262,13 +296,17 @@ export default {
 
     // wired value always starts with false
     this.updateInStoryNetworkViz({key: 'wired', value: false});
+
+    // crane control always starts with false
+    this.updateInStoryUIParams({swayControl: false, displaySwayControl: false});
   },
   methods: {
     ...mapMutations([
       'updateInSectionReadyToProceed',
-      'updateInSectionCompletedMission',
+      'updateInSectionMissionState',
       'resetSectionTempStates',
       'updateInStoryNetworkViz',
+      'updateInStoryUIParams',
     ]),
     autoplay() {
       this.$store.dispatch('autoplay')
@@ -280,8 +318,25 @@ export default {
     replay() {
       this.$store.dispatch('replay')
           .then(() => {
-            this.overlay = 'calibration';
-            this.updateInSectionCompletedMission(false);
+            if (this.selectedSection.sleeveCalibration) {
+              this.overlay = 'calibration';
+            }
+            if (this.selectedSection.craneControl) {
+              this.updateInStoryUIParams({
+                swayControl: false,
+                displaySwayControl: false,
+              });
+            }
+            const nextState = this.selectedSection.startMissionButton
+              ? 'not-started' : 'ongoing';
+            this.updateInSectionMissionState(nextState);
+            this.updateInSectionReadyToProceed(false);
+
+            // wait a bit to show StartMission button to avoid layout collapse
+            this.isReadyToStartMission = false;
+            setTimeout(() => {
+              this.isReadyToStartMission = true;
+            }, 300);
           })
           .catch(console.error);
     },
@@ -289,6 +344,24 @@ export default {
       this.$store.dispatch('accept')
           .then(() => {
             this.acceptedMission = true;
+          })
+          .catch(console.error);
+    },
+    startMission() {
+      this.$store.dispatch('startMission')
+          .then(() => {
+            this.updateInSectionMissionState('ongoing');
+            if (process.env.isDev) {
+              if (this.selectedSection.craneControl) {
+                setTimeout(() => {
+                  this.updateInStoryUIParams({displaySwayControl: true});
+                }, 300);
+              }
+              setTimeout(() => {
+                this.updateInSectionMissionState('completed');
+                this.updateInSectionReadyToProceed(true);
+              }, 1200);
+            }
           })
           .catch(console.error);
     },

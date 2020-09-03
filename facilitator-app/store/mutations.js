@@ -47,13 +47,18 @@ const mutations = {
   },
   resetSectionTempStates(state) {
     state.inSectionReadyToProceed = false;
-    state.inSectionCompletedMission = false;
+    // state.inSectionCompletedMission = false;
+    state.inSectionMissionState = 'not-started';
   },
   updateInSectionReadyToProceed(state, value) {
     state.inSectionReadyToProceed = value;
   },
-  updateInSectionCompletedMission(state, value) {
-    state.inSectionCompletedMission = value;
+  updateInSectionMissionState(state, value) {
+    if (!['not-started', 'ongoing', 'completed'].includes(value)) {
+      console.error('Invalid mission state value');
+      return;
+    }
+    state.inSectionMissionState = value;
   },
   addAlertMessage(state, alertMessage) {
     alertMessage.display = true;
@@ -70,6 +75,14 @@ const mutations = {
   },
   updateSelectedPreshowModuleName(state, name) {
     state.selectedPreshowModuleName = name;
+  },
+  updateInStoryUIParams(state, params) {
+    if (params.hasOwnProperty('displaySwayControl')) {
+      state.inStoryUIParams.displaySwayControl = params.displaySwayControl;
+    }
+    if (params.hasOwnProperty('swayControl')) {
+      state.inStoryUIParams.swayControl = params.swayControl;
+    }
   },
 };
 
