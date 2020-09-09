@@ -201,7 +201,7 @@ module.exports = {
         {
           id: 5,
           title: 'Edge Server',
-          networkVisualization: ['wireless', 'wired'],
+          networkVisualization: ['wireless'],
           thumbnail: '2-section-05.png',
           text: 'Edge servers manage applications dynamically providing ' +
             'specific services on demand including security.',
@@ -210,7 +210,7 @@ module.exports = {
         {
           id: 6,
           title: 'Private Slices',
-          networkVisualization: ['wireless', 'wired'],
+          networkVisualization: ['wireless'],
           thumbnail: '2-section-06.png',
           text: 'Private slices not only include allocated bandwidth and speed, ' +
             'but also applications that are dynamically managed by Edge Servers.',
@@ -374,7 +374,7 @@ module.exports = {
         {
           id: 8,
           title: 'Docking Ship',
-          networkVisualization: ['wireless'],
+          networkVisualization: [],
           thumbnail: '3-section-08.png',
           text: 'These sensors and actuators are much faster at mooring a ship than traditional methods. They dynamically hold the ship with less movement so unloading is easier and can be done faster. Additionally, they better protect the dock which is very costly to repair.',
           nextText: 'Crane Operation',
@@ -395,7 +395,7 @@ module.exports = {
           title: 'Container Scan',
           networkVisualization: ['wireless'],
           thumbnail: '3-section-10.png',
-          text: 'This advanced scanner takes advantage of multiple technologies including embedded data loggers, exterior sensors and the container manifest in combination with a high tech scan that penetrates the steal container to potentially reveal contraband or other illegal cargo.',
+          text: 'This advanced scanner takes advantage of multiple technologies including embedded data loggers, exterior sensors and the container manifest in combination with a high tech scan that penetrates the steel container to potentially reveal contraband or other illegal cargo.',
           nextText: 'Round Up',
         },
         {
